@@ -28,9 +28,10 @@ body {
   min-height: 100vh;
   grid: "header" auto "main" 1fr "footer" auto;
   /* background: #223; */
+  font-family: system-ui, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-header {
+body > header {
   grid-area: header;
   position: sticky;
   top: 0;
@@ -46,25 +47,43 @@ header {
 #logo {
   text-decoration: none;
   color: var(--text-color-on-bg-1-lighter);
+  display: flex;
+  align-items: center;
   padding: var(--s) var(--m);
+  gap: var(--s);
 }
+
+#logo img {
+  background: var(--bg-color-main);
+  border: .2rem solid #fff;
+  height: var(--xxl);
+  box-sizing: border-box;
+  /* overflow: hidden; */
+}
+
 #logo h1 {
   font-size: var(--xl);
+  font-weight: 500;
 }
 
 nav {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  padding: 0 var(--m);
 }
 
 nav a {
   color: var(--text-color-on-bg-1);
   text-decoration: none;
-  font-size: var(--m);
-  position: relative;
   padding: var(--m);
+  font-size: var(--m);
   transition: color var(--transition-duration-out);
+  position: relative;
+}
+
+nav li {
+  display: contents;
 }
 
 nav a:hover {
@@ -92,11 +111,11 @@ nav a:hover::after {
   transition: transform var(--transition-duration-in);
 }
 
-nav a.current_page {
+nav .current a {
   color: var(--highlight-color-1);
 }
 
-nav a.current_page::after {
+nav .current a::after {
   transform: translateX(-50%);
   background: var(--highlight-color-1);
 }

@@ -13,6 +13,11 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy-img": "^0.8.0",
+    "html-minifier": "^4.0.0",
     "js-yaml": "^3.14.1"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-navigation": "^0.1.6"
   }
 }

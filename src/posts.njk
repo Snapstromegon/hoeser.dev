@@ -1,0 +1,20 @@
+---
+title: All Posts
+layout: layouts/main.njk
+eleventyNavigation:
+    key: Posts
+---
+
+{%- for post in collections.post -%}
+  <article>
+    <header>
+      <h2>
+        <a href="{{ post.url }}">
+          {{ post.data.title }}
+        </a>
+      </h2>
+      <span>{{ post.date.getFullYear() }}</span>
+    </header>
+    <p>{{ post.data.short }}</p>
+  </article>
+{%- endfor -%}
