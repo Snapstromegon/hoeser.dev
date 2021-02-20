@@ -1,0 +1,6 @@
+- name: Home
+  href: /
+- name: Posts
+  href: /posts/
+- name: Projects
+  href: /projects/

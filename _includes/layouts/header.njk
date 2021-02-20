@@ -1,0 +1,12 @@
+<header>
+  <a id="logo" href="{{ "/" | url }}"><h1>Raphael Höser</h1></a>
+  <nav>
+    
+  
+
+  {%- for menu_item in menu -%}
+      <a {% if page.url == menu_item.href %} aria-current="page" class="current_page"{% endif %} href="{{ menu_item.href }}">{{ menu_item.name }}</a>
+    </a>
+  {%- endfor -%}
+  </nav>
+</header>

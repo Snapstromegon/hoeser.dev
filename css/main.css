@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --xxs: .1rem;
+  --xs: .3rem;
+  --s: .5rem;
+  --m: 1rem;
+  --l: 1.2rem;
+  --xl: 1.5rem;
+  --xxl: 2rem;
+
+  --bg-color-main: #fff;
+  --bg-color-1: #225;
+  --text-color-on-bg-main: #223;
+  --text-color-on-bg-1: #eef;
+  --text-color-on-bg-1-lighter: #fff;
+  --highlight-color-1: #fa0;
+
+  --transition-duration-in: .1s;
+  --transition-duration-out: .3s;
+}
+
+body {
+  display: grid;
+  min-height: 100vh;
+  grid: "header" auto "main" 1fr "footer" auto;
+  /* background: #223; */
+}
+
+header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 var(--xxl);
+  align-items: flex-end;
+  background: var(--bg-color-1);
+  color: var(--text-color-on-bg-1);
+}
+
+#logo {
+  text-decoration: none;
+  color: var(--text-color-on-bg-1-lighter);
+  padding: var(--s) var(--m);
+}
+#logo h1 {
+  font-size: var(--xl);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--text-color-on-bg-1);
+  text-decoration: none;
+  font-size: var(--m);
+  position: relative;
+  padding: var(--m);
+  transition: color var(--transition-duration-out);
+}
+
+nav a:hover {
+  color: var(--text-color-on-bg-1-lighter);
+  transition: color var(--transition-duration-in);
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform-origin: 0 100%;
+  transform: translateX(-50%) scaleY(0);
+  display: block;
+  width: 100%;
+  height: var(--xs);
+  background: var(--text-color-on-bg-1-lighter);
+  transition: transform var(--transition-duration-out);
+  border-radius: var(--xxs) var(--xxs) 0 0;
+}
+
+nav a:hover::after {
+  transform: translateX(-50%);
+  transition: transform var(--transition-duration-in);
+}
+
+nav a.current_page {
+  color: var(--highlight-color-1);
+}
+
+nav a.current_page::after {
+  transform: translateX(-50%);
+  background: var(--highlight-color-1);
+}
+
+main {
+  grid-area: main;
+  padding: var(--xxl) var(--m);
+  background: var(--bg-color-main);
+  color: var(--text-color-on-bg-main);
+}
+
+footer {
+  grid-area: footer;
+  padding: 1rem;
+  background: #224;
+  color: #fff;
+}

@@ -1,0 +1,16 @@
+---
+title: All Posts
+layout: layouts/main.njk
+---
+
+<ul>
+  {%- for post in collections.post -%}
+    <a href="{{ post.url }}">
+      <li{% if page.url == post.url %} aria-current="page"{% endif %}>
+        <h2>{{ post.data.title }}</h2>
+        <span>{{ post.date.getFuYear() }}</span>
+        <p>{{ post.data.short }}</p>
+      </li>
+    </a>
+  {%- endfor -%}
+</ul>
