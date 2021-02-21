@@ -16,6 +16,7 @@
   --bg-color-1: #225;
   --text-color-on-bg-main: #223;
   --text-color-on-bg-1: #eef;
+  --text-color-on-bg-1-darker: #ccf;
   --text-color-on-bg-1-lighter: #fff;
   --highlight-color-1: #fa0;
 
@@ -29,6 +30,7 @@ body {
   grid: "header" auto "main" 1fr "footer" auto;
   /* background: #223; */
   font-family: system-ui, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  line-height: 1.5;
 }
 
 body > header {
@@ -49,7 +51,7 @@ body > header {
   color: var(--text-color-on-bg-1-lighter);
   display: flex;
   align-items: center;
-  padding: var(--s) var(--m);
+  padding: var(--m);
   gap: var(--s);
 }
 
@@ -66,7 +68,7 @@ body > header {
   font-weight: 500;
 }
 
-nav {
+nav ul {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -127,9 +129,13 @@ main {
   color: var(--text-color-on-bg-main);
 }
 
+main img {
+  max-width: 100%;
+}
+
 footer {
   grid-area: footer;
   padding: 1rem;
-  background: #224;
-  color: #fff;
+  background: var(--bg-color-1);
+  color: var(--text-color-on-bg-1-darker);
 }

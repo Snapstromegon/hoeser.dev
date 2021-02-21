@@ -4,18 +4,6 @@ title: Home
 eleventyNavigation:
     key: Home
 ---
-# Hello World
-# Hello World
-# Hello World
-# Hello World
-# Hello World
-# Hello World
-# Hello World
-# Hello World
-# Hello World
-# Hello World
-# Hello World
-# Hello World
-# Hello World
-# Hello World
-# Hello World
+# This is a test
+
+This is a work in progress and doesn't contain anything useful yet.

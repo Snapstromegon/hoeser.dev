@@ -5,23 +5,25 @@ const Image = require("@11ty/eleventy-img");
 
 const eleventy = require("@11ty/eleventy");
 
-async function imageShortcode(src, alt, sizes) {
-  const default_sizes = [300, 600, 1024]
+async function imageShortcode(src, alt="") {
   let metadata = await Image(src, {
-    widths: default_sizes,
+    widths: [500, 800, 1200, 2000, null],
     formats: ["avif", "webp", "jpeg"],
     outputDir: "./_site/img"
   });
 
-  let imageAttributes = {
-    alt,
-    sizes: sizes || default_sizes,
-    loading: "lazy",
-    decoding: "async",
-  };
+  let lowsrc = metadata.jpeg[0];
+  const highsrc = metadata.jpeg.slice(-1)[0];
 
-  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
-  return Image.generateHTML(metadata, imageAttributes);
+  return `<picture>
+  ${Object.values(metadata).map(imageFormat => `  <source type="${imageFormat[0].sourceType}" srcset="${imageFormat.map(entry => entry.srcset).join(", ")}" sizes="${imageFormat.map(f => f.width).join(",")}">`).join("\n")}
+    <img
+      src="${lowsrc.url}"
+      style="aspect-ratio: ${highsrc.width}/${highsrc.height}"
+      alt="${alt}"
+      loading="lazy"
+      decoding="async">
+  </picture>`;
 }
 
 module.exports = eleventyConfig => {
@@ -32,9 +34,9 @@ module.exports = eleventyConfig => {
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addLiquidShortcode("image", imageShortcode);
   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
-  eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
+  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     // Eleventy 1.0+: use this.inputPath and this.outputPath instead
-    if( outputPath.endsWith(".html") ) {
+    if (outputPath.endsWith(".html")) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
