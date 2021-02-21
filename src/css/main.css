@@ -13,10 +13,10 @@
   --xxl: 2rem;
 
   --bg-color-main: #fff;
-  --bg-color-1: #225;
+  --bg-color-1: #334;
   --text-color-on-bg-main: #223;
-  --text-color-on-bg-1: #eef;
-  --text-color-on-bg-1-darker: #ccf;
+  --text-color-on-bg-1: #eee;
+  --text-color-on-bg-1-darker: #ccc;
   --text-color-on-bg-1-lighter: #fff;
   --highlight-color-1: #fa0;
 
@@ -131,6 +131,11 @@ main {
 
 main img {
   max-width: 100%;
+}
+
+main p, main h1, main h2 {
+  margin-top: var(--m);
+  margin-bottom: var(--s);
 }
 
 footer {

@@ -1,0 +1,10 @@
+---
+permalink: /robots.txt
+sitemapIgnore: true
+---
+user-agent: *
+{%- for item in collections.all %}
+{%- if item.data.robotsIgnore == true %}
+Disallow: {{ item.url | url }}
+{%- endif %}
+{%- endfor %}
