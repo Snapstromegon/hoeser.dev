@@ -1,11 +1,13 @@
 const yaml = require("js-yaml");
 const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const imageShortcode = require("./lib/image");
 const rollupper = require("./lib/rollupper");
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(imageShortcode);
   eleventyConfig.addPlugin(rollupper, {
     rollup: {
