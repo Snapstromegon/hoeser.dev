@@ -5,6 +5,7 @@ short: |
 eleventyNavigation:
     key: Test Post
     parent: Posts
+date: 2021-02-21
 ---
 
 # Hallo

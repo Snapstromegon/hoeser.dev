@@ -5,7 +5,7 @@ eleventyNavigation:
     key: Posts
 ---
 
-{%- for post in collections.post -%}
+{%- for post in collections.post | reverse -%}
   <article>
     <header>
       <h2>

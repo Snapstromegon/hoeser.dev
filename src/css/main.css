@@ -24,6 +24,10 @@
   --transition-duration-out: .3s;
 }
 
+ol, ul {
+  list-style-position: inside;
+}
+
 body {
   display: grid;
   min-height: 100vh;
@@ -127,6 +131,9 @@ main {
   padding: var(--xxl) var(--m);
   background: var(--bg-color-main);
   color: var(--text-color-on-bg-main);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 main img {

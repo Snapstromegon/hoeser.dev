@@ -6,6 +6,10 @@ const imageShortcode = require("./lib/image");
 const rollupper = require("./lib/rollupper");
 
 module.exports = (eleventyConfig) => {
+  eleventyConfig.setLiquidOptions({
+    dynamicPartials: true,
+    strict_filters: true
+  });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(imageShortcode);
