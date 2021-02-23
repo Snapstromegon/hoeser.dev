@@ -38,6 +38,20 @@ ul {
 
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Kalam', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: var(--xl);
+  font-weight: bold;
+}
+
+h2 {
+  font-size: var(--xl);
+}
+
+h3 {
+  font-size: var(--l);
 }
 
 body {
@@ -87,7 +101,7 @@ body > header section.content {
 
 #logo h1 {
   font-size: var(--xl);
-  font-weight: 500;
+  font-weight: normal;
 }
 
 nav ul {
@@ -224,3 +238,4 @@ footer {
   padding: var(--s);
   border-radius: 0 0 var(--xs) var(--xs);
 }
+

@@ -24,6 +24,13 @@ eleventyComputed:
   {% include "./header.njk" %}
   <main>
     <section class="content">
+    
+      {% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
+      {% for parent in navPages %}
+        <a href="{{ parent.url }}">{{ parent.title }}</a> >
+      {% endfor %}
+      {% if navPages.length %}{{ eleventyNavigation.key }}{% endif %}
+
       {{ content | safe }}
     </section>
   </main>

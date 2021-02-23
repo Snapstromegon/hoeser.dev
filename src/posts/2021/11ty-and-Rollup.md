@@ -20,14 +20,14 @@ When I finally touched 11ty for the first time (while creating this blog) it ins
 
 But what is a true love without some pain points...
 
-As I see it, 11ty is the perfect solution for doing Blogs and sites where you want the ability to give each page it's own feeling if you want to.
-This is really great, but as long as 11ty doesn't include an asset pipeline (I'm on 11ty 0.11 and 1.0 is not out yet) and more features from build tools and bundlers, it's fairly hard to combine classic bundlers with 11ty.
+As I see it, 11ty is the perfect solution for doing Blogs and sites where you want the ability to give each page its own feeling if you want to.
+This is really great, but as long as 11ty doesn't include an asset pipeline (I'm on 11ty 0.11 and 1.0 is not out yet) and more features from build tools and bundlers it's fairly hard to combine classic bundlers with 11ty.
 
 # Current way of doing business
 
-After looking at the two 11ty starter projects which include rollup (this is also true for the webpack and parcel ones I looked at) do one of the following solutions:
+After looking at the two 11ty starter projects which include rollup (this is also true for the webpack and parcel ones I looked at) , they do one of the following solutions:
 
-## SSG then Bundle
+## 11ty then Rollup
 
 They do basically this:
 
@@ -36,7 +36,7 @@ They do basically this:
 
 This is used by [nhoizey/pack11ty](https://github.com/reeseschultz/11r).
 
-## Bundle then SSG
+## Rollup then 11ty
 
 This is the same just the other way around:
 
@@ -246,18 +246,61 @@ Basically we pass our used JS files as entrypoints into rollup and change the en
 
 To avoid calculating the hashes twice I used inputFiles as a mapping from original to hashed names.
 
+# The Result
+
+With this plugin loaded in my _.eleventy.js_ config via:
+
+```js
+const rollupper = require("./lib/rollupper");
+
+module.exports = (eleventyConfig) => {
+  eleventyConfig.addPlugin(rollupper, {
+    rollup: {
+      output: {
+        format: "es",
+        dir: "_site/js",
+      },
+    },
+  });
+};
+```
+
+I can now just write the following in my templates:
+
+`````text
+You're writing a blog and want to include some JS tool for just one blog entry, e.g. because you're showing how an JS alert works:
+
+```js/1-3
+{% raw %}{% include "11ty-and-Rollup/js/alertButton.js" %}{% endraw %}
+```
+
+&lt;button id="myAlertButton" disabled>Say Hallo World!&lt;/button>
+
+{% raw %}{% rollup "11ty-and-Rollup/js/alertButton.js" %}{% endraw %}
+
+For this to work I have two options:
+`````
+
+With this I have a working demo with JS Code which gets bundled with all dependencies and only loaded when I actually visit the page.
+
 # Finaly Notes
 
 Having the starter projects, which many people use as a starting point, using the bundle approach will probably encourage developers (especially newer ones) to fall into bad bundling practices with huge bundles and lots of unused code and on the other hand will enforce the argument that SSG/SSR and Client Side JS don't play together well.
 
-It took me <100 lines of code to include a bundling solution which doesn't have those weakpoints.
+It took me <60 lines of code (excluding blank lines and comments) to include a bundling solution which doesn't have those weakpoints.
 
 I don't think my solution is perfect (like I mentioned there's room for improvement), but it's a step in the right direction.
 
 I'm also not the perfect with rollup and 11ty and there are probably ways to make the pipeline even simpler, but before 11ty 1.0 drops I probably won't give this another take.
 
-If you want to use my "Plugin", here is it in the complete form:
+<details>
+<summary>
+If you want to use my "Plugin", click here for the complete form as it is currently used in this blog.
+This might vary from the code above, because it's the current file directly inlined.
+</summary>
 
 ```js
 {% include "../../../lib/rollupper/index.js" %}
 ```
+
+</details>
