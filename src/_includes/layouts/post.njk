@@ -1,9 +1,14 @@
 ---
 layout: layouts/main.njk
 ---
-<link rel="stylesheet" href="{{ "/css/syntax_highlighting.css" | url }}">
-<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+<link rel="preload" href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css"></noscript>
+
+<style>
+  {% include "../../css/syntax_highlighting.css" %}
+</style>
 <h1>{{ title }}</h1>
 <article>
   {{ content | safe }}
 </article>
+

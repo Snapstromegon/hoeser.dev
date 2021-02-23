@@ -15,6 +15,10 @@ eleventyComputed:
   <meta name="theme-color" content="{{ meta.theme_color }}">
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/18480654?s=192">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"></noscript>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"></noscript>
   <title>{{ title }}</title>
   <style>
     {% include "../../css/main.css" %}
@@ -35,9 +39,5 @@ eleventyComputed:
     </section>
   </main>
   {% include "./footer.njk" %}
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"></noscript>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"></noscript>
 </body>
 </html>
