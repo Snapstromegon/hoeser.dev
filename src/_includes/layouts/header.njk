@@ -1,22 +1,24 @@
 <header>
-  <a id="logo" href="{{ "/" | url }}">
-    {# <img src="https://avatars.githubusercontent.com/u/18480654?s=60"/> #}
-    <h1>Raphael Höser</h1>
-  </a>
-  {% set navPages = collections.all | eleventyNavigation %}
-  <nav>
-    <ul>
-    {%- for entry in navPages %}
-      <li{% if entry.url == page.url %}
+  <section class="content">
+      <a id="logo" href="{{ "/" | url }}">
+        {# <img src="https://avatars.githubusercontent.com/u/18480654?s=60"/> #}
+        <h1>Raphael Höser</h1>
+      </a>
+      {% set navPages = collections.all | eleventyNavigation %}
+      <nav>
+        <ul>
+          {%- for entry in navPages %}
+          <li{% if entry.url == page.url %}
           class="current"
-        {% else %}
+          {% else %}
           {% for child in collections.all | eleventyNavigation(entry.key) %}
-            {% if page.url == child.url %}class="current"{% endif %}
+          {% if page.url == child.url %}class="current"{% endif %}
           {%- endfor %}
-        {% endif %}>
-        <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-      </li>
-    {%- endfor %}
-    </ul>
-  </nav>
+          {% endif %}>
+          <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+        </li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </section>
 </header>

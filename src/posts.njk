@@ -5,8 +5,10 @@ eleventyNavigation:
     key: Posts
 ---
 
+<h1>My latest Posts</h1>
+
 {%- for post in collections.post | reverse -%}
-  <article>
+  <article class="post_preview">
     <header>
       <h2>
         <a href="{{ post.url }}">

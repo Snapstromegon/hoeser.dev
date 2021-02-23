@@ -8,10 +8,10 @@ const rollupper = require("./lib/rollupper");
 module.exports = (eleventyConfig) => {
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
-    strict_filters: true
+    strict_filters: true,
   });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(syntaxHighlight, { alwaysWrapLineHighlights: true });
   eleventyConfig.addPlugin(imageShortcode);
   eleventyConfig.addPlugin(rollupper, {
     rollup: {

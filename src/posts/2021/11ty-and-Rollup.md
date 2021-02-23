@@ -53,11 +53,11 @@ Imagine the following:
 
 You're writing a blog and want to include some JS tool for just one blog entry, e.g. because you're showing how an JS alert works:
 
-```js
+```js/1-3
 {% include "11ty-and-Rollup/js/alertButton.js" %}
 ```
 
-<button id="myAlertButton" disabled>Say Hallo World</button>
+<button id="myAlertButton" style="padding: var(--s)" disabled>Say Hallo World!</button>
 
 {% rollup "11ty-and-Rollup/js/alertButton.js" %}
 
@@ -240,7 +240,6 @@ class Rollupper {
     await bundle.close();
   }
 }
-
 ```
 
 Basically we pass our used JS files as entrypoints into rollup and change the entryFileNaming to use our custom naming.
