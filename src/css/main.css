@@ -200,10 +200,13 @@ footer {
 
 .post_preview {
   margin: var(--xl) 0;
+  border-radius: var(--xs);
+  background: var(--highlight-color-2--lightest);
 }
 
 .post_preview header {
   display: flex;
+  flex-direction: column;
   align-items: stretch;
   background: var(--highlight-color-2);
   border-radius: var(--xs) var(--xs) 0 0;
@@ -221,6 +224,7 @@ footer {
   text-decoration: none;
   color: var(--text-color-on-bg-2-lighter);
   padding: var(--s);
+  height: 100%;
 }
 
 .post_preview header span {
@@ -231,11 +235,30 @@ footer {
 
 .post_preview p {
   margin-top: 0;
-  background: var(--highlight-color-2--lightest);
-  display: block;
   color: #000;
-  text-decoration: none;
   padding: var(--s);
-  border-radius: 0 0 var(--xs) var(--xs);
+}
+/* 
+.post_previews .post_preview {
+  display: flex;
+  flex-direction: column;
+} */
+
+.post_previews .post_preview .preview_body {
+  flex-grow: 1;
 }
 
+.card_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: var(--m);
+}
+
+.card_grid__card {
+  display: grid;
+  grid-template-rows: 10rem 15rem;
+  grid-template-rows: subgrid;
+  box-shadow: 0 var(--xxs) var(--xs) rgba(0,0,0,0.16), 0 var(--xxs) var(--xs) rgba(0,0,0,0.23);
+  grid-row: span 2;
+  grid-template-areas: "header" "body";
+}

@@ -7,8 +7,9 @@ eleventyNavigation:
 
 <h1>My latest Posts</h1>
 
-{%- for post in collections.post | reverse -%}
-  <article class="post_preview">
+<div class="card_grid post_previews">
+  {%- for post in collections.post | reverse -%}
+  <article class="post_preview card_grid__card">
     <header>
       <h2>
         <a href="{{ post.url }}">
@@ -17,6 +18,9 @@ eleventyNavigation:
       </h2>
       <span>{{ post.date.toLocaleDateString('de-DE') }}</span>
     </header>
-    <p>{{ post.data.short }}</p>
+    <div class="preview_body">
+      <p>{{ post.data.short }}</p>
+    </div>
   </article>
-{%- endfor -%}
+  {%- endfor -%}
+</div>
