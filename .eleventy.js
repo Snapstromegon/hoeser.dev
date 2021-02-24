@@ -4,6 +4,7 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const imageShortcode = require("./lib/image");
 const rollupper = require("./lib/rollupper");
+const includeFile = require("./lib/includeFile");
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.setLiquidOptions({
@@ -14,6 +15,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight, { alwaysWrapLineHighlights: true });
   eleventyConfig.addPlugin(imageShortcode);
+  eleventyConfig.addPlugin(includeFile);
   eleventyConfig.addPlugin(rollupper, {
     rollup: {
       output: {
@@ -27,17 +29,18 @@ module.exports = (eleventyConfig) => {
     yaml.safeLoad(contents)
   );
   eleventyConfig.addDataExtension("yml", (contents) => yaml.safeLoad(contents));
-  // eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
-  //   return !outputPath.endsWith(".html")
-  //     ? content
-  //     : htmlmin.minify(content, {
-  //         useShortDoctype: true,
-  //         removeComments: true,
-  //         collapseWhitespace: true,
-  //       });
-  // });
+  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
+    return !outputPath.endsWith(".html")
+      ? content
+      : htmlmin.minify(content, {
+          useShortDoctype: true,
+          removeComments: true,
+          collapseWhitespace: true,
+        });
+  });
 
   return {
+    markdownTemplateEngine: "njk",
     dir: {
       input: "src",
       output: "_site",

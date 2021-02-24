@@ -10,15 +10,18 @@ eleventyNavigation:
 <div class="card_grid post_previews">
   {%- for post in collections.post | reverse -%}
   <article class="post_preview card_grid__card">
-    <header>
-      <h2>
-        <a href="{{ post.url }}">
+    <a href="{{ post.url }}" class="card_grid__card__header">
+      <header>
+        {% if post.data.post_image %}
+          {% image post.data.post_image.url, post.data.post_image.alt %}
+        {% endif %}
+        <h2>
           {{ post.data.title }}
-        </a>
-      </h2>
-      <span>{{ post.date.toLocaleDateString('de-DE') }}</span>
-    </header>
-    <div class="preview_body">
+        </h2>
+        <span>{{ post.date.toLocaleDateString('de-DE') }}</span>
+      </header>
+    </a>
+    <div class="card_grid__card__body">
       <p>{{ post.data.short }}</p>
     </div>
   </article>

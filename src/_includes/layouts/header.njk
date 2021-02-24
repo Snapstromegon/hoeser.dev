@@ -10,14 +10,14 @@
           {%- for entry in navPages %}
           <li{% if entry.url == page.url %}
           class="current"
-          {% else %}
-          {% for child in collections.all | eleventyNavigation(entry.key) %}
-          {% if page.url == child.url %}class="current"{% endif %}
-          {%- endfor %}
           {% endif %}>
-          <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+          <a href="{{ entry.url }}">{{ entry.title }}</a>
         </li>
         {%- endfor %}
+        {% set latest_post = collections.post | last %}
+        <li {% if latest_post.url == page.url %}
+        class="current"
+        {% endif %}><a href="{{ latest_post.url }}">Latest Post</a></li>
       </ul>
     </nav>
   </section>

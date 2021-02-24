@@ -61,7 +61,7 @@ Imagine the following:
 You're writing a blog and want to include some JS tool for just one blog entry, e.g. because you're showing how an JS alert works:
 
 ```js/1-3
-{% include "11ty-and-Rollup/js/alertButton.js" %}
+{% includeFile "11ty-and-Rollup/js/alertButton.js" %}
 ```
 
 <button id="myAlertButton" style="padding: var(--s)" disabled>Say Hallo World!</button>
@@ -278,7 +278,7 @@ I can now just write the following in my templates:
 You're writing a blog and want to include some JS tool for just one blog entry, e.g. because you're showing how an JS alert works:
 
 ```js/1-3
-{% raw %}{% include "11ty-and-Rollup/js/alertButton.js" %}{% endraw %}
+{% raw %}{% includeFile "11ty-and-Rollup/js/alertButton.js" %}{% endraw %}
 ```
 
 &lt;button id="myAlertButton" disabled>Say Hallo World!&lt;/button>
@@ -307,7 +307,7 @@ This might vary from the code above, because it's the current file directly inli
 </summary>
 
 ```js
-{% include "../../../lib/rollupper/index.js" %}
+{% includeFile "../../../lib/rollupper/index.js" %}
 ```
 
 </details>
