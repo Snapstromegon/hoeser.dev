@@ -10,6 +10,7 @@ module.exports = (eleventyConfig) => {
     dynamicPartials: true,
     strict_filters: true,
   });
+  eleventyConfig.setDataDeepMerge(true);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight, { alwaysWrapLineHighlights: true });
   eleventyConfig.addPlugin(imageShortcode);

@@ -159,7 +159,7 @@ nav .current a::after {
 
 section.content {
   width: 100%;
-  max-width: 60rem;
+  max-width: 50rem;
   margin: auto;
   padding: 0 var(--m);
 }

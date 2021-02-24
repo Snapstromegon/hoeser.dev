@@ -7,11 +7,18 @@ date: 2021-02-22
 eleventyNavigation:
   key: 11ty and Rollup
   parent: Posts
+keywords:
+- 11ty
+- eleventy
+- Rollup
+- JS
+- Static Site Generation (SSG)
+- Server Side Rendering (SSR)
 ---
 
 # Preface
 
-I started late with 11ty... Really late... Like a week ago.
+I started late with 11ty (eleventy)... Really late... Like a week ago.
 
 It always intrigued me and I wanted to try it, but never found the time to do it.
 I love Web Performance and if my site doesn't reach Lighthouse fireworks I'm not letting it deploy (at least for smaller projects) so Server Side Rendering (SSR) and Static Site Generation (SSG) always was something I tried to stick to.

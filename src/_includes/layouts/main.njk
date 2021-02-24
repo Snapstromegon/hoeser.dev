@@ -1,6 +1,10 @@
 ---
 eleventyComputed:
-  description: "Raphael Hösers Blog - {{title}}"
+  description: "{% if short %}{{ short }}{% else %}Raphael Höser | {{ title }}{% endif %}"
+assets:
+  css:
+  - https://fonts.googleapis.com/css2?family=Open+Sans&display=swap
+  - https://fonts.googleapis.com/css2?family=Kalam&display=swap
 ---
 
 <!DOCTYPE html>
@@ -13,13 +17,27 @@ eleventyComputed:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ description }}">
   <meta name="theme-color" content="{{ meta.theme_color }}">
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description }}" />
+  <meta name="twitter:site" content="@Snapstromegon" />
+  <meta name="twitter:creator" content="@Snapstromegon" />
+  <meta name="author" content="Raphael Höser">
+  <meta name="publisher" content="Raphael Höser">
+  <meta name="copyright" content="Raphael Höser">
+  <meta name="page-topic" content="Bildung">
+  <meta name="page-type" content="Private Homepage">
+  <meta name="audience" content="Fortgeschrittene">
+  <meta http-equiv="content-language" content="en">
+  <meta name="robots" content="index, follow">
+  {% if keywords %}
+  <meta name="keywords" content="{{ keywords.join(', ') }}">
+  {% endif %}
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/18480654?s=192">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"></noscript>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"></noscript>
-  <title>{{ title }}</title>
+  {% for css in assets.css %}
+    <link rel="preload" href="{{ css }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  {% endfor %}
+  <title>Raphael Höser | {{ title }}</title>
   <style>
     {% include "../../css/main.css" %}
   </style>
@@ -39,5 +57,9 @@ eleventyComputed:
     </section>
   </main>
   {% include "./footer.njk" %}
+  
+  {% for css in assets.css %}
+    <noscript><link rel="stylesheet" href="{{ css }}"></noscript>
+  {% endfor %}
 </body>
 </html>
