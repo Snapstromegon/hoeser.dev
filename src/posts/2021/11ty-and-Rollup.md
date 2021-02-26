@@ -64,7 +64,7 @@ You're writing a blog and want to include some JS tool for just one blog entry, 
 {% include "./11ty-and-Rollup/js/alertButton.js" %}
 ```
 
-<button id="myAlertButton" style="padding: var(--s)" disabled>Say Hallo World!</button>
+<button id="myAlertButton" style="padding: var(--s)" disabled>Say Hello World!</button>
 
 {% rollup "11ty-and-Rollup/js/alertButton.js" %}
 

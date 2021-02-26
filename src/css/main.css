@@ -13,7 +13,7 @@
   --xl: 1.5rem;
   --xxl: 2rem;
 
-  --bg-color-main: #fff;
+  --bg-color-main: #eee;
   --bg-color-1: #334;
   --text-color-on-bg-main: hsl(240, 14%, 25%);
   --text-color-on-bg-1: #eee;
@@ -204,7 +204,8 @@ footer {
 .post_preview {
   margin: var(--xl) 0;
   border-radius: var(--xs);
-  background: var(--highlight-color-2--lightest);
+  background: #fff;
+  overflow: hidden;
 }
 
 .post_preview header {
@@ -280,7 +281,7 @@ footer {
   display: grid;
   grid-template-rows: 11rem 15rem;
   grid-template-rows: subgrid;
-  box-shadow: 0 var(--xxs) var(--xs) rgba(0,0,0,0.16), 0 var(--xxs) var(--xs) rgba(0,0,0,0.23);
+  box-shadow: var(--xxs) var(--xxs) var(--s) #0004, calc(var(--xxs) * -1) calc(var(--xxs) * -1) var(--xs) #fff;
   grid-row: span 2;
   grid-template-areas: "header" "body";
 }
