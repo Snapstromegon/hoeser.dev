@@ -4,7 +4,7 @@
         {# <img src="https://avatars.githubusercontent.com/u/18480654?s=60"/> #}
         <h1>Raphael Höser</h1>
       </a>
-      {% set navPages = collections.all | eleventyNavigation %}
+      <!-- {% set navPages = collections.all | eleventyNavigation %}
       <nav>
         <ul>
           {%- for entry in navPages %}
@@ -21,6 +21,9 @@
         {% endif %}><a href="{{ latest_post.url }}">Latest Post</a></li>
         {% endif %}
       </ul>
+    </nav> -->
+    <nav>
+      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({activeAnchorClass: "current", activeKey: eleventyNavigation.key }) | safe }}
     </nav>
-  </section>
+    </section>
 </header>

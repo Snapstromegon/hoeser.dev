@@ -151,13 +151,17 @@ nav a:hover::after {
   transition: transform var(--transition-duration-in);
 }
 
-nav .current a {
+nav .current {
   color: var(--highlight-color-1);
 }
 
-nav .current a::after {
+nav .current::after {
   transform: translateX(-50%);
   background: var(--highlight-color-1);
+}
+
+nav ul ul {
+  display: none;
 }
 
 section.content {
@@ -289,4 +293,58 @@ footer {
 
 .card_grid__card__header {
   grid-area: header;
+}
+
+@media (min-width:70rem) {
+  
+
+  body {
+    display: grid;
+    min-height: 100vh;
+    grid: "header main" 1fr "footer main" auto / 20rem 1fr;
+    /* background: #223; */
+    font-family: "Open Sans", system-ui, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    line-height: 1.5;
+  }
+
+  body > header section.content {
+    flex-direction: column;
+    flex-wrap: initial;
+  }
+
+  #logo h1 {
+    font-size: var(--xxl);
+  }
+
+  #logo {
+    display: initial;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    flex-wrap: initial;
+    gap: 0;
+  }
+
+  nav ul ul{
+    display: initial;
+    padding-left: var(--m);
+    font-size: 0.9em;
+  }
+
+  nav a {
+    padding: var(--m) 0;
+  }
+
+  nav a::after {
+    height: var(--xxs);
+  }
+
+  main {
+    overflow: auto;
+    height: 100vh;
+  }
+
 }
