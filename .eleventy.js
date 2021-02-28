@@ -4,6 +4,7 @@ const rollupper = require("./lib/rollupper");
 const Image = require("@11ty/eleventy-img");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 async function imageShortcode(src, alt, sizes) {
   const default_sizes = [256, 512, 1024, 2048];
@@ -15,7 +16,7 @@ async function imageShortcode(src, alt, sizes) {
 
   let imageAttributes = {
     alt,
-    sizes: sizes || default_sizes.map(x => x+"w"),
+    sizes: sizes || default_sizes.map(x => x+"px"),
     loading: "lazy",
     decoding: "async",
   };
@@ -30,6 +31,7 @@ module.exports = (eleventyConfig) => {
     strict_filters: true,
   });
   eleventyConfig.setDataDeepMerge(true);
+  eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight, { alwaysWrapLineHighlights: true });
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));

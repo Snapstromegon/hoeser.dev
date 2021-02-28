@@ -3,3 +3,10 @@ site_short_name: "RHöser:Blog"
 description: "See what I'm writing about the world and development."
 domain: hoeser.dev
 theme_color: "#112"
+subtitle: All thoughts are HTTP 203
+url: https://heaser.dev/
+feedUrl: https://heaser.dev/feed.xml
+author:
+  name: Raphael Höser
+  email: raphael@hoeser.info
+  username: Snapstromegon

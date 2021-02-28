@@ -8,8 +8,7 @@ eleventyNavigation:
   key: 11ty and Rollup
   parent: Posts
 keywords:
-- 11ty
-- eleventy
+- 11ty (eleventy)
 - Rollup
 - JS
 - Static Site Generation (SSG)
@@ -61,12 +60,12 @@ Imagine the following:
 You're writing a blog and want to include some JS tool for just one blog entry, e.g. because you're showing how an JS alert works:
 
 ```js/1-3
-{% include "./11ty-and-Rollup/js/alertButton.js" %}
+{% include "../../assets/js/posts/2021-02-28-11ty-and-Rollup/alertButton.js" %}
 ```
 
 <button id="myAlertButton" style="padding: var(--s)" disabled>Say Hello World!</button>
 
-{% rollup "11ty-and-Rollup/js/alertButton.js" %}
+{% rollup "assets/js/posts/2021-02-28-11ty-and-Rollup/alertButton.js" | url %}
 
 For this to work I have two options:
 
@@ -123,8 +122,8 @@ class Rollupper {
 Then, instead of writing `<script [...]></script>`, you include a js file with a shortcode in your blogposts md (or whatever languages you're using). I chose `rollup` for this, but you can modify it.
 
 ```liquid
-{% raw %}{# <script src="./this-post/js/tool.js"> #}
-{% rollup "./this-post/js/tool.js" %}{% endraw %}
+{% raw %}{# <script src="{{ "this-post/js/tool.js" | url}}"> #}
+{% rollup "assets/js/posts/this-post/tool.js" | url %}{% endraw %}
 ```
 
 The shortcode basically resolves the relative paths to absolute ones and stores the files in a registry.
@@ -152,7 +151,7 @@ class Rollupper {
 
   // [...]
 
-  async rollupperShortcode(eleventyInstance, src, fileRelative = true) {
+  async rollupperShortcode(eleventyInstance, src, fileRelative = false) {
     // Resolve to the correct relative location
     if (fileRelative) {
       src = path.join(path.dirname(eleventyInstance.page.inputPath), src);
@@ -278,12 +277,12 @@ I can now just write the following in my templates:
 You're writing a blog and want to include some JS tool for just one blog entry, e.g. because you're showing how an JS alert works:
 
 ```js/1-3
-{% raw %}{% include "11ty-and-Rollup/js/alertButton.js" %}{% endraw %}
+{% raw %}{% include "assets/js/posts/2021-02-28-11ty-and-Rollup/alertButton.js" | url %}{% endraw %}
 ```
 
 &lt;button id="myAlertButton" disabled>Say Hallo World!&lt;/button>
 
-{% raw %}{% rollup "11ty-and-Rollup/js/alertButton.js" %}{% endraw %}
+{% raw %}{% rollup "assets/js/posts/2021-02-28-11ty-and-Rollup/alertButton.js" | url %}{% endraw %}
 
 For this to work I have two options:
 `````
@@ -307,7 +306,7 @@ This might vary from the code above, because it's the current file directly inli
 </summary>
 
 ```js
-{% include "../../../lib/rollupper/index.js" %}
+{% include "../../lib/rollupper/index.js" | url %}
 ```
 
 </details>
