@@ -14,10 +14,12 @@
           <a href="{{ entry.url }}">{{ entry.title }}</a>
         </li>
         {%- endfor %}
+        {% if collections.post %}
         {% set latest_post = collections.post | last %}
         <li {% if latest_post.url == page.url %}
         class="current"
         {% endif %}><a href="{{ latest_post.url }}">Latest Post</a></li>
+        {% endif %}
       </ul>
     </nav>
   </section>
