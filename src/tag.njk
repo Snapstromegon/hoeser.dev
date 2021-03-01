@@ -1,15 +1,20 @@
 ---
-title: All Posts
+eleventyComputed:
+  title: "{{ tag }} Posts"
 layout: layouts/main.njk
-eleventyNavigation:
-    key: Posts
-    order: 2
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+  - Post
+permalink: "tags/{{ tag | slug }}/"
 ---
 
-<h1>My latest Posts</h1>
+<h1>My latest {{ tag }} Posts</h1>
 
 <div class="card_grid post_previews">
-  {%- for post in collections.Post | reverse -%}
+  {%- for post in collections[tag] | reverse -%}
   <article class="post_preview card_grid__card">
     <a href="{{ post.url }}" class="card_grid__card__header">
       <header>

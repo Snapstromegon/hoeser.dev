@@ -9,4 +9,4 @@ eleventyNavigation:
 
 This is a work in progress and doesn't contain anything useful yet.
 
-I'm gonna write some clever content here in the future, but until then, why don't you take a look at my <a href="{{ (collections.post | last).url }}">latest post</a>?
+I'm gonna write some clever content here in the future, but until then, why don't you take a look at my <a href="{{ (collections.Post | last).url }}">latest post</a>?
