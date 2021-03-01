@@ -23,7 +23,7 @@
       </ul>
     </nav> -->
     <nav>
-      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({activeAnchorClass: "current", activeKey: eleventyNavigation.key }) | safe }}
+      {{ collections.all | reverse | eleventyNavigation | eleventyNavigationToHtml({activeAnchorClass: "current", activeKey: eleventyNavigation.key }) | safe }}
     </nav>
     </section>
 </header>

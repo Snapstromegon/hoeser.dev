@@ -6,7 +6,6 @@ short: |
 date: 2021-02-22
 eleventyNavigation:
   key: 11ty and Rollup
-  parent: Posts
 tags:
 - Blogpost
 - 11ty (eleventy)

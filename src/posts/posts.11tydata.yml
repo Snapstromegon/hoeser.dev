@@ -1,3 +1,5 @@
+eleventyNavigation:
+  parent: Posts
 tags:
 - Post
 layout: layouts/post.njk
