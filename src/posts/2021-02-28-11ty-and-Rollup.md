@@ -7,7 +7,8 @@ date: 2021-02-22
 eleventyNavigation:
   key: 11ty and Rollup
   parent: Posts
-keywords:
+tags:
+- Blogpost
 - 11ty (eleventy)
 - Rollup
 - JS
