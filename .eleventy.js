@@ -55,6 +55,8 @@ module.exports = (eleventyConfig) => {
     },
   });
 
+  eleventyConfig.addWatchTarget("src/css");
+
   return {
     markdownTemplateEngine: "njk",
     dir: {

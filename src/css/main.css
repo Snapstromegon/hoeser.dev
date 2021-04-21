@@ -295,6 +295,32 @@ footer {
   grid-area: header;
 }
 
+.post_date {
+  /* background:hsl(240, 14%, 25%);
+  display: inline-block; */
+  font-weight: bold;
+  font-size: .9rem;
+  color:hsl(240, 14%, 25%);
+  font-style: italic;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1rem;
+}
+
+.tags a{
+  background:hsl(240, 14%, 25%);
+  display: inline-block;
+  text-decoration: none;
+  font-size: .9rem;
+  color:hsl(240, 14%, 95%);
+  padding: var(--xxs) var(--s);
+  border-radius: .5rem;
+}
+
 @media (min-width:70rem) {
   
 
