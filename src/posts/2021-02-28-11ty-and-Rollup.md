@@ -202,7 +202,7 @@ It has the ability to match up the build result from rollup with the imports fro
 
 For this it has to know what the bundle result will be after rollup is done, but how do we know what the entrypoint will be called afer bundling?
 
-Actually this is simple! We just take over how naming works (For a realy solution, you'd take a function which immitates rollups naming module and recreates the rollup naming from a parameter, but this solution was fine for me for now). In this case we replace the name with the first six chars from the sha256 of the file.
+Actually this is simple! We just take over how naming works (For a real solution, you'd take a function which immitates rollups naming module and recreates the rollup naming from a parameter, but this solution was fine for me for now). In this case we replace the name with the first six chars from the sha256 of the file.
 That way we solve two problems. Firstly we can accurately predict filenames and avoid clashes and secondly we resolve cache problems and can cache those files for long times without problems.
 
 Finally we need to return the html from the shortcode. This includes our beloved ```<script>``` with the path now relative to the output file of the blogpost (we could also use absolute paths here).
@@ -289,7 +289,7 @@ For this to work I have two options:
 
 With this I have a working demo with JS Code which gets bundled with all dependencies and only loaded when I actually visit the page.
 
-# Finaly Notes
+# Final Notes
 
 Having the starter projects, which many people use as a starting point, using the bundle approach will probably encourage developers (especially newer ones) to fall into bad bundling practices with huge bundles and lots of unused code and on the other hand will enforce the argument that SSG/SSR and Client Side JS don't play together well.
 
