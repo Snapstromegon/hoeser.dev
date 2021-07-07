@@ -46,8 +46,8 @@ This is used by [nhoizey/pack11ty](https://github.com/reeseschultz/11r).
 
 This is the same just the other way around:
 
-1. Run 11ty
-2. Run rollup with a config file
+1. Run rollup with a config file
+2. Run 11ty
 
 This is used by [reeseschultz/11r](https://github.com/reeseschultz/11r).
 
