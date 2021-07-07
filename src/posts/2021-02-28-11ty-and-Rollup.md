@@ -297,7 +297,7 @@ It took me <60 lines of code (excluding blank lines and comments) to include a b
 
 I don't think my solution is perfect (like I mentioned there's room for improvement), but it's a step in the right direction.
 
-I'm also not the perfect with rollup and 11ty and there are probably ways to make the pipeline even simpler, but before 11ty 1.0 drops I probably won't give this another take.
+I'm also not that perfect with rollup and 11ty and there are probably ways to make the pipeline even simpler, but before 11ty 1.0 drops I probably won't give this another take.
 
 <details>
 <summary>
