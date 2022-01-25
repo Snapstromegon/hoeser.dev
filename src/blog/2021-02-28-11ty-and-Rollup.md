@@ -1,18 +1,15 @@
 ---
 title: 11ty and Rollup - a take on current build pipelines
-short: |
+abstract: |
   I love rollup and I love 11ty (eleventy), but mixing the two seems to be a little hard - at least when looking at the starter projects presented on 11ty's website.
   Here's my take on it.
 date: 2021-02-22
-eleventyNavigation:
-  key: 11ty and Rollup
 tags:
-- Blogpost
-- 11ty (eleventy)
-- Rollup
-- JS
-- Static Site Generation (SSG)
-- Server Side Rendering (SSR)
+- tool:11ty
+- tool:rollup
+- lang:JS
+- concept:SSG
+- concept:SSR
 ---
 
 # Preface

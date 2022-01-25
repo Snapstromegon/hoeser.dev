@@ -1,5 +1,5 @@
 {
-  "name": "hoeser.dev",
+  "name": "blog.hoeser.dev",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,25 +7,15 @@
     "build": "npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Snapstromegon/hoeser.dev.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Snapstromegon/hoeser.dev/issues"
-  },
-  "homepage": "https://github.com/Snapstromegon/hoeser.dev#readme",
   "dependencies": {
-    "@11ty/eleventy": "^0.11.1",
-    "@11ty/eleventy-img": "^0.8.0",
-    "@11ty/eleventy-navigation": "^0.1.6",
-    "@11ty/eleventy-plugin-rss": "^1.1.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.6",
-    "html-minifier": "^4.0.0",
-    "js-yaml": "^4.0.0",
-    "rollup": "^2.40.0"
+    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-navigation": "^0.3.2",
+    "@11ty/eleventy-plugin-rss": "^1.1.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.2.2",
+    "js-yaml": "^4.1.0",
+    "rollup": "^2.66.1"
   }
 }

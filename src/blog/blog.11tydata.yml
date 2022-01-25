@@ -1,0 +1,6 @@
+layout: layouts/blogpost.njk
+eleventyNavigation:
+  parent: Blog
+theme:
+  colorA: "#271"
+  colorB: "#f80"

@@ -1,65 +1,43 @@
----
-eleventyComputed:
-  description: "{% if short %}{{ short }}{% else %}Raphael Höser | {{ title }}{% endif %}"
-assets:
-  css:
-  - https://fonts.googleapis.com/css2?family=Open+Sans&display=swap
-  - https://fonts.googleapis.com/css2?family=Kalam&display=swap
----
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="preconnect" href="https://avatars.githubusercontent.com">
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ description }}">
-  <meta name="theme-color" content="{{ meta.theme_color }}">
-  <meta name="twitter:title" content="{{ title }}" />
-  <meta name="twitter:description" content="{{ description }}" />
-  <meta name="twitter:site" content="@Snapstromegon" />
-  <meta name="twitter:creator" content="@Snapstromegon" />
-  <meta name="author" content="Raphael Höser">
-  <meta name="publisher" content="Raphael Höser">
-  <meta name="copyright" content="Raphael Höser">
-  <meta name="page-topic" content="Bildung">
-  <meta name="page-type" content="Private Homepage">
-  <meta name="audience" content="Fortgeschrittene">
-  <meta http-equiv="content-language" content="en">
-  <meta name="robots" content="index, follow">
-  {% if keywords %}
-  <meta name="keywords" content="{{ keywords.join(', ') }}">
-  {% endif %}
-  <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/18480654?s=192">
-  {% for css in assets.css %}
-    <link rel="preload" href="{{ css }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  {% endfor %}
-  <title>Raphael Höser | {{ title }}</title>
-  <style>
-    {% include "../../css/main.css" %}
-  </style>
-</head>
-<body>
-  {% include "./header.njk" %}
-  <main>
-    <section class="content">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{metaDescription}}" />
+    <title>Snapstromegon - {{title or eleventyNavigation.key or "Blog"}}</title>
+    <style>
+      {% include "../../css/critical.css" %}
+    </style>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+  </head>
+  <!--
+    _____                 _                                 
+    |   __|___ ___ ___ ___| |_ ___ ___ _____ ___ ___ ___ ___ 
+    |__   |   | .'| . |_ -|  _|  _| . |     | -_| . | . |   |
+    |_____|_|_|__,|  _|___|_| |_| |___|_|_|_|___|_  |___|_|_|
+                  |_|                           |___|        
     
-      {% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
-      {% for parent in navPages %}
-        <a href="{{ parent.url }}">{{ parent.title }}</a> >
-      {% endfor %}
-      {% if navPages.length %}{{ eleventyNavigation.key }}{% endif %}
+    """
+      Giant ascii art embedded in every page of your site is how you
+      show other people that YOU CARE. Mainly I care about developers,
+      which is what I presume you are if you're all about viewing
+      the source. Clearly you're my kind of person.
+    """
+    - Paul Lewis
 
-      {{ content | safe }}
-    </section>
-  </main>
-  {% include "./footer.njk" %}
-  
-  {% for css in assets.css %}
-    <noscript><link rel="stylesheet" href="{{ css }}"></noscript>
-  {% endfor %}
-</body>
+    This is now the fourth iteration of this blog and the second one
+    using 11ty keeping things static so you can enjoy a fast and
+    reliable read while I can watch the lighthouse fireworks in peace.
+
+    If you find this, feel free to ping me on twitter and let me know.
+
+    <3
+    Raphael
+  -->
+  <body style="--theme-color-a: {{theme.colorA or "#5df"}};--theme-color-b: {{theme.colorB or "#f39"}}">
+    {% include "../partials/header.njk" %}
+    {{ content | safe }}
+    {% include "../partials/footer.njk" %}
+  </body>
 </html>

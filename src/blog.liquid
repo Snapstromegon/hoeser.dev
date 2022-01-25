@@ -1,0 +1,27 @@
+---
+layout: layouts/rootpage.njk
+theme:
+  colorA: "#271"
+  colorB: "#f80"
+eleventyNavigation:
+  key: Blog
+---
+
+<ul class="blogpostList">
+  {% for blogpost in collections.posts %}
+  <li>
+    <a href="{{ blogpost.url }}">
+      <article>
+        <p class="post_date">{{ blogpost.date | date: "%d. %b %Y" }}</p>
+        <h2 class="post_title">{{ blogpost.data.title }}</h2>
+        <p class="post_abstract">{{ blogpost.data.abstract }}</p>
+        <div class="post_tags">
+          {% for tag in blogpost.data.tags %}
+            <span class="blogpost-tag blogpost-tag-category__{{tag | tagCategory}}">{{ tag |tagValue }}</span>
+          {% endfor %}
+        </div>
+      </article>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

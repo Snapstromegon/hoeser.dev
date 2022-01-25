@@ -1,0 +1,18 @@
+<header>
+  <div class="content">
+    <a href="/" id="logo">
+      {% include "../../../assets/img/hummingbird_clean.svg" %}
+      <span>Snapstromegon</span>
+    </a>
+    <nav>
+      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
+        activeKey: eleventyNavigation.key or eleventyNavigation.parent,
+        activeAnchorClass: "current"
+      }) | safe }}
+    </nav>
+    <!-- <nav>
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+    </nav> -->
+  </div>
+</header>

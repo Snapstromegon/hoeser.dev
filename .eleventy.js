@@ -1,51 +1,46 @@
 const yaml = require("js-yaml");
-const htmlmin = require("html-minifier");
-const rollupper = require("./lib/rollupper");
-const Image = require("@11ty/eleventy-img");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const rollupper = require("./lib/rollupper");
 
-async function imageShortcode(src, alt, sizes) {
-  const default_sizes = [256, 512, 1024, 2048];
-  let metadata = await Image(src, {
-    widths: default_sizes,
-    formats: ["avif", "webp", "jpeg"],
-    outputDir: "_site/img/"
-  });
+// function taxOfPage(page, prefix) {
+//   if (!prefix) return page.data.tags;
+//   const prefixParts = prefix.split(":");
+//   return page.data.tags
+//     .map((entry) => {
+//       const entryParts = entry.split(":");
+//       for (const prefixPart of prefixParts) {
+//         if (entryParts.shift() != prefixPart) {
+//           return undefined;
+//         }
+//       }
+//       return entryParts.join(":");
+//     })
+//     .filter((x) => x);
+// }
 
-  let imageAttributes = {
-    alt,
-    sizes: sizes || "(max-width: 50rem) 100vw, 50rem",
-    loading: "lazy",
-    decoding: "async",
-  };
-
-  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
-  return Image.generateHTML(metadata, imageAttributes);
+function tagCategory(tag) {
+  if (tag.includes(":")) {
+    return tag.split(":")[0];
+  }
 }
 
-module.exports = (eleventyConfig) => {
-  eleventyConfig.setLiquidOptions({
-    dynamicPartials: true,
-    strict_filters: true,
-  });
-  eleventyConfig.setDataDeepMerge(true);
+function tagValue(tag) {
+  if (!tag.includes(":")) return tag;
+  return tag.split(":").slice(1);
+}
+
+module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight, { alwaysWrapLineHighlights: true });
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
   eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents));
-  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
-    return !outputPath.endsWith(".html")
-      ? content
-      : htmlmin.minify(content, {
-          useShortDoctype: true,
-          removeComments: true,
-          collapseWhitespace: true,
-        });
-  });
-  eleventyConfig.addAsyncShortcode("image", imageShortcode);
+  // eleventyConfig.addShortcode("tax", taxOfPage);
+  // eleventyConfig.addFilter("taxOfPage", taxOfPage);
+  eleventyConfig.addFilter("tagCategory", tagCategory);
+  eleventyConfig.addFilter("tagValue", tagValue);
   eleventyConfig.addPlugin(rollupper, {
     rollup: {
       output: {
@@ -56,12 +51,17 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addWatchTarget("src/css");
+  eleventyConfig.addWatchTarget("css");
+  eleventyConfig.addPassthroughCopy("assets/img");
 
+  eleventyConfig.addCollection("posts", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/blog/*.md");
+  });
+  // Return your Object options:
   return {
     markdownTemplateEngine: "njk",
     dir: {
       input: "src",
-      output: "_site",
     },
   };
 };

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <path id="Tail-Bottom" serif:id="Tail Bottom" d="M718.81,761.716L945,940L676,831L718.81,761.716"/>
+    <g id="Tail-Top" serif:id="Tail Top" transform="matrix(1,0,0,1,0,-1)">
+        <path d="M1010,925L752,708L718.81,761.716L1010,925"/>
+    </g>
+    <path id="Tail-Start" serif:id="Tail Start" d="M676,831L641,608L752,708L676,831"/>
+    <path id="Tail-Start-Bottom" serif:id="Tail Start Bottom" d="M388,753L641,608L676,831L388,753"/>
+    <path id="Back" d="M486,512L388,753L641,608L486,512"/>
+    <path id="Belly" d="M388,753L289,560L486,512L388,753"/>
+    <path id="Throat" d="M289,560L217,378L486,512L289,560"/>
+    <path id="Head" d="M217,378L372,339L486,512L217,378"/>
+    <path id="Beak" d="M217,378L7,378L235.791,425.5L217,378"/>
+    <g id="Wing-Front" serif:id="Wing Front" transform="matrix(1,0,0,1,0,-1)">
+        <path d="M486,513L941,72L641,609L486,513Z"/>
+    </g>
+    <path id="Wing-Back-1" serif:id="Wing Back 1" d="M408.178,393.902L636,80L486,512L408.178,393.902"/>
+    <path id="Wing-Back-2" serif:id="Wing Back 2" d="M636,80L619.454,382.946L486,512L636,80"/>
+</svg>
