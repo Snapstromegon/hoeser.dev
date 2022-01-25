@@ -31,7 +31,7 @@ body {
 header {
   background: #fff;
   position: relative;
-  padding: 3rem;
+  padding: 3rem 0;
 }
 
 header::before {
