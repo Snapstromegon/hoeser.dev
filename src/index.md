@@ -5,13 +5,13 @@ theme:
   colorB: "#f35"
 eleventyNavigation:
   key: Home
+  order: 1
 ---
-
 <section class="devider">
-  <a href="{{ collections.posts.last.url }}">
+  <a href="{{ (collections.posts | last).url }}">
     <div class="content">
       <span class="underline_fancy">My latest Blogpost</span>
-      <h1>{{ collections.posts.last.data.title }}</h1>
+      <h1>{{ (collections.posts | last).data.title }}</h1>
     </div>
   </a>
 </section>

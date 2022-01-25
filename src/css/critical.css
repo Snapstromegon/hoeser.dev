@@ -258,6 +258,10 @@ main > .content > article p {
   border-radius: .5rem;
 }
 
+.blogpostList h2, .blogpostList p {
+  margin: 0;
+}
+
 .blogpostList article {
   display: grid;
   grid-template-columns: 1fr auto;
