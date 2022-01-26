@@ -23,21 +23,20 @@ async function imageShortcode(src, alt, sizes = []) {
   return Image.generateHTML(metadata, imageAttributes);
 }
 
-// function taxOfPage(page, prefix) {
-//   if (!prefix) return page.data.tags;
-//   const prefixParts = prefix.split(":");
-//   return page.data.tags
-//     .map((entry) => {
-//       const entryParts = entry.split(":");
-//       for (const prefixPart of prefixParts) {
-//         if (entryParts.shift() != prefixPart) {
-//           return undefined;
-//         }
-//       }
-//       return entryParts.join(":");
-//     })
-//     .filter((x) => x);
-// }
+async function generateFavicon(src) {
+  let metadata = await Image(src, {
+    widths: [64, 128, 180, 256, 512, 1024, 2048],
+    formats: ["svg", "png"],
+    outputDir: "_site/img/",
+  });
+
+  return `
+    <link rel="icon" href="${metadata.svg[0].url}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="${
+      metadata.png.find((png) => png.width == 180).url
+    }">
+  `;
+}
 
 function tagCategory(tag) {
   if (tag.includes(":")) {
@@ -57,6 +56,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
   eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents));
   eleventyConfig.addAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addAsyncShortcode("favicon", generateFavicon);
   // eleventyConfig.addShortcode("tax", taxOfPage);
   // eleventyConfig.addFilter("taxOfPage", taxOfPage);
   eleventyConfig.addFilter("tagCategory", tagCategory);

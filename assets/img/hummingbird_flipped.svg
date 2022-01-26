@@ -1,0 +1,15 @@
+<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5">
+  <path style="fill:#fff;stroke:#fff;stroke-width:1px" d="M0 0h1024v1024H0z"/>
+  <path d="m719 762 226 178-269-109 43-69Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Tail-Bottom"/>
+  <path d="M1010 925 752 708l-33 54 291 163Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Tail-Top"/>
+  <path d="m676 831-35-223 111 100-76 123Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Tail-Start"/>
+  <path d="m388 753 253-145 35 223-288-78Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Tail-Start-Bottom"/>
+  <path d="m486 512-98 241 253-145-155-96Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Back"/>
+  <path d="m388 753-99-193 197-48-98 241Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Belly"/>
+  <path d="m289 560-72-182 269 134-197 48Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Throat"/>
+  <path d="m217 378 155-39 114 173-269-134Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Head"/>
+  <path d="M217 378H7l229 48-19-48Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Beak"/>
+  <path d="M486 512 941 71 641 608l-155-96Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Wing-Front"/>
+  <path d="M408 394 636 80 486 512l-78-118Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Wing-Back-1"/>
+  <path d="m636 80-17 303-133 129L636 80Z" style="fill-rule:nonzero" transform="matrix(-1 0 0 1 1017 0)" id="hummingbird-Wing-Back-2"/>
+</svg>
