@@ -3,14 +3,38 @@ layout: layouts/main.njk
 eleventyComputed:
   metaDescription: "{{ abstract }}"
 ---
+
 <style>
   {% include "../../css/syntax_highlighting.css" %}
 </style>
 
 <section class="devider">
-  <div class="content">
-    <h1>{{ title }}</h1>
-    <p>{{ abstract }}</p>
+  <div class="content blog_devider">
+    <div>
+      <h1>{{ title }}</h1>
+      <p class="abstract">{{ abstract }}</p>
+    </div>
+    <div class="blogpost_overview">
+      <div class="blogpost_meta">
+        <span class="blogpost_meta__label">Released:</span>
+        <span class="blogpost_meta__value">{{ page.date | niceDate }}</span>
+      </div>
+      <div class="blogpost_meta">
+        <span class="blogpost_meta__label">Tags:</span>
+        <span class="blogpost_meta__value">
+          <div class="post_tags">
+            {% for tag in tags %}
+            <span
+              class="blogpost-tag blogpost-tag-category__{{
+                tag | tagCategory
+              }}"
+              >{{ tag | tagValue }}</span
+            >
+            {% endfor %}
+          </div>
+        </span>
+      </div>
+    </div>
   </div>
 </section>
 <main>

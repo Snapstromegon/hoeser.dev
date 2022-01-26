@@ -5,11 +5,11 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const rollupper = require("./lib/rollupper");
 const Image = require("@11ty/eleventy-img");
 
-async function imageShortcode(src, alt, sizes=[]) {
+async function imageShortcode(src, alt, sizes = []) {
   let metadata = await Image(src, {
     widths: [128, 256, 512, 1024],
     formats: ["avif", "webp", "jpeg"],
-    outputDir: "_site/img/"
+    outputDir: "_site/img/",
   });
 
   let imageAttributes = {
@@ -61,6 +61,25 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.addFilter("taxOfPage", taxOfPage);
   eleventyConfig.addFilter("tagCategory", tagCategory);
   eleventyConfig.addFilter("tagValue", tagValue);
+  eleventyConfig.addFilter("niceDate", (date) => {
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Okt",
+      "Nov",
+      "Dec",
+    ];
+    return `${date.getDate()}. ${
+      months[date.getMonth() - 1]
+    } ${date.getFullYear()}`;
+  });
   eleventyConfig.addPlugin(rollupper, {
     rollup: {
       output: {
