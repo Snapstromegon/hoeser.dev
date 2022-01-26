@@ -3,7 +3,7 @@ title: Buttons are not links
 abstract: |
   Time and time again I come across someone either online or in code review who uses a button instead of a link.
   Most prominently this happens in SPA contexts.
-date: 2022-01-26
+date: 2022-01-05
 tags:
   - lang:HTML
   - lang:JS
