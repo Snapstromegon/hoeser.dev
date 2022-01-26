@@ -8,10 +8,10 @@ eleventyNavigation:
   order: 1
 ---
 <section class="devider">
-  <a href="{{ (collections.posts | last).url }}">
+  <a href="{{ (collections.blogposts | last).url }}">
     <div class="content">
       <span class="underline_fancy">My latest Blogpost</span>
-      <h1>{{ (collections.posts | last).data.title }}</h1>
+      <h1>{{ (collections.blogposts | last).data.title }}</h1>
     </div>
   </a>
 </section>

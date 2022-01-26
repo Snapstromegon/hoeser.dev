@@ -14,8 +14,22 @@ eleventyNavigation:
     Did you ever see something in code review or on the web that made you just think "NO..."?
     This is my collection of exactly those things. But I don't want to just rant, I want to provide insights of why I think like this.
   </p>
-
-  <br>
-
-  <h1>...coming soon</h1>
 </article>
+
+<ul class="blogpostList">
+  {% for blogpost in collections.sins %}
+  <li>
+    <a href="{{ blogpost.url }}">
+      <article>
+        <p class="post_date">{{ blogpost.date | date: "%d. %b %Y" }}</p>
+        <h2 class="post_title">{{ blogpost.data.title }}</h2>
+        <div class="post_tags">
+          {% for tag in blogpost.data.tags %}
+            <span class="blogpost-tag blogpost-tag-category__{{tag | tagCategory}}">{{ tag |tagValue }}</span>
+          {% endfor %}
+        </div>
+      </article>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

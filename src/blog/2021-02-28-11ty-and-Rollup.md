@@ -57,12 +57,12 @@ Imagine the following:
 You're writing a blog and want to include some JS tool for just one blog entry, e.g. because you're showing how an JS alert works:
 
 ```js/1-3
-{% include "../../assets/js/posts/2021-02-28-11ty-and-Rollup/alertButton.js" %}
+{% include "../../assets/js/blogposts/2021-02-28-11ty-and-Rollup/alertButton.js" %}
 ```
 
 <button id="myAlertButton" style="padding: var(--s)" disabled>Say Hello World!</button>
 
-{% rollup "assets/js/posts/2021-02-28-11ty-and-Rollup/alertButton.js" | url %}
+{% rollup "assets/js/blogposts/2021-02-28-11ty-and-Rollup/alertButton.js" | url %}
 
 For this to work I have two options:
 
@@ -116,11 +116,11 @@ class Rollupper {
 }
 ```
 
-Then, instead of writing `<script [...]></script>`, you include a js file with a shortcode in your blogposts md (or whatever languages you're using). I chose `rollup` for this, but you can modify it.
+Then, instead of writing `<script [...]></script>`, you include a js file with a shortcode in your blogblogposts md (or whatever languages you're using). I chose `rollup` for this, but you can modify it.
 
 ```liquid
 {% raw %}{# <script src="{{ "this-post/js/tool.js" | url}}"> #}
-{% rollup "assets/js/posts/this-post/tool.js" | url %}{% endraw %}
+{% rollup "assets/js/blogposts/this-post/tool.js" | url %}{% endraw %}
 ```
 
 The shortcode basically resolves the relative paths to absolute ones and stores the files in a registry.
@@ -274,12 +274,12 @@ I can now just write the following in my templates:
 You're writing a blog and want to include some JS tool for just one blog entry, e.g. because you're showing how an JS alert works:
 
 ```js/1-3
-{% raw %}{% include "assets/js/posts/2021-02-28-11ty-and-Rollup/alertButton.js" | url %}{% endraw %}
+{% raw %}{% include "assets/js/blogposts/2021-02-28-11ty-and-Rollup/alertButton.js" | url %}{% endraw %}
 ```
 
 &lt;button id="myAlertButton" disabled>Say Hallo World!&lt;/button>
 
-{% raw %}{% rollup "assets/js/posts/2021-02-28-11ty-and-Rollup/alertButton.js" | url %}{% endraw %}
+{% raw %}{% rollup "assets/js/blogposts/2021-02-28-11ty-and-Rollup/alertButton.js" | url %}{% endraw %}
 
 For this to work I have two options:
 `````

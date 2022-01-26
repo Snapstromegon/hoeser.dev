@@ -77,7 +77,7 @@ module.exports = function (eleventyConfig) {
       "Dec",
     ];
     return `${date.getDate()}. ${
-      months[date.getMonth() - 1]
+      months[date.getMonth()]
     } ${date.getFullYear()}`;
   });
   eleventyConfig.addPlugin(rollupper, {
@@ -93,8 +93,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("css");
   eleventyConfig.addPassthroughCopy("assets/img");
 
-  eleventyConfig.addCollection("posts", (collectionApi) => {
+  eleventyConfig.addCollection("blogposts", (collectionApi) => {
     return collectionApi.getFilteredByGlob("src/blog/*.md");
+  });
+  eleventyConfig.addCollection("sins", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/webdev-sins/*.md");
   });
   // Return your Object options:
   return {

@@ -1,0 +1,6 @@
+layout: layouts/blogpost.njk
+eleventyNavigation:
+  parent: WebDev-Sins
+theme:
+  colorA: "#000"
+  colorB: "#f00"
