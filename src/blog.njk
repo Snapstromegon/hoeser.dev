@@ -11,11 +11,11 @@ eleventyNavigation:
 ---
 
 <ul class="blogpostList">
-  {% for blogpost in collections.blogposts %}
+  {% for blogpost in collections.blogposts | reverse %}
   <li>
     <a href="{{ blogpost.url }}">
       <article>
-        <p class="post_date">{{ blogpost.date | date: "%d. %b %Y" }}</p>
+        <p class="post_date">{{ blogpost.date | niceDate }}</p>
         <h2 class="post_title">{{ blogpost.data.title }}</h2>
         <p class="post_abstract">{{ blogpost.data.abstract }}</p>
         <div class="post_tags">

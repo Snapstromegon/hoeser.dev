@@ -12,7 +12,7 @@ tags:
 - concept:SSR
 ---
 
-# Preface
+## Preface
 
 I started late with 11ty (eleventy)... Really late... Like a week ago.
 
@@ -26,11 +26,11 @@ But what is a true love without some pain points...
 As I see it, 11ty is the perfect solution for doing Blogs and sites where you want the ability to give each page its own feeling if you want to.
 This is really great, but as long as 11ty doesn't include an asset pipeline (I'm on 11ty 0.11 and 1.0 is not out yet) and more features from build tools and bundlers it's fairly hard to combine classic bundlers with 11ty.
 
-# Current way of doing business
+## Current way of doing business
 
 After looking at the two 11ty starter projects which include rollup (this is also true for the webpack and parcel ones I looked at) , they do one of the following solutions:
 
-## 11ty then Rollup
+### 11ty then Rollup
 
 They do basically this:
 
@@ -39,7 +39,7 @@ They do basically this:
 
 This is used by [nhoizey/pack11ty](https://github.com/reeseschultz/11r).
 
-## Rollup then 11ty
+### Rollup then 11ty
 
 This is the same just the other way around:
 
@@ -50,7 +50,7 @@ This is used by [reeseschultz/11r](https://github.com/reeseschultz/11r).
 
 To be clear, there is nothing wrong with this in many cases and often it's probably the easiest way of doing this and also the build times are better than with my solution.
 
-# The problem
+## The problem
 
 Imagine the following:
 
@@ -71,13 +71,13 @@ For this to work I have two options:
 
 Both options don't seem okay for me.
 
-# Insert Custom Plugin
+## Insert Custom Plugin
 
 The following is more like a proof of concept than an usable solution.
 
 What if we integrate into the 11ty build pipeline instead of running it before or after an 11ty build. That way we'd be able to include just those chunks which are actually needed and all chunks run through rollup.
 
-## How it works
+### How it works
 
 The idea is fairly simple and uses the 11ty shortcodes and build events, the rollup JS api and 11ty's plugin system.
 
@@ -191,7 +191,7 @@ class Rollupper {
 }
 ```
 
-### The rollupperShortcode method
+#### The rollupperShortcode method
 
 As you can see, this function does a little more than I told you before.
 Basically it resolves the barrier between Rollup and 11ty.
@@ -249,7 +249,7 @@ Basically we pass our used JS files as entrypoints into rollup and change the en
 
 To avoid calculating the hashes twice I used inputFiles as a mapping from original to hashed names.
 
-# The Result
+## The Result
 
 With this plugin loaded in my _.eleventy.js_ config via:
 
@@ -286,7 +286,7 @@ For this to work I have two options:
 
 With this I have a working demo with JS Code which gets bundled with all dependencies and only loaded when I actually visit the page.
 
-# Final Notes
+## Final Notes
 
 Having the starter projects, which many people use as a starting point, using the bundle approach will probably encourage developers (especially newer ones) to fall into bad bundling practices with huge bundles and lots of unused code and on the other hand will enforce the argument that SSG/SSR and Client Side JS don't play together well.
 
