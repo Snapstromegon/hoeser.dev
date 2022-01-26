@@ -36,7 +36,7 @@
     <3
     Raphael
   -->
-  <body style="--theme-color-a: {{theme.colorA or "#5df"}};--theme-color-b: {{theme.colorB or "#f39"}}">
+  <body style="{% if theme.linkColor %}--theme-link-color: {{theme.linkColor}};{% endif %}--theme-color-a: {{theme.colorA or "#5df"}};--theme-color-b: {{theme.colorB or "#f39"}}">
     {% include "../partials/header.njk" %}
     {{ content | safe }}
     {% include "../partials/footer.njk" %}

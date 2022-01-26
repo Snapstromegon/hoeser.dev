@@ -1,6 +1,7 @@
 ---
 layout: layouts/rootpage.njk
 theme:
+  linkColor: "#03f"
   colorA: "#e62"
   colorB: "#0dd"
 #  colorA: "#271"
@@ -9,6 +10,18 @@ eleventyNavigation:
   key: Blog
   order: 2
 ---
+
+<article>
+  <p>
+    If I have something that might be interesting to others, I might write it down here.
+  </p>
+  <p>
+    Of course all opinions are my own.
+  </p>
+  <p>
+    If you want to stay up to date, it's probably best to follow me on <a href="https://twitter.com/Snapstromegon" rel="noopener" target="_blank">Twitter</a>.
+  </p>
+</article>
 
 <ul class="blogpostList">
   {% for blogpost in collections.blogposts | reverse %}

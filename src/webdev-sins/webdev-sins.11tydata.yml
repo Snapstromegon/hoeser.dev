@@ -4,3 +4,4 @@ eleventyNavigation:
 theme:
   colorA: "#000"
   colorB: "#f00"
+  linkColor: "#b50000"

@@ -2,5 +2,6 @@ layout: layouts/blogpost.njk
 eleventyNavigation:
   parent: Blog
 theme:
-  colorA: "#271"
-  colorB: "#f80"
+  linkColor: "#03f"
+  colorA: "#e62"
+  colorB: "#0dd"

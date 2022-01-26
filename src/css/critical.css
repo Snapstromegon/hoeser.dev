@@ -427,6 +427,6 @@ main h4 {
   gap: 0.5rem;
 }
 
-a {
-  color: var(--theme-color-b);
+body a {
+  color: var(--theme-link-color, var(--theme-color-b));
 }
