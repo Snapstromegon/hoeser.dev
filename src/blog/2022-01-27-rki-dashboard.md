@@ -98,8 +98,8 @@ I will use [LIT](https://lit.dev) to achieve this. That way the resulting compon
 
 <covid-stats></covid-stats>
 
-This is now implemented as a web component and in just about 130KB I can now present to you a small widget showing some of the most important COVID data for germany in a really performant way.
+This is now implemented as a web component and in under 90KB I can now present to you a small widget showing some of the most important COVID data for germany in a really performant way.
 
-Oh did I mention that the 130KB includes the about 50KB of CSV and this whole blogpost? Take a look in the dev tools - the JS bundle for this page, that ships the web component and LIT is just under 30KB.
+Oh did I mention that the 90KB includes the about 50KB of CSV and this whole blogpost including images? Take a look in the dev tools - the JS bundle for this page, that ships the web component and LIT is under 10KB.
 
 I will probably expand this post in the future and show some details about the code, but until then you can take a look in my github in the source of this blog: [GitHub Link to TS source fot this blogpost](https://github.com/Snapstromegon/hoeser.dev/tree/master/assets/js/blog/2022-01-27-rki-dashboard)
