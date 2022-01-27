@@ -102,4 +102,4 @@ This is now implemented as a web component and in just about 130KB I can now pre
 
 Oh did I mention that the 130KB includes the about 50KB of CSV and this whole blogpost? Take a look in the dev tools - the JS bundle for this page, that ships the web component and LIT is just under 30KB.
 
-I will probably expand this post in the future and show some details about the code, but until then you can take a look in my github in the source of this blog: [GitHub Link to TS source fot this blogpost](https://github.com/Snapstromegon/hoeser.dev/tree/master/assets/js/blogposts/2022-01-27-rki-dashboard)
+I will probably expand this post in the future and show some details about the code, but until then you can take a look in my github in the source of this blog: [GitHub Link to TS source fot this blogpost](https://github.com/Snapstromegon/hoeser.dev/tree/master/assets/js/blog/2022-01-27-rki-dashboard)
