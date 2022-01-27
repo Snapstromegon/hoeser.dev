@@ -4,10 +4,13 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const rollupper = require("./lib/rollupper");
 const Image = require("@11ty/eleventy-img");
+const typescript = require("rollup-plugin-typescript2");
+const { default: resolve } = require("@rollup/plugin-node-resolve");
+const { terser } = require("rollup-plugin-terser");
 
 async function imageShortcode(src, alt, sizes = []) {
   let metadata = await Image(src, {
-    widths: [128, 256, 512, 1024],
+    widths: [128, 256, 512, 1024, null],
     formats: ["avif", "webp", "jpeg"],
     outputDir: "_site/img/",
   });
@@ -25,7 +28,7 @@ async function imageShortcode(src, alt, sizes = []) {
 
 async function generateFavicon(src) {
   let metadata = await Image(src, {
-    widths: [64, 128, 180, 256, 512, 1024, 2048],
+    widths: [64, 128, 180, 256, 512, 1024, 2048, null],
     formats: ["svg", "png"],
     outputDir: "_site/img/",
   });
@@ -86,11 +89,12 @@ module.exports = function (eleventyConfig) {
         format: "es",
         dir: "_site/js",
       },
+      plugins: [typescript(), resolve(), terser()],
     },
   });
 
   eleventyConfig.addWatchTarget("src/css");
-  eleventyConfig.addWatchTarget("css");
+  eleventyConfig.addWatchTarget("assets/js/");
   eleventyConfig.addPassthroughCopy("assets/img");
 
   eleventyConfig.addCollection("blogposts", (collectionApi) => {

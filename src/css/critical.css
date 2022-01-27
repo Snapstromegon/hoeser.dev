@@ -233,12 +233,13 @@ main {
 }
 
 main > .content > article {
-  margin: 6rem 0;
+  margin: 9rem 0;
 }
 
 main > .content > article p,
 main > .content > article h2,
 main > .content > article summary,
+main > .content > article .commentBlock,
 main > .content > article pre {
   max-width: 50rem;
 }
@@ -360,6 +361,30 @@ main h4 {
   margin-bottom: 0.5em;
 }
 
+main aside {
+  background-color: #eee;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  position: relative;
+  margin: 1rem 0 4rem 0;
+}
+
+main aside :first-child {
+  margin-top: 0;
+}
+
+main aside::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0.22rem;
+  bottom: -3rem;
+  height: 3rem;
+  width: 6rem;
+  background: #ccc;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
 .blog_devider {
   display: flex;
   gap: 3rem;
@@ -372,6 +397,7 @@ main h4 {
   z-index: 1;
   border-radius: 0.3rem;
   flex-grow: 1;
+  flex-shrink: 0;
   align-self: flex-end;
   padding: 1rem;
   display: flex;
@@ -379,17 +405,7 @@ main h4 {
   gap: 1rem;
   transform: none;
   margin-bottom: 3rem;
-}
-
-@media (min-width: 50rem) {
-  .blog_devider {
-    flex-wrap: nowrap;
-  }
-
-  .blogpost_overview {
-    transform: translateY(6rem);
-    margin-bottom: 0rem;
-  }
+  min-width: 20rem;
 }
 
 .blogpost_overview::after {
@@ -429,4 +445,48 @@ main h4 {
 
 body a {
   color: var(--theme-link-color, var(--theme-color-b));
+}
+
+.commentBlock {
+  background-color: #eee;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.commentBlock :first-child {
+  margin-top: 0;
+}
+
+.commentBlock::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0.3rem;
+  background: linear-gradient(
+    to top,
+    var(--theme-color-a),
+    var(--theme-color-b)
+  );
+}
+
+@media (min-width: 50rem) {
+  .blog_devider {
+    flex-wrap: nowrap;
+  }
+
+  .blogpost_overview {
+    transform: translateY(6rem);
+    margin-bottom: 0rem;
+  }
+
+  main aside {
+    float: right;
+    max-width: 25rem;
+    margin: 3rem 0 6rem 3rem;
+  }
 }
