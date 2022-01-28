@@ -33,7 +33,7 @@ All data is also available in an open [COVID 19 datahub](https://npgeo-corona-np
 
 It's actually really simple:
 
-{% image "assets/img/blog/2022-01-27-rki-dashboard/Screenshot-rki-network.jpg", "Screenshot from the Chrome Dev Tools network panel showing 376 requests and 6.6MB of transferred data", [null] %}
+{% image "assets/img/blog/2022-01-27-rki-dashboard/devtools-network.jpg", "Screenshot from the Chrome Dev Tools network panel showing 376 requests and 6.6MB of transferred data", [null] %}
 
 <aside>
 
@@ -47,7 +47,7 @@ It gets even worse when we look at the desktop performance report. For some reas
 
 So now brace yourself, it's going to hurt:
 
-{% image "assets/img/blog/2022-01-27-rki-dashboard/Screenshot-rki-performance.jpg", "Screenshot from the lighthouse performance", [null] %}
+{% image "assets/img/blog/2022-01-27-rki-dashboard/devtools-lighthouse-performance.jpg", "Screenshot from the lighthouse performance", [null] %}
 
 ### But why is it so large?
 
@@ -59,7 +59,7 @@ Sadly: No.
 
 If you take a closer look at the waterfall, you can see that it's a long linear flow. This is not good. In such a graph you would like to see strong vertical lines, since they mean that things are downloading in parallel. Here the requests trickle in nearly one by one and henceforth the download is spread out over a long time (since the dashboard is using h2, the number of connections is not a limiting factor).
 
-{% image "assets/img/blog/2022-01-27-rki-dashboard/Screenshot-rki-waterfall.jpg", "Screenshot from the Chrome Dev Tools network panel showing bad request scheduling in the RKI Dashboard", [null] %}
+{% image "assets/img/blog/2022-01-27-rki-dashboard/devtools-network-waterfall.jpg", "Screenshot from the Chrome Dev Tools network panel showing bad request scheduling in the RKI Dashboard", [null] %}
 
 Also downloading 169 request for data to display which result in 13.5MB of uncompressed data isn't exactly fast either.
 
