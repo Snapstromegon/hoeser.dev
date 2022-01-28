@@ -260,6 +260,7 @@ main > .content > article pre {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   list-style: none;
+  padding: 0;
   gap: 3rem;
 }
 
