@@ -65,7 +65,7 @@ export default class CovidCounty extends LitElement {
   }
 
   override render() {
-    console.log(this.federal);
+    console.log(this.federal, this.county);
     return html`
       <div id="wrapper">
         <select @input=${(e: any) => this.updateCounty(e.target.value)}>
