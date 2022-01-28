@@ -53,7 +53,7 @@ So now brace yourself, it's going to hurt:
 
 The dashboard does a lot of things and also the components it uses are shared between dashboards and download other dependencies on their own. This leads to a JS payload of 2.1MB spread over 84 requests. This is 10.3MB of uncompressed JavaScript. At that point even the included React library isn't noticable anymore.
 
-### Is that all why it is so slow?
+### So huge data makes things slow - It's as fast as possible?
 
 Sadly: No.
 
