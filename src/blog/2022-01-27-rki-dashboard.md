@@ -82,7 +82,7 @@ For this to be actually a viable solution and possible to implement in the conte
 2. Always use the current data - noone likes data that is days old
 3. Show the user the local, federal and nation wide 7-day incidence and total number of cases
 4. Show the user the local, federal and nation wide 7-day incidence and total number of deaths
-5. Show the user how many regions are above a certain incidence (local and federal)
+<!-- 5. Show the user how many regions are above a certain incidence (local and federal) -->
 
 ### The dataset
 
