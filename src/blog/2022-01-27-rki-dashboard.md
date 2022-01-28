@@ -86,7 +86,7 @@ For this to be actually a viable solution and possible to implement in the conte
 
 ### The dataset
 
-To fullfill requirement 1. and 2., we'll use the [RKI Corona Landkreise](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/917fc37a709542548cc3be077a786c17_0) dataset, since it includes data for the local level and allows us to calculate federal and noation wide numbers. Also it's served with the correct CORS headers, so we can fetch it directly from the client.
+To fullfill requirement 1. and 2., we'll use the [RKI Corona Landkreise](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/917fc37a709542548cc3be077a786c17_0) dataset, since it includes data for the local level and allows us to calculate federal and noation wide numbers. Also it's served with the correct CORS headers, so we can fetch it directly from the client (Yay, Jamstack!).
 
 Since we're only interested in the actual numbers and don't need the card data, we're going to use the [CSV](https://opendata.arcgis.com/api/v3/datasets/917fc37a709542548cc3be077a786c17_0/downloads/data?format=csv&spatialRefId=4326) version of the data, since it's "only" 160KB uncompressed to download. It's still larger than I would've liked, but since it's pretty compressable, we actually only transfer about 50KB over the wire.
 
@@ -98,8 +98,8 @@ I will use [LIT](https://lit.dev) to achieve this. That way the resulting compon
 
 <covid-stats></covid-stats>
 
-This is now implemented as a web component and in under 90KB I can now present to you a small widget showing some of the most important COVID data for germany in a really performant way.
+This is now implemented as a web component and in under 90KB. This small widget shows some of the most important COVID data for germany in a really performant way and is always uptodate.
 
-Oh did I mention that the 90KB includes the about 50KB of CSV and this whole blogpost including images? Take a look in the dev tools - the JS bundle for this page, that ships the web component and LIT is under 10KB.
+Oh did I mention that the 90KB includes the about 50KB of CSV... And this whole blogpost including images? Take a look in the dev tools - the JS bundle for this page, that ships the web component and the LIT dependency is under 10KB.
 
 I will probably expand this post in the future and show some details about the code, but until then you can take a look in my github in the source of this blog: [GitHub Link to TS source fot this blogpost](https://github.com/Snapstromegon/hoeser.dev/tree/master/assets/js/blog/2022-01-27-rki-dashboard)

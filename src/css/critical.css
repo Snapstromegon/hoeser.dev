@@ -340,7 +340,8 @@ main > .content > article pre {
 
 ol,
 ul {
-  list-style-position: inside;
+  /* list-style-position: inside; */
+  padding-left: 3rem;
 }
 
 main img {
