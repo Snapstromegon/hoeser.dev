@@ -48,7 +48,7 @@ export default class CovidCounty extends LitElement {
       if(this.federal != val) return;
       if(data.get(this.federal)?.counties.has(val)) return;
       const counties = [...data.get(this.federal)?.counties.keys()]
-      this.county = keys.sort()[0];
+      this.county = counties.sort()[0];
     });
     this.requestUpdate("prop", oldVal);
   }
