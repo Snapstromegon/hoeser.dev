@@ -338,8 +338,8 @@ main > .content > article pre {
   color: #fff;
 }
 
-ol,
-ul {
+main ol,
+main ul {
   /* list-style-position: inside; */
   padding-left: 3rem;
 }
