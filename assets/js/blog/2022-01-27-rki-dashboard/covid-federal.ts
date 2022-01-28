@@ -13,7 +13,7 @@ export default class CovidFederal extends LitElement {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: auto auto;
-      grid-template-areas: "federalSelect . ." "overview overview overview";
+      grid-template-areas: "federalSelect federalSelect ." "overview overview overview";
       gap: 0.5rem;
     }
 
