@@ -9,6 +9,8 @@ tags:
   - tool:LIT
 ---
 
+<link rel="preload" href="https://opendata.arcgis.com/api/v3/datasets/917fc37a709542548cc3be077a786c17_0/downloads/data?format=csv&spatialRefId=4326" as="fetch" crossorigin>
+
 {% rollup "assets/js/blog/2022-01-27-rki-dashboard/main.ts" %}
 
 <div class="commentBlock">
