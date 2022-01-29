@@ -1,0 +1,34 @@
+---
+permalink: /manifest.json
+sitemapIgnore: true
+---
+{
+  "name": "{{ meta.site_name }}",
+  "short_name": "{{ meta.site_short_name }}",
+  "description": "{{ meta.description }}",
+  "background_color": "#333",
+  "theme_color": "{{ meta.theme_color }}",
+  "manifest_version": 2,
+  "scope": "/",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "icons": [
+{%- for format, outputs in meta.favicon | faviconData -%}
+  {% set outerLoop = loop -%}
+  {% for output in outputs %}
+    {
+      "src": "{{output.url}}",
+      "type": "{{output.sourceType}}",
+      "sizes": "{{output.width}}x{{output.height}}",
+      "purpose": "any"
+    },
+    {
+      "src": "{{output.url}}",
+      "type": "{{output.sourceType}}",
+      "sizes": "{{output.width}}x{{output.height}}",
+      "purpose": "maskable"
+    }{% if not(loop.last and outerLoop.last) %},{%endif-%}
+    {% endfor -%}
+  {% endfor %}
+  ]
+}

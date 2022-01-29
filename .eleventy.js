@@ -27,12 +27,15 @@ async function imageShortcode(src, alt, sizes = []) {
 }
 
 async function generateFavicon(src) {
-  let metadata = await Image(src, {
+  return await Image(src, {
     widths: [64, 128, 180, 256, 512, 1024, 2048, null],
-    formats: ["svg", "png"],
+    formats: ["svg", "png", "webp", "avif"],
     outputDir: "_site/img/",
   });
+}
 
+async function generateFaviconHTML(src) {
+  const metadata = await generateFavicon(src);
   return `
     <link rel="icon" href="${metadata.svg[0].url}" type="image/svg+xml">
     <link rel="apple-touch-icon" href="${
@@ -59,7 +62,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
   eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents));
   eleventyConfig.addAsyncShortcode("image", imageShortcode);
-  eleventyConfig.addAsyncShortcode("favicon", generateFavicon);
+  eleventyConfig.addAsyncShortcode("favicon", generateFaviconHTML);
+  eleventyConfig.addFilter("logging", (...args) => {
+    console.log("Logging:", ...args);
+    return args;
+  });
+  eleventyConfig.addNunjucksAsyncFilter("faviconData", (src, callback) =>
+    generateFavicon(src).then((data) => callback(null, data))
+  );
   // eleventyConfig.addShortcode("tax", taxOfPage);
   // eleventyConfig.addFilter("taxOfPage", taxOfPage);
   eleventyConfig.addFilter("tagCategory", tagCategory);
@@ -102,6 +112,9 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addCollection("sins", (collectionApi) => {
     return collectionApi.getFilteredByGlob("src/webdev-sins/*.md");
+  });
+  eleventyConfig.addCollection("posts", (collectionApi) => {
+    return collectionApi.getFilteredByGlob(["src/blog/*.md", "src/webdev-sins/*.md"]);
   });
   // Return your Object options:
   return {
