@@ -1,0 +1,59 @@
+---
+permalink: sw.js
+---
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    (async function () {
+      const cache = await caches.open("preload-static-{{pkg.version}}");
+      await cache.addAll([
+        "/offline",
+        "/manifest.json",
+        {% for format, images in meta.favicon | imageData -%}
+          "{{(images|last).url}}",
+        {% endfor -%}
+        {%- for format, images in "assets/img/me.jpg" | imageData -%}
+          "{{(images|last).url}}",
+        {% endfor -%}
+      ]);
+    })()
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  event.respondWith(async function() {
+    const cachedResponse = await caches.match(event.request);
+    if (cachedResponse) return cachedResponse;
+
+    try {
+      console.log("fetching", event.request);
+      const response = await fetch(event.request);
+      console.log("response", response);
+      return response;
+    } catch (err) {
+      if(event.request.mode == "navigate"){
+        console.log("Offline Fallback", await caches.match('/offline'));
+        return cleanResponse(await caches.match('/offline'));
+      }
+    }
+  }());
+});
+
+function cleanResponse(response) {
+  const clonedResponse = response.clone();
+
+  // Not all browsers support the Response.body stream, so fall back to reading
+  // the entire body into memory as a blob.
+  const bodyPromise = 'body' in clonedResponse ?
+    Promise.resolve(clonedResponse.body) :
+    clonedResponse.blob();
+
+  return bodyPromise.then((body) => {
+    // new Response() is happy when passed either a stream or a Blob.
+    return new Response(body, {
+      headers: clonedResponse.headers,
+      status: clonedResponse.status,
+      statusText: clonedResponse.statusText,
+    });
+  });
+}

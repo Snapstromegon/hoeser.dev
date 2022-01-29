@@ -8,12 +8,16 @@ const typescript = require("rollup-plugin-typescript2");
 const { default: resolve } = require("@rollup/plugin-node-resolve");
 const { terser } = require("rollup-plugin-terser");
 
-async function imageShortcode(src, alt, sizes = []) {
-  let metadata = await Image(src, {
+function generateImages(src) {
+  return Image(src, {
     widths: [128, 256, 512, 1024, null],
     formats: ["avif", "webp", "jpeg"],
     outputDir: "_site/img/",
   });
+}
+
+async function imageShortcode(src, alt, sizes = []) {
+  let metadata = await generateImages(src);
 
   let imageAttributes = {
     alt,
@@ -70,6 +74,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncFilter("faviconData", (src, callback) =>
     generateFavicon(src).then((data) => callback(null, data))
   );
+  eleventyConfig.addNunjucksAsyncFilter("imageData", (src, callback) =>
+    generateImages(src).then((data) => callback(null, data))
+  );
   // eleventyConfig.addShortcode("tax", taxOfPage);
   // eleventyConfig.addFilter("taxOfPage", taxOfPage);
   eleventyConfig.addFilter("tagCategory", tagCategory);
@@ -114,7 +121,10 @@ module.exports = function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("src/webdev-sins/*.md");
   });
   eleventyConfig.addCollection("posts", (collectionApi) => {
-    return collectionApi.getFilteredByGlob(["src/blog/*.md", "src/webdev-sins/*.md"]);
+    return collectionApi.getFilteredByGlob([
+      "src/blog/*.md",
+      "src/webdev-sins/*.md",
+    ]);
   });
   // Return your Object options:
   return {

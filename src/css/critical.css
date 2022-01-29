@@ -178,7 +178,7 @@ footer {
 }
 
 .devider h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   max-width: 50rem;
 }
 
@@ -473,6 +473,12 @@ body a {
     var(--theme-color-a),
     var(--theme-color-b)
   );
+}
+
+@media (min-width: 50rem) {
+  .devider h1 {
+    font-size: 4rem;
+  }
 }
 
 @media (min-width: 50rem) {
