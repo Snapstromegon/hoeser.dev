@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { customElement, state } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import "./covid-county";
 import "./covid-federal";
 import "./covid-nation";
@@ -22,14 +23,9 @@ export default class CovidStats extends LitElement {
       <div id="wrapper">
         <covid-nation></covid-nation>
         <covid-federal
-          @federalChanged=${(e: any) => {
-            this.federal = e.detail;
-            this.requestUpdate();
-          }}
+          @federalChanged=${(e: any) => (this.federal = e.detail)}
         ></covid-federal>
-        ${this.federal
-          ? html`<covid-county federal=${this.federal}></covid-county>`
-          : html`<covid-county></covid-county>`}
+        <covid-county federal=${ifDefined(this.federal)}></covid-county>
       </div>
     `;
   }

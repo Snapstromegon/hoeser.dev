@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit";
 import { customElement, state, property } from "lit/decorators.js";
-import { until } from "lit/directives/until.js";
+import { repeat } from "lit/directives/repeat.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 import {
   loadCovidDataByFederal,
@@ -34,79 +35,59 @@ export default class CovidCounty extends LitElement {
     }
   `;
 
-  #federal = "";
-
-  @property()
-  get federal(): string {
-    return this.#federal;
-  }
-
-  set federal(val: string) {
-    let oldVal = this.#federal;
-    this.#federal = val;
-    this.covidDataByFederal.then(data => {
-      if(this.federal != val) return;
-      if(data.get(this.federal)?.counties.has(val)) return;
-      const counties = [...(data.get(this.federal)?.counties.keys() || [])]
-      this.county = counties.sort()[0];
-    });
-    this.requestUpdate("prop", oldVal);
+  constructor() {
+    super();
+    loadCovidDataByFederal().then((data) => (this.covidDataByFederal = data));
+    loadCovidDataByCounty().then((data) => (this.covidDataByCounty = data));
   }
 
   @state()
-  covidDataByFederal = loadCovidDataByFederal();
+  covidDataByFederal?: Awaited<ReturnType<typeof loadCovidDataByFederal>>;
 
   @state()
-  covidDataByCounty = loadCovidDataByCounty().then((data) => {
-    if (!this.county) this.updateCounty([...data.keys()].sort()[0]);
-    return data;
-  });
+  covidDataByCounty?: Awaited<ReturnType<typeof loadCovidDataByCounty>>;
+
+  @property({ type: String })
+  federal?: string;
 
   @state()
   county?: string;
 
-  updateCounty(county: string) {
-    this.county = county;
-    this.requestUpdate();
+  get federalData() {
+    if (!this.federal) return;
+    return this.covidDataByFederal?.get(this.federal);
+  }
+
+  get countyData() {
+    if (!this.county) return;
+    return this.covidDataByCounty?.get(this.county);
+  }
+
+  get availableFederalCountiesSorted() {
+    return [...(this.federalData?.counties.keys() || [])].sort();
+  }
+
+  get availableCounties() {
+    return [...(this.covidDataByCounty?.keys() || [])].sort();
   }
 
   override render() {
-    console.log(this.covidDataByFederal, this.federal, this.county);
     return html`
       <div id="wrapper">
-        <select @input=${(e: any) => this.updateCounty(e.target.value)}>
-          ${until(
-            this.federal
-              ? this.covidDataByFederal.then((data) => {
-                  const counties = data
-                    .get(this.federal as string)
-                    ?.counties?.keys();
-                  if (!counties) return;
-                  return [...counties]
-                    .sort()
-                    .map((federal) => html`<option>${federal}</option>`);
-                })
-              : this.covidDataByCounty.then((data) =>
-                  [...data.keys()]
-                    .sort()
-                    .map((county) => html`<option>${county}</option>`)
-                )
+        <select @input=${(e: any) => (this.county = e.target.value)}>
+          ${repeat(
+            this.availableFederalCountiesSorted || this.availableCounties,
+            (county: string) => county,
+            (county: string) => html`<option>${county}</option>`
           )}
         </select>
-        ${until(
-          this.covidDataByCounty.then((data) => {
-            const county = data.get(this.county as string);
-            if (!county) return;
-            return html`<covid-overview
-              residents=${county.residents}
-              cases=${county.cases}
-              deaths=${county.deaths}
-              cases7=${county.cases7}
-              deaths7=${county.deaths7}
-            ></covid-overview>`;
-          }),
-          html`<covid-overview></covid-overview>`
-        )}
+        <covid-overview
+          residents=${ifDefined(this.countyData?.residents)}
+          cases=${ifDefined(this.countyData?.cases)}
+          deaths=${ifDefined(this.countyData?.deaths)}
+          cases7=${ifDefined(this.countyData?.cases7)}
+          deaths7=${ifDefined(this.countyData?.deaths7)}
+        ></covid-overview>
       </div>
     `;
   }

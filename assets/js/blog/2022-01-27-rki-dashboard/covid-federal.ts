@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit";
 import { customElement, state } from "lit/decorators.js";
-import { until } from "lit/directives/until.js";
+import { ifDefined } from "lit/directives/if-defined.js";
+import { repeat } from "lit/directives/repeat.js";
 
 import { loadCovidDataByFederal } from "./covidDataLoader";
 
@@ -31,49 +32,55 @@ export default class CovidFederal extends LitElement {
     }
   `;
 
+  constructor() {
+    super();
+    loadCovidDataByFederal().then((data) => {
+      this.covidDataByFederal = data;
+      this.updateFederal(this.availableFederalsSorted[0]);
+    });
+  }
+
   @state()
-  covidDataByFederal = loadCovidDataByFederal().then((data) => {
-    if (!this.federal) this.updateFederal([...data.keys()].sort()[0] as string);
-    return data;
-  });
+  covidDataByFederal?: Awaited<ReturnType<typeof loadCovidDataByFederal>>;
 
   @state()
   federal?: string;
 
   updateFederal(federal: string) {
     this.federal = federal;
-    this.requestUpdate();
     this.dispatchEvent(
       new CustomEvent("federalChanged", { bubbles: false, detail: federal })
     );
+  }
+
+  get availableFederalsSorted(): string[] {
+    return [
+      ...((this.covidDataByFederal || []).keys() as Iterable<string>),
+    ].sort();
+  }
+
+  get federalData() {
+    if (!this.federal) return;
+    return this.covidDataByFederal?.get(this.federal);
   }
 
   override render() {
     return html`
       <div id="wrapper">
         <select @input=${(e: any) => this.updateFederal(e.target.value)}>
-          ${until(
-            this.covidDataByFederal.then((data) =>
-              [...data.keys()]
-                .sort()
-                .map((federal) => html`<option>${federal}</option>`)
-            )
+          ${repeat(
+            this.availableFederalsSorted,
+            (federal) => federal,
+            (federal) => html`<option>${federal}</option>`
           )}
         </select>
-        ${until(
-          this.covidDataByFederal.then((data) => {
-            const federal = data.get(this.federal as string);
-            if (!federal) return;
-            return html`<covid-overview
-              residents=${federal.residents}
-              cases=${federal.cases}
-              deaths=${federal.deaths}
-              cases7=${federal.cases7}
-              deaths7=${federal.deaths7}
-            ></covid-overview>`;
-          }),
-          html`<covid-overview></covid-overview>`
-        )}
+        <covid-overview
+          residents=${ifDefined(this.federalData?.residents)}
+          cases=${ifDefined(this.federalData?.cases)}
+          deaths=${ifDefined(this.federalData?.deaths)}
+          cases7=${ifDefined(this.federalData?.cases7)}
+          deaths7=${ifDefined(this.federalData?.deaths7)}
+        ></covid-overview>
       </div>
     `;
   }
