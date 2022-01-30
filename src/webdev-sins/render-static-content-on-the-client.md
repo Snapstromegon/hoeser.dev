@@ -1,5 +1,5 @@
 ---
-title: Render static content on the client
+title: Don't render static content on the client
 abstract: |
   It's nice to use modern web development stuff to build simple things, but don't miss out on the basics by building heavy solutions for simple problems.
 date: 2022-01-26
