@@ -20,7 +20,7 @@
 pwa-installer {
   position: fixed;
   bottom: 0;
-  margin: .5rem;
+  margin: 1rem;
   align-self: flex-end;
   z-index: 1000;
 }
