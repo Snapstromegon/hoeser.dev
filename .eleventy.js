@@ -65,6 +65,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight, { alwaysWrapLineHighlights: true });
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
   eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents));
+  eleventyConfig.addShortcode("currentTime", () => {
+    console.log("Called Timestamp", Date.now());
+    return Date.now() + "";
+  });
   eleventyConfig.addAsyncShortcode("image", imageShortcode);
   eleventyConfig.addAsyncShortcode("favicon", generateFaviconHTML);
   eleventyConfig.addFilter("logging", (...args) => {

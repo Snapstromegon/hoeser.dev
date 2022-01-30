@@ -2,10 +2,13 @@
 permalink: sw.js
 ---
 
+const DYNAMIC_CACHE = "dynamic";
+const STATIC_CACHE = "preload-static-{{pkg.version}}-{% currentTime %}";
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     (async function () {
-      const cache = await caches.open("preload-static-{{pkg.version}}");
+      const cache = await caches.open(STATIC_CACHE);
       await cache.addAll([
         "/offline",
         "/manifest.json",
@@ -20,19 +23,32 @@ self.addEventListener("install", (event) => {
   );
 });
 
+self.addEventListener("activate", function (event) {
+  event.waitUntil(
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames
+          .filter((cacheName) =>
+            ![STATIC_CACHE, DYNAMIC_CACHE].includes(cacheName)
+          )
+          .map(function (cacheName) {
+            return caches.delete(cacheName);
+          })
+      );
+    })
+  );
+});
+
 self.addEventListener('fetch', (event) => {
   event.respondWith(async function() {
     const cachedResponse = await caches.match(event.request);
     if (cachedResponse) return cachedResponse;
 
     try {
-      console.log("fetching", event.request);
       const response = await fetch(event.request);
-      console.log("response", response);
       return response;
     } catch (err) {
       if(event.request.mode == "navigate"){
-        console.log("Offline Fallback", await caches.match('/offline'));
         return cleanResponse(await caches.match('/offline'));
       }
     }

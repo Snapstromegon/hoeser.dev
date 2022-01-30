@@ -87,7 +87,7 @@ header svg .colorB {
 header .content {
   display: flex;
   align-items: center;
-  gap: 3rem 9rem;
+  gap: 3rem;
   flex-wrap: wrap;
   justify-content: center;
 }
