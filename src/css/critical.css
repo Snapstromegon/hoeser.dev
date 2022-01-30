@@ -8,19 +8,27 @@
   --theme-color-a: #5df;
   --theme-color-b: #f39;
 
-  --xxs: 0.1rem;
+  --text-color: #000;
+  --text-color--lighter: #555;
+  --background-color: #fff;
+  --background-color-secondary: #eee;
+  --background-color-secondary-darkened: #ccc;
+
+  --xxxs: 0.1rem;
+  --xxs: 0.2rem;
   --xs: 0.3rem;
   --s: 0.5rem;
   --m: 1rem;
   --l: 1.2rem;
   --xl: 1.5rem;
-  --xxl: 2rem;
+  --xxl: 3rem;
+  --xxxl: 6rem;
 }
 
 pwa-installer {
   position: fixed;
   bottom: 0;
-  margin: 1rem;
+  margin: var(--m);
   align-self: flex-end;
   z-index: 1000;
 }
@@ -34,17 +42,18 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  color: var(--text-color);
+  background: var(--background-color);
 }
 
 header {
-  background: #fff;
   position: relative;
-  padding: 3rem 0;
+  padding: var(--xxl) 0;
 }
 
 header::before {
   content: "";
-  height: 0.3rem;
+  height: var(--xs);
   width: 100%;
   background: linear-gradient(
     to right,
@@ -75,7 +84,7 @@ header #logo {
 
 header #logo span {
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
+  letter-spacing: var(--xxs);
 }
 
 header svg {
@@ -95,7 +104,7 @@ header svg .colorB {
 header .content {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: var(--xxl);
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -106,7 +115,7 @@ header nav {
 
 header nav ul {
   display: flex;
-  gap: 3rem;
+  gap: var(--xxl);
   flex-wrap: wrap;
 }
 
@@ -121,11 +130,10 @@ header nav ul ul {
 header nav a {
   text-transform: uppercase;
   text-decoration: none;
-  color: #000;
-  letter-spacing: 0.5rem;
-  /* font-size: 1.2rem; */
+  color: var(--text-color);
+  letter-spacing: var(--s);
   position: relative;
-  padding: 1rem 0 1rem 0.5rem;
+  padding: var(--m) 0 var(--m) var(--s);
 }
 
 header nav a:first-letter {
@@ -136,10 +144,10 @@ header nav a:first-letter {
 header nav a:hover::after,
 header nav a.current::after {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   content: "";
   width: 100%;
-  height: 0.2rem;
+  height: var(--xxs);
   display: block;
   background: var(--theme-color-a);
 }
@@ -148,12 +156,12 @@ header nav a.current::after {
   max-width: 80rem;
   width: 90%;
   margin: auto;
-  padding: 0 1rem;
+  padding: 0 var(--m);
 }
 
 .devider,
 footer {
-  padding: 3rem 0;
+  padding: var(--xxl) 0;
   background: #333;
   background: repeating-linear-gradient(
       -45deg,
@@ -170,7 +178,7 @@ footer {
 
 .devider::after {
   content: "";
-  height: 0.3rem;
+  height: var(--xs);
   width: 100%;
   background: linear-gradient(
     to right,
@@ -186,7 +194,7 @@ footer {
 }
 
 .devider h1 {
-  font-size: 3rem;
+  font-size: var(--xxl);
   max-width: 50rem;
 }
 
@@ -200,31 +208,31 @@ footer {
 }
 
 footer {
-  padding-bottom: 6rem;
+  padding-bottom: var(--xxxl);
 }
 
 footer .content {
   display: flex;
   flex-wrap: wrap;
-  gap: 6rem;
+  gap: var(--xxxl);
 }
 
 footer img {
   border-radius: 50%;
-  border: 0.3rem solid #fff;
+  border: var(--xs) solid #fff;
   height: 9rem;
   width: 9rem;
 }
 
 .footerSections {
   display: grid;
-  gap: 3rem;
+  gap: var(--xxl);
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
 
 .footerSections .bioFooter {
   display: flex;
-  gap: 1.5rem;
+  gap: var(--xl);
 }
 
 .footerSections ul {
@@ -245,7 +253,7 @@ main > .content > article > :first-child {
 }
 
 main > .content > article > :last-child {
-  margin-bottom : 0;
+  margin-bottom: 0;
 }
 
 main > .content > article p,
@@ -259,7 +267,7 @@ main > .content > article pre {
 .underline_fancy::after {
   content: "";
   display: block;
-  width: 6rem;
+  width: var(--xxxl);
   height: 0.1rem;
   background: linear-gradient(
     to right,
@@ -269,12 +277,12 @@ main > .content > article pre {
 }
 
 .blogpostList {
-  margin: 3rem 0;
+  margin: var(--xxl) 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   list-style: none;
   padding: 0;
-  gap: 3rem;
+  gap: var(--xxl);
 }
 
 .blogpostList li {
@@ -282,12 +290,12 @@ main > .content > article pre {
 }
 
 .blogpostList a {
-  color: #000;
+  color: var(--text-color);
   text-decoration: none;
-  padding: 1rem;
-  border: 0.1rem solid #000;
+  padding: var(--m);
+  border: var(--xxxs) solid var(--text-color);
   display: block;
-  border-radius: 0.5rem;
+  border-radius: var(--s);
   height: 100%;
 }
 
@@ -301,13 +309,13 @@ main > .content > article pre {
   grid-template-columns: 1fr auto;
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "title date" "abstract abstract" "tags tags";
-  gap: 1rem;
+  gap: var(--m);
   height: 100%;
 }
 
 .blogpostList article .post_date {
   grid-area: date;
-  color: #555;
+  color: var(--text-color--lighter);
   font-weight: bolder;
 }
 
@@ -323,17 +331,17 @@ main > .content > article pre {
   grid-area: tags;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--s);
 }
 
 .blogpost-tag {
-  padding: 0.3rem 0.6rem;
+  padding: var(--xs) var(--s);
   background: #333;
   color: #ccc;
   border-radius: 100vh;
   text-transform: uppercase;
   font-weight: bolder;
-  font-size: 0.9rem;
+  font-size: var(--m);
   display: inline-block;
 }
 
@@ -354,8 +362,7 @@ main > .content > article pre {
 
 main ol,
 main ul {
-  /* list-style-position: inside; */
-  padding-left: 3rem;
+  padding-left: var(--xxl);
 }
 
 main img {
@@ -376,11 +383,11 @@ main h4 {
 }
 
 main aside {
-  background-color: #eee;
-  padding: 1rem;
-  border-radius: 0.3rem;
+  background-color: var(--background-color-secondary);
+  padding: var(--m);
+  border-radius: var(--xs);
   position: relative;
-  margin: 1rem 0 4rem 0;
+  margin: var(--m) 0 var(--xxl) 0;
 }
 
 main aside :first-child {
@@ -392,16 +399,16 @@ main aside::after {
   display: block;
   position: absolute;
   right: 0.22rem;
-  bottom: -3rem;
-  height: 3rem;
-  width: 6rem;
-  background: #ccc;
+  bottom: calc(0px - var(--xxl));
+  height: var(--xxl);
+  width: var(--xxxl);
+  background: var(--background-color-secondary-darkened);
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
 .blog_devider {
   display: flex;
-  gap: 3rem;
+  gap: var(--xxl);
   flex-wrap: wrap;
 }
 
@@ -409,16 +416,16 @@ main aside::after {
   background: #222;
   position: relative;
   z-index: 1;
-  border-radius: 0.3rem;
+  border-radius: var(--xs);
   flex-grow: 1;
   flex-shrink: 0;
   align-self: flex-end;
-  padding: 1rem;
+  padding: var(--m);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--m);
   transform: none;
-  margin-bottom: 3rem;
+  margin-bottom: var(--xxl);
   min-width: 20rem;
 }
 
@@ -427,9 +434,9 @@ main aside::after {
   display: block;
   position: absolute;
   right: 0.22rem;
-  bottom: -3rem;
-  height: 3rem;
-  width: 6rem;
+  bottom: calc(0px - var(--xxl));
+  height: var(--xxl);
+  width: var(--xxxl);
   background: #555;
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
@@ -454,7 +461,7 @@ main aside::after {
   grid-area: tags;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--s);
 }
 
 body a {
@@ -462,9 +469,9 @@ body a {
 }
 
 .commentBlock {
-  background-color: #eee;
-  padding: 1rem;
-  border-radius: 0.3rem;
+  background-color: var(--background-color-secondary);
+  padding: var(--m);
+  border-radius: var(--xs);
   position: relative;
   overflow: hidden;
 }
@@ -480,7 +487,7 @@ body a {
   left: 0;
   top: 0;
   height: 100%;
-  width: 0.3rem;
+  width: var(--xs);
   background: linear-gradient(
     to top,
     var(--theme-color-a),
@@ -500,13 +507,33 @@ body a {
   }
 
   .blogpost_overview {
-    transform: translateY(6rem);
+    transform: translateY(var(--xxxl));
     margin-bottom: 0rem;
   }
 
   main aside {
     float: right;
     max-width: 25rem;
-    margin: 3rem 0 6rem 3rem;
+    margin: var(--xxl) 0 var(--xxxl) var(--xxl);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --text-color--lighter: #bbb;
+    --background-color: #222;
+    --background-color-secondary: #333;
+    --background-color-secondary-darkened: #555;
+  }
+  .blogpost_overview {
+    background: #111;
+  }
+
+  body a {
+    color: var(
+      --dark-theme-link-color,
+      var(--theme-link-color, var(--theme-color-b))
+    );
   }
 }

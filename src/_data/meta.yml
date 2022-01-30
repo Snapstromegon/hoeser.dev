@@ -2,7 +2,7 @@ site_name: Snapstromegon's Blog
 site_short_name: "Snapstromegon:Blog"
 description: "See what I'm writing about the world and development."
 domain: hoeser.dev
-theme_color: "#0cf"
+theme_color: "#222"
 subtitle: All thoughts are HTTP 203
 url: https://www.hoeser.dev/
 feedUrl: https://www.hoeser.dev/feed.xml

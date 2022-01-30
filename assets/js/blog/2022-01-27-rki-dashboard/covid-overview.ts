@@ -107,3 +107,5 @@ declare global {
     "covid-overview": CovidOverview;
   }
 }
+
+console.log(CovidOverview);
