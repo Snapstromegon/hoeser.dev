@@ -237,10 +237,15 @@ footer img {
 
 main {
   flex-grow: 1;
+  margin: 9rem 0;
 }
 
-main > .content > article {
-  margin: 9rem 0;
+main > .content > article > :first-child {
+  margin-top: 0;
+}
+
+main > .content > article > :last-child {
+  margin-bottom : 0;
 }
 
 main > .content > article p,
