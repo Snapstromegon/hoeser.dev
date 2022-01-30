@@ -8,7 +8,7 @@ export default class PWAInstaller extends LitElement {
       border: 0.2rem solid transparent;
       background: linear-gradient(#fff, #fff),
         linear-gradient(to right, var(--theme-color-a), var(--theme-color-b));
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1rem .5rem .75rem;
       z-index: 1000;
       color: #000;
       border-radius: 0.3rem;
@@ -19,8 +19,7 @@ export default class PWAInstaller extends LitElement {
       align-items: center;
     }
     #download-icon {
-      /* font-weight: bold; */
-      height: 1.5rem;
+      height: 1.2rem;
     }
   `;
 
@@ -49,7 +48,7 @@ export default class PWAInstaller extends LitElement {
         <path fill="none" d="M0 0h24v24H0z" />
         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
       </svg>
-      Add to Homescreen
+      Install PWA
     </button>`;
   }
 }

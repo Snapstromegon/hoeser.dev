@@ -17,6 +17,14 @@
   --xxl: 2rem;
 }
 
+pwa-installer {
+  position: fixed;
+  bottom: 0;
+  margin: .5rem;
+  align-self: flex-end;
+  z-index: 1000;
+}
+
 html {
   font-family: Helvetica;
   line-height: 1.5;
