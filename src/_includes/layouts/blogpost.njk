@@ -1,7 +1,7 @@
 ---
 layout: layouts/main.njk
 eleventyComputed:
-  metaDescription: "{{ abstract }}"
+  description: "{{ abstract }}"
 ---
 
 <style>
@@ -33,6 +33,10 @@ eleventyComputed:
             {% endfor %}
           </div>
         </span>
+      </div>
+      <div class="blogpost_meta">
+        <span class="blogpost_meta__label">Share this on:</span>
+        <span class="blogpost_meta__value"><a href="https://twitter.com/intent/tweet?url={{ (meta.url + page.url) | url | encodeURIComponent }}&text={{title | encodeURIComponent}}">Twitter</a></span>
       </div>
     </div>
   </div>

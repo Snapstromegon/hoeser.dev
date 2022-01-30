@@ -75,6 +75,7 @@ module.exports = function (eleventyConfig) {
     console.log("Logging:", ...args);
     return args;
   });
+  eleventyConfig.addFilter("encodeURIComponent", encodeURIComponent);
   eleventyConfig.addNunjucksAsyncFilter("faviconData", (src, callback) =>
     generateFavicon(src).then((data) => callback(null, data))
   );

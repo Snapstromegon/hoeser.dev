@@ -4,7 +4,7 @@ description: "See what I'm writing about the world and development."
 domain: hoeser.dev
 theme_color: "#222"
 subtitle: All thoughts are HTTP 203
-url: https://www.hoeser.dev/
+url: https://www.hoeser.dev
 feedUrl: https://www.hoeser.dev/feed.xml
 favicon: assets/img/hummingbird_flipped.svg
 author:
