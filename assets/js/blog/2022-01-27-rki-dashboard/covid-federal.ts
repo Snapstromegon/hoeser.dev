@@ -60,8 +60,7 @@ export default class CovidFederal extends LitElement {
   }
 
   get federalData() {
-    if (!this.federal) return;
-    return this.covidDataByFederal?.get(this.federal);
+    return this.covidDataByFederal?.get(this.federal as string);
   }
 
   override render() {

@@ -54,13 +54,11 @@ export default class CovidCounty extends LitElement {
   county?: string;
 
   get federalData() {
-    if (!this.federal) return;
-    return this.covidDataByFederal?.get(this.federal);
+    return this.covidDataByFederal?.get(this.federal as string);
   }
 
   get countyData() {
-    if (!this.county) return;
-    return this.covidDataByCounty?.get(this.county);
+    return this.covidDataByCounty?.get(this.county as string);
   }
 
   get availableFederalCountiesSorted() {
@@ -69,6 +67,12 @@ export default class CovidCounty extends LitElement {
 
   get availableCounties() {
     return [...(this.covidDataByCounty?.keys() || [])].sort();
+  }
+
+  override updated(changedProperties: Map<string, any>) {
+    if (changedProperties.has("federal")) {
+      this.county = this.availableFederalCountiesSorted[0];
+    }
   }
 
   override render() {

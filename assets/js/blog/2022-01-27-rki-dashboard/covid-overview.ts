@@ -67,8 +67,7 @@ export default class CovidOverview extends LitElement {
   residents?: number;
 
   toPer100k(value?: number): number | undefined {
-    if (!value) return;
-    if (!this.residents) return NaN;
+    if (!value || !this.residents) return;
     return (100_000 / this.residents) * value;
   }
 
@@ -77,9 +76,9 @@ export default class CovidOverview extends LitElement {
       <div id="wrapper">
         <div id="incidence">
           <span>7-Day incidence</span>
-          <span class="value"
-            >${this.toPer100k(this.cases7)?.toFixed(2) ?? "..."}</span
-          >
+          <span class="value">
+            ${this.toPer100k(this.cases7)?.toFixed(2) ?? "..."}
+          </span>
         </div>
         <div id="cases7">
           <span>7-Day cases</span>
@@ -107,5 +106,3 @@ declare global {
     "covid-overview": CovidOverview;
   }
 }
-
-console.log(CovidOverview);

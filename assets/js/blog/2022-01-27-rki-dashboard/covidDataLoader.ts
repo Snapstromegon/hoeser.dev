@@ -33,7 +33,7 @@ const parseRKIDateString = (dateString: string): Date => {
   );
 };
 
-const loadRawCovidData = (): Promise<RawDataEntry[]> => {
+const loadCovidData = (): Promise<RawDataEntry[]> => {
   if (loadedDataPromise) {
     return loadedDataPromise;
   }
@@ -65,15 +65,10 @@ const loadRawCovidData = (): Promise<RawDataEntry[]> => {
   return loadedDataPromise;
 };
 
-export const loadCovidData = async (): Promise<RawDataEntry[]> => {
-  const rawData = await loadRawCovidData();
-  return rawData;
-};
-
 export const loadCovidDataByCounty = async (): Promise<
   Map<RawDataEntry["county"], RawDataEntry>
 > => {
-  const rawData = await loadRawCovidData();
+  const rawData = await loadCovidData();
   const result = new Map();
   for (const entry of rawData) {
     result.set(entry.county, entry);
@@ -95,7 +90,7 @@ export const loadCovidDataByFederal = async (): Promise<
     }
   >
 > => {
-  const rawData = await loadRawCovidData();
+  const rawData = await loadCovidData();
   const result = new Map();
   for (const entry of rawData) {
     if (!result.has(entry.federal)) {
@@ -127,7 +122,7 @@ export const loadNationOverview = async (): Promise<{
   residents: number;
   updated: Date;
 }> => {
-  const counties = await loadRawCovidData();
+  const counties = await loadCovidData();
 
   const result = {
     cases: 0,
