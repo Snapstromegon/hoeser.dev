@@ -4,6 +4,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 import "./covid-county";
 import "./covid-federal";
 import "./covid-nation";
+import { loadNationOverview } from "./covidDataLoader";
 
 @customElement("covid-stats")
 export default class CovidStats extends LitElement {
@@ -14,11 +15,19 @@ export default class CovidStats extends LitElement {
       gap: 1.5rem;
     }
   `;
+  constructor() {
+    super();
+    loadNationOverview().then((data: any) => (this.covidDataNation = data));
+  }
+
+  @state()
+  covidDataNation?: Awaited<ReturnType<typeof loadNationOverview>>;
 
   @state()
   federal: string = "";
 
   override render() {
+    console.log(this.covidDataNation);
     return html`
       <div id="wrapper">
         <covid-nation></covid-nation>
@@ -26,6 +35,7 @@ export default class CovidStats extends LitElement {
           @federalChanged=${(e: any) => (this.federal = e.detail)}
         ></covid-federal>
         <covid-county federal=${ifDefined(this.federal)}></covid-county>
+        <p>Last data update: ${this.covidDataNation?.updated.toLocaleDateString()}</p>
       </div>
     `;
   }
