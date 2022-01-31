@@ -89,16 +89,20 @@ header #logo span {
 
 header svg {
   transform: scaleX(-100%);
-  shape-rendering: crispEdges;
+  stroke-linejoin: round;
 }
 
 header svg .colorA {
   fill: var(--theme-color-a);
+  stroke: var(--theme-color-a);
+  stroke-width: 1px;
 }
 
 header svg .colorB {
   opacity: calc(var(--progress));
   fill: var(--theme-color-b);
+  stroke: var(--theme-color-b);
+  stroke-width: 1px;
 }
 
 header .content {
