@@ -37,11 +37,9 @@ It's actually really simple:
 
 {% image "assets/img/blog/2022-01-27-rki-dashboard/devtools-network.jpg", "Screenshot from the Chrome Dev Tools network panel showing 376 requests and 6.6MB of transferred data", [null] %}
 
-<aside>
-
+:::sidenote
 I know that Lighthouse reports aren't silver bullets, but they give a good indication of things and are also more or less reproduceable.
-
-</aside>
+:::
 
 As you can see, the dashboard loads massive amounts of data in many requests and takes over **ten seconds** to finish loading on my desktop pc with a wired broadband internet connection.
 

@@ -7,6 +7,9 @@ const Image = require("@11ty/eleventy-img");
 const typescript = require("rollup-plugin-typescript2");
 const { default: resolve } = require("@rollup/plugin-node-resolve");
 const { terser } = require("rollup-plugin-terser");
+const markdownIt = require("markdown-it");
+const markdownItEmoji = require("markdown-it-emoji");
+const markdownItContainer = require("markdown-it-container");
 
 function generateImages(src) {
   return Image(src, {
@@ -60,6 +63,14 @@ function tagValue(tag) {
 }
 
 module.exports = function (eleventyConfig) {
+  let options = {
+    html: true,
+    breaks: true,
+    linkify: true,
+  };
+
+  eleventyConfig.setLibrary("md", markdownIt(options).use(markdownItEmoji).use(markdownItContainer, 'sidenote'));
+
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight, { alwaysWrapLineHighlights: true });
@@ -68,9 +79,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("currentTime", () => Date.now() + "");
   eleventyConfig.addAsyncShortcode("image", imageShortcode);
   eleventyConfig.addAsyncShortcode("favicon", generateFaviconHTML);
-  eleventyConfig.addFilter("logging", (...args) => {
-    console.log("Logging:", ...args);
-    return args;
+  eleventyConfig.addFilter("logging", (input, label, passthrough) => {
+    console.log(`logging-${label}:`, input);
+    if (passthrough) return input;
   });
   eleventyConfig.addFilter("encodeURIComponent", encodeURIComponent);
   eleventyConfig.addNunjucksAsyncFilter("faviconData", (src, callback) =>

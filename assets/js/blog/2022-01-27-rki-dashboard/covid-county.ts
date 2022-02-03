@@ -96,6 +96,7 @@ export default class CovidCounty extends LitElement {
     `;
   }
 }
+console.log(CovidCounty);
 
 declare global {
   interface HTMLElementTagNameMap {

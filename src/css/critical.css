@@ -386,7 +386,7 @@ main h4 {
   margin-bottom: 0.5em;
 }
 
-main aside {
+main .sidenote {
   background-color: var(--background-color-secondary);
   padding: var(--m);
   border-radius: var(--xs);
@@ -394,11 +394,11 @@ main aside {
   margin: var(--m) 0 var(--xxl) 0;
 }
 
-main aside :first-child {
+main .sidenote :first-child {
   margin-top: 0;
 }
 
-main aside::after {
+main .sidenote::after {
   content: "";
   display: block;
   position: absolute;
@@ -515,7 +515,7 @@ body a {
     margin-bottom: 0rem;
   }
 
-  main aside {
+  main .sidenote {
     float: right;
     max-width: 25rem;
     margin: var(--xxl) 0 var(--xxxl) var(--xxl);
