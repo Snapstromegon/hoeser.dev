@@ -37,7 +37,7 @@ They do basically this:
 1. Run 11ty
 2. Run rollup with a config file
 
-This is used by [nhoizey/pack11ty](https://github.com/reeseschultz/11r).
+This is used by [nhoizey/pack11ty](https://github.com/nhoizey/pack11ty).
 
 ### Rollup then 11ty
 
