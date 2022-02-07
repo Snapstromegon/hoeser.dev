@@ -262,6 +262,8 @@ main > .content > article > :last-child {
 
 main > .content > article p,
 main > .content > article h2,
+main > .content > article ol,
+main > .content > article ul,
 main > .content > article summary,
 main > .content > article .commentBlock,
 main > .content > article pre {

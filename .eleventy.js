@@ -69,7 +69,13 @@ module.exports = function (eleventyConfig) {
     linkify: true,
   };
 
-  eleventyConfig.setLibrary("md", markdownIt(options).use(markdownItEmoji).use(markdownItContainer, 'sidenote'));
+  eleventyConfig.setLibrary(
+    "md",
+    markdownIt(options)
+      .use(markdownItEmoji)
+      .use(markdownItContainer, "sidenote")
+      .use(markdownItContainer, "commentBlock")
+  );
 
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
