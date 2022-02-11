@@ -1,4 +1,5 @@
-import("./common/pwa-install.js");
+import "@inventage/matomo-opt-out";
+import "./common/pwa-install.js";
 
 navigator.serviceWorker
   ?.register("/sw.js", { scope: "/" })

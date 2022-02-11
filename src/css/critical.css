@@ -266,7 +266,8 @@ main > .content > article ol,
 main > .content > article ul,
 main > .content > article summary,
 main > .content > article .commentBlock,
-main > .content > article pre {
+main > .content > article pre,
+.textWidth {
   max-width: 50rem;
 }
 
