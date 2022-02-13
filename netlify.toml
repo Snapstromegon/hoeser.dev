@@ -2,3 +2,11 @@
   for = "/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
+
+[[redirects]]
+  from = "/posts/2021-02-28-11ty-and-rollup"
+  to = "/blog/2021-02-28-11ty-and-rollup"
+
+[[redirects]]
+  from = "/posts/2021-02-28-11ty-and-rollup/"
+  to = "/blog/2021-02-28-11ty-and-rollup/"
