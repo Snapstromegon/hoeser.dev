@@ -47,19 +47,19 @@ eleventyComputed:
       {{ content | safe }}
     </article>
     <div class="relatePreview">
-      {% set previousPost = collections.blogposts | getPreviousCollectionItem(page) %}
-      {% set nextPost = collections.blogposts | getNextCollectionItem(page) %}
+      {% set previousPost = collections.sins | getPreviousCollectionItem(page) %}
+      {% set nextPost = collections.sins | getNextCollectionItem(page) %}
       <h2>Liked this? Maybe you'll also like these:</h2>
       {% if previousPost %}
         <a href="{{ previousPost.url }}" class="relatePreview__previous">
-          <span>🠔 Previous Post</span>
+          <span>🠔 Previous Sin</span>
           <h3>{{ previousPost.data.title }}</h3>
           <p>{{ previousPost.data.abstract }}</p>
         </a>
       {% endif %}
       {% if nextPost %}
         <a href="{{ nextPost.url }}" class="relatePreview__next">
-          <span>Next Post ➞</span>
+          <span>Next Sin ➞</span>
           <h3>{{ nextPost.data.title }}</h3>
           <p>{{ nextPost.data.abstract }}</p>
         </a>

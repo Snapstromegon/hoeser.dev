@@ -502,6 +502,32 @@ body a {
   );
 }
 
+.relatePreview {
+  margin-top: var(--xxxl);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: var(--xxl);
+  border-top: var(--xxxs) dotted var(--text-color);
+}
+
+.relatePreview h2 {
+  grid-column: 1 / -1;
+}
+
+.relatePreview a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: var(--m);
+  border: var(--xxxs) solid var(--text-color);
+  display: block;
+  border-radius: var(--s);
+}
+
+.relatePreview a h3 {
+  margin-top: var(--l);
+}
+
 @media (min-width: 50rem) {
   .devider h1 {
     font-size: 4rem;

@@ -1,4 +1,4 @@
-layout: layouts/blogpost.njk
+layout: layouts/webdev-sins.njk
 eleventyNavigation:
   parent: WebDev-Sins
 theme:
