@@ -377,3 +377,9 @@ I've added a logarithmic trendline to better visualize what's happening here.
 In my opinion the data shows what I expected when I started doing this: popularity is a strong indicator for quality (at least as long as you agree with the quality factors of npms.io). It also clearly describes that (like you would expect) high usage is not a guarantee for high quality. We can see clearly see many dots falling way below the curve and the smaller we make the clusters, the more clear this becomes.
 
 But this data shows also something I didn't expect! Putting some dots aside and also ignore the nearly unused packages, overall packages on npm have a fairly high code quality which I think is really great!
+
+:::commentBlock
+
+If you think stuff like this is cool and you either want to reproduce it yourself, or you think that npms.io is awesome, remember to not take open source work for granted. Maybe you can find a couple of dollars or some minutes of your time to spare and do it like me and buy your open source contributers a coffee or contribute back in other ways. It shows appreciation and also helps to compensate for higher costs you might have created especially when doing scraping projects like these.
+
+:::
