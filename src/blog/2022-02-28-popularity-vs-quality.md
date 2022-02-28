@@ -22,7 +22,7 @@ Also this post does not mean that you shouldn't use smaller libraries! It just m
 
 ## Preface
 
-"establishedness - a broad distribution can be an indicator of quality" I wrote this similar in my paper and then stopped for a second. - That's a really bold claim with not backup and nevertheless this feels so true that I didn't even think it could be wrong. A quick google search backed me up... But it was just comments over comments and many opinion blogposts which said that more popular packages are always better maintained. But this is not good enough to quote in a paper, so I started to dive headfirst into some data analysis.
+"establishedness - a broad distribution can be an indicator of quality" I wrote something similar to this in the draft of my paper and then stopped for a second. - That's a really bold claim with not backup and nevertheless this feels so true that I didn't even think it could be wrong. A quick google search backed me up... But it was just comments over comments and many opinion blogposts which said that more popular packages are always of higher quality. But this is not good enough to be quoted in a paper, so I started to dive headfirst into some data analysis.
 
 ## What is quality or even popularity
 
@@ -34,7 +34,7 @@ Yeah, NPM is big and when I started, I just thought "hey, let's take the package
 
 ### Getting a list of all packages
 
-NPM doesn't have a simple API which you can call and just say "please give me all package names". At least not officially. **StackOverflow to the Rescue!** In this thread about how to [list all public packages in the npm registry](https://stackoverflow.com/questions/48251633/list-all-public-packages-in-the-npm-registry) [Mark Amery](https://stackoverflow.com/users/1709587/mark-amery) mentioned that CouchDB of NPM is open to the public, so we can just use `curl https://replicate.npmjs.com/_all_docs` to download all docs in JSON format.
+NPM doesn't have a simple API which you can call and just say "please give me all package names". At least not officially. **StackOverflow to the Rescue!** In this thread about how to [list all public packages in the npm registry](https://stackoverflow.com/questions/48251633/list-all-public-packages-in-the-npm-registry) [Mark Amery](https://stackoverflow.com/users/1709587/mark-amery) mentioned that the CouchDB of NPM is open to the public, so we can just use `curl https://replicate.npmjs.com/_all_docs` to download all docs in JSON format.
 
 So a quick...
 
@@ -49,7 +49,7 @@ curl https://replicate.npmjs.com/_all_docs > npm.json
 I fully expected NPM to just block me at some point, but props to them for allowing me to download all of this (albeit at a snail's pace)
 :::
 
-... and about three hours and fourty minutes of downloading later I had all that glory data in my hand in JSON format. Also I now saw that I was talking about 1.890.051 packages.
+... and about three hours and fourty minutes of downloading later I had all that data in my hand in JSON format. Also I now saw that I was talking about 1.890.051 packages.
 In case you're interested: Here are the first couple lines of that _npm.json_.
 
 ```json
@@ -115,13 +115,13 @@ By the way, nodejs is great for cli work - in case you missed it
 
 To load the metadata of all 1.9 million packages I've build a small node script.
 
-All this does, is to download the metadata 250 with 25 parallel connections from npms.io and save the result to a csv.
+All this does, is downloading the metadata 250 packages at a time with 25 parallel connections from npms.io and saving the result to a CSV.
 To keep old data when something goes wrong, I also added that each execution only fetches 100k packages (learned this the hard way when I saw that npms.io throws on packages starting with "\_", but npm.com contains "\_design/app" and "\_design/scratch" at position 530,063 in my npm.json).
 
 ```js
 import { fetch } from "undici";
 import { readFile } from "fs/promises";
-import { writeToPath } from "@fast-csv/format";
+import { writeToPath } from "@fast-CSV/format";
 
 // Increment this with each run
 const PAGE = 0;
@@ -229,7 +229,7 @@ const main = async () => {
 main();
 ```
 
-After scraping all packages from npms.io, I just combined the csvs by hand (which was reasonably quick) and now I have one big csv to use. Or so I thought...
+After scraping all packages from npms.io, I just combined the CSVs by hand (which was reasonably quick) and now I have one big CSV which is easy to use. Or so I thought...
 
 ## Even more problems
 
@@ -239,7 +239,7 @@ In case you don't know, in germany we write floating point numbers with a "," as
 
 :::
 
-Now I thought that I could just pump that data into excel or google sheets and plot the result - but I misjudged those two. Google Sheets wasn't happy with the size of my data. After uploading the 200MB csv, it just complained that the input was too large (thanks for letting me upload all that first). Excel was an even worse story. It doesn't like that many rows and just stopped importing after 1.1 million rows. But even if you reduce it down for excel, it doesn't like "." as a decimal devider. Even disabling using the system delimiter and setting it manually didn't help when loading data.
+Now I thought that I could just pump that data into Excel or Google Sheets and plot the result - but I misjudged those two. Google Sheets wasn't happy with the size of my data. After uploading the 200MB CSV, it just complained that the input was too large (thanks for letting me upload all of that first). Excel was an even worse story. It doesn't like that many rows and just stopped importing after 1.1 million rows. But even if you reduce it down for excel, it doesn't like "." as a decimal devider. Even disabling using the system delimiter and setting it manually didn't help when loading data.
 
 ## The solution
 
@@ -248,7 +248,7 @@ Adding one more step of preprocessing, where the data is clustered further, is d
 For this a second node script was written:
 
 ```js
-import { parseFile, writeToPath } from "fast-csv";
+import { parseFile, writeToPath } from "fast-CSV";
 
 const loadData = (path) => {
   const result = [];
@@ -295,9 +295,9 @@ const compressData = (data, chunkSize) => {
 
 const main = async () => {
   console.log("Loading Data");
-  const csvData = await loadData("npm-combined-no_header.csv");
+  const CSVData = await loadData("npm-combined-no_header.csv");
   console.log("Converting Data");
-  const data = csvData.map(
+  const data = CSVData.map(
     ([
       name,
       analyzedAt,
@@ -330,7 +330,7 @@ Yes, I know that I now had successfully downloaded JSON, so I could download mor
 
 ### So what does this script do?
 
-In the end it just takes the data from the previous step and clusters all values in 0.0001 groups. To visualize this, imagine the following data:
+In the end it just takes the data from the previous step and clusters all values in 0.0001 popularity clusters. To visualize this, imagine the following data:
 
 |   X |   Y |
 | --: | --: |
@@ -342,6 +342,17 @@ In the end it just takes the data from the previous step and clusters all values
 |   6 |   9 |
 
 If we now create clusters of size 3, we get the following clusters:
+
+```
++-----------------+
+|0 1 2 3 _ 5 6 _ _|
++-----------------+
+        |
+        V
++-----+-----+-----+
+|0 1 2|3 _ 5|6 _ _|
++-----+-----+-----+
+```
 
 |   X |   Y |
 | --: | --: |
