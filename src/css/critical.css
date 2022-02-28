@@ -413,6 +413,25 @@ main .sidenote::after {
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
+main table {
+  border-collapse: collapse;
+  margin: var(--m) 0;
+}
+
+main table td, main table th {
+  padding: .5rem;
+  border-right: var(--xxxs) solid var(--text-color--lighter);
+  border-bottom: var(--xxxs) solid var(--text-color--lighter);
+}
+
+main table td:last-child, main table th:last-child {
+  border-right: none;
+}
+
+main table tr:last-child td {
+  border-bottom: none;
+}
+
 .blog_devider {
   display: flex;
   gap: var(--xxl);
