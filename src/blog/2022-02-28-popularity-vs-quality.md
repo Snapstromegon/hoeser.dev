@@ -1,7 +1,7 @@
 ---
 title: Is popularity related to quality?
 abstract: |
-  Because of my bachelor thesis I spend a day going down a rabbit hole to figure out wether or not popularity can be taken as an indicator for quality of a npm package. The result was surprisingly expected.
+  Because of my bachelor thesis I spend a day going down a rabbit hole to figure out whether or not popularity can be taken as an indicator for quality of a npm package. The result was surprisingly expected.
 date: 2022-02-28
 tags:
   - type:statistics
