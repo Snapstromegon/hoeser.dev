@@ -10,7 +10,7 @@ tags:
 Two facts upfront:
 
 1. Most developers and designers work on 16:9 or 16:10 screens
-2. There are screens out there with 21:0 or even 32:9
+2. There are screens out there with 21:9 or even 32:9
 
 Many designers and clients want their design to always look the same, no matter the screen size. Also responsive and especially fluent design became really popular during the last decade.
 
