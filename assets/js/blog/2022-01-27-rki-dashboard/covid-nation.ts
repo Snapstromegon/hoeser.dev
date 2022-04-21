@@ -29,8 +29,8 @@ export default class CovidNation extends LitElement {
   }
 }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    "covid-nation": CovidNation;
-  }
-}
+// declare global {
+//   interface HTMLElementTagNameMap {
+//     "covid-nation": CovidNation;
+//   }
+// }

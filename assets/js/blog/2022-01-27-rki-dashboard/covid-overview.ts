@@ -101,8 +101,8 @@ export default class CovidOverview extends LitElement {
   }
 }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    "covid-overview": CovidOverview;
-  }
-}
+// declare global {
+//   interface HTMLElementTagNameMap {
+//     "covid-overview": CovidOverview;
+//   }
+// }

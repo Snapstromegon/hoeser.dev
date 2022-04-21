@@ -85,8 +85,8 @@ export default class CovidFederal extends LitElement {
   }
 }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    "covid-federal": CovidFederal;
-  }
-}
+// declare global {
+//   interface HTMLElementTagNameMap {
+//     "covid-federal": CovidFederal;
+//   }
+// }

@@ -41,8 +41,8 @@ export default class CovidStats extends LitElement {
   }
 }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    "covid-stats": CovidStats;
-  }
-}
+// declare global {
+//   interface HTMLElementTagNameMap {
+//     "covid-stats": CovidStats;
+//   }
+// }

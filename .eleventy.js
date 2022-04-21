@@ -125,7 +125,7 @@ module.exports = function (eleventyConfig) {
         format: "es",
         dir: "_site/js",
       },
-      plugins: [typescript(), resolve(), terser()],
+      plugins: [typescript(), resolve()],
     },
   });
 
