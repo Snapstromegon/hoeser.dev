@@ -124,8 +124,9 @@ module.exports = function (eleventyConfig) {
       output: {
         format: "es",
         dir: "_site/js",
+        sourcemap: process.env.NETLIFY !== "true",
       },
-      plugins: [typescript(), resolve()],
+      plugins: [typescript(), resolve(), terser()],
     },
   });
 
