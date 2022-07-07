@@ -39,37 +39,16 @@ self.addEventListener("activate", function (event) {
   );
 });
 
-self.addEventListener('fetch', (event) => {
-  event.respondWith(async function() {
-    const cachedResponse = await caches.match(event.request);
-    if (cachedResponse) return cachedResponse;
-
-    try {
-      const response = await fetch(event.request);
-      return response;
-    } catch (err) {
-      if(event.request.mode == "navigate"){
-        return cleanResponse(await caches.match('/offline'));
-      }
-    }
-  }());
+self.addEventListener('fetch', function (event) {
+  event.respondWith(
+    caches.open('dynamic').then(function (cache) {
+      return cache.match(event.request).then(function (response) {
+        var fetchPromise = fetch(event.request).then(function (networkResponse) {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        });
+        return response || fetchPromise;
+      });
+    }),
+  );
 });
-
-function cleanResponse(response) {
-  const clonedResponse = response.clone();
-
-  // Not all browsers support the Response.body stream, so fall back to reading
-  // the entire body into memory as a blob.
-  const bodyPromise = 'body' in clonedResponse ?
-    Promise.resolve(clonedResponse.body) :
-    clonedResponse.blob();
-
-  return bodyPromise.then((body) => {
-    // new Response() is happy when passed either a stream or a Blob.
-    return new Response(body, {
-      headers: clonedResponse.headers,
-      status: clonedResponse.status,
-      statusText: clonedResponse.statusText,
-    });
-  });
-}

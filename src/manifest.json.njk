@@ -13,7 +13,23 @@ sitemapIgnore: true
   "start_url": "/",
   "display": "minimal-ui",
   "icons": [
-{%- for format, outputs in meta.favicon | faviconData -%}
+{% set favicons = meta.favicon | faviconData %}
+{%- for size in [64, 128, 180, 256, 512] -%}
+{
+  "src": "{{favicons.svg[0].url}}",
+  "type": "{{favicons.svg[0].sourceType}}",
+  "sizes": "{{size}}x{{size}}",
+  "purpose": "any"
+},
+{
+  "src": "{{favicons.svg[0].url}}",
+  "type": "{{favicons.svg[0].sourceType}}",
+  "sizes": "{{size}}x{{size}}",
+  "purpose": "maskable"
+},
+{% endfor %}
+
+{%- for format, outputs in favicons -%}
   {% set outerLoop = loop -%}
   {% for output in outputs %}
     {
