@@ -10,3 +10,23 @@
 [[redirects]]
   from = "/posts/2021-02-28-11ty-and-rollup/"
   to = "/blog/2021-02-28-11ty-and-rollup/"
+
+[[redirects]]
+  from = "/webdev-sins/button-as-link/"
+  to = "/webdev-sins/2022-01-05-button-as-link/"
+
+[[redirects]]
+  from = "/webdev-sins/button-as-link/"
+  to = "/webdev-sins/2022-01-05-button-as-link/"
+
+[[redirects]]
+  from = "/webdev-sins/render-static-content-on-the-client/"
+  to = "/webdev-sins/2022-01-26-render-static-content-on-the-client/"
+
+[[redirects]]
+  from = "/webdev-sins/vdom-is-faster/"
+  to = "/webdev-sins/2022-01-26-vdom-is-faster/"
+
+[[redirects]]
+  from = "/webdev-sins/vw-font-size/"
+  to = "/webdev-sins/2022-02-07-vw-font-size/"
