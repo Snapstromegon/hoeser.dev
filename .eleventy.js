@@ -13,7 +13,7 @@ const markdownItContainer = require("markdown-it-container");
 
 function generateImages(src) {
   return Image(src, {
-    widths: [128, 256, 512, 1024, null],
+    widths: [256, 512, 1024, null],
     formats: ["avif", "webp", "jpeg"],
     outputDir: "_site/img/",
   });
