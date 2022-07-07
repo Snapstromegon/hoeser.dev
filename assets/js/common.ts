@@ -1,4 +1,4 @@
-import "@inventage/matomo-opt-out";
+// import "@inventage/matomo-opt-out";
 import "./common/pwa-install.js";
 
 navigator.serviceWorker
