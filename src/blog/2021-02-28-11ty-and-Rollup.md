@@ -12,6 +12,12 @@ tags:
 - concept:SSR
 ---
 
+:::commentBlock
+## Update
+
+This article describes an old version. I now took the time to make it into an actual plugin called [eleventy-plugin-rollup](https://www.npmjs.com/package/eleventy-plugin-rollup). You should use that instead of the version below.
+:::
+
 ## Preface
 
 I started late with 11ty (eleventy)... Really late... Like a week ago.
