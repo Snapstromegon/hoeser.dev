@@ -2,7 +2,7 @@
 title: Stop using starter packs
 abstract: |
   Starter packs / starter projects / project tempaltes or however you want to call them, I don't like them and you can read here why.
-date: 2022-07-08
+date: 2022-07-29
 tags:
   - type:opinion
 ---
