@@ -5,12 +5,12 @@ theme:
   colorB: "#f00"
 ---
 
-<section class="devider">
+<header>
   <div class="content">
     <span class="underline_fancy">No Connection</span>
     <h1>It seems like you're offline!</h1>
   </div>
-</section>
+</header>
 <main>
   <div class="content">
     <article>

@@ -2,12 +2,12 @@
 layout: layouts/main.njk
 ---
 
-<section class="devider">
+<header>
   <div class="content">
     <h1>{{ eleventyNavigation.key }}</h1>
   </div>
-</section>
-<main>
+</header>
+<main id="main-content">
   <div class="content">
     {{ content | safe }}
   </div>

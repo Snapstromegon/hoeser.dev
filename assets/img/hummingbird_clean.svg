@@ -1,26 +1,26 @@
 <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
-  <path class="colorA" id="hummingbird-Tail-Bottom" d="m719 762 226 178-269-109Z"/>
-  <path class="colorA" id="hummingbird-Tail-Top" d="M1010 925 752 708l-33 54Z"/>
-  <path class="colorA" id="hummingbird-Tail-Start" d="m676 831-35-223 111 100Z"/>
-  <path class="colorA" id="hummingbird-Tail-Start-Bottom" d="m388 753 253-145 35 223Z"/>
-  <path class="colorA" id="hummingbird-Back" d="m486 512-98 241 253-145Z"/>
-  <path class="colorA" id="hummingbird-Belly" d="m388 753-99-193 197-48Z"/>
-  <path class="colorA" id="hummingbird-Throat" d="m289 560-72-182 269 134Z"/>
-  <path class="colorA" id="hummingbird-Head" d="m217 378 155-39 114 173Z"/>
-  <path class="colorA" id="hummingbird-Beak" d="M217 378H7l229 48Z"/>
-  <path class="colorA" id="hummingbird-Wing-Front" d="M486 512 941 71 641 608Z"/>
-  <path class="colorA" id="hummingbird-Wing-Back-1" d="M408 394 636 80 486 512Z"/>
-  <path class="colorA" id="hummingbird-Wing-Back-2" d="m636 80-17 303-133 129Z"/>
-  <path class="colorB" style="--progress:0" id="hummingbird-Tail-Bottom" d="m719 762 226 178-269-109Z"/>
-  <path class="colorB" style="--progress:0" id="hummingbird-Tail-Top" d="M1010 925 752 708l-33 54Z"/>
-  <path class="colorB" style="--progress:calc(1 / 7)" id="hummingbird-Tail-Start" d="m676 831-35-223 111 100Z"/>
-  <path class="colorB" style="--progress:calc(2 / 7)" id="hummingbird-Tail-Start-Bottom" d="m388 753 253-145 35 223Z"/>
-  <path class="colorB" style="--progress:calc(3 / 7)" id="hummingbird-Back" d="m486 512-98 241 253-145Z"/>
-  <path class="colorB" style="--progress:calc(4 / 7)" id="hummingbird-Belly" d="m388 753-99-193 197-48Z"/>
-  <path class="colorB" style="--progress:calc(5 / 7)" id="hummingbird-Throat" d="m289 560-72-182 269 134Z"/>
-  <path class="colorB" style="--progress:calc(6 / 7)" id="hummingbird-Head" d="m217 378 155-39 114 173Z"/>
-  <path class="colorB" style="--progress:1" id="hummingbird-Beak" d="M217 378H7l229 48Z"/>
-  <path class="colorB" style="--progress:0" id="hummingbird-Wing-Front" d="M486 512 941 71 641 608Z"/>
-  <path class="colorB" style="--progress:1" id="hummingbird-Wing-Back-1" d="M408 394 636 80 486 512Z"/>
-  <path class="colorB" style="--progress:0.8" id="hummingbird-Wing-Back-2" d="m636 80-17 303-133 129Z"/>
+  <path class="colorA" id="hummingbird-Tail-Bottom-A" d="m719 762 226 178-269-109Z"/>
+  <path class="colorA" id="hummingbird-Tail-Top-A" d="M1010 925 752 708l-33 54Z"/>
+  <path class="colorA" id="hummingbird-Tail-Start-A" d="m676 831-35-223 111 100Z"/>
+  <path class="colorA" id="hummingbird-Tail-Start-Bottom-A" d="m388 753 253-145 35 223Z"/>
+  <path class="colorA" id="hummingbird-Back-A" d="m486 512-98 241 253-145Z"/>
+  <path class="colorA" id="hummingbird-Belly-A" d="m388 753-99-193 197-48Z"/>
+  <path class="colorA" id="hummingbird-Throat-A" d="m289 560-72-182 269 134Z"/>
+  <path class="colorA" id="hummingbird-Head-A" d="m217 378 155-39 114 173Z"/>
+  <path class="colorA" id="hummingbird-Beak-A" d="M217 378H7l229 48Z"/>
+  <path class="colorA" id="hummingbird-Wing-Front-A" d="M486 512 941 71 641 608Z"/>
+  <path class="colorA" id="hummingbird-Wing-Back-1-A" d="M408 394 636 80 486 512Z"/>
+  <path class="colorA" id="hummingbird-Wing-Back-2-A" d="m636 80-17 303-133 129Z"/>
+  <path class="colorB" style="--progress:0" id="hummingbird-Tail-Bottom-B" d="m719 762 226 178-269-109Z"/>
+  <path class="colorB" style="--progress:0" id="hummingbird-Tail-Top-B" d="M1010 925 752 708l-33 54Z"/>
+  <path class="colorB" style="--progress:calc(1 / 7)" id="hummingbird-Tail-Start-B" d="m676 831-35-223 111 100Z"/>
+  <path class="colorB" style="--progress:calc(2 / 7)" id="hummingbird-Tail-Start-Bottom-B" d="m388 753 253-145 35 223Z"/>
+  <path class="colorB" style="--progress:calc(3 / 7)" id="hummingbird-Back-B" d="m486 512-98 241 253-145Z"/>
+  <path class="colorB" style="--progress:calc(4 / 7)" id="hummingbird-Belly-B" d="m388 753-99-193 197-48Z"/>
+  <path class="colorB" style="--progress:calc(5 / 7)" id="hummingbird-Throat-B" d="m289 560-72-182 269 134Z"/>
+  <path class="colorB" style="--progress:calc(6 / 7)" id="hummingbird-Head-B" d="m217 378 155-39 114 173Z"/>
+  <path class="colorB" style="--progress:1" id="hummingbird-Beak-B" d="M217 378H7l229 48Z"/>
+  <path class="colorB" style="--progress:0" id="hummingbird-Wing-Front-B" d="M486 512 941 71 641 608Z"/>
+  <path class="colorB" style="--progress:1" id="hummingbird-Wing-Back-1-B" d="M408 394 636 80 486 512Z"/>
+  <path class="colorB" style="--progress:0.8" id="hummingbird-Wing-Back-2-B" d="m636 80-17 303-133 129Z"/>
 </svg>
