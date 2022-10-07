@@ -20,7 +20,7 @@
     "@rollup/plugin-node-resolve": "^14.1.0",
     "eleventy-plugin-rollup": "^1.2.1",
     "js-yaml": "^4.1.0",
-    "lit": "^2.3.1",
+    "lit": "^2.4.0",
     "markdown-it-container": "^3.0.0",
     "markdown-it-emoji": "^2.0.2",
     "rollup": "^2.79.1",
