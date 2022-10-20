@@ -1,7 +1,8 @@
 ---
 title: Opinion on app.thenativeweb.io
 abstract: |
-  Thenativeweb is a german web consulting firm that also has a fairly successful YouTube account.
+  (Last Update: 2022-10-20)
+  "The native web" is a german web consulting firm that also has a fairly successful YouTube account.
   Recently they launched a custom video search for their YouTube account and I took a look at it.
 date: 2022-10-20
 tags:
@@ -14,6 +15,15 @@ theme:
   colorA: "#dd0099"
   colorB: "#0dd"
 ---
+
+## Updates
+
+This post was first written for an old version of the discussed site.
+Since then "[the native web][tnw-io]" made some significant changes after I shared my concerns in private with them. I will discuss these changes on the [Update Log](#update-log) below.
+
+The were always fast in their responses and really professional, so please read through the updates, as I try to provide some insights on what happened and hope that we all can learn something from it.
+
+## Original Post
 
 <style>
   .native-web-heart {
@@ -96,6 +106,14 @@ The total page weight (here excluding images and fonts, I will get to that later
 {% image "assets/img/blog/2022-10-20-nativewapp/res-wo-img-orig.jpg", "Original Page Weight" %}
 
 #### Lighthouse Score
+
+:::commentBlock
+Update:
+
+At a later point in time during the first update, I saw that my local tests (where these screenshots come from) yielded significantly lower results than third party services like [PageSpeed Insights][pg-insights] (77 instead of ~50 for performance on 2022-10-20).
+I don't know the reason for this, since this page still shows reproducable 100s. A test with a twitter tweet is also within margin of error.
+Without testing I suspect a weird route to the servers from my place.
+:::
 
 {% image "assets/img/blog/2022-10-20-nativewapp/lighthouse-score-orig.jpg", "Original lighthouse score" %}
 
@@ -199,7 +217,7 @@ So instead of
 you'd write
 
 ```js
-html`<h1>Hello ${this.name}!</h1>`
+html`<h1>Hello ${this.name}!</h1>`;
 ```
 
 and with the [right plugins][lit-vscode-plugin] installed, you'll even have syntax highlighting.
@@ -259,15 +277,13 @@ document
 
 (\*) I removed the code for registering the service worker, but that's just the [default one from MDN](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers#registering_your_worker)
 
-
-
 #### Images
 
 A hinted to this earlier and now it's time for it.
 
 :::sidenote
-Right now the original and my version use *jpg* images.
-There is even more room for improvement by switching to *webp* or *avif*.
+Right now the original and my version use _jpg_ images.
+There is even more room for improvement by switching to _webp_ or _avif_.
 :::
 
 The original page currently only serves one version of the thumbnails and that at a fairly large 640x360px, which is nice on bigger screens, but most often the images are rendered at <350px, which is some good chunk of potential savings (which I'm willing to take here, but opinions might differ).
@@ -310,7 +326,7 @@ Let's start with a comparison of the two pages:
 
 **Original**
 
-{% image "assets/img/blog/2022-10-20-nativewapp/app.thenativeweb.io_v2_ui.png", "Reimplementation's Performance Insights graph showing strong, vertical lines"%}
+{% image "assets/img/blog/2022-10-20-nativewapp/app.thenativeweb.io_v2_ui.png", "Screenshot of the original site"%}
 
 </div>
 
@@ -318,7 +334,7 @@ Let's start with a comparison of the two pages:
 
 **Reimplementation**
 
-{% image "assets/img/blog/2022-10-20-nativewapp/127.0.0.1_3000_build__.png", "Reimplementation's Performance Insights graph showing strong, vertical lines"%}
+{% image "assets/img/blog/2022-10-20-nativewapp/127.0.0.1_3000_build__.png", "Screenshot of the reimplemented site"%}
 
 </div>
 </div>
@@ -341,11 +357,72 @@ It's possible to embed fonts directly in the CSS like [Squoosh][squoosh] does. T
 
 ### Image Formats
 
-Like mentioned before, switching to modern image formats like *webp*, *avif* or *jpegxl* might improve the situation further.
+Like mentioned before, switching to modern image formats like _webp_, _avif_ or _jpegxl_ might improve the situation further.
 
 ### Prerendering
 
 If we not only embed the App Shell in the HTML, but instead the first twelve videos (which are always open on page load), we could improve performance even further at the cost of rebuilding the page every time a video is published.
+
+## What I learned
+
+Obviously I didn't do this just to show off, but to actually learn something, so what did we learn?
+
+### -webkit-line-clamp
+
+I never knew such a thing existed and even less so would I've tried using it even if I saw it somewhere.
+This little piece of tech is just great.
+At first sight I thought this was just a WebKit thing, but no! It's actually [part of the standard][w3c-line-clamp] and [browser support][ciu-line-clamp] is great too.
+
+Just apply this CSS to any element with a bunch of text:
+
+```css
+overflow: hidden;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: var(--number-of-lines);
+```
+
+<details>
+<summary>Demo</summary>
+
+:::sidenote
+I chose part of the german fairy tale "Hänsel and Gretel" as an example text. Yeah, we germans have a weird way to teach our children ([Wikipedia plot for reference](https://en.wikipedia.org/wiki/Hansel_and_Gretel#Plot)).
+:::
+
+<label>Lines <input type="range" min=1 max=10 value=5 id="line-number-demo-input"/></label>
+
+<div id="line-number-demo-text">
+  Vor einem großen Walde wohnte ein armer Holzhacker mit seiner Frau und seinen zwei Kindern; das Bübchen hieß Hänsel und das Mädchen Gretel. Er hatte wenig zu beißen und zu brechen, und einmal, als große Teuerung ins Land kam, konnte er das tägliche Brot nicht mehr schaffen. Wie er sich nun abends im Bette Gedanken machte und sich vor Sorgen herumwälzte, seufzte er und sprach zu seiner Frau: "Was soll aus uns werden? Wie können wir unsere armen Kinder ernähren da wir für uns selbst nichts mehr haben?" - "Weißt du was, Mann," antwortete die Frau, "wir wollen morgen in aller Frühe die Kinder hinaus in den Wald führen, wo er am dicksten ist. Da machen wir ihnen ein Feuer an und geben jedem noch ein Stückchen Brot, dann gehen wir an unsere Arbeit und lassen sie allein. Sie finden den Weg nicht wieder nach Haus, und wir sind sie los." - "Nein, Frau," sagte der Mann, "das tue ich nicht; wie sollt ich's übers Herz bringen, meine Kinder im Walde allein zu lassen! Die wilden Tiere würden bald kommen und sie zerreißen." - "Oh, du Narr," sagte sie, "dann müssen wir alle viere Hungers sterben, du kannst nur die Bretter für die Särge hobeln," und ließ ihm keine Ruhe, bis er einwilligte. "Aber die armen Kinder dauern mich doch," sagte der Mann.
+</div>
+
+<style>
+  #line-number-demo-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--number-of-lines, 5);
+  }
+</style>
+
+<script type="module">
+  const input = document.querySelector("#line-number-demo-input");
+  const text = document.querySelector("#line-number-demo-text");
+  input.addEventListener("input", () => {
+    text.style.setProperty("--number-of-lines", input.value);
+  })
+</script>
+</details>
+
+### Never trust your own machine
+
+Like the performance metrics showed in the first update, you shouldn't run your tests only on one machine and/or internet connection.
+While this doesn't really impact the validity of the methods outlined in this post, it has an impact on the necessety. A performance score of 50 is something to improve upon, a score of 77 is often fine.
+
+### Disagree and cooperate
+
+During my interactions with [Golo Roden][tw-golo] we had some different opinions and starting points. I believe that one should strive for as open APIs as your usecases allow, he had the completely valid opinion that you only need to look at your own usecases and not possible third party ones when your API isn't meant for external use. For me the obvious way of running lighthouse tests was *mobile*, his was *desktop* which led to some confusion over my results. Again, both points of view are completely valid, you just need to agree on the settings when comparing results.
+
+Even though we disagreed on those details, we never stopped cooperating on the topics at hand, trying to understand each other. This cooperation led to an improvement in their site and this blog article.
 
 ## A special thanks to...
 
@@ -360,11 +437,45 @@ For obvious reasons I don't put the code on GitHub under my normal permissive li
 
 So there's only one thing left to say:
 
-<div style="text-align: center; margin-top: var(--xxl)">
+<div style="text-align: center; margin: var(--xxl) 0">
 
 Made with <svg xmlns="http://www.w3.org/2000/svg" class="native-web-heart" aria-hidden="true" viewBox="0 0 16 16"><g><path d="M1.16,2.65a3.91,3.91,0,0,0,0,5.56L8,15l6.85-6.82A3.94,3.94,0,0,0,9.26,2.66L8,3.92,6.74,2.65A4,4,0,0,0,1.16,2.65Z"></path></g></svg> for [the native web][tnw-io]
 
 </div>
+
+<hr class="textWidth">
+
+<h2 id="update-log">Update Log</h2>
+
+I will add here any updates "[the native web][tnw-io]" does to their site and what the impact to this article is.
+
+### 2022-10-20: Bundle Size
+
+:::commentBlock
+I saw that my local test scores are significantly worse than with a neutral test at [pagespeed.web.dev][pg-insights](https://pagespeed.web.dev/). This means, that the numbers mentioned in this article are probably worse than they should be. This has no impact on the improvements discussed in this post, but should be noted.
+:::
+
+[Golo Roden][tw-golo] confirmed that the 1.2MB _page.svelte_ was an issue with an incorrect import. This happens to all of us and is an easy mistake to make. In this special case the datetime library included all possible translations. Removing those reduces the _page.svelte_ from 1.2MB to just 32.9kb and the whole JS bundle now weighs in with only 85.8kb - this is far below my normal 100kb of JS line and therefore is a brilliant result (and also closer to what I expected from [Svelte][svelte]).
+
+This massively improves the loading graph:
+
+{% image "assets/img/blog/2022-10-20-nativewapp/performance-graph-22-10-20.jpg", "Updated Performance Insights graph showing strong, vertical lines"%}
+
+**The long horizontal lines are gone!** (It could still be better, but this is more than acceptable)
+To make this more clear, let's take a look at the new lighthouse scores (on mobile):
+
+:::sidenote
+On Desktop the performance increased to over 90, which is a green score even for lighthouse.
+
+Also on [PageSpeed Insights][pg-insight] the mobile score is 77, which is significantly higher.
+I mentioned this issue in a comment above, but I can't test the old version for comparison, so I'll stick to my local measurements.
+:::
+
+{% image "assets/img/blog/2022-10-20-nativewapp/lighthouse-score-22-10-20.jpg", "Updated lighthouse scores with 49, 98, 92, 100"%}
+
+{% image "assets/img/blog/2022-10-20-nativewapp/lighthouse-perf-22-10-20.jpg", "Updated lighthouse scores with 49, 98, 92, 100"%}
+
+This is much better. The "Performance" metrics saw an improvement in more than 50% (32 increased to 49 - keep in mind, this value is on a log scale).
 
 [tnw-io]: https://thenativeweb.io/
 [tnw-yt]: https://www.youtube.com/c/thenativewebGmbH
@@ -383,3 +494,6 @@ Made with <svg xmlns="http://www.w3.org/2000/svg" class="native-web-heart" aria-
 [mdn-intl-reltime]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat
 [squoosh]: https://squoosh.app/
 [lit-vscode-plugin]: https://marketplace.visualstudio.com/items?itemName=runem.lit-plugin
+[pg-insights]: https://pagespeed.web.dev/
+[w3c-line-clamp]: https://w3c.github.io/csswg-drafts/css-overflow-3/#propdef--webkit-line-clamp
+[ciu-line-clamp]: https://caniuse.com/css-line-clamp
