@@ -283,6 +283,10 @@ main > .content > article pre,
   );
 }
 
+.blog_devider h1 {
+  word-break: break-word;
+}
+
 .blogpostList {
   margin: var(--xxl) 0;
   display: grid;
