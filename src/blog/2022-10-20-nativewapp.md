@@ -157,14 +157,14 @@ Also I don't know why, but in my traces the API for the first 12 videos is reque
 
 :::commentBlock
 One note regarding the server:
-Often when I do these things I see the server times as a huge factor when loading data (e.g. in the [RKI post][rki-post] the longest time my implementation is waiting on a response from the server). But in this case the server is really fast enough for the usecase. Sub-second rounttrip times for search requests (normally ~750-800ms on Fast 3G) is significantly faster than I expected.
+Often when I do these things I see the server times as a huge factor when loading data (e.g. in the [RKI post][rki-post] the longest time my implementation is waiting on a response by the server). But in this case the server is really fast enough for the usecase. Sub-second rounttrip times for search requests (normally ~750-800ms on Fast 3G) is significantly faster than I expected.
 :::
 
 ### And the real issue is...
 
 JavaScript.
 
-Not that it exists, but thatit is required for the FCP and that there is so much of it, that it postpones rendering for 7.5 seconds.
+Not that it exists, but that it's required for the FCP and that there is so much of it, that it postpones rendering for 7.5 seconds.
 
 ## Trying to fix it:
 
@@ -188,7 +188,7 @@ CORS would allow my reimplementation to access the content from the other domain
 
 CORS proxies inject those headers for you. This works, because CORS checks only happen in the browser and any server side application can just ignore them / they don't apply. So what I did is essentially requesting a different service, which in turn requested data from the original API and routed the response back to me with CORS headers.
 
-There are many CORS proxies out there and some are even free and you can also host them yourselves. For simplicity I just used [allorigins.win] because it's free and was the first working one I've found.
+There are many CORS proxies out there and some are even free and you can also host them yourselve. For simplicity I just used [allorigins.win] because it's free and was the first working one I've found.
 
 :::sidenote
 **Remember:** be a nice player on the web, especially when you use free APIs that are not yours!
@@ -200,7 +200,7 @@ Now that we have a working connection to the API, I can describe the actual reim
 ### Basic Setup
 
 My reimplementation (which you can find [here on GitHub][gh-reimpl]) uses a slightly different tech stack than the original and replaces [Svelte][svelte] with [Lit][lit]. I also used [rollup] for bundling.
-While I am a huge fan of [11ty], this time I left it aside, since we're only building one page and most of the content is loaded on the client anyways.
+While I am a huge fan of [11ty] (and a contributer to the project), this time I left it aside, since we're only building one page and most of the content is loaded on the client anyways.
 
 :::commentBlock
 Sidenote on [Lit][lit]:
@@ -275,7 +275,9 @@ document
   });
 ```
 
-(\*) I removed the code for registering the service worker, but that's just the [default one from MDN](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers#registering_your_worker)
+As you can see, I just register an event handler on my custom element `wapp-search` for the "search" event and then pass that search via a property to the `wapp-videos` component.
+
+(\*) I removed the code for registering the service worker, but that's just the [default one from MDN](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers#registering_your_worker).
 
 #### Images
 
@@ -288,7 +290,7 @@ There is even more room for improvement by switching to _webp_ or _avif_.
 
 The original page currently only serves one version of the thumbnails and that at a fairly large 640x360px, which is nice on bigger screens, but most often the images are rendered at <350px, which is some good chunk of potential savings (which I'm willing to take here, but opinions might differ).
 
-Right now I believe that the image API of "[the native web][tnw-io]" has its own image storage. For my implementation I just skip that and use the YouTube image servers instead, since they allow for more image sizes and performance and we already have the YouTUbe ID of each video.
+Right now I believe that the image API of "[the native web][tnw-io]" has its own image storage. *(Update: After speaking to "[the native web][tnw-io]", they verified that I'm correct.)* For my implementation I just skip that and use the YouTube image servers instead, since they allow for more image sizes and performance and we already have the YouTUbe ID of each video.
 
 ```html
 <picture class="thumbnail">
@@ -322,7 +324,7 @@ With this change in place, we can half the size of the images down (even if the 
 Always stay fair when hosting a reimplementation of something and add `<meta name="robots" content="noindex">` to your HTML, so you don't compete with the original on SEO.
 :::
 
-Bashing is easy, claiming to have done something is even easier, so let's make a [demo] (the link is a standard Netlify link on purpose, so noone will try to keep it).
+Bashing is easy, claiming to have done something is even easier, so let's proove it with a [demo] (the link is a standard Netlify link on purpose, so noone will try to keep it). If you want to take a look at the code, feel free to do so in the [GitHub repository](https://github.com/Snapstromegon/nativewapp). Please keep in mind that this is just a demo and the code is not at all "production ready".
 
 "[The native web][tnw-io]" was nice enough to allow me to host my results as an adapted demo (the screenshots below show a 1:1 replication, while the linked demo shows an adapted version to avoid trademark problems).
 
@@ -393,7 +395,7 @@ display: -webkit-box;
 ```
 
 <details>
-<summary>Demo</summary>
+<summary>Interactive Demo</summary>
 
 :::sidenote
 I chose part of the german fairy tale "Hänsel and Gretel" as an example text. Yeah, we germans have a weird way to teach our children ([Wikipedia plot for reference](https://en.wikipedia.org/wiki/Hansel_and_Gretel#Plot)).
