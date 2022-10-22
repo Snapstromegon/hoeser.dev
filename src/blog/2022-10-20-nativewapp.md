@@ -93,7 +93,7 @@ The `will-change` property can get expensive really quickly, so don't put it on 
 will-change: transform;
 ```
 
-Putting that on the container of each item tells the browser that we will change the transform property for example with transitions or animations. This leads to the browser putting that element on a seperate rendering layer which avoids many issues especially with the [subpixel rendering][wiki:subpixel-rendering] of text.
+Putting that on the container of each item tells the browser that we will change the transform property for example with transitions or animations. This leads to the browser putting that element on a seperate rendering layer which avoids many issues especially with the [subpixel rendering][wiki:subpixel-rendering] of text. This results in the text being slightly blurry at all times, because subpixel rendering doesn't work as well.
 
 ### Now that the DevTools are open...
 
@@ -149,7 +149,7 @@ To get a better insight, let's make a "Performance Insights" run for the page:
 
 As you can see, the HTML and some of the JS is already parsed and executed in the first two seconds of the request. At that point also the "DOM Content Loaded" (DCL) event is fired, but at that point in time the screen is still blank.
 
-Now some more JS is downloading and the biggest part takes the big horizontal line of _\_page.svelte-43331ef1.js_ (from now on known as page.svelte). That single file takes nearly 7.5 seconds to load, because it alone is 1.2 MB in size (as an unfair comparison, my reimplementation is 35k excluding images and fonts and this blogpost is 160kb including images and videos). This means that the JS bundle is bigger than the 12 images loaded as thumbnails for the first videos combined.
+Now some more JS is downloading and the biggest part takes the big horizontal line of _\_page.svelte-43331ef1.js_ (from now on known as page.svelte). That single file takes nearly 7.5 seconds to load, because it alone is 1.2 MB in size (as an unfair comparison, my reimplementation is 35k excluding images and fonts and this blogpost is 335kb including images and videos). This means that the JS bundle is bigger than the 12 images loaded as thumbnails for the first videos combined.
 
 One small note on FCP: the dev tools don't register the app shell as FCP (and that renders after ~3 seconds) so FCP is marked as when the _page.svelte_ finishes loading.
 
@@ -316,7 +316,17 @@ With this change in place, we can half the size of the images down (even if the 
 
 ## The Result
 
-Let's start with a comparison of the two pages:
+### Demo Time
+
+:::sidenote
+Always stay fair when hosting a reimplementation of something and add `<meta name="robots" content="noindex">` to your HTML, so you don't compete with the original on SEO.
+:::
+
+Bashing is easy, claiming to have done something is even easier, so let's make a [demo] (the link is a standard Netlify link on purpose, so noone will try to keep it).
+
+"[The native web][tnw-io]" was nice enough to allow me to host my results as an adapted demo (the screenshots below show a 1:1 replication, while the linked demo shows an adapted version to avoid trademark problems).
+
+And now, let's start with a comparison of the two pages:
 
 <div style="display: grid; gap: 1rem; 
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
@@ -477,6 +487,22 @@ I mentioned this issue in a comment above, but I can't test the old version for 
 
 This is much better. The "Performance" metrics saw an improvement in more than 50% (32 increased to 49 - keep in mind, this value is on a log scale).
 
+### 2022-10-22 Demo incoming
+
+#### Communication is key
+
+Yesterday I hat a video call with "[the native web][tnw-io]" where we discussed the issues mentioned in this post and they already implemented some and als gave me approval for hosting a demo of me reimplementation, so you can take a look at it yourself.
+
+#### Fixes to the original
+
+They also looked at implementing the `will-change: transform;` property mentioned above, but since it's slightly blurring text outside of animations, they've decided against it.
+
+Even better, they've fixed their aspect ratio issues (lighthouse still reports one with the logo, but that's a false-positive, since SVGs scale correctly).
+
+#### Looking forward
+
+From now on I won't guarantee that I will always update the post on time when "[the native web][tnw-io]" does an update. But there might be something coming from their side because of this post... (If you're in *the future*, you might have already seen it) I will post an update once something happens.
+
 [tnw-io]: https://thenativeweb.io/
 [tnw-yt]: https://www.youtube.com/c/thenativewebGmbH
 [tnw-app]: https://app.thenativeweb.io
@@ -497,3 +523,4 @@ This is much better. The "Performance" metrics saw an improvement in more than 5
 [pg-insights]: https://pagespeed.web.dev/
 [w3c-line-clamp]: https://w3c.github.io/csswg-drafts/css-overflow-3/#propdef--webkit-line-clamp
 [ciu-line-clamp]: https://caniuse.com/css-line-clamp
+[demo]: https://deluxe-duckanoo-a25bc0.netlify.app
