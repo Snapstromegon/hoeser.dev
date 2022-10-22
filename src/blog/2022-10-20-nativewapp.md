@@ -1,7 +1,7 @@
 ---
 title: Opinion on app.thenativeweb.io
 abstract: |
-  (Last Update: 2022-10-20)
+  (Last Update: 2022-10-22)
   "The native web" is a german web consulting firm that also has a fairly successful YouTube account.
   Recently they launched a custom video search for their YouTube account and I took a look at it.
 date: 2022-10-20
