@@ -19,9 +19,9 @@ theme:
 ## Updates
 
 This post was first written for an old version of the discussed site.
-Since then "[the native web][tnw-io]" made some significant changes after I shared my concerns in private with them. I will discuss these changes on the [Update Log](#update-log) below.
+Since then, "[the native web][tnw-io]" made some significant changes after I shared my concerns in private with them. I will discuss these changes on the [Update Log](#update-log) below.
 
-The were always fast in their responses and really professional, so please read through the updates, as I try to provide some insights on what happened and hope that we all can learn something from it.
+They were always fast in their responses and really professional, so please read through the updates, as I try to provide some insights on what happened and hope that we all can learn something from it.
 
 ## Original Post
 
@@ -37,11 +37,11 @@ The were always fast in their responses and really professional, so please read 
 
 :::commentBlock
 I want to make the following clear beforehand:
-I personally really like the content "[the native web][tnw-io]" produces and I recommend their YouTube channel quite frequently to other developers looking for good, german ressources about web and cloud related topics.
+I personally really like the content "[the native web][tnw-io]" produces, and I recommend their YouTube channel quite frequently to other developers looking for good, german resources about web and cloud related topics.
 
-Also while this blogpost focuses heavily on performance and discovers some heavy improvements in this regard, performance is not everything and as I show it takes quite a lot of work to do codrrectly.
+Also while this blog post focuses heavily on performance and discovers some heavy improvements in this regard, performance is not everything and as I show it takes quite a lot of work to do correctly.
 
-I also believe that the discussed page is not provide a representative view on their "normal" work and if you think about hiring them, see this post as a love letter to them and not a reason not to work with them. I'm not discussing their page here because it's bad (it isn't), but because they are a public figure and I enjoy their content. And since they're web developers, my natural instinct of running lighthouse took over and I saw some options to improve it.
+I also believe that the discussed page does not provide a representative view on their "normal" work and if you think about hiring them, see this post as a love letter to them and not a reason not to work with them. I'm not discussing their page here because it's bad (it isn't), but because they are a public figure and I enjoy their content. And since they're web developers, my natural instinct of running lighthouse took over and I saw some options to improve it.
 
 Also to my knowledge this is "[the native web][tnw-io]" experimenting with new (and old) technologies and therefore it's an easy target (noone is judging you on your first water colors painting).
 :::
@@ -52,12 +52,12 @@ I know, these are many comments upfront, but they are important to me, so please
 
 :::commentBlock
 The solution I will create here is not identical to the original. This is mostly because of time constraints (I only spent like one evening on it) and because I have to download every used asset manually.
-For this reason I only support modern versions of Chrome, don't support web embeds like Twitter and probly breaks in other ways too.
+For this reason I only support modern versions of Chrome, don't support web embeds like Twitter and probably breaks in other ways too.
 :::
 
 :::commentBlock
 One last note:
-After creating the reimplementation and before writing this blogpost I've gotten in contact with [Golo Roden][tw-golo] (founder and CTO of "the native web") so I don't get anything fundamentally wrong and I also believe that this should be common courtesy.
+After creating the reimplementation and before writing this blog post I've gotten in contact with [Golo Roden][tw-golo] (founder and CTO of "the native web") so I don't get anything fundamentally wrong and I also believe that this should be common courtesy.
 This doesn't mean that Golo had a direct say on the content of this post.
 :::
 
@@ -65,13 +65,13 @@ This doesn't mean that Golo had a direct say on the content of this post.
 
 Huh, that was a long read before the post even started, but now we can begin.
 
-This blogpost belongs into my starting series "oops, I opened up lighthouse and now I want to see if I can do it faster" which already has one (1) entry ([Opinion on the RKI COVID19 dashboard][rki-post]). Like back then I opened up the page of a site I already liked and wanted to see if I can see some obvious performance pitfalls and wether or not I can improve only on the performance aspect.
+This blog post belongs into my starting series "oops, I opened up lighthouse and now I want to see if I can do it faster" which already has one (1) entry ([Opinion on the RKI COVID19 dashboard][rki-post]). Like back then I opened up the page of a site I already liked and wanted to see if I can see some obvious performance pitfalls and whether or not I can improve only on the performance aspect.
 
 This time "[the native web][tnw-io]" launched a custom video search web app for [their YouTube channel][tnw-yt] under [https://app.thenativeweb.io][tnw-app].
 
 :::sidenote
 Just one comment on the design: I love it.
-It's simpel, it does its job and I learned something from it.
+It's simple, it does its job and I learned something from it.
 :::
 
 ## What is the state of things?
@@ -81,7 +81,7 @@ It's simpel, it does its job and I learned something from it.
 Here is a before and after video. Look at the text rendering while the element scales up and down (Sadly compression made this one hard to see, look at it in the original).
 <video src="/assets/video/blog/2022-10-20-nativewapp/blur-demo.mp4" controls mute autoplay loop></video>
 
-This small thing bugged me a little and so I opened up dev tools to see wether or not I could fix that (_first mistake of mine_).
+This small thing bugged me a little and so I opened up dev tools to see whether or not I could fix that (_first mistake of mine_).
 
 As you can see, I was able to fix it. And it was only one line of CSS:
 
@@ -93,7 +93,7 @@ The `will-change` property can get expensive really quickly, so don't put it on 
 will-change: transform;
 ```
 
-Putting that on the container of each item tells the browser that we will change the transform property for example with transitions or animations. This leads to the browser putting that element on a seperate rendering layer which avoids many issues especially with the [subpixel rendering][wiki:subpixel-rendering] of text. This results in the text being slightly blurry at all times, because subpixel rendering doesn't work as well.
+Putting that on the container of each item tells the browser that we will change the transform property, for example with transitions or animations. This leads to the browser putting that element on a separate rendering layer which avoids many issues especially with the [subpixel rendering][wiki:subpixel-rendering] of text. This results in the text being slightly blurry at all times, because subpixel rendering doesn't work as well.
 
 ### Now that the DevTools are open...
 
@@ -111,7 +111,7 @@ The total page weight (here excluding images and fonts, I will get to that later
 Update:
 
 At a later point in time during the first update, I saw that my local tests (where these screenshots come from) yielded significantly lower results than third party services like [PageSpeed Insights][pg-insights] (77 instead of ~50 for performance on 2022-10-20).
-I don't know the reason for this, since this page still shows reproducable 100s. A test with a twitter tweet is also within margin of error.
+I don't know the reason for this, since this page still shows reproducible 100s. A test with a twitter tweet is also within margin of error.
 Without testing I suspect a weird route to the servers from my place.
 :::
 
@@ -123,9 +123,9 @@ As always, the lighthouse metrics are recorded with the default "mobile" preset.
 
 These are (performance aside) actually pretty good.
 
-**A11y** 98 comes from the text "x von y gefundenen Videos", which has the color `#999999` on white (which has the color contrast of 2.84:1 to the white background), but _AA-contrast_ requires at least 4.5:1, so the color would need to be `#767676` or darker. This is acceptable in my opinion, since it's not a really important info anyways.
+**A11y** 98 comes from the text "x von y gefundenen Videos", which has the color `#999999` on white (which has the color contrast of 2.84:1 to the white background), but _AA-contrast_ requires at least 4.5:1, so the color would need to be `#767676` or darker. This is acceptable in my opinion, since it's not a really important info anyway.
 
-The **Best Pracitces** 92 comes from the source maps missing (which is absolutely fine in a production deployment) and all images being displayed with incorrect aspect ratios (this would benefit from fixing, but it's barely noticable even when you know).
+The **Best Practices** 92 comes from the source maps missing (which is absolutely fine in a production deployment) and all images being displayed with incorrect aspect ratios (this would benefit from fixing, but it's barely noticeable even when you know).
 
 Now to the big point... **32** on performance... That is not good, so let's take a closer look.
 
@@ -149,7 +149,7 @@ To get a better insight, let's make a "Performance Insights" run for the page:
 
 As you can see, the HTML and some of the JS is already parsed and executed in the first two seconds of the request. At that point also the "DOM Content Loaded" (DCL) event is fired, but at that point in time the screen is still blank.
 
-Now some more JS is downloading and the biggest part takes the big horizontal line of _\_page.svelte-43331ef1.js_ (from now on known as page.svelte). That single file takes nearly 7.5 seconds to load, because it alone is 1.2 MB in size (as an unfair comparison, my reimplementation is 35k excluding images and fonts and this blogpost is 335kb including images and videos). This means that the JS bundle is bigger than the 12 images loaded as thumbnails for the first videos combined.
+Now some more JS is downloading and the biggest part takes the big horizontal line of _\_page.svelte-43331ef1.js_ (from now on known as page.svelte). That single file takes nearly 7.5 seconds to load, because it alone is 1.2 MB in size (as an unfair comparison, my reimplementation is 35k excluding images and fonts and this blog post is 335kb including images and videos). This means that the JS bundle is bigger than the 12 images loaded as thumbnails for the first videos combined.
 
 One small note on FCP: the dev tools don't register the app shell as FCP (and that renders after ~3 seconds) so FCP is marked as when the _page.svelte_ finishes loading.
 
@@ -157,7 +157,7 @@ Also I don't know why, but in my traces the API for the first 12 videos is reque
 
 :::commentBlock
 One note regarding the server:
-Often when I do these things I see the server times as a huge factor when loading data (e.g. in the [RKI post][rki-post] the longest time my implementation is waiting on a response by the server). But in this case the server is really fast enough for the usecase. Sub-second rounttrip times for search requests (normally ~750-800ms on Fast 3G) is significantly faster than I expected.
+Often when I do these things I see the server times as a huge factor when loading data (e.g. in the [RKI post][rki-post] the longest time my implementation is waiting on a response by the server). But in this case the server is really fast enough for the usecase. Sub-second roundtrip times for search requests (normally ~750-800ms on Fast 3G) is significantly faster than I expected.
 :::
 
 ### And the real issue is...
@@ -168,7 +168,7 @@ Not that it exists, but that it's required for the FCP and that there is so much
 
 ## Trying to fix it:
 
-Now that I've spent some time looking at the issue, I wanted to see wether or not I could create a more performant implementation of this (and to see how easy it was to implement some quirks like endless scrollers in [Lit][lit]).
+Now that I've spent some time looking at the issue, I wanted to see whether or not I could create a more performant implementation of this (and to see how easy it was to implement some quirks like endless scrollers in [Lit][lit]).
 
 ### Loading the data
 
@@ -177,7 +177,7 @@ The [original application][tnw-app] exposes an API with json data for all videos
 {% image "assets/img/blog/2022-10-20-nativewapp/api-cors-fail.jpg", "Chrome DevTools error for fetching the original API, because of CORS errors."%}
 
 :::sidenote
-I personally believe that most APIs should be accessible via CORS, especially when they are openly accessbile anyways (if a login is required, it's another discussion).
+I personally believe that most APIs should be accessible via CORS, especially when they are openly accessible anyways (if a login is required, it's another discussion).
 :::
 
 ... the original API doesn't provide CORS headers.
@@ -237,7 +237,7 @@ Let's take a look at the new "Performance Insights" too:
 
 #### Loading Strategy
 
-As you can see, I reduced the request rounds from 5 to 4 requests compared to the original and I also preloaded everything possible. For this reason the _ubuntu_ font (which is used fot the video titles) is already present when the first bunch of videos come in (normally a browser only starts loading a font when it's actually used, but we know that we will use it).
+As you can see, I reduced the request rounds from 5 to 4 requests compared to the original and I also preloaded everything possible. For this reason the _ubuntu_ font (which is used for the video titles) is already present when the first bunch of videos come in (normally a browser only starts loading a font when it's actually used, but we know that we will use it).
 Also my JS bundle is just 28.7kb. This is possible, because [Lit][lit] uses the platform as much as possible and I stripped out as much as I could leaving things like browser support on the line (but I think that even if you'd include reasonable support, the bundle should stay <100kb).
 
 #### Payload Optimization
@@ -260,7 +260,7 @@ Not only did I switch to [Lit][lit] in my reimplementation to reduce bundle size
 
 Yep, you read that right. No central state management. Everything is bundled in the components (`wapp-search`, `wapp-videos` and `wapp-video`).
 
-But how does the `wapp-videos` component know which videos to display? - Simpel: This is my complete(\*) `main.ts`:
+But how does the `wapp-videos` component know which videos to display? - Simple: This is my complete(\*) `main.ts`:
 
 ```ts
 import "./components/wapp-search.ts";
@@ -290,7 +290,7 @@ There is even more room for improvement by switching to _webp_ or _avif_.
 
 The original page currently only serves one version of the thumbnails and that at a fairly large 640x360px, which is nice on bigger screens, but most often the images are rendered at <350px, which is some good chunk of potential savings (which I'm willing to take here, but opinions might differ).
 
-Right now I believe that the image API of "[the native web][tnw-io]" has its own image storage. *(Update: After speaking to "[the native web][tnw-io]", they verified that I'm correct.)* For my implementation I just skip that and use the YouTube image servers instead, since they allow for more image sizes and performance and we already have the YouTUbe ID of each video.
+Right now I believe that the image API of "[the native web][tnw-io]" has its own image storage. *(Update: After speaking to "[the native web][tnw-io]", they verified that I'm correct.)* For my implementation I just skip that and use the YouTube image servers instead, since they allow for more image sizes and performance and we already have the YouTube ID of each video.
 
 ```html
 <picture class="thumbnail">
@@ -428,11 +428,11 @@ I chose part of the german fairy tale "Hänsel and Gretel" as an example text. Y
 ### Never trust your own machine
 
 Like the performance metrics showed in the first update, you shouldn't run your tests only on one machine and/or internet connection.
-While this doesn't really impact the validity of the methods outlined in this post, it has an impact on the necessety. A performance score of 50 is something to improve upon, a score of 77 is often fine.
+While this doesn't really impact the validity of the methods outlined in this post, it has an impact on the necessity. A performance score of 50 is something to improve upon, a score of 77 is often fine.
 
 ### Disagree and cooperate
 
-During my interactions with [Golo Roden][tw-golo] we had some different opinions and starting points. I believe that one should strive for as open APIs as your usecases allow, he had the completely valid opinion that you only need to look at your own usecases and not possible third party ones when your API isn't meant for external use. For me the obvious way of running lighthouse tests was *mobile*, his was *desktop* which led to some confusion over my results. Again, both points of view are completely valid, you just need to agree on the settings when comparing results. From their point of view *desktop* as the default makes sense, since they know that [most of their users are on desktop](https://youtu.be/-pLT4phTSuI?t=129) anyways. I personally think that you should test on *mobile* anyways, since those results tend to be worse and therefore give you a stricter performance target to hit, which benefits all users.
+During my interactions with [Golo Roden][tw-golo] we had some different opinions and starting points. I believe that one should strive for as open APIs as your usecases allow, he had the completely valid opinion that you only need to look at your own usecases and not possible third party ones when your API isn't meant for external use. For me the obvious way of running lighthouse tests was *mobile*, his was *desktop* which led to some confusion over my results. Again, both points of view are completely valid, you just need to agree on the settings when comparing results. From their point of view *desktop* as the default makes sense, since they know that [most of their users are on desktop](https://youtu.be/-pLT4phTSuI?t=129) anyway. I personally think that you should test on *mobile* anyway, since those results tend to be worse and therefore give you a stricter performance target to hit, which benefits all users.
 
 Even though we disagreed on those details, we never stopped cooperating on the topics at hand, trying to understand each other. This cooperation led to an improvement in their site and this blog article.
 
@@ -440,10 +440,10 @@ Even though we disagreed on those details, we never stopped cooperating on the t
 
 :::sidenote
 By the way, did you notice that this post uses the pink from "[the native web][tnw-io]"'s design scheme?
-If you read my blog more often, you know that blogposts normally have another color.
+If you read my blog more often, you know that blog posts normally have another color.
 :::
 
-"[The native web][tnw-io]" for letting me use their site for a blogpost and especially to [Golo Roden][tw-golo] for the nice communications while writing this blogpost. I don't take it for granted, that you reacted to this in such a positive manner.
+"[The native web][tnw-io]" for letting me use their site for a blog post and especially to [Golo Roden][tw-golo] for the nice communications while writing this blog post. I don't take it for granted, that you reacted to this in such a positive manner.
 
 For obvious reasons I don't put the code on GitHub under my normal permissive license, since it includes IP of "[the native web][tnw-io]".
 
@@ -493,7 +493,7 @@ This is much better. The "Performance" metrics saw an improvement in more than 5
 
 #### Communication is key
 
-Yesterday I hat a video call with "[the native web][tnw-io]" where we discussed the issues mentioned in this post and they already implemented some and als gave me approval for hosting a demo of me reimplementation, so you can take a look at it yourself.
+Yesterday I hat a video call with "[the native web][tnw-io]" where we discussed the issues mentioned in this post and they already implemented some and also gave me approval for hosting a demo of me reimplementation, so you can take a look at it yourself.
 
 #### Fixes to the original
 
