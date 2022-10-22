@@ -36,7 +36,6 @@ code[class*="language-"] *::selection {
 
 pre[class*="language-"] {
 	padding: 1em;
-    padding-left: 0 !important;
 	margin: .5em 0;
 	overflow: auto;
 	background: #1e1e1e;
@@ -264,65 +263,13 @@ code[class*="language-html"] {
 /*********************************************************
 * Line highlighting
 */
-pre[data-line] {
-	position: relative;
-}
-
 pre[class*="language-"] > code[class*="language-"] {
 	position: relative;
 	z-index: 1;
 }
 
-.line-highlight {
-	position: absolute;
-	left: 0;
-	right: 0;
-	padding: inherit 0;
-	margin-top: 1em;
+.line-highlight.line-highlight {
 	background: #f7ebc6;
 	box-shadow: inset 5px 0 0 #f7d87c;
 	z-index: 0;
-	pointer-events: none;
-	line-height: inherit;
-	white-space: pre;
 }
-
-
-
-
-pre {
-    counter-reset: lineNumber;
-}
-
-code .highlight-line:before {
-    -webkit-user-select: none;
-    border-right: 1px solid #404040;
-    color: #858585;
-    content: counter(lineNumber);
-    counter-increment: lineNumber;
-    display: inline-block;
-    font-variant-numeric: tabular-nums;
-    margin-right: var(--m);
-    padding-right: var(--s);
-    text-align: right;
-    width: 2ch;
-    position: sticky;
-    left: 0;
-    display: block;
-    float: left;
-	background: #272822;
-    z-index: 10;
-    padding-left: 1em;
-}
-
-code .highlight-line-active:before {
-    color: #ddd;
-    border-color: #888;
-}
-
-code .highlight-line-active {
-    padding: var(--xxs) var(--xs) var(--xs) 0;
-    background-color: #640;
-    color: #fff;
-}
-

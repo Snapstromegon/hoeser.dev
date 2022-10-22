@@ -372,7 +372,8 @@ main ul {
   padding-left: var(--xxl);
 }
 
-main img {
+main img,
+main video {
   max-width: 100%;
   height: auto;
 }
@@ -418,13 +419,15 @@ main table {
   margin: var(--m) 0;
 }
 
-main table td, main table th {
-  padding: .5rem;
+main table td,
+main table th {
+  padding: 0.5rem;
   border-right: var(--xxxs) solid var(--text-color--lighter);
   border-bottom: var(--xxxs) solid var(--text-color--lighter);
 }
 
-main table td:last-child, main table th:last-child {
+main table td:last-child,
+main table th:last-child {
   border-right: none;
 }
 
@@ -519,6 +522,10 @@ body a {
     var(--theme-color-a),
     var(--theme-color-b)
   );
+}
+
+.commentBlock ~ .commentBlock {
+  margin-top: var(--xl);
 }
 
 .relatePreview {
