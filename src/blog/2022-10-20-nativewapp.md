@@ -464,7 +464,7 @@ I will add here any updates "[the native web][tnw-io]" does to their site and wh
 ### 2022-10-20: Bundle Size
 
 :::commentBlock
-I saw that my local test scores are significantly worse than with a neutral test at [pagespeed.web.dev][pg-insights](https://pagespeed.web.dev/). This means, that the numbers mentioned in this article are probably worse than they should be. This has no impact on the improvements discussed in this post, but should be noted.
+I saw that my local test scores are significantly worse than with a neutral test at [pagespeed.web.dev][pg-insights]. This means, that the numbers mentioned in this article are probably worse than they should be. This has no impact on the improvements discussed in this post, but should be noted.
 :::
 
 [Golo Roden][tw-golo] confirmed that the 1.2MB _page.svelte_ was an issue with an incorrect import. This happens to all of us and is an easy mistake to make. In this special case the datetime library included all possible translations. Removing those reduces the _page.svelte_ from 1.2MB to just 32.9kb and the whole JS bundle now weighs in with only 85.8kb - this is far below my normal 100kb of JS line and therefore is a brilliant result (and also closer to what I expected from [Svelte][svelte]).
@@ -479,7 +479,7 @@ To make this more clear, let's take a look at the new lighthouse scores (on mobi
 :::sidenote
 On Desktop the performance increased to over 90, which is a green score even for lighthouse.
 
-Also on [PageSpeed Insights][pg-insight] the mobile score is 77, which is significantly higher.
+Also on [PageSpeed Insights][pg-insights] the mobile score is 77, which is significantly higher.
 I mentioned this issue in a comment above, but I can't test the old version for comparison, so I'll stick to my local measurements.
 :::
 
