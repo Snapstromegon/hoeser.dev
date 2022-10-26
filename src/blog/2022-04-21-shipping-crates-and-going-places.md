@@ -46,7 +46,7 @@ My Prometheus exporter uses the feature to **re**solve **coord**inates, so the n
 
 ## Next Rust version
 
-During my first steps with my new lib, [Rust 1.60.0](https://blog.rust-lang.org/2022/04/07/Rust-1.60.0.html)](https://blog.rust-lang.org/2022/04/07/Rust-1.60.0.html) got released with nice new features like the new feature syntax. So I immediately jumped on that and took advantage of it (it's really nice, even though the feature testing tools still don't completely understand it).
+During my first steps with my new lib, [Rust 1.60.0](https://blog.rust-lang.org/2022/04/07/Rust-1.60.0.html) got released with nice new features like the new feature syntax. So I immediately jumped on that and took advantage of it (it's really nice, even though the feature testing tools still don't completely understand it).
 
 ## Setting targets
 
