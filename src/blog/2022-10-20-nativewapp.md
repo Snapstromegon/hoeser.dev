@@ -487,7 +487,7 @@ I mentioned this issue in a comment above, but I can't test the old version for 
 
 {% image "assets/img/blog/2022-10-20-nativewapp/lighthouse-perf-22-10-20.jpg", "Updated lighthouse scores with 49, 98, 92, 100"%}
 
-This is much better. The "Performance" metrics saw an improvement in more than 50% (32 increased to 49 - keep in mind, this value is on a log scale).
+This is much better. The "Performance" metrics saw an improvement of more than 50% (32 increased to 49 - keep in mind, this value is on a log scale).
 
 ### 2022-10-22 Demo incoming
 
