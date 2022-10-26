@@ -192,7 +192,7 @@ There are many CORS proxies out there and some are even free and you can also ho
 
 :::sidenote
 **Remember:** be a nice player on the web, especially when you use free APIs that are not yours!
-Try to decrease load you create on other servers and if you do need to scrape many things, [keep in mind to give something back](http://localhost:8080/blog/2022-02-28-popularity-vs-quality/#:~:text=If%20you%20think,projects%20like%20these.)!
+Try to decrease load you create on other servers and if you do need to scrape many things, [keep in mind to give something back](/blog/2022-02-28-popularity-vs-quality/#:~:text=If%20you%20think,projects%20like%20these.)!
 :::
 
 Now that we have a working connection to the API, I can describe the actual reimplementation.
