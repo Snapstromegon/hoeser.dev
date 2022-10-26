@@ -82,10 +82,10 @@ As you can see, LIT injects some comment which identifies the next HTML node. Th
 
 #### But how does LIT know what's static and what's dynamic?
 
-You saw those nice _baclticks_? Normally those are just strings, but if you prefix it with a name it becomes a **tagged template literal**. Those are fundamentally functions that get two arrays as inputs. The first are the static parts (outside the `${}`) and the other are the dynamic parts (inside the `${}`). There you have your solution. That way you can do minimal DOM manipulations even when you don't use a VDOM.
+You saw those nice _backticks_? Normally those are just strings, but if you prefix it with a name it becomes a **tagged template literal**. Those are fundamentally functions that get two arrays as inputs. The first are the static parts (outside the `${}`) and the other are the dynamic parts (inside the `${}`). There you have your solution. That way you can do minimal DOM manipulations even when you don't use a VDOM.
 
 ## So is there no place for VDOM?
 
-No, this is not what I want to say. The way React handles components is pretty good and if you want to handle components that way, VDOm is probably the best way to do it. All I want to say is that VDOM is not some magic smoke to make things go fast and not everything that avoids it is automatically slow. You just need to weigh in if the nice things a VDOM brings you are actually worth the size and overhead of the libraries or framework.
+No, this is not what I want to say. The way React handles components is pretty good and if you want to handle components that way, VDOM is probably the best way to do it. All I want to say is that VDOM is not some magic smoke to make things go fast and not everything that avoids it is automatically slow. You just need to weigh in if the nice things a VDOM brings you are actually worth the size and overhead of the libraries or framework.
 
 Always keep in mind that you pay every kb going down to your user in bandwith and more importantly time. Your app can be as nice as you want, if your content takes longer to get useful than your users want to wait, it's practically worthless.
