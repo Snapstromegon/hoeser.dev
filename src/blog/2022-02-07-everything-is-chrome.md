@@ -12,7 +12,7 @@ tags:
 
 ## Disclaimer
 
-This post is not about the individuals involved or mentioned. Regardless of me speaking positively or negatively about certain quotes of the individuals mentioned here, they are not representative of my general opinion of the work of these people or the individuals themselves.
+This post is not about the individuals involved or mentioned. Regardless of me speaking positively or negatively about certain quotes of the individuals mentioned here, they are not representative of my general opinion of the work by these people or the individuals themselves.
 
 This piece should've been a tweet response, but <del>140</del> <ins>280</ins> characters are just not enough to express a nuanced opinion.
 
@@ -30,11 +30,11 @@ Apple has decided time and time again to underfund the development of Safari and
 
 I don't think this is true, but that this even offers the option for a joke speaks a lot for the current situation of Safari development.
 
-As a WebDev myself who on one side loves playing with new stuff like WebBluetooth or WebNFC and on the other thinks that PWAs are the future, Safari has become a real pain point for me. Not only that Safari is the only real browser on iOS (more details later), it's also not available on any device for me. I don't own a Mac or i-Device. So every time I want to test something on in Safari I have to track someone down one (an iPhone is fairly easy, but getting my hands on a Mac is not so easy) and even then debugging on Safari isn't exactly what you'd call a good developer experience.
+As a WebDev myself who on one side loves playing with new stuff like WebBluetooth or WebNFC and on the other thinks that PWAs are the future, Safari has become a real pain point for me. Not only that Safari is the only real browser on iOS (more details later), it's also not available on any device for me. I don't own a Mac or i-Device. So every time I want to test something in Safari I have to track someone down (finding someone with an iPhone is fairly easy, but getting my hands on a Mac is not so easy) and even then debugging Safari isn't exactly what you'd call a good developer experience.
 
 ### Avoiding competition
 
-Apples AppStore rules don't allow other browser engines than the build in WebKit engine. Therefore all other browsers in iOS use that engine and are basically just Safari with a new skin. This leaves to options for other browsers on iOS:
+Apples AppStore rules don't allow other browser engines than the build in WebKit engine. Therefore all other browsers in iOS use that engine and are basically just Safari with a new skin. This leaves two options for other browsers on iOS:
 
 :::sidenote
 Competition is important - especially in the tech space - even more so in a space that's driven by open standards and has such a painful history like Internet Explorer
@@ -64,18 +64,18 @@ As someone who neither works on Chromium nor WebKit (nor any other engine) to me
 Either one of these I think is unrealistic. Also both sides IMO miss the point.
 
 :::sidenote
-I hope we're all aware that single individuals like Jen Simmons don't decide on how Apple allocates its monitary ressources
+I hope we're all aware that single individuals like Jen Simmons don't decide on how Apple allocates its monetary ressources
 :::
 
 I think we all agree that the web can be its best when we have many stakeholders with equal weight in the ring and even better when they work together. Jen Simmons is a shining example of this with her work in the CSS Working Group. Nonetheless I think that Apples walled garden is hurting the web and even if Apple would open up the gates, I don't believe that "users would flock away from Safari" like [Jake Archibald twwted](https://twitter.com/jaffathecake/status/1490771255435403267). I know too many people who actually like Safari and for the average user it's not a bad browser. Apple knows how to do polished UX and it shows.
 
 But I also think that e.g. more advanced features around PWA implemented by other browsers would give Apple more incentive to implement those too on their platform, so all users benefit from the added competition.
 
-Regarding the other side, I believe that hating against Apple like is sometimes done isn't helping either ([here I've kinda done it myself](https://www.reddit.com/r/webdev/comments/rek02n/chrome_and_firefox_draw_text_underlines_beneath/ho8xggu/?context=3)). Especially when it's directed against individuals working on WebKit or Safari. **Noone deserves hate for this kind of work!**
+Regarding the other side, I believe that hating against Apple like it's sometimes done isn't helping either ([here I've kinda done it myself](https://www.reddit.com/r/webdev/comments/rek02n/chrome_and_firefox_draw_text_underlines_beneath/ho8xggu/?context=3)). Especially when it's directed against individuals working on WebKit or Safari. **Noone deserves hate for this kind of work!**
 
 Stating that Safari is a lost cause or that Safari will easily make a return once there is competition isn't true either. First of all developing and maintaining a browser is _expensive_, like _Microsoft doesn't want to do this_ kind of expensive. Having Apple actively maintaining Safari to the current state is remarkable, but like I mentioned before, in relation to its revenue it's a shame.
 
-Speaking of revenue. I see the strong incentive for Apple executives to keep the Web small on iOS, since the AppStore revenue with its 30% cut is a giant income oppotunity, which doesn't have an equivalent on the web.
+Speaking of revenue. I see the strong incentive for Apple executives to keep the Web small on iOS, since the AppStore revenue with its 30% cut is a giant income opportunity, which doesn't have an equivalent on the web.
 
 ## Is a "Chromium-Only" web a dystopian idea?
 
@@ -97,11 +97,11 @@ I believe that if Apple opens up iOS for other engines, It will create an impact
 
 ### Safari is more secure
 
-No it isn't, especially because it's part of the OS, so it only get's updated with the OS and exploits in Safari are way more dengerous than if it were running as a simple application.
+No it isn't, especially because it's (on iOS) part of the OS, so it only get's updated with the OS and exploits in Safari are way more dengerous than if it were running as a simple application.
 
 ### Chromium is the best browser, wouldn't it be good if everything were like it?
 
-Absolutely not. Examples like the history of IE and more recently how Google pushed and handled AMP pages showed, that single players gaining too much power are hurting the ecosystem. We need consensus on the direction of the platform, even better a stage where even small developers like I am can voice their opinion like I did on [retrying failed dynamic imports](https://github.com/tc39/proposal-dynamic-import/issues/80).
+Absolutely not. Examples like the history of IE and more recently how Google pushed and handled AMP pages showed, that single players gaining too much power are hurting the ecosystem. We need consensus on the direction of the platform, even better, a stage where even small developers like I am can voice their opinion like I did on [retrying failed dynamic imports](https://github.com/tc39/proposal-dynamic-import/issues/80).
 
 ### Apple does this to protect users privacy
 
