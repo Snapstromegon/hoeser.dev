@@ -172,7 +172,7 @@ Now that I've spent some time looking at the issue, I wanted to see whether or n
 
 ### Loading the data
 
-The [original application][tnw-app] exposes an API with json data for all videos, that also allows filtering, limiting and pagination. This is quite hand and so I tried requesting it from my reimplementation, but...
+The [original application][tnw-app] exposes an API with json data for all videos, that also allows filtering, limiting and pagination. This comes in quite handy and so I tried requesting it from my reimplementation, but...
 
 {% image "assets/img/blog/2022-10-20-nativewapp/api-cors-fail.jpg", "Chrome DevTools error for fetching the original API, because of CORS errors."%}
 
