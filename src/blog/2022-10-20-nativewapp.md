@@ -149,7 +149,7 @@ To get a better insight, let's make a "Performance Insights" run for the page:
 
 As you can see, the HTML and some of the JS is already parsed and executed in the first two seconds of the request. At that point also the "DOM Content Loaded" (DCL) event is fired, but at that point in time the screen is still blank.
 
-Now some more JS is downloading and the biggest part takes the big horizontal line of _\_page.svelte-43331ef1.js_ (from now on known as page.svelte). That single file takes nearly 7.5 seconds to load, because it alone is 1.2 MB in size (as an unfair comparison, my reimplementation is 35k excluding images and fonts and this blog post is 335kb including images and videos). This means that the JS bundle is bigger than the 12 images loaded as thumbnails for the first videos combined.
+Now some more JS is downloading and the biggest part takes the big horizontal line of _\_page.svelte-43331ef1.js_ (from now on known as page.svelte). That single file takes nearly 7.5 seconds to load, because it alone is 1.2 MB in size (as an unfair comparison, my reimplementation is 35k excluding images and fonts and this blog post is 207kb including images, excluding videos). This means that the JS bundle is bigger than the 12 images loaded as thumbnails for the first videos combined.
 
 One small note on FCP: the dev tools don't register the app shell as FCP (and that renders after ~3 seconds) so FCP is marked as when the _page.svelte_ finishes loading.
 
