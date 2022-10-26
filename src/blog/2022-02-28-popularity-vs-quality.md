@@ -22,7 +22,7 @@ Also this post does not mean that you shouldn't use smaller libraries! It just m
 
 ## Preface
 
-"establishedness - a broad distribution can be an indicator of quality" I wrote something similar to this in the draft of my paper and then stopped for a second. - That's a really bold claim with not backup and nevertheless this feels so true that I didn't even think it could be wrong. A quick google search backed me up... But it was just comments over comments and many opinion blogposts which said that more popular packages are always of higher quality. But this is not good enough to be quoted in a paper, so I started to dive headfirst into some data analysis.
+"establishedness - a broad distribution can be an indicator of quality" I wrote something similar to this in the draft of my paper and then stopped for a second. - That's a really bold claim with no backup and nevertheless this feels so true that I didn't even think it could be wrong. A quick google search backed me up... But it was just comments over comments and many opinion blogposts which said that more popular packages are always of higher quality. But this is not good enough to be quoted in a paper, so I started to dive headfirst into some data analysis.
 
 ## What is quality or even popularity
 
@@ -385,7 +385,7 @@ I've added a logarithmic trendline to better visualize what's happening here.
 
 ## Result
 
-In my opinion the data shows what I expected when I started doing this: popularity is a strong indicator for quality (at least as long as you agree with the quality factors of npms.io). It also clearly describes that (like you would expect) high usage is not a guarantee for high quality. We can see clearly see many dots falling way below the curve and the smaller we make the clusters, the more clear this becomes.
+In my opinion the data shows what I expected when I started doing this: popularity is a strong indicator for quality (at least as long as you agree with the quality factors of npms.io). It also clearly describes that (like you would expect) high usage is not a guarantee for high quality. We can clearly see many dots falling way below the curve and the smaller we make the clusters, the more clear this becomes.
 
 But this data shows also something I didn't expect! Putting some dots aside and also ignore the nearly unused packages, overall packages on npm have a fairly high code quality which I think is really great!
 
