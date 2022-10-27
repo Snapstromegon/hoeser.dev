@@ -7,8 +7,6 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "declaration": true,
-    "declarationMap": true,
     "sourceMap": true,
     "inlineSources": true,
     "rootDir": "./",

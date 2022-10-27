@@ -1,5 +1,6 @@
 ---
 permalink: sw.js
+sitemapIgnore: true
 ---
 
 const DYNAMIC_CACHE = "dynamic";
@@ -10,7 +11,7 @@ self.addEventListener("install", (event) => {
     (async function () {
       const cache = await caches.open(STATIC_CACHE);
       await cache.addAll([
-        "/offline",
+        "/offline/",
         "/manifest.json",
         {% for format, images in meta.favicon | imageData -%}
           "{{(images|last).url}}",
@@ -39,16 +40,18 @@ self.addEventListener("activate", function (event) {
   );
 });
 
-self.addEventListener('fetch', function (event) {
-  event.respondWith(
-    caches.open('dynamic').then(function (cache) {
-      return cache.match(event.request).then(function (response) {
-        var fetchPromise = fetch(event.request).then(function (networkResponse) {
-          cache.put(event.request, networkResponse.clone());
-          return networkResponse;
-        });
-        return response || fetchPromise;
-      });
-    }),
-  );
+self.addEventListener('fetch', (event) => {
+  event.respondWith(async function() {
+    const cache = await caches.open(DYNAMIC_CACHE);
+    const cachedResponse = await cache.match(event.request);
+    const networkResponsePromise = fetch(event.request);
+
+    event.waitUntil(async function() {
+      const networkResponse = await networkResponsePromise;
+      await cache.put(event.request, networkResponse.clone());
+    }());
+
+    // Returned the cached response if we have one, otherwise return the network response, fall back to offline.
+    return cachedResponse || networkResponsePromise.catch(() => caches.match('/offline/'));
+  }());
 });

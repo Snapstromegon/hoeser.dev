@@ -3,9 +3,8 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const Image = require("@11ty/eleventy-img");
-const typescript = require("rollup-plugin-typescript2");
+const typescript = require("@rollup/plugin-typescript");
 const { default: resolve } = require("@rollup/plugin-node-resolve");
-const { terser } = require("rollup-plugin-terser");
 const markdownIt = require("markdown-it");
 const markdownItEmoji = require("markdown-it-emoji");
 const markdownItContainer = require("markdown-it-container");
@@ -126,7 +125,7 @@ module.exports = function (eleventyConfig) {
         dir: "_site/js",
         sourcemap: process.env.NETLIFY !== "true",
       },
-      plugins: [typescript(), resolve(), terser()],
+      plugins: [typescript(), resolve()],
     },
   });
 

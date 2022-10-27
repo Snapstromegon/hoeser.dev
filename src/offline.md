@@ -1,5 +1,6 @@
 ---
 layout: layouts/main.njk
+sitemapIgnore: true
 theme:
   colorA: "#ff0"
   colorB: "#f00"
