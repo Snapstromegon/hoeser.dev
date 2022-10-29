@@ -200,6 +200,7 @@ header::after {
 body header h1 {
   font-size: var(--xxl);
   max-width: 50rem;
+  word-break: break-word;
 }
 
 body header a {
