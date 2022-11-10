@@ -11,6 +11,7 @@ eleventyNavigation:
 <style>
   #main-greeting {
     display: grid;
+    max-width: 50rem;
     gap: var(--l) var(--xxl);
     grid-template-areas: "greeting" "head" "feats";
   }
