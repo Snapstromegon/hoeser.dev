@@ -7,6 +7,44 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
+
+<style>
+  #main-greeting {
+    display: grid;
+    gap: var(--l) var(--xxl);
+    grid-template-areas: "greeting" "head" "feats";
+  }
+
+  #main-greeting picture {
+    grid-area: head;
+  }
+  #main-greeting h1 {
+    font-size: var(--xxl);
+    margin: 0;
+    grid-area: greeting;
+    align-self: end;
+  }
+
+  #main-greeting li {
+    padding: var(--xxs) 0;
+    list-style: none;
+    white-space: nowrap;
+    text-transform: capitalize;
+  }
+
+  #main-greeting ul {
+    padding: 0;
+    column-width: 11rem;
+  }
+
+  @media (min-width: 40rem) {
+    #main-greeting {
+      grid-template-columns: 20rem 1fr;
+      grid-template-rows: auto auto;
+      grid-template-areas: "head greeting" "head feats";
+    }
+  }
+</style>
 <header>
   <a href="{{ (collections.blogposts | last).url }}">
     <div class="content">
@@ -18,12 +56,22 @@ eleventyNavigation:
 <main id="main-content">
   <div class="content">
     <article>
+      <section id="main-greeting">
+{% image "assets/img/head.png", "My face in some colorly blobs" %}
 
-# Hello World
+# Hi, I'm Raphael
+
+- ⚡ performance hunter
+- 📒 working student
+- 💻 compute enthusiast
+- 🚀 automation evangelist
+  </section>
+
+## So what is this?
 
 It took me years and multiple tries to start a blog. Every time I started, I learned a lot, tried new tech, got it launched and then... I had no idea what to write.
 
-This time I already have some things in mind to give me a headstart, so this won't stay empty. Keep an eye out for the webdev-sins series, where I will be blatently trumpet my opinion and then elaborate on why I think something is not right. But keep in mind I'm not allmighty and only human, so if you disagree or have an own opinion - let me know!
+As it seems, this blog didn't stay empty and instead I wrote some of my thoughts down for the world. Have fun reading and if you want to comment, my social links are always open for questions and feedback!
 
   </article>
   </div>

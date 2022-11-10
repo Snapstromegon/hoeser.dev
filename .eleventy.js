@@ -13,7 +13,11 @@ const rollupPlugin = require("eleventy-plugin-rollup");
 function generateImages(src) {
   return Image(src, {
     widths: [256, 512, 1024, null],
-    formats: ["avif", "webp", "jpeg"],
+    formats: [
+      "avif",
+      "webp",
+      src.toLowerCase().endsWith(".png") ? "png" : "jpeg",
+    ],
     outputDir: "_site/img/",
   });
 }
