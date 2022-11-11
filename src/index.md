@@ -24,6 +24,7 @@ eleventyNavigation:
     margin: 0;
     grid-area: greeting;
     align-self: end;
+    font-weight: 200;
   }
 
   #main-greeting li {
@@ -37,7 +38,30 @@ eleventyNavigation:
     padding: 0;
     column-width: 11rem;
   }
+  @media not (hover: none) {
+    .font-fun-letter {
+      --add: 0;
+      font-weight: calc(200 + 700*var(--add));
+      font-stretch: calc(100% + 25%*var(--add));
+      transition: color .2s,font-stretch .2s,font-weight .2s;
+    }
 
+    .font-fun-letter:hover {
+      --add: 1;
+    }
+    .font-fun-letter:hover+.font-fun-letter,
+    .font-fun-letter:has(+.font-fun-letter:hover) {
+      --add: 0.7;
+    }
+    .font-fun-letter:hover+.font-fun-letter+.font-fun-letter,
+    .font-fun-letter:has(+.font-fun-letter+.font-fun-letter:hover) {
+      --add: 0.45;
+    }
+    .font-fun-letter:hover+.font-fun-letter+.font-fun-letter+.font-fun-letter,
+    .font-fun-letter:has(+.font-fun-letter+.font-fun-letter+.font-fun-letter:hover) {
+      --add: 0.2;
+    }
+  }
   @media (min-width: 40rem) {
     #main-greeting {
       grid-template-columns: 20rem 1fr;
@@ -60,7 +84,7 @@ eleventyNavigation:
       <section id="main-greeting">
 {% image "assets/img/head.png", "My face in some colorly blobs" %}
 
-# Hi, I'm Raphael
+<h1>{%for letter in "Hi, I'm Raphael!"%}<span class="font-fun-letter">{{letter}}</span>{% endfor %}</h1>
 
 - ⚡ performance hunter
 - 📒 working student

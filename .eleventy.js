@@ -137,6 +137,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("assets/js/");
   eleventyConfig.addPassthroughCopy("assets/img");
   eleventyConfig.addPassthroughCopy("assets/video");
+  eleventyConfig.addPassthroughCopy("assets/fonts");
 
   eleventyConfig.addCollection("blogposts", (collectionApi) => {
     return collectionApi.getFilteredByGlob("src/blog/*.md");
