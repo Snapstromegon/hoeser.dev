@@ -24,6 +24,7 @@ eleventyNavigation:
     margin: 0;
     grid-area: greeting;
     align-self: end;
+    text-align:center;
     font-weight: 200;
   }
 
@@ -43,7 +44,7 @@ eleventyNavigation:
       --add: 0;
       font-weight: calc(200 + 700*var(--add));
       font-stretch: calc(100% + 25%*var(--add));
-      transition: color .2s,font-stretch .2s,font-weight .2s;
+      transition: transform .2s,font-stretch .2s,font-weight .2s;
     }
 
     .font-fun-letter:hover {
