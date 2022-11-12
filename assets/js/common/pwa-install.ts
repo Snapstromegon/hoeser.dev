@@ -5,6 +5,7 @@ import { customElement, state } from "lit/decorators.js";
 export default class PWAInstaller extends LitElement {
   static override styles = css`
     button {
+      cursor: pointer;
       border: 0.2rem solid transparent;
       background: linear-gradient(#fff, #fff),
         linear-gradient(to right, var(--theme-color-a), var(--theme-color-b));
