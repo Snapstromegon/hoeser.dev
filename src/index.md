@@ -19,6 +19,7 @@ eleventyNavigation:
   #main-greeting picture {
     grid-area: head;
   }
+  
   #main-greeting h1 {
     font-size: var(--xxl);
     margin: 0;
@@ -39,6 +40,7 @@ eleventyNavigation:
     padding: 0;
     column-width: 11rem;
   }
+  
   @media not (hover: none) {
     .font-fun-letter {
       --add: 0;
@@ -63,6 +65,7 @@ eleventyNavigation:
       --add: 0.2;
     }
   }
+  
   @media (min-width: 40rem) {
     #main-greeting {
       grid-template-columns: 20rem 1fr;
