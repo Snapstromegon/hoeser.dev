@@ -30,3 +30,9 @@
 [[redirects]]
   from = "/webdev-sins/vw-font-size/"
   to = "/webdev-sins/2022-02-07-vw-font-size/"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs.thresholds]
+    performance = 0.9
