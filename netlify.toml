@@ -35,4 +35,24 @@
   package = "@netlify/plugin-lighthouse"
 
   [plugins.inputs.thresholds]
-    performance = 0.9
+    performance = 0.95
+    accessibility = 1
+    best-practices = 1
+    seo = 1
+    pwa = 1
+
+  [[plugins.inputs.audits]]
+    path = "/"
+
+  [[plugins.inputs.audits]]
+    path = "blog/"
+
+  [[plugins.inputs.audits]]
+    path = "blog/2022-02-07-everything-is-chrome/"
+
+  [[plugins.inputs.audits]]
+    path = "webdev-sins/"
+
+  [[plugins.inputs.audits]]
+    path = "webdev-sins/2022-01-05-button-as-link/"
+
