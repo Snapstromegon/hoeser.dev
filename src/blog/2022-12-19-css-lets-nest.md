@@ -3,7 +3,7 @@ title: CSS Nesting Syntax Discussion
 abstract: |
   Currently the CSS Working Group is discussing how native CSS Nesting will work and
   there are multiple options for a Nesting Syntax. I will take a look at these and provide my opinion.
-date: 2022-10-20
+date: 2022-12-19
 tags:
   - lang:CSS
 ---

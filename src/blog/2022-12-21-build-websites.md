@@ -3,7 +3,7 @@ title: Offer your services on the web
 abstract: |
   Every now and then I want to use some service that is only available as a native app.
   If this is your service, please stop and hear me out.
-date: 2022-10-20
+date: 2022-12-21
 tags:
   - type:opinion
   - concept:pwa
