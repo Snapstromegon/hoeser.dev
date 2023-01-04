@@ -39,7 +39,7 @@ Now make some napkin math on what you cost as a developer per hour and how long 
 
 ## But our designs don't work on that screen...
 
-And that's generally okay. I know that those screens are not default and I don't expect your site to look as nice as on 21:9 (or even use the additional space for something useful), but it should at least be useable.
+And that's generally okay. I know that those screens are not default and I don't expect your site to look as nice as on 16:9 (or even use the additional space for something useful), but it should at least be useable.
 
 ## So how do I test?
 
