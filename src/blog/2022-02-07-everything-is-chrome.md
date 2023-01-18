@@ -67,7 +67,7 @@ Either one of these I think is unrealistic. Also both sides IMO miss the point.
 I hope we're all aware that single individuals like Jen Simmons don't decide on how Apple allocates its monetary ressources
 :::
 
-I think we all agree that the web can be its best when we have many stakeholders with equal weight in the ring and even better when they work together. Jen Simmons is a shining example of this with her work in the CSS Working Group. Nonetheless I think that Apples walled garden is hurting the web and even if Apple would open up the gates, I don't believe that "users would flock away from Safari" like [Jake Archibald twwted](https://twitter.com/jaffathecake/status/1490771255435403267). I know too many people who actually like Safari and for the average user it's not a bad browser. Apple knows how to do polished UX and it shows.
+I think we all agree that the web can be its best when we have many stakeholders with equal weight in the ring and even better when they work together. Jen Simmons is a shining example of this with her work in the CSS Working Group. Nonetheless I think that Apples walled garden is hurting the web and even if Apple would open up the gates, I don't believe that "users would flock away from Safari" like [Jake Archibald tweeted](https://twitter.com/jaffathecake/status/1490771255435403267). I know too many people who actually like Safari and for the average user it's not a bad browser. Apple knows how to do polished UX and it shows.
 
 But I also think that e.g. more advanced features around PWA implemented by other browsers would give Apple more incentive to implement those too on their platform, so all users benefit from the added competition.
 
@@ -91,7 +91,7 @@ I would hate to see another browser engine go and although I'm writing this in a
 
 Mozilla with Firefox does amazing work. It's also not jumping every trend that Google wants to go, which sometimes is a bummer for me, but it's also often the spec compliant browser, when I compare different behavior in Chrome and Firefox with the specs (sorry Safari, you're just not available to me anymore).
 
-I believe that if Apple opens up iOS for other engines, It will create an impact in Safari's market share and also Apple's AppStore revenue. But I also believe that Safari will receive more spending and maybe even a revival of the non-Apple distributions (although I doupt this).
+I believe that if Apple opens up iOS for other engines, It will create an impact in Safari's market share and also Apple's AppStore revenue. But I also believe that Safari will receive more spending and maybe even a revival of the non-Apple distributions (although I doubt this).
 
 ## Adressing some common topics in this discussion
 
