@@ -1,7 +1,7 @@
 ---
 title: Opinion on app.thenativeweb.io
 abstract: |
-  (Last Update: 2022-10-22)
+  (Last Update: 2023-01-30)
   "The native web" is a german web consulting firm that also has a fairly successful YouTube account.
   Recently they launched a custom video search for their YouTube account and I took a look at it.
 date: 2022-10-20
@@ -505,6 +505,16 @@ Even better, they've fixed their aspect ratio issues (lighthouse still reports o
 
 From now on I won't guarantee that I will always update the post on time when "[the native web][tnw-io]" does an update. But there might be something coming from their side because of this post... (If you're in *the future*, you might have already seen it) I will post an update once something happens.
 
+### 2023-01-30: Final Update
+
+It's now been 3 months since I first published this blogpost. Right after publishing it (and while I was talking to Golo), they asked if they could create a video based on my analysis, but some time later they admitted, that they didn't find the "right words" to give their perspective, so they gave me an invite:
+
+A couple of days ago I joined [Golo][tw-golo] in his [livestream] and we spend close to four hours talking about this blogpost and general performance tipps. It was a lot of fun and a special thanks goes out to the awesome community which was integral to the success of the stream by providing input and questions.
+
+For everyone who understands german I highly recommend giving it a look, especially around the 3 hour mark, where we finished the "retelling" of this blogpost and started more of a "performance smalltalk".
+
+After the livestream I consider this blogpost done and probably won't update it anymore. Nonetheless I will still keep writing, so it might be worth it to still follow me on here or one of my social links in the footer.
+
 [tnw-io]: https://thenativeweb.io/
 [tnw-yt]: https://www.youtube.com/c/thenativewebGmbH
 [tnw-app]: https://app.thenativeweb.io
@@ -526,3 +536,4 @@ From now on I won't guarantee that I will always update the post on time when "[
 [w3c-line-clamp]: https://w3c.github.io/csswg-drafts/css-overflow-3/#propdef--webkit-line-clamp
 [ciu-line-clamp]: https://caniuse.com/css-line-clamp
 [demo]: https://deluxe-duckanoo-a25bc0.netlify.app
+[livestream]: https://youtu.be/SsdC4acgzXg
