@@ -1,8 +1,7 @@
 @font-face {
-  font-family: 'Mona Sans';
-  src:
-    url('/assets/fonts/Mona-Sans.woff2') format('woff2 supports variations'),
-    url('/assets/fonts/Mona-Sans.woff2') format('woff2-variations');
+  font-family: "Mona Sans";
+  src: url("/assets/fonts/Mona-Sans.woff2") format("woff2 supports variations"),
+    url("/assets/fonts/Mona-Sans.woff2") format("woff2-variations");
   font-weight: 200 900;
   font-stretch: 75% 125%;
   font-display: optional;
@@ -44,7 +43,7 @@ pwa-installer {
 }
 
 html {
-  font-family: 'Mona Sans', system-ui, Helvetica, sans-serif;
+  font-family: "Mona Sans", system-ui, Helvetica, sans-serif;
   line-height: 1.5;
 }
 
@@ -605,4 +604,11 @@ body a {
       var(--theme-link-color, var(--theme-color-b))
     );
   }
+}
+
+
+pre {
+  padding: var(--s);
+  border-radius: var(--xs);
+  overflow: auto;
 }

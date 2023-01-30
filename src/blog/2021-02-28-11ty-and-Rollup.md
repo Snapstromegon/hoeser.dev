@@ -62,7 +62,7 @@ Imagine the following:
 
 You're writing a blog and want to include some JS tool for just one blog entry, e.g. because you're showing how an JS alert works:
 
-```js/1-3
+```js
 {% include "../../assets/js/blog/2021-02-28-11ty-and-Rollup/alertButton.js" %}
 ```
 

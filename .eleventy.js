@@ -9,6 +9,7 @@ const markdownIt = require("markdown-it");
 const markdownItEmoji = require("markdown-it-emoji");
 const markdownItContainer = require("markdown-it-container");
 const rollupPlugin = require("eleventy-plugin-rollup");
+const shiki = require("shiki");
 
 function generateImages(src) {
   return Image(src, {
@@ -66,10 +67,28 @@ function tagValue(tag) {
 }
 
 module.exports = function (eleventyConfig) {
+  /**
+   * @type {shiki.Highlighter}
+   */
+  let highlighter = undefined;
+
+  eleventyConfig.on("eleventy.before", async () => {
+    if (!highlighter) {
+      highlighter = await shiki.getHighlighter({
+        theme: "dark-plus",
+      });
+    }
+  });
+
   let options = {
     html: true,
     breaks: true,
     linkify: true,
+    highlight: (code, lang) => {
+      const tokens = highlighter.codeToThemedTokens(code, lang);
+      // console.log(tokens);
+      return highlighter.codeToHtml(code, { lang });
+    },
   };
 
   eleventyConfig.setLibrary(
@@ -82,7 +101,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(syntaxHighlight, { alwaysWrapLineHighlights: true });
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
   eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents));
   eleventyConfig.addShortcode("currentTime", () => Date.now() + "");
