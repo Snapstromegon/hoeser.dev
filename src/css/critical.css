@@ -150,11 +150,6 @@ aside nav a {
   padding: var(--m) 0 var(--m) var(--s);
 }
 
-aside nav a:first-letter {
-  letter-spacing: 0;
-  color: #f00;
-}
-
 aside nav a:hover::after,
 aside nav a.current::after {
   position: absolute;
