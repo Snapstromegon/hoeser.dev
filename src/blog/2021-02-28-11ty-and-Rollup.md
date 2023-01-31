@@ -208,7 +208,7 @@ For this it has to know what the bundle result will be after rollup is done, but
 Actually this is simple! We just take over how naming works (For a real solution, you'd take a function which immitates rollups naming module and recreates the rollup naming from a parameter, but this solution was fine for me for now). In this case we replace the name with the first six chars from the sha256 of the file.
 That way we solve two problems. Firstly we can accurately predict filenames and avoid clashes and secondly we resolve cache problems and can cache those files for long times without problems.
 
-Finally we need to return the html from the shortcode. This includes our beloved ```<script>``` with the path now relative to the output file of the blogpost (we could also use absolute paths here).
+Finally we need to return the html from the shortcode. This includes our beloved `<script>` with the path now relative to the output file of the blogpost (we could also use absolute paths here).
 
 After this we just need to pass everything into rollup.
 
@@ -263,14 +263,14 @@ With this plugin loaded in my _.eleventy.js_ config via:
 const rollupper = require("./lib/rollupper");
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.addPlugin(rollupper, {
-    rollup: {
-      output: {
-        format: "es",
-        dir: "_site/js",
-      },
-    },
-  });
+  eleventyConfig.addPlugin(rollupper, { // [sh! focus]
+    rollup: { // [sh! focus]
+      output: { // [sh! focus]
+        format: "es", // [sh! focus]
+        dir: "_site/js", // [sh! focus]
+      }, // [sh! focus]
+    }, // [sh! focus]
+  }); // [sh! focus]
 };
 ```
 
@@ -279,7 +279,7 @@ I can now just write the following in my templates:
 `````text
 You're writing a blog and want to include some JS tool for just one blog entry, e.g. because you're showing how an JS alert works:
 
-```js/1-3
+```js
 {% raw %}{% include "assets/js/blog/2021-02-28-11ty-and-Rollup/alertButton.js" | url %}{% endraw %}
 ```
 

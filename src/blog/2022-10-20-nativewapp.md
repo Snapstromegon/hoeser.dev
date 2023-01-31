@@ -267,12 +267,12 @@ import "./components/wapp-search.ts";
 import "./components/wapp-videos.ts";
 import WappVideos from "./components/wapp-videos.js";
 
-const wappVideos = document.querySelector("wapp-videos") as WappVideos;
-document
-  .querySelector("wapp-search")
-  .addEventListener("search", (e: CustomEvent) => {
-    wappVideos.search = e.detail;
-  });
+const wappVideos = document.querySelector("wapp-videos") as WappVideos; // [sh! focus]
+document // [sh! focus]
+  .querySelector("wapp-search") // [sh! focus]
+  .addEventListener("search", (e: CustomEvent) => { // [sh! focus]
+    wappVideos.search = e.detail; // [sh! focus]
+  }); // [sh! focus]
 ```
 
 As you can see, I just register an event handler on my custom element `wapp-search` for the "search" event and then pass that search via a property to the `wapp-videos` component.
