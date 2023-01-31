@@ -263,14 +263,14 @@ With this plugin loaded in my _.eleventy.js_ config via:
 const rollupper = require("./lib/rollupper");
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.addPlugin(rollupper, { // [sh! focus]
-    rollup: { // [sh! focus]
-      output: { // [sh! focus]
-        format: "es", // [sh! focus]
-        dir: "_site/js", // [sh! focus]
-      }, // [sh! focus]
-    }, // [sh! focus]
-  }); // [sh! focus]
+  eleventyConfig.addPlugin(rollupper, { // [sh! focus:start]
+    rollup: {
+      output: {
+        format: "es",
+        dir: "_site/js",
+      },
+    },
+  }); // [sh! focus:end]
 };
 ```
 

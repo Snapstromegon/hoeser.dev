@@ -606,28 +606,32 @@ body a {
   }
 }
 
-
 .shiki {
-  padding: var(--s);
   border-radius: var(--xs);
   overflow: auto;
+  padding: var(--xs)0;
 }
 
 .sh--highlight {
-  background: #fff2;
-  box-shadow: -5px 0 0 #ff0;
+  background: #ff01;
+  box-shadow: inset var(--xxs) 0 0 #ff08;
 }
-.sh--focus ~ .line:not(.sh--focus), .line:not(.sh--focus):has(~ .sh--focus) {
+.sh--focus ~ .line:not(.sh--focus),
+.line:not(.sh--focus):has(~ .sh--focus) {
   filter: blur(1.5px);
 }
-.shiki:hover .sh--focus ~ .line:not(.sh--focus), .shiki:hover .line:not(.sh--focus):has(~ .sh--focus) {
+.shiki:hover .sh--focus ~ .line:not(.sh--focus),
+.shiki:hover .line:not(.sh--focus):has(~ .sh--focus) {
   filter: blur(0);
 }
 .sh--focus {
   filter: blur(0);
 }
 .line {
-  transition: filter .3s;
+  transition: filter 0.3s;
+  display: inline-block;
+  width: 100%;
+  padding: 0 var(--s);
 }
 .shiki {
   counter-reset: step;
@@ -636,29 +640,31 @@ body a {
 .shiki .line::before {
   content: counter(step);
   counter-increment: step;
-  width: 1rem;
-  margin-right: .5rem;
+  width: var(--l);
+  margin-right: var(--s);
+  padding-right: var(--s);
   display: inline-block;
   text-align: right;
-  color: rgba(115,138,148,.4)
+  color: rgba(115, 138, 148, 0.4);
+  border-right: var(--xxxs) solid #fff1;
 }
 .shiki .line.sh--add::before {
   content: "+";
   color: #0f0;
 }
-.shiki .line.sh--del::before {
+.shiki .line.sh--remove::before {
   content: "-";
   color: #f00;
 }
 .line.sh--add {
   background: #0f02;
-  box-shadow: -5px 0 0 #0f08;
+  box-shadow: inset var(--xxs) 0 0 #0f08;
 }
-.line.sh--del {
+.line.sh--remove {
   background: #f002;
-  box-shadow: -5px 0 0 #f008;
+  box-shadow: inset var(--xxs) 0 0 #f008;
 }
 .line.sh--updated {
   background: #00f2;
-  box-shadow: -5px 0 0 #00f8;
+  box-shadow: inset var(--xxs) 0 0 #00f8;
 }
