@@ -607,8 +607,58 @@ body a {
 }
 
 
-pre {
+.shiki {
   padding: var(--s);
   border-radius: var(--xs);
   overflow: auto;
+}
+
+.sh--highlight {
+  background: #fff2;
+  box-shadow: -5px 0 0 #ff0;
+}
+.sh--focus ~ .line:not(.sh--focus), .line:not(.sh--focus):has(~ .sh--focus) {
+  filter: blur(1.5px);
+}
+.shiki:hover .sh--focus ~ .line:not(.sh--focus), .shiki:hover .line:not(.sh--focus):has(~ .sh--focus) {
+  filter: blur(0);
+}
+.sh--focus {
+  filter: blur(0);
+}
+.line {
+  transition: filter .3s;
+}
+.shiki {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+.shiki .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: .5rem;
+  display: inline-block;
+  text-align: right;
+  color: rgba(115,138,148,.4)
+}
+.shiki .line.sh--add::before {
+  content: "+";
+  color: #0f0;
+}
+.shiki .line.sh--del::before {
+  content: "-";
+  color: #f00;
+}
+.line.sh--add {
+  background: #0f02;
+  box-shadow: -5px 0 0 #0f08;
+}
+.line.sh--del {
+  background: #f002;
+  box-shadow: -5px 0 0 #f008;
+}
+.line.sh--updated {
+  background: #00f2;
+  box-shadow: -5px 0 0 #00f8;
 }

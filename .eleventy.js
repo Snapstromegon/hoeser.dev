@@ -86,8 +86,41 @@ module.exports = function (eleventyConfig) {
     linkify: true,
     highlight: (code, lang) => {
       const tokens = highlighter.codeToThemedTokens(code, lang);
-      // console.log(tokens);
-      return highlighter.codeToHtml(code, { lang });
+
+      const lineCommands = new Map();
+
+      for (let i = 0; i < tokens.length; i++) {
+        const line = tokens[i];
+        for (const token of line) {
+          const tokenIsComment = (token.explanation || []).some((explanation) =>
+            explanation.scopes.some((scope) =>
+              scope.scopeName.startsWith("comment.")
+            )
+          );
+          if (tokenIsComment) {
+            const commentContent = token.content;
+            const commandExtractor = /\[sh!(?<commands>[^\]]*)\]/g;
+            const match = commandExtractor.exec(commentContent);
+            const commands = match?.groups?.commands.trim().split(/\s/);
+            if (commands) {
+              lineCommands.set(i + 1, commands);
+              line.splice(line.findIndex((t) => t === token), 1);
+            }
+          }
+        }
+      }
+
+      const lineOptions = [...lineCommands.entries()].map(([key, value]) => ({
+        line: key,
+        classes: value.map((className) => `sh--${className}`),
+      }));
+
+      return shiki.renderToHtml(tokens, {
+        themeName: "dark-plus",
+        bg: highlighter.getBackgroundColor(),
+        fg: highlighter.getForegroundColor(),
+        lineOptions,
+      });
     },
   };
 

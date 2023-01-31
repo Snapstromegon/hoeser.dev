@@ -47,7 +47,7 @@ All this means that iOS is the only major platform out there which doesn't allow
 
 ## Context for this blogpost
 
-The awesome [Jen Simmons](https://twitter.com/jensimmons) who "is an Apple Evangelist on the Web Developer Experience team and a member of the CSS Working Group" and did a lot of awesome work e.g. around CSS Grid and Intrinsic Layouts (watch her talks, they are great and I nearly forgot - go give her a thanks for ```aspect-ratio```!) tweeted about how "there seems to be an angry pocket of men who really want Safari to just go away" ([source](https://twitter.com/jensimmons/status/1490747578526404608)).
+The awesome [Jen Simmons](https://twitter.com/jensimmons) who "is an Apple Evangelist on the Web Developer Experience team and a member of the CSS Working Group" and did a lot of awesome work e.g. around CSS Grid and Intrinsic Layouts (watch her talks, they are great and I nearly forgot - go give her a thanks for `aspect-ratio`!) tweeted about how "there seems to be an angry pocket of men who really want Safari to just go away" ([source](https://twitter.com/jensimmons/status/1490747578526404608)).
 
 :::sidenote
 I mainly mention the employer of the people here, so you can easily see who they are working for and how that might influence their opinion. They can have their own opinion and shouldn't be punished for it!
