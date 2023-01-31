@@ -388,10 +388,12 @@ At first sight I thought this was just a WebKit thing, but no! It's actually [pa
 Just apply this CSS to any element with a bunch of text:
 
 ```css
-overflow: hidden;
-display: -webkit-box;
--webkit-box-orient: vertical;
--webkit-line-clamp: var(--number-of-lines);
+.class {
+  overflow: hidden; /* [sh! focus:start] */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--number-of-lines); /* [sh! focus:end] */
+}
 ```
 
 <details>
