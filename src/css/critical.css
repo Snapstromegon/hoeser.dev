@@ -606,9 +606,65 @@ body a {
   }
 }
 
-
-pre {
-  padding: var(--s);
+.shiki {
   border-radius: var(--xs);
   overflow: auto;
+  padding: var(--xs)0;
+}
+
+.sh--highlight {
+  background: #ff01;
+  box-shadow: inset var(--xxs) 0 0 #ff08;
+}
+.sh--focus ~ .line:not(.sh--focus),
+.line:not(.sh--focus):has(~ .sh--focus) {
+  filter: blur(1.5px);
+}
+.shiki:hover .sh--focus ~ .line:not(.sh--focus),
+.shiki:hover .line:not(.sh--focus):has(~ .sh--focus) {
+  filter: blur(0);
+}
+.sh--focus {
+  filter: blur(0);
+}
+.line {
+  transition: filter 0.3s;
+  display: inline-block;
+  width: 100%;
+  padding: 0 var(--s);
+}
+.shiki {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+.shiki .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: var(--l);
+  margin-right: var(--s);
+  padding-right: var(--s);
+  display: inline-block;
+  text-align: right;
+  color: rgba(115, 138, 148, 0.4);
+  border-right: var(--xxxs) solid #fff1;
+}
+.shiki .line.sh--add::before {
+  content: "+";
+  color: #0f0;
+}
+.shiki .line.sh--remove::before {
+  content: "-";
+  color: #f00;
+}
+.line.sh--add {
+  background: #0f02;
+  box-shadow: inset var(--xxs) 0 0 #0f08;
+}
+.line.sh--remove {
+  background: #f002;
+  box-shadow: inset var(--xxs) 0 0 #f008;
+}
+.line.sh--updated {
+  background: #00f2;
+  box-shadow: inset var(--xxs) 0 0 #00f8;
 }

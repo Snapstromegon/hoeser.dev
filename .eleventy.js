@@ -1,15 +1,13 @@
 const yaml = require("js-yaml");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const Image = require("@11ty/eleventy-img");
 const typescript = require("@rollup/plugin-typescript");
 const { default: resolve } = require("@rollup/plugin-node-resolve");
-const markdownIt = require("markdown-it");
 const markdownItEmoji = require("markdown-it-emoji");
 const markdownItContainer = require("markdown-it-container");
 const rollupPlugin = require("eleventy-plugin-rollup");
-const shiki = require("shiki");
+const shikier = require("./lib/shikier/index.js");
 
 function generateImages(src) {
   return Image(src, {
@@ -67,37 +65,18 @@ function tagValue(tag) {
 }
 
 module.exports = function (eleventyConfig) {
-  /**
-   * @type {shiki.Highlighter}
-   */
-  let highlighter = undefined;
-
-  eleventyConfig.on("eleventy.before", async () => {
-    if (!highlighter) {
-      highlighter = await shiki.getHighlighter({
-        theme: "dark-plus",
-      });
-    }
-  });
-
-  let options = {
-    html: true,
-    breaks: true,
-    linkify: true,
-    highlight: (code, lang) => {
-      const tokens = highlighter.codeToThemedTokens(code, lang);
-      // console.log(tokens);
-      return highlighter.codeToHtml(code, { lang });
-    },
-  };
-
-  eleventyConfig.setLibrary(
-    "md",
-    markdownIt(options)
+  eleventyConfig.amendLibrary("md", (mdLib) =>
+    mdLib
+      .set({
+        html: true,
+        breaks: true,
+        linkify: true,
+      })
       .use(markdownItEmoji)
       .use(markdownItContainer, "sidenote")
       .use(markdownItContainer, "commentBlock")
   );
+  eleventyConfig.addPlugin(shikier)
 
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
