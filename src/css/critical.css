@@ -611,7 +611,7 @@ body a {
   overflow: auto;
   padding: var(--xs)0;
 }
-.shiki pre {
+.shiki code {
   display: block;
   width: max-content;
   min-width: 100%;
