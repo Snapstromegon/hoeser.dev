@@ -609,12 +609,22 @@ body a {
 .shiki {
   border-radius: var(--xs);
   overflow: auto;
-  padding: var(--xs)0;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 .shiki code {
   display: block;
   width: max-content;
   min-width: 100%;
+  padding: var(--s) 0;
+}
+.language-id {
+  text-transform: uppercase;
+  color: #ccc;
+  padding: var(--xs) var(--s);
+  background: #fff2;
+  font-size: .8rem;
+  font-family: "Mona Sans", system-ui, Helvetica, sans-serif;
 }
 .sh--highlight {
   background: #ff01;
