@@ -611,7 +611,11 @@ body a {
   overflow: auto;
   padding: var(--xs)0;
 }
-
+.shiki pre {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+}
 .sh--highlight {
   background: #ff01;
   box-shadow: inset var(--xxs) 0 0 #ff08;
