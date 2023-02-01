@@ -162,7 +162,6 @@ aside nav a.current::after {
 
 .content {
   max-width: 80rem;
-  width: 90%;
   margin: auto;
   padding: 0 var(--m);
 }
