@@ -75,6 +75,8 @@ module.exports = function (eleventyConfig) {
       .use(markdownItEmoji)
       .use(markdownItContainer, "sidenote")
       .use(markdownItContainer, "commentBlock")
+      .use(markdownItContainer, "reader-thought")
+      .use(markdownItContainer, "writer-thought")
   );
   eleventyConfig.addPlugin(shikier)
 
