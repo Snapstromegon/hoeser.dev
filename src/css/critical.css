@@ -700,11 +700,7 @@ body a {
 .line:not(.sh--focus):has(~ .sh--focus) {
   filter: blur(1.5px);
 }
-.shiki:hover .sh--focus ~ .line:not(.sh--focus),
-.shiki:hover .line:not(.sh--focus):has(~ .sh--focus) {
-  filter: blur(0);
-}
-.sh--focus {
+.shiki:hover .line {
   filter: blur(0);
 }
 .line {

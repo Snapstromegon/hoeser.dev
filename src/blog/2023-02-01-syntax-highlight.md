@@ -38,8 +38,7 @@ class Person {
     this.#age = age;
   }
 
-  get isAdult() {
-    // [sh! focus:start]
+  get isAdult() { // [sh! focus:start]
     return this.#age >= 18;
   } // [sh! focus:end]
 
@@ -89,8 +88,7 @@ class Person {
     this.#age = age;
   }
 
-  get isAdult() {
-    // [sh! focus:start]
+  get isAdult() { // [sh! focus:start]
     return this.#age >= 21; // [sh! --]
     return this.#age >= 18; // [sh! ++]
   }
@@ -153,16 +151,16 @@ If you take a look at the [Shiki GitHub repository][shiki-repo], you'll see that
 Eleventy still doesn't have support for [async configurations][eleventy-async-config]. This is bad, because shiki only offers the highlighter object behind an async function. But luckily for us, eleventy does allow passing async functions as listeners to the "eleventy.before" event, so we can exploit that like this:
 
 ```js
-const markdownIt = require("markdown-it");
-const shiki = require("shiki");
+const markdownIt = require('markdown-it');
+const shiki = require('shiki');
 
 module.exports = (eleventyConfig) => {
   // Move highlighter to this scope, so it's available everywhere [sh! focus:start]
   let highlighter; // [sh! highlight]
 
   // Async setup of shiki highlighter
-  eleventyConfig.on("eleventy.before", async () => {
-    highlighter = await shiki.getHighlighter({ theme: "dark-plus" }); // [sh! highlight]
+  eleventyConfig.on('eleventy.before', async () => {
+    highlighter = await shiki.getHighlighter({ theme: 'dark-plus' }); // [sh! highlight]
   });
 
   // build markdownIt options
@@ -172,21 +170,20 @@ module.exports = (eleventyConfig) => {
   };
 
   // switch to custom markdownIt
-  eleventyConfig.setLibrary("md", markdownIt(options)); // [sh! focus:end]
+  eleventyConfig.setLibrary('md', markdownIt(options)); // [sh! focus:end]
 };
 ```
 
 If you're already on eleventy 2.0, you can do it even shorter and without the pulled out highlighter definition:
 
 ```js
-const markdownIt = require("markdown-it");
-const shiki = require("shiki");
+const markdownIt = require('markdown-it');
+const shiki = require('shiki');
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.on("eleventy.before", async () => {
-    // [sh! focus:start]
-    const highlighter = await shiki.getHighlighter({ theme: "dark-plus" });
-    eleventyConfig.amendLibrary("md", (mdLib) =>
+  eleventyConfig.on('eleventy.before', async () => { // [sh! focus:start]
+    const highlighter = await shiki.getHighlighter({ theme: 'dark-plus' });
+    eleventyConfig.amendLibrary('md', (mdLib) =>
       mdLib.set({
         highlight: (code, lang) => highlighter.codeToHtml(code, { lang }),
       })
@@ -199,14 +196,13 @@ If you try to run the code above, you'll probably be frustrated at first, becaus
 If you check, the event and the callback is fired, but the library is never amended. This is, because eleventy monitors which libraries are amended at all before the "eleventy.before" event is called. To our luck it still works if we amend the library during the "eleventy.before" event, so we can do the following:
 
 ```js
-const markdownIt = require("markdown-it");
-const shiki = require("shiki");
+const markdownIt = require('markdown-it');
+const shiki = require('shiki');
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.on("eleventy.before", async () => {
-    // [sh! focus:start]
-    const highlighter = await shiki.getHighlighter({ theme: "dark-plus" });
-    eleventyConfig.amendLibrary("md", (mdLib) =>
+  eleventyConfig.on('eleventy.before', async () => { // [sh! focus:start]
+    const highlighter = await shiki.getHighlighter({ theme: 'dark-plus' });
+    eleventyConfig.amendLibrary('md', (mdLib) =>
       mdLib.set({
         highlight: (code, lang) => highlighter.codeToHtml(code, { lang }),
       })
@@ -214,7 +210,7 @@ module.exports = (eleventyConfig) => {
   });
   // [sh! add:start]
   // This is a hack to let eleventy know that we touch that library
-  eleventyConfig.amendLibrary("md", () => {}); // [sh! focus:end add:end]
+  eleventyConfig.amendLibrary('md', () => {}); // [sh! focus:end add:end]
 };
 ```
 
@@ -285,13 +281,13 @@ Now that you've seen how the end product works, we'll start with a first "simple
 To modify the output, we need to adapt our eleventy integration for [Shiki] from above as follows:
 
 ```js
-const markdownIt = require("markdown-it");
-const shiki = require("shiki");
+const markdownIt = require('markdown-it');
+const shiki = require('shiki');
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.on("eleventy.before", async () => {
-    const highlighter = await shiki.getHighlighter({ theme: "dark-plus" });
-    eleventyConfig.amendLibrary("md", (mdLib) =>
+  eleventyConfig.on('eleventy.before', async () => {
+    const highlighter = await shiki.getHighlighter({ theme: 'dark-plus' });
+    eleventyConfig.amendLibrary('md', (mdLib) =>
       mdLib.set({
         highlight: (code, lang) => highlighter.codeToHtml(code, { lang }), // [sh! --]
         highlight: (code, lang) => highlight(code, lang, highlighter), // [sh! ++]
@@ -300,7 +296,7 @@ module.exports = (eleventyConfig) => {
   });
 
   // This is a hack to let eleventy know that we touch that library
-  eleventyConfig.amendLibrary("md", () => {});
+  eleventyConfig.amendLibrary('md', () => {});
 };
 // [sh! ++:start]
 const highlight = (code, lang, highlighter) => {
@@ -341,13 +337,11 @@ After tokenization, this becomes the following hard to read array of array of to
 To make it at least somewhat readable I focused just the lines that are relevant to us.
 
 ```json
-[
-  // [sh! focus]
+[ // [sh! focus]
   [
     // [...] line of tokens
   ],
-  [
-    // [sh! focus]
+  [ // [sh! focus]
     {
       "content": "  ",
       "explanation": [
@@ -378,11 +372,9 @@ To make it at least somewhat readable I focused just the lines that are relevant
       ]
     },
     // [...]
-    {
-      // [sh! focus:start]
+    { // [sh! focus:start]
       "content": "// [sh! highlight]",
-      "explanation": [
-        // [sh! focus:end]
+      "explanation": [ // [sh! focus:end]
         {
           "content": "//",
           "scopes": [
@@ -394,11 +386,9 @@ To make it at least somewhat readable I focused just the lines that are relevant
             { "scopeName": "punctuation.definition.comment.js" }
           ]
         },
-        {
-          // [sh! focus:start]
+        { // [sh! focus:start]
           "content": " [sh! highlight]",
-          "scopes": [
-            // [sh! focus:end]
+          "scopes": [ // [sh! focus:end]
             { "scopeName": "source.js" },
             { "scopeName": "meta.var.expr.js" },
             { "scopeName": "meta.arrow.js" },
@@ -427,7 +417,7 @@ First off we determine wether or not a token is a command:
 ```js
 const isTokenComment = (token) =>
   (token.explanation || []).some((explanation) =>
-    explanation.scopes.some((scope) => scope.scopeName.startsWith("comment."))
+    explanation.scopes.some((scope) => scope.scopeName.startsWith('comment.'))
   );
 ```
 
@@ -486,8 +476,7 @@ const extractLineShikierCommands = (line) => {
     const match = shikierCommandsExtractor.exec(token.content);
     if (match) {
       commands.push(...match?.groups?.commands.trim().split(/\s/));
-      line.splice(
-        // [sh! add:3]
+      line.splice( // [sh! add:3]
         line.findIndex((t) => t === token),
         1
       );
@@ -546,20 +535,19 @@ const lineOptions = [...linesWithCommands.entries()].map(
 const lineOptions = [...linesWithCommands.entries()].map(
   ([lineNumber, commands]) => ({
     line: lineNumber,
-    classes: commands.map(
+    classes: commands.map( // [sh! focus:start]
       (command) => `sh--${resolveCommandShortcuts(command)}`
-    ), // [sh! focus]
+    ), // [sh! focus:end]
   })
 );
 
-const resolveCommandShortcuts = (command) => {
-  // [sh! focus:start]
+const resolveCommandShortcuts = (command) => { // [sh! focus:start]
   return (
     {
-      "++": "add",
-      "--": "remove",
-      "~~": "highlight",
-      "**": "focus",
+      '++': 'add',
+      '--': 'remove',
+      '~~': 'highlight',
+      '**': 'focus',
     }[command] || command
   );
 };
@@ -574,8 +562,7 @@ Did I mention that our finished solution won't use JS? No? Okay, maybe you alrea
 You might be wondering why the line numbers are missing from the code examples. This is, because I just add them via [CSS Counters][mdn-css-counters] as pseudo elements.
 
 ```css
-pre.shiki {
-  /* [sh! focus:start] */
+pre.shiki { /* [sh! focus:start] */
   counter-reset: linenumber; /* start each codeblock with line 0 */
 }
 pre.shiki .line::before {
@@ -620,14 +607,12 @@ To achieve this, we just use some background work to get the job done:
 Like you see in this blogpost, sometimes you want to show what changed. This works similar to highlighting, but also overwrites the content of the line numbering pseudo element. This means, the line number counter is still incremented, just not shown anymore.
 
 ```css
-.shiki .line.sh--add::before {
-  /* [sh! focus] */
-  content: "+"; /* [sh! focus] */
+.shiki .line.sh--add::before { /* [sh! focus] */
+  content: '+'; /* [sh! focus] */
   color: #487e02;
 } /* [sh! focus] */
-.shiki .line.sh--remove::before {
-  /* [sh! focus] */
-  content: "-"; /* [sh! focus] */
+.shiki .line.sh--remove::before { /* [sh! focus] */
+  content: '-'; /* [sh! focus] */
   color: #f00;
 } /* [sh! focus] */
 .line.sh--add {
@@ -751,6 +736,70 @@ And the result is:
 
 :::
 
+Now we're all on the same page about how to select elements before or after one with a specific class. To apply this to our `.focus` case, we use the following CSS:
+
+```css
+/* blur all elements before or after a focus element */
+/* (also matches elements between focus elements) */
+.sh--focus ~ .line:not(.sh--focus),
+.line:not(.sh--focus):has(~ .sh--focus) {
+  filter: blur(1.5px);
+}
+/* reset blur on hover */
+.shiki:hover .line {
+  filter: blur(0);
+}
+```
+
+From here on out it's just applying some styles and transitions so everything matches your pages appearance.
+
+:::sidenote
+I know, the single line chapter kind off exploded, but I promise that multiline comments will be shorter.
+:::
+
+### Multiline Comments
+
+Multiline comments kind of work the same as single line comments. In fact they get applied as single line comments. For this to work, each command needs a way to specify which lines it applies to.
+
+#### Line Spec
+
+"Line Spec" is what I called these specifiers, that define which lines are affected by a command.
+Syntax wise they are directly after a command, devided by a ":" (e.g. `focus:5` to focus this and the next 5 lines).
+
+There are two fundamental ways of writing line specs. The first is by using a number based syntax and the second is a keyword based syntax.
+
+##### Number based syntax
+
+This one is the easier one, because we can look at it just like the single line commands and just apply the command to more lines.
+
+The basic syntax here is:
+
+```
+"[sh!" + <command> + [":" + [<skipLines> + ","] + <followingLines>] + "]"
+
+Examples:
+  Focus this and the next 5 lines
+  [sh! focus:5]
+
+  Focus this and the previous line
+  [sh! focus:-1]
+
+  Focus the next line and the 5 lines after that
+  [sh! focus:1,5]
+```
+
+For this to work we just need to add a little bit of preprocessing to the extracted commands:
+
+
+
+## Conclusion
+
+If you're unhappy with something in your techstack it's often worth taking a look around and even looking at solutions you don't really consider, as they might have a brilliant feature.
+
+Also don't be afraid of high price tags or how difficult a feature seems to be. Some are (especially thanks to modern web standards) easier to achieve than you expect.
+
+Maybe (just like with my [eleventy-plugin-rollup]) I will convert this blogpost into a real plugin sometime in the future.
+
 [@11ty/eleventy-plugin-syntaxhighlight]: https://www.npmjs.com/package/@11ty/eleventy-plugin-syntaxhighlight
 [eleventy-plugin-syntaxhighlight-new-options]: https://github.com/11ty/eleventy-plugin-syntaxhighlight/issues/32
 [eleventy-plugin-syntaxhighlight-torchlight]: https://github.com/11ty/eleventy-plugin-syntaxhighlight/issues/74
@@ -760,3 +809,4 @@ And the result is:
 [shiki-repo]: https://github.com/shikijs/shiki
 [eleventy-async-config]: https://github.com/11ty/eleventy/issues/614
 [mdn-css-counters]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters
+[eleventy-plugin-rollup]: https://www.npmjs.com/package/eleventy-plugin-rollup
