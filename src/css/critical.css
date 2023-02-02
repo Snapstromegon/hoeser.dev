@@ -715,7 +715,6 @@ body a {
 }
 .shiki {
   counter-reset: step;
-  counter-increment: step 0;
 }
 .shiki::-webkit-scrollbar {
   height: calc(2 * var(--xs));

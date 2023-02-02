@@ -341,11 +341,13 @@ After tokenization, this becomes the following hard to read array of array of to
 To make it at least somewhat readable I focused just the lines that are relevant to us.
 
 ```json
-[ // [sh! focus]
+[
+  // [sh! focus]
   [
     // [...] line of tokens
   ],
-  [ // [sh! focus]
+  [
+    // [sh! focus]
     {
       "content": "  ",
       "explanation": [
@@ -376,9 +378,11 @@ To make it at least somewhat readable I focused just the lines that are relevant
       ]
     },
     // [...]
-    { // [sh! focus:start]
+    {
+      // [sh! focus:start]
       "content": "// [sh! highlight]",
-      "explanation": [ // [sh! focus:end]
+      "explanation": [
+        // [sh! focus:end]
         {
           "content": "//",
           "scopes": [
@@ -390,9 +394,11 @@ To make it at least somewhat readable I focused just the lines that are relevant
             { "scopeName": "punctuation.definition.comment.js" }
           ]
         },
-        { // [sh! focus:start]
+        {
+          // [sh! focus:start]
           "content": " [sh! highlight]",
-          "scopes": [ // [sh! focus:end]
+          "scopes": [
+            // [sh! focus:end]
             { "scopeName": "source.js" },
             { "scopeName": "meta.var.expr.js" },
             { "scopeName": "meta.arrow.js" },
@@ -480,7 +486,8 @@ const extractLineShikierCommands = (line) => {
     const match = shikierCommandsExtractor.exec(token.content);
     if (match) {
       commands.push(...match?.groups?.commands.trim().split(/\s/));
-      line.splice( // [sh! add:3]
+      line.splice(
+        // [sh! add:3]
         line.findIndex((t) => t === token),
         1
       );
@@ -495,7 +502,6 @@ const extractLineShikierCommands = (line) => {
 This allows us to extract all commands from all lines with a simple for loop:
 
 ```js
-
 const highlight = (code, lang, highlighter) => {
   const tokenized = highlighter.codeToThemedTokens(code, lang);
 
@@ -506,7 +512,6 @@ const highlight = (code, lang, highlighter) => {
       linesWithCommands.set(lineIndex + 1, commands);
     }
   }); // [sh! focus:end]
-
 
   const lineOptions = [];
 
@@ -541,11 +546,14 @@ const lineOptions = [...linesWithCommands.entries()].map(
 const lineOptions = [...linesWithCommands.entries()].map(
   ([lineNumber, commands]) => ({
     line: lineNumber,
-    classes: commands.map((command) => `sh--${resolveCommandShortcuts(command)}`), // [sh! focus]
+    classes: commands.map(
+      (command) => `sh--${resolveCommandShortcuts(command)}`
+    ), // [sh! focus]
   })
 );
 
-const resolveCommandShortcuts = (command) => { // [sh! focus:start]
+const resolveCommandShortcuts = (command) => {
+  // [sh! focus:start]
   return (
     {
       "++": "add",
@@ -561,6 +569,187 @@ const resolveCommandShortcuts = (command) => { // [sh! focus:start]
 
 Did I mention that our finished solution won't use JS? No? Okay, maybe you already expected this, because it's my blog here and I love to do stuff purely in HTML+CSS or because you have JS disabled and the examples worked.
 
+##### Line Numbers
+
+You might be wondering why the line numbers are missing from the code examples. This is, because I just add them via [CSS Counters][mdn-css-counters] as pseudo elements.
+
+```css
+pre.shiki {
+  /* [sh! focus:start] */
+  counter-reset: linenumber; /* start each codeblock with line 0 */
+}
+pre.shiki .line::before {
+  counter-increment: linenumber; /* increment the counter by 1 */
+  content: counter(
+    linenumber
+  ); /* add current counter value as text */ /* [sh! focus:end] */
+  width: 1.5rem;
+  margin-right: 0.5rem;
+  padding-right: 0.5rem;
+  display: inline-block;
+  text-align: right;
+  color: rgba(115, 138, 148, 0.4);
+  border-right: 0.1rem solid #fff1;
+} /* [sh! focus] */
+```
+
+And now we have the right linecount always directly next to the line.
+If Shiki allows adding custom styles to each line in the future, one could even add line number jumps.
+
+##### Highlighting a line
+
+This is probably the easiest one:
+
+```js
+const isAdult = (person) => {
+  return person.age >= 18; // [sh! highlight]
+};
+```
+
+To achieve this, we just use some background work to get the job done:
+
+```css
+.line.sh--highlight {
+  background: #ff02;
+  box-shadow: inset 0.5rem 0 0 #ff0;
+}
+```
+
+##### Diff Lines
+
+Like you see in this blogpost, sometimes you want to show what changed. This works similar to highlighting, but also overwrites the content of the line numbering pseudo element. This means, the line number counter is still incremented, just not shown anymore.
+
+```css
+.shiki .line.sh--add::before {
+  /* [sh! focus] */
+  content: "+"; /* [sh! focus] */
+  color: #487e02;
+} /* [sh! focus] */
+.shiki .line.sh--remove::before {
+  /* [sh! focus] */
+  content: "-"; /* [sh! focus] */
+  color: #f00;
+} /* [sh! focus] */
+.line.sh--add {
+  background: #487e0219;
+  box-shadow: inset var(--xxs) 0 0 #487e02;
+}
+.line.sh--remove {
+  background: #8004;
+  box-shadow: inset var(--xxs) 0 0 #800;
+}
+```
+
+##### Directing Focus
+
+By far this is the most interesting one and also the one with the most critical browser support as it relies on `:has()` and `:not()`. At the time of writing only firefox doesn't support `:has()` out of the box and only has it behind a flag.
+
+Basically we want to know for each line wether or not any lines before or after it have the "focus" class. If this is the case, we want to blur it, except for when the line itself also has the "focus" class. Because of this trick if no focus is used at all, all lines are unblurred, but as soon as some line(s) have the "focus" class, all others get blurred.
+
+:::commentBlock
+_To make it more clear, I will inject a part about how the `:has()` and `:not()` trick here. If you already know that trick, you can skip this part safely._
+
+Let's say you have five buttons and you want to make all buttons that is focused yellow, all buttons before the one with focus green and all behind red (and white if no button has focus). You could have a basic setup like this:
+
+<input type="button" class="demoButton1" value="1"/>
+<input type="button" class="demoButton1" value="2"/>
+<input type="button" class="demoButton1" value="3"/>
+<input type="button" class="demoButton1" value="4"/>
+<input type="button" class="demoButton1" value="5"/>
+
+<style>
+  .demoButton1, .demoButton2, .demoButton3 {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    background: #fff;
+  }
+  .demoButton1:focus, .demoButton2:focus, .demoButton3:focus {
+    background: #ff0;
+  }
+  .demoButton2:focus ~ .demoButton2, .demoButton3:focus ~ .demoButton3 {
+    background: #f00;
+  }
+  .demoButton3:has(~ .demoButton3:focus) {
+    background: #0f0;
+  }
+</style>
+
+This can be achieved with this code:
+
+```html
+<input type="button" class="demoButton" value="1" />
+<input type="button" class="demoButton" value="2" />
+<input type="button" class="demoButton" value="3" />
+<input type="button" class="demoButton" value="4" />
+<input type="button" class="demoButton" value="5" />
+```
+
+```css
+.demoButton {
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  background: #fff;
+}
+.demoButton:focus {
+  background: #ff0;
+}
+```
+
+The "after" part is also easy via the `~` sibling selector:
+
+<input type="button" class="demoButton2" value="1"/>
+<input type="button" class="demoButton2" value="2"/>
+<input type="button" class="demoButton2" value="3"/>
+<input type="button" class="demoButton2" value="4"/>
+<input type="button" class="demoButton2" value="5"/>
+
+```css
+.demoButton {
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  background: #fff;
+}
+.demoButton:focus {
+  background: #ff0;
+}
+.demoButton:focus ~ .demoButton { /* [sh! focus:start] */
+  background: #f00;
+}
+```
+
+So only the "before" part is missing. Basically what we do, is to create a selector that matches an item, that has a sibling that has focus.
+Translated to CSS this is:
+
+```css
+.demoButton {
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  background: #fff;
+}
+.demoButton:focus {
+  background: #ff0;
+}
+.demoButton:focus ~ .demoButton {
+  background: #f00;
+}
+.demoButton:has(~ .demoButton:focus) { /* [sh! focus:start] */
+  background: #0f0;
+}
+```
+
+And the result is:
+
+<input type="button" class="demoButton3" value="1"/>
+<input type="button" class="demoButton3" value="2"/>
+<input type="button" class="demoButton3" value="3"/>
+<input type="button" class="demoButton3" value="4"/>
+<input type="button" class="demoButton3" value="5"/>
+
+:::
 
 [@11ty/eleventy-plugin-syntaxhighlight]: https://www.npmjs.com/package/@11ty/eleventy-plugin-syntaxhighlight
 [eleventy-plugin-syntaxhighlight-new-options]: https://github.com/11ty/eleventy-plugin-syntaxhighlight/issues/32
@@ -570,3 +759,4 @@ Did I mention that our finished solution won't use JS? No? Okay, maybe you alrea
 [pine]: https://blog.matsu.io/about
 [shiki-repo]: https://github.com/shikijs/shiki
 [eleventy-async-config]: https://github.com/11ty/eleventy/issues/614
+[mdn-css-counters]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters
