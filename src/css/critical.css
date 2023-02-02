@@ -418,7 +418,8 @@ main .sidenote::after {
   bottom: calc(1px - var(--xxl));
   height: var(--xxl);
   width: var(--xxxl);
-  background: var(--background-color-secondary-darkened);
+  background: linear-gradient(to bottom, #0004, #0000 var(--s))
+    var(--background-color-secondary-darkened);
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
@@ -474,7 +475,8 @@ main table tr:last-child td {
   bottom: calc(0px - var(--xxl));
   height: var(--xxl);
   width: var(--xxxl);
-  background: #555;
+  background: linear-gradient(to bottom, #0004, #0000 var(--s))
+     var(--background-color-secondary-darkened);
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
@@ -563,19 +565,20 @@ body a {
   bottom: calc(1px - var(--xxl));
   height: var(--xxl);
   width: var(--xxxl);
-  background: var(--background-color-secondary-darkened);
+  background: linear-gradient(to bottom, #0004, #0000 var(--s))
+    var(--background-color-secondary-darkened);
 }
 
 .reader-thought::before,
 .reader-thought::after {
-  left: 0.22rem;
+  left: 0.11rem;
   clip-path: polygon(0 0, 100% 0, 100% 100%);
 }
 
 .reader-thought::before {
   background: var(--theme-color-a);
   bottom: calc(1px - var(--xxs) - var(--xxl));
-  left: calc(0.33rem + var(--xxs) / 2);
+  left: calc(0.22rem + var(--xxs) / 2);
 }
 
 .writer-thought {
@@ -585,14 +588,14 @@ body a {
 
 .writer-thought::before,
 .writer-thought::after {
-  right: 0.22rem;
+  right: 0.11rem;
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
 .writer-thought::before {
   background: var(--theme-color-b);
   bottom: calc(1px - var(--xxs) - var(--xxl));
-  right: 0;
+  right: -0.11rem;
 }
 
 .relatePreview {
@@ -687,7 +690,9 @@ body a {
   position: sticky;
   left: 0;
 }
-.line.sh--highlight, .line.sh--add.sh--highlight, .line.sh--remove.sh--highlight {
+.line.sh--highlight,
+.line.sh--add.sh--highlight,
+.line.sh--remove.sh--highlight {
   background: #ff02;
   box-shadow: inset var(--s) 0 0 #ff0;
 }
@@ -716,7 +721,11 @@ body a {
   height: calc(2 * var(--xs));
 }
 .shiki::-webkit-scrollbar-thumb {
-  background: linear-gradient(to right, var(--theme-color-a), var(--theme-color-b));
+  background: linear-gradient(
+    to right,
+    var(--theme-color-a),
+    var(--theme-color-b)
+  );
   border-radius: 100vw;
 }
 .shiki::-webkit-scrollbar-track {
