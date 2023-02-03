@@ -309,7 +309,7 @@ This might vary from the code above, because it's the current file directly inli
 </summary>
 
 ```js
-{% include "../../lib/rollupper/index.js" | url %}
+{% include "../../lib/rollupper/index.cjs" | url %}
 ```
 
 </details>

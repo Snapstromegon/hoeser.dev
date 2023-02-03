@@ -1,13 +1,13 @@
-import { LitElement, html, css } from "lit";
-import { customElement, state } from "lit/decorators.js";
-import { ifDefined } from "lit/directives/if-defined.js";
-import { repeat } from "lit/directives/repeat.js";
+import { LitElement, html, css } from 'lit';
+import { customElement, state } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { repeat } from 'lit/directives/repeat.js';
 
-import { loadCovidDataByFederal } from "./covidDataLoader";
+import { loadCovidDataByFederal } from './covidDataLoader';
 
-import "./covid-overview";
+import './covid-overview';
 
-@customElement("covid-federal")
+@customElement('covid-federal')
 export default class CovidFederal extends LitElement {
   static override styles = css`
     #wrapper {
@@ -41,15 +41,15 @@ export default class CovidFederal extends LitElement {
   }
 
   @state()
-  covidDataByFederal?: Awaited<ReturnType<typeof loadCovidDataByFederal>>;
+    covidDataByFederal?: Awaited<ReturnType<typeof loadCovidDataByFederal>>;
 
   @state()
-  federal?: string;
+    federal?: string;
 
   updateFederal(federal: string) {
     this.federal = federal;
     this.dispatchEvent(
-      new CustomEvent("federalChanged", { bubbles: false, detail: federal })
+      new CustomEvent('federalChanged', { bubbles: false, detail: federal })
     );
   }
 

@@ -1,12 +1,12 @@
-import { LitElement, html } from "lit";
-import { customElement, state } from "lit/decorators.js";
-import { ifDefined } from "lit/directives/if-defined.js";
+import { LitElement, html } from 'lit';
+import { customElement, state } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
-import { loadNationOverview } from "./covidDataLoader";
+import { loadNationOverview } from './covidDataLoader';
 
-import "./covid-overview";
+import './covid-overview';
 
-@customElement("covid-nation")
+@customElement('covid-nation')
 export default class CovidNation extends LitElement {
   constructor() {
     super();
@@ -14,7 +14,7 @@ export default class CovidNation extends LitElement {
   }
 
   @state()
-  covidDataNation?: Awaited<ReturnType<typeof loadNationOverview>>;
+    covidDataNation?: Awaited<ReturnType<typeof loadNationOverview>>;
 
   override render() {
     return html`

@@ -1,16 +1,16 @@
-import { LitElement, html, css } from "lit";
-import { customElement, state, property } from "lit/decorators.js";
-import { repeat } from "lit/directives/repeat.js";
-import { ifDefined } from "lit/directives/if-defined.js";
+import { LitElement, html, css } from 'lit';
+import { customElement, state, property } from 'lit/decorators.js';
+import { repeat } from 'lit/directives/repeat.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 import {
   loadCovidDataByFederal,
   loadCovidDataByCounty,
-} from "./covidDataLoader";
+} from './covidDataLoader';
 
-import "./covid-overview";
+import './covid-overview';
 
-@customElement("covid-county")
+@customElement('covid-county')
 export default class CovidCounty extends LitElement {
   static override styles = css`
     #wrapper {
@@ -42,16 +42,16 @@ export default class CovidCounty extends LitElement {
   }
 
   @state()
-  covidDataByFederal?: Awaited<ReturnType<typeof loadCovidDataByFederal>>;
+    covidDataByFederal?: Awaited<ReturnType<typeof loadCovidDataByFederal>>;
 
   @state()
-  covidDataByCounty?: Awaited<ReturnType<typeof loadCovidDataByCounty>>;
+    covidDataByCounty?: Awaited<ReturnType<typeof loadCovidDataByCounty>>;
 
   @property({ type: String })
-  federal?: string;
+    federal?: string;
 
   @state()
-  county?: string;
+    county?: string;
 
   get federalData() {
     return this.covidDataByFederal?.get(this.federal as string);
@@ -70,7 +70,7 @@ export default class CovidCounty extends LitElement {
   }
 
   override updated(changedProperties: Map<string, any>) {
-    if (changedProperties.has("federal")) {
+    if (changedProperties.has('federal')) {
       this.county = this.availableFederalCountiesSorted[0];
     }
   }

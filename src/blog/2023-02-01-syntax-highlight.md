@@ -788,9 +788,72 @@ Examples:
   [sh! focus:1,5]
 ```
 
-For this to work we just need to add a little bit of preprocessing to the extracted commands:
+For this to work we first need to devide the line a command appears on from the line(s) it applies to:
 
+```js
+const highlight = (code, lang, highlighter, options) => {
+  const cleanLang = lang.split("{")[0];
+  const tokenized = highlighter.codeToThemedTokens(code, cleanLang);
 
+  const linesWithCommands = new Map();
+  tokenized.forEach((line, lineIndex) => {
+    const commands = extractLineShikierCommands(line, options);
+    if (commands.length > 0) {
+      linesWithCommands.set(lineIndex + 1, commands);
+    }
+  });
+  
+  const linesApplyCommands = new Map();
+
+  for (const [lineNumber, commands] of linesWithCommands.entries()) {
+    for (const command of commands) {
+      const commandParts = command.split(":");
+      const lineSpec = commandParts[1] || "";
+      const cleanCommand = resolveCommandShortcuts(commandParts[0]);
+      let lineRange = { start: lineNumber, end: lineNumber };
+      if (lineSpec) {
+        const lineSpecParts = lineSpec.split(",").map((l) => parseInt(l));
+        switch (lineSpecParts.length) {
+          case 1:
+            lineRange = {
+              start: lineNumber,
+              end: lineNumber + lineSpecParts[0],
+            };
+            break;
+          case 2:
+            lineRange = {
+              start: lineNumber + lineSpecParts[0],
+              end: lineNumber + lineSpecParts[0] + lineSpecParts[1],
+            };
+            break;
+          default:
+            throw new Error(`Invalid line spec ${lineSpec}`);
+        }
+      }
+      for (let i = lineRange.start; i <= lineRange.end; i++) {
+        if (!linesApplyCommands.has(i)) {
+          linesApplyCommands.set(i, []);
+        }
+        linesApplyCommands.get(i).push(cleanCommand);
+      }
+    }
+  }
+  const lineOptions = [...linesApplyCommands.entries()].map(
+    ([lineNumber, commands]) => ({
+      line: lineNumber,
+      classes: commands.map((command) => `sh--${command}`),
+    })
+  );
+
+  const theme = highlighter.getTheme();
+  return shiki.renderToHtml(tokenized, {
+    lineOptions,
+    bg: theme.bg,
+    fg: theme.fg,
+    langId: cleanLang,
+  });
+};
+```
 
 ## Conclusion
 
