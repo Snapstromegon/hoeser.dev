@@ -415,10 +415,11 @@ main .sidenote::after {
   display: block;
   position: absolute;
   right: 0.22rem;
-  bottom: calc(0px - var(--xxl));
+  bottom: calc(1px - var(--xxl));
   height: var(--xxl);
   width: var(--xxxl);
-  background: var(--background-color-secondary-darkened);
+  background: linear-gradient(to bottom, #0004, #0000 var(--s))
+    var(--background-color-secondary-darkened);
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
@@ -455,7 +456,7 @@ main table tr:last-child td {
   z-index: 1;
   border-radius: var(--xs);
   flex-grow: 1;
-  flex-shrink: 0;
+  flex-shrink: 1;
   align-self: flex-end;
   padding: var(--m);
   display: flex;
@@ -474,7 +475,8 @@ main table tr:last-child td {
   bottom: calc(0px - var(--xxl));
   height: var(--xxl);
   width: var(--xxxl);
-  background: #555;
+  background: linear-gradient(to bottom, #0004, #0000 var(--s))
+     var(--background-color-secondary-darkened);
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
@@ -513,7 +515,9 @@ body a {
   overflow: hidden;
 }
 
-.commentBlock :first-child {
+.commentBlock :first-child,
+.reader-thought :first-child,
+.writer-thought :first-child {
   margin-top: 0;
 }
 
@@ -534,6 +538,64 @@ body a {
 
 .commentBlock ~ .commentBlock {
   margin-top: var(--xl);
+}
+
+.reader-thought,
+.writer-thought {
+  background-color: var(--background-color-secondary);
+  padding: var(--m);
+  border-radius: var(--xs);
+  width: clamp(15rem, 66%, 30rem);
+  position: relative;
+  margin-bottom: calc(var(--xxl) + var(--m));
+  margin-top: var(--m);
+}
+
+.reader-thought {
+  box-shadow: var(--xxs) var(--xxs) 0 var(--theme-color-a);
+}
+
+.reader-thought::before,
+.reader-thought::after,
+.writer-thought::before,
+.writer-thought::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: calc(1px - var(--xxl));
+  height: var(--xxl);
+  width: var(--xxxl);
+  background: linear-gradient(to bottom, #0004, #0000 var(--s))
+    var(--background-color-secondary-darkened);
+}
+
+.reader-thought::before,
+.reader-thought::after {
+  left: 0.11rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.reader-thought::before {
+  background: var(--theme-color-a);
+  bottom: calc(1px - var(--xxs) - var(--xxl));
+  left: calc(0.22rem + var(--xxs) / 2);
+}
+
+.writer-thought {
+  box-shadow: var(--xxs) var(--xxs) 0 var(--theme-color-b);
+  margin-left: calc(min(100%, 50rem) - clamp(15rem, 66%, 30rem));
+}
+
+.writer-thought::before,
+.writer-thought::after {
+  right: 0.11rem;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.writer-thought::before {
+  background: var(--theme-color-b);
+  bottom: calc(1px - var(--xxs) - var(--xxl));
+  right: -0.11rem;
 }
 
 .relatePreview {
@@ -610,6 +672,7 @@ body a {
   overflow: auto;
   font-size: 1rem;
   line-height: 1.2;
+  position: relative;
 }
 .shiki code {
   display: block;
@@ -622,22 +685,22 @@ body a {
   color: #ccc;
   padding: var(--xs) var(--s);
   background: #fff2;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-family: "Mona Sans", system-ui, Helvetica, sans-serif;
+  position: sticky;
+  left: 0;
 }
-.sh--highlight {
-  background: #ff01;
-  box-shadow: inset var(--xxs) 0 0 #ff08;
+.line.sh--highlight,
+.line.sh--add.sh--highlight,
+.line.sh--remove.sh--highlight {
+  background: #ff02;
+  box-shadow: inset var(--s) 0 0 #ff0;
 }
 .sh--focus ~ .line:not(.sh--focus),
 .line:not(.sh--focus):has(~ .sh--focus) {
   filter: blur(1.5px);
 }
-.shiki:hover .sh--focus ~ .line:not(.sh--focus),
-.shiki:hover .line:not(.sh--focus):has(~ .sh--focus) {
-  filter: blur(0);
-}
-.sh--focus {
+.shiki:hover .line {
   filter: blur(0);
 }
 .line {
@@ -648,8 +711,22 @@ body a {
 }
 .shiki {
   counter-reset: step;
-  counter-increment: step 0;
 }
+.shiki::-webkit-scrollbar {
+  height: calc(2 * var(--xs));
+}
+.shiki::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to right,
+    var(--theme-color-a),
+    var(--theme-color-b)
+  );
+  border-radius: 100vw;
+}
+.shiki::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .shiki .line::before {
   content: counter(step);
   counter-increment: step;
@@ -663,19 +740,19 @@ body a {
 }
 .shiki .line.sh--add::before {
   content: "+";
-  color: #0f0;
+  color: #487e02;
 }
 .shiki .line.sh--remove::before {
   content: "-";
   color: #f00;
 }
 .line.sh--add {
-  background: #0f02;
-  box-shadow: inset var(--xxs) 0 0 #0f08;
+  background: #487e0219;
+  box-shadow: inset var(--xxs) 0 0 #487e02;
 }
 .line.sh--remove {
-  background: #f002;
-  box-shadow: inset var(--xxs) 0 0 #f008;
+  background: #8004;
+  box-shadow: inset var(--xxs) 0 0 #800;
 }
 .line.sh--updated {
   background: #00f2;

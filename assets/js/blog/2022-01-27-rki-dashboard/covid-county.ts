@@ -1,16 +1,14 @@
-import { LitElement, html, css } from "lit";
-import { customElement, state, property } from "lit/decorators.js";
-import { repeat } from "lit/directives/repeat.js";
-import { ifDefined } from "lit/directives/if-defined.js";
-
+import './covid-overview';
+import { css, html, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import {
-  loadCovidDataByFederal,
   loadCovidDataByCounty,
-} from "./covidDataLoader";
+  loadCovidDataByFederal,
+} from './covidDataLoader';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { repeat } from 'lit/directives/repeat.js';
 
-import "./covid-overview";
-
-@customElement("covid-county")
+@customElement('covid-county')
 export default class CovidCounty extends LitElement {
   static override styles = css`
     #wrapper {
@@ -37,21 +35,25 @@ export default class CovidCounty extends LitElement {
 
   constructor() {
     super();
-    loadCovidDataByFederal().then((data) => (this.covidDataByFederal = data));
-    loadCovidDataByCounty().then((data) => (this.covidDataByCounty = data));
+    loadCovidDataByFederal().then(data => {
+      this.covidDataByFederal = data;
+    });
+    loadCovidDataByCounty().then(data => {
+      this.covidDataByCounty = data;
+    });
   }
 
   @state()
-  covidDataByFederal?: Awaited<ReturnType<typeof loadCovidDataByFederal>>;
+    covidDataByFederal?: Awaited<ReturnType<typeof loadCovidDataByFederal>>;
 
   @state()
-  covidDataByCounty?: Awaited<ReturnType<typeof loadCovidDataByCounty>>;
+    covidDataByCounty?: Awaited<ReturnType<typeof loadCovidDataByCounty>>;
 
   @property({ type: String })
-  federal?: string;
+    federal?: string;
 
   @state()
-  county?: string;
+    county?: string;
 
   get federalData() {
     return this.covidDataByFederal?.get(this.federal as string);
@@ -62,28 +64,30 @@ export default class CovidCounty extends LitElement {
   }
 
   get availableFederalCountiesSorted() {
-    return [...(this.federalData?.counties.keys() || [])].sort();
+    return [...this.federalData?.counties.keys() || []].sort();
   }
 
   get availableCounties() {
-    return [...(this.covidDataByCounty?.keys() || [])].sort();
+    return [...this.covidDataByCounty?.keys() || []].sort();
   }
 
   override updated(changedProperties: Map<string, any>) {
-    if (changedProperties.has("federal")) {
-      this.county = this.availableFederalCountiesSorted[0];
+    if (changedProperties.has('federal')) {
+      [this.county] = this.availableFederalCountiesSorted;
     }
   }
 
   override render() {
     return html`
       <div id="wrapper">
-        <select @input=${(e: any) => (this.county = e.target.value)}>
+        <select @input=${(e: any) => {
+      this.county = e.target.value;
+    }}>
           ${repeat(
-            this.availableFederalCountiesSorted || this.availableCounties,
-            (county: string) => county,
-            (county: string) => html`<option>${county}</option>`
-          )}
+      this.availableFederalCountiesSorted || this.availableCounties,
+      (county: string) => county,
+      (county: string) => html`<option>${county}</option>`,
+    )}
         </select>
         <covid-overview
           residents=${ifDefined(this.countyData?.residents)}

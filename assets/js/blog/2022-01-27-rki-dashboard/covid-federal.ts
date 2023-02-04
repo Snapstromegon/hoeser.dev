@@ -1,13 +1,11 @@
-import { LitElement, html, css } from "lit";
-import { customElement, state } from "lit/decorators.js";
-import { ifDefined } from "lit/directives/if-defined.js";
-import { repeat } from "lit/directives/repeat.js";
+import './covid-overview';
+import { css, html, LitElement } from 'lit';
+import { customElement, state } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { loadCovidDataByFederal } from './covidDataLoader';
+import { repeat } from 'lit/directives/repeat.js';
 
-import { loadCovidDataByFederal } from "./covidDataLoader";
-
-import "./covid-overview";
-
-@customElement("covid-federal")
+@customElement('covid-federal')
 export default class CovidFederal extends LitElement {
   static override styles = css`
     #wrapper {
@@ -34,29 +32,25 @@ export default class CovidFederal extends LitElement {
 
   constructor() {
     super();
-    loadCovidDataByFederal().then((data) => {
+    loadCovidDataByFederal().then(data => {
       this.covidDataByFederal = data;
       this.updateFederal(this.availableFederalsSorted[0]);
     });
   }
 
   @state()
-  covidDataByFederal?: Awaited<ReturnType<typeof loadCovidDataByFederal>>;
+    covidDataByFederal?: Awaited<ReturnType<typeof loadCovidDataByFederal>>;
 
   @state()
-  federal?: string;
+    federal?: string;
 
   updateFederal(federal: string) {
     this.federal = federal;
-    this.dispatchEvent(
-      new CustomEvent("federalChanged", { bubbles: false, detail: federal })
-    );
+    this.dispatchEvent(new CustomEvent('federalChanged', { bubbles: false, detail: federal }));
   }
 
   get availableFederalsSorted(): string[] {
-    return [
-      ...((this.covidDataByFederal || []).keys() as Iterable<string>),
-    ].sort();
+    return [...(this.covidDataByFederal || []).keys() as Iterable<string>].sort();
   }
 
   get federalData() {
@@ -68,10 +62,10 @@ export default class CovidFederal extends LitElement {
       <div id="wrapper">
         <select @input=${(e: any) => this.updateFederal(e.target.value)}>
           ${repeat(
-            this.availableFederalsSorted,
-            (federal) => federal,
-            (federal) => html`<option>${federal}</option>`
-          )}
+      this.availableFederalsSorted,
+      federal => federal,
+      federal => html`<option>${federal}</option>`,
+    )}
         </select>
         <covid-overview
           residents=${ifDefined(this.federalData?.residents)}

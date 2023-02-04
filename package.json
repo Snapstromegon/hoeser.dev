@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npx @11ty/eleventy",
-    "serve": "npx @11ty/eleventy --serve"
+    "serve": "npx @11ty/eleventy --serve",
+    "lint": "cross-env ESLINT_USE_FLAT_CONFIG=true eslint . -c eslint.config.mjs"
   },
   "keywords": [],
   "author": "",
@@ -21,13 +22,18 @@
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^11.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "cross-env": "^7.0.3",
     "eleventy-plugin-rollup": "^1.2.1",
+    "eslint": "^8.33.0",
+    "globals": "^13.20.0",
     "js-yaml": "^4.1.0",
     "markdown-it-container": "^3.0.0",
     "markdown-it-emoji": "^2.0.2",
     "rollup": "^3.13.0",
-    "typescript": "^4.9.5",
+    "shiki": "^0.14.0",
     "tslib": "^2.5.0",
-    "shiki": "^0.14.0"
+    "typescript": "^4.9.5"
   }
 }
