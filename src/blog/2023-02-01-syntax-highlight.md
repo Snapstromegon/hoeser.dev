@@ -38,7 +38,8 @@ class Person {
     this.#age = age;
   }
 
-  get isAdult() { // [sh! focus:start]
+  get isAdult() {
+    // [sh! focus:start]
     return this.#age >= 18;
   } // [sh! focus:end]
 
@@ -88,7 +89,8 @@ class Person {
     this.#age = age;
   }
 
-  get isAdult() { // [sh! focus:start]
+  get isAdult() {
+    // [sh! focus:start]
     return this.#age >= 21; // [sh! --]
     return this.#age >= 18; // [sh! ++]
   }
@@ -181,7 +183,8 @@ const markdownIt = require('markdown-it');
 const shiki = require('shiki');
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.on('eleventy.before', async () => { // [sh! focus:start]
+  eleventyConfig.on('eleventy.before', async () => {
+    // [sh! focus:start]
     const highlighter = await shiki.getHighlighter({ theme: 'dark-plus' });
     eleventyConfig.amendLibrary('md', (mdLib) =>
       mdLib.set({
@@ -200,7 +203,8 @@ const markdownIt = require('markdown-it');
 const shiki = require('shiki');
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.on('eleventy.before', async () => { // [sh! focus:start]
+  eleventyConfig.on('eleventy.before', async () => {
+    // [sh! focus:start]
     const highlighter = await shiki.getHighlighter({ theme: 'dark-plus' });
     eleventyConfig.amendLibrary('md', (mdLib) =>
       mdLib.set({
@@ -337,11 +341,13 @@ After tokenization, this becomes the following hard to read array of array of to
 To make it at least somewhat readable I focused just the lines that are relevant to us.
 
 ```json
-[ // [sh! focus]
+[
+  // [sh! focus]
   [
     // [...] line of tokens
   ],
-  [ // [sh! focus]
+  [
+    // [sh! focus]
     {
       "content": "  ",
       "explanation": [
@@ -372,9 +378,11 @@ To make it at least somewhat readable I focused just the lines that are relevant
       ]
     },
     // [...]
-    { // [sh! focus:start]
+    {
+      // [sh! focus:start]
       "content": "// [sh! highlight]",
-      "explanation": [ // [sh! focus:end]
+      "explanation": [
+        // [sh! focus:end]
         {
           "content": "//",
           "scopes": [
@@ -386,9 +394,11 @@ To make it at least somewhat readable I focused just the lines that are relevant
             { "scopeName": "punctuation.definition.comment.js" }
           ]
         },
-        { // [sh! focus:start]
+        {
+          // [sh! focus:start]
           "content": " [sh! highlight]",
-          "scopes": [ // [sh! focus:end]
+          "scopes": [
+            // [sh! focus:end]
             { "scopeName": "source.js" },
             { "scopeName": "meta.var.expr.js" },
             { "scopeName": "meta.arrow.js" },
@@ -476,7 +486,8 @@ const extractLineShikierCommands = (line) => {
     const match = shikierCommandsExtractor.exec(token.content);
     if (match) {
       commands.push(...match?.groups?.commands.trim().split(/\s/));
-      line.splice( // [sh! add:3]
+      line.splice(
+        // [sh! add:3]
         line.findIndex((t) => t === token),
         1
       );
@@ -535,13 +546,15 @@ const lineOptions = [...linesWithCommands.entries()].map(
 const lineOptions = [...linesWithCommands.entries()].map(
   ([lineNumber, commands]) => ({
     line: lineNumber,
-    classes: commands.map( // [sh! focus:start]
+    classes: commands.map(
+      // [sh! focus:start]
       (command) => `sh--${resolveCommandShortcuts(command)}`
     ), // [sh! focus:end]
   })
 );
 
-const resolveCommandShortcuts = (command) => { // [sh! focus:start]
+const resolveCommandShortcuts = (command) => {
+  // [sh! focus:start]
   return (
     {
       '++': 'add',
@@ -562,7 +575,8 @@ Did I mention that our finished solution won't use JS? No? Okay, maybe you alrea
 You might be wondering why the line numbers are missing from the code examples. This is, because I just add them via [CSS Counters][mdn-css-counters] as pseudo elements.
 
 ```css
-pre.shiki { /* [sh! focus:start] */
+pre.shiki {
+  /* [sh! focus:start] */
   counter-reset: linenumber; /* start each codeblock with line 0 */
 }
 pre.shiki .line::before {
@@ -607,11 +621,13 @@ To achieve this, we just use some background work to get the job done:
 Like you see in this blogpost, sometimes you want to show what changed. This works similar to highlighting, but also overwrites the content of the line numbering pseudo element. This means, the line number counter is still incremented, just not shown anymore.
 
 ```css
-.shiki .line.sh--add::before { /* [sh! focus] */
+.shiki .line.sh--add::before {
+  /* [sh! focus] */
   content: '+'; /* [sh! focus] */
   color: #487e02;
 } /* [sh! focus] */
-.shiki .line.sh--remove::before { /* [sh! focus] */
+.shiki .line.sh--remove::before {
+  /* [sh! focus] */
   content: '-'; /* [sh! focus] */
   color: #f00;
 } /* [sh! focus] */
@@ -700,7 +716,8 @@ The "after" part is also easy via the `~` sibling selector:
 .demoButton:focus {
   background: #ff0;
 }
-.demoButton:focus ~ .demoButton { /* [sh! focus:start] */
+.demoButton:focus ~ .demoButton {
+  /* [sh! focus:start] */
   background: #f00;
 }
 ```
@@ -721,7 +738,8 @@ Translated to CSS this is:
 .demoButton:focus ~ .demoButton {
   background: #f00;
 }
-.demoButton:has(~ .demoButton:focus) { /* [sh! focus:start] */
+.demoButton:has(~ .demoButton:focus) {
+  /* [sh! focus:start] */
   background: #0f0;
 }
 ```
@@ -754,7 +772,7 @@ Now we're all on the same page about how to select elements before or after one 
 From here on out it's just applying some styles and transitions so everything matches your pages appearance.
 
 :::sidenote
-I know, the single line chapter kind off exploded, but I promise that multiline comments will be shorter.
+I know, the single line chapter kind off exploded, but I promise that multiline comments will be shorter. This is mainly because the markdown file for this post is scratching 1000 lines right now, so I will focus on the main parts from here on.
 :::
 
 ### Multiline Comments
@@ -791,67 +809,137 @@ Examples:
 For this to work we first need to devide the line a command appears on from the line(s) it applies to:
 
 ```js
-const highlight = (code, lang, highlighter, options) => {
-  const cleanLang = lang.split("{")[0];
-  const tokenized = highlighter.codeToThemedTokens(code, cleanLang);
+const parseRawCommand = (rawCommand) => {
+  const commandParts = rawCommand.split(':');
+  if (commandParts.length < 2) {
+    commandParts.push('');
+  }
+  // Use .pop() so that a command could contain ":"
+  const lineSpec = commandParts.pop();
+  const cleanCommand = resolveCommandShortcuts(commandParts.join(':'));
+  return { cleanCommand, lineSpec };
+};
+```
 
-  const linesWithCommands = new Map();
-  tokenized.forEach((line, lineIndex) => {
-    const commands = extractLineShikierCommands(line, options);
-    if (commands.length > 0) {
-      linesWithCommands.set(lineIndex + 1, commands);
+Since we now have the `lineSpec` and `cleanCommand`, we also need a parser for the `lineSpec`.
+We also add a fallback for an empty spec, so it applies just to the current line.
+The parser should just return a range of line numbers (with start and end) to which a command should apply.
+
+```js
+const parseLineSpec = (lineSpec, lineNumber) => {
+  switch (lineSpec.toLowerCase()) {
+    case '':
+      return { start: lineNumber, end: lineNumber };
+    default:
+      return parseNumberLineSpec(lineSpec, lineNumber);
+  }
+};
+
+const parseNumberLineSpec = (lineSpec, lineNumber) => {
+  const lineSpecParts = lineSpec.split(',').map((l) => parseInt(l, 10));
+  switch (lineSpecParts.length) {
+    case 1:
+      return {
+        start: lineNumber,
+        end: lineNumber + lineSpecParts[0],
+      };
+    case 2:
+      return {
+        start: lineNumber + lineSpecParts[0],
+        end: lineNumber + lineSpecParts[0] + lineSpecParts[1],
+      };
+    default:
+      throw new Error(`Invalid line spec ${lineSpec}`);
+  }
+};
+```
+
+To apply the command ranges now to each line, we just loop over them:
+
+```js
+const applyCommandToLines = (lineRange, command, lineCommands) => {
+  for (let i = lineRange.start; i <= lineRange.end; i++) {
+    if (!lineCommands.has(i)) {
+      lineCommands.set(i, []);
     }
-  });
-  
-  const linesApplyCommands = new Map();
+    lineCommands.get(i).push(command);
+  }
+};
 
+const lineCommandsToAppliedLines = (linesWithCommands, totalLines) => {
+  /**
+   * @type {Map<number, string[]>}
+   */
+  const linesApplyCommands = new Map();
   for (const [lineNumber, commands] of linesWithCommands.entries()) {
-    for (const command of commands) {
-      const commandParts = command.split(":");
-      const lineSpec = commandParts[1] || "";
-      const cleanCommand = resolveCommandShortcuts(commandParts[0]);
-      let lineRange = { start: lineNumber, end: lineNumber };
-      if (lineSpec) {
-        const lineSpecParts = lineSpec.split(",").map((l) => parseInt(l));
-        switch (lineSpecParts.length) {
-          case 1:
-            lineRange = {
-              start: lineNumber,
-              end: lineNumber + lineSpecParts[0],
-            };
-            break;
-          case 2:
-            lineRange = {
-              start: lineNumber + lineSpecParts[0],
-              end: lineNumber + lineSpecParts[0] + lineSpecParts[1],
-            };
-            break;
-          default:
-            throw new Error(`Invalid line spec ${lineSpec}`);
-        }
-      }
-      for (let i = lineRange.start; i <= lineRange.end; i++) {
-        if (!linesApplyCommands.has(i)) {
-          linesApplyCommands.set(i, []);
-        }
-        linesApplyCommands.get(i).push(cleanCommand);
+    for (const rawCommand of commands) {
+      const { cleanCommand, lineSpec } = parseRawCommand(rawCommand);
+      const lineRange = parseLineSpec(lineSpec, lineNumber);
+      if (lineRange) {
+        applyCommandToLines(lineRange, cleanCommand, linesApplyCommands);
       }
     }
   }
-  const lineOptions = [...linesApplyCommands.entries()].map(
-    ([lineNumber, commands]) => ({
-      line: lineNumber,
-      classes: commands.map((command) => `sh--${command}`),
-    })
-  );
 
-  const theme = highlighter.getTheme();
-  return shiki.renderToHtml(tokenized, {
-    lineOptions,
-    bg: theme.bg,
-    fg: theme.fg,
-    langId: cleanLang,
-  });
+  return linesApplyCommands;
+};
+```
+
+One more interesting feature of [Torchlight] is, that you can make command blocks like this:
+
+```js{!sh!}
+const fizzBuzz = (i) => { // [sh! focus:start]
+  let res = "";
+  if (i%3) res += "Fizz";
+  if (i%5) res += "Buzz";
+  return res || `${i}`;
+} // [sh! focus:end]
+
+for(let i=0; i<100; i++){
+  console.log(fizzBuzz(i));
+}
+```
+
+To achieve this, we need to add some context to the `lineSpec` parser.
+But the basic idea is to create a map that maps commands to their last "start" marker (my implementation assumes a start at line 0 if you didn't use "start" before - same for end with last line).
+
+The implementation could look like this:
+
+```js
+const parseLineSpec = (lineSpec, lineNumber) => { // [sh! focus --]
+const parseLineSpec = (lineSpec, lineNumber, command, rangeStarts) => { // [sh! focus ++]
+  switch (lineSpec.toLowerCase()) {
+    case '':
+      return { end: lineNumber, start: lineNumber };
+    case 'start': // [sh! focus:start]
+      rangeStarts.set(
+        command,
+        Math.min(rangeStarts.get(command) || Infinity, lineNumber)
+      );
+      return;
+    case 'end': {
+      const start = rangeStarts.get(command) || 0;
+      rangeStarts.delete(command);
+      return { end: lineNumber, start };
+    } // [sh! focus:end]
+    default:
+      return parseNumberLineSpec(lineSpec, lineNumber);
+  }
+};  // [sh! focus:start]
+
+const applyRemainingStartedCommands = (
+  rangeStarts,
+  totalLines,
+  linesApplyCommands
+) => {
+  for (const [command, start] of rangeStarts) {
+    for (let i = start; i < totalLines; i++) {
+      if (!linesApplyCommands.has(i)) {
+        linesApplyCommands.set(i, []);
+      }
+      linesApplyCommands.get(i).push(command);
+    }
+  }
 };
 ```
 
@@ -862,6 +950,151 @@ If you're unhappy with something in your techstack it's often worth taking a loo
 Also don't be afraid of high price tags or how difficult a feature seems to be. Some are (especially thanks to modern web standards) easier to achieve than you expect.
 
 Maybe (just like with my [eleventy-plugin-rollup]) I will convert this blogpost into a real plugin sometime in the future.
+
+## TLDR
+
+:::reader-thought
+Wow, that was a lot...
+:::
+
+:::writer-thought
+Yeah, I agree. This is by far my longest blogpost up until now.
+But let's but it in a nutshell.
+:::
+
+### Context Again
+
+So because I was frustrated with my old syntax highlighting solution and also wasn't willing to pay for [Torchlight], I'be build most of their features using [Shiki][shiki].
+
+### Result
+
+#### Focus
+
+```js{!sh!}
+const greet = (name = "World") => {
+  console.log(`Hello ${name}!`); // [sh! focus]
+}
+```
+
+```js
+const greet = (name = "World") => {
+  console.log(`Hello ${name}!`); // [sh! focus]
+}
+```
+
+#### Highlight
+
+```js{!sh!}
+const greet = (name = "World") => {
+  console.log(`Hello ${name}!`); // [sh! highlight]
+}
+```
+
+```js
+const greet = (name = "World") => {
+  console.log(`Hello ${name}!`); // [sh! highlight]
+}
+```
+
+#### Diff
+
+```js{!sh!}
+const greet = (name = "World") => {
+  console.log(`Hello ${name}.`); // [sh! remove]
+  console.log(`Hello ${name}!`); // [sh! add]
+}
+```
+
+```js
+const greet = (name = "World") => {
+  console.log(`Hello ${name}.`); // [sh! remove]
+  console.log(`Hello ${name}!`); // [sh! add]
+}
+```
+
+#### Shortcuts and Combinations
+
+```js{!sh!}
+const greet = (name = "World") => {
+  const uppercaseName = name.toLocalUppercase(); // [sh! ~~ **]
+  console.log(`Hello ${name}!`); // [sh! -- **]
+  console.log(`Hello ${uppercaseName}!`); // [sh! ++ **]
+}
+```
+
+```js
+const greet = (name = "World") => {
+  const uppercaseName = name.toLocalUppercase(); // [sh! ~~ **]
+  console.log(`Hello ${name}!`); // [sh! -- **]
+  console.log(`Hello ${uppercaseName}!`); // [sh! ++ **]
+}
+```
+
+#### Ranges
+
+```js{!sh!}
+const greet = (name = "World") => {
+  console.log(`Hello ${name}!`); // [sh! --]
+  const uppercaseName = name.toLocalUppercase(); // [sh! ++:start]
+  // Output greeting
+  console.log(`Hello ${uppercaseName}!`); // [sh! ++:end]
+}
+```
+
+which is the same as
+
+```js{!sh!}
+const greet = (name = "World") => {
+  console.log(`Hello ${name}!`); // [sh! --]
+  const uppercaseName = name.toLocalUppercase(); // [sh! ++:2]
+  // Output greeting
+  console.log(`Hello ${uppercaseName}!`);
+}
+```
+
+which is the same as
+
+```js{!sh!}
+const greet = (name = "World") => { // [sh! ++:2,2]
+  console.log(`Hello ${name}!`); // [sh! --]
+  const uppercaseName = name.toLocalUppercase();
+  // Output greeting
+  console.log(`Hello ${uppercaseName}!`);
+}
+```
+
+```js
+const greet = (name = "World") => {
+  console.log(`Hello ${name}!`); // [sh! --]
+  const uppercaseName = name.toLocalUppercase(); // [sh! ++:start]
+  // Output greeting
+  console.log(`Hello ${uppercaseName}!`); // [sh! ++:end]
+}
+```
+
+### How to use it
+
+#### Get Shikier
+
+Copy my `lib/shikier/index.js` to your project
+
+#### Install requirements
+
+Run `npm install -D shiki`
+
+#### Register Plugin
+
+Add this to your config:
+
+```js
+const shikier = require('./lib/shikier/index.cjs'); // [sh! focus]
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(shikier); // [sh! focus]
+}
+```
+
+And the just write normal codeblocks with some markers like above in your markdown files.
+
 
 [@11ty/eleventy-plugin-syntaxhighlight]: https://www.npmjs.com/package/@11ty/eleventy-plugin-syntaxhighlight
 [eleventy-plugin-syntaxhighlight-new-options]: https://github.com/11ty/eleventy-plugin-syntaxhighlight/issues/32
