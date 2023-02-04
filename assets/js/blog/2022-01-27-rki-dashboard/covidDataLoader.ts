@@ -27,11 +27,9 @@ let loadedDataPromise: Promise<RawDataEntry[]>;
 
 const parseRKIDateString = (dateString: string): Date => {
   const dateParser =
-    /(?<day>\d+)\.(?<month>\d+)\.(?<year>\d+), (?<daytime>\d+:\d+)/;
+    /(?<day>\d+)\.(?<month>\d+)\.(?<year>\d+), (?<daytime>\d+:\d+)/u;
   const match = dateParser.exec(dateString);
-  return new Date(
-    `${match?.groups?.year}-${match?.groups?.month}-${match?.groups?.day}T${match?.groups?.daytime}Z`
-  );
+  return new Date(`${match?.groups?.year}-${match?.groups?.month}-${match?.groups?.day}T${match?.groups?.daytime}Z`);
 };
 
 const loadCovidData = (): Promise<RawDataEntry[]> => {
@@ -44,19 +42,20 @@ const loadCovidData = (): Promise<RawDataEntry[]> => {
     const csvData = parseCsv(await resp.text());
 
     // Make the raw data more useable
-    return csvData.map((entry) => ({
-      county: entry.county?.split(' ').slice(1).join(' ') + ' ' + entry.county?.split(' ')[0],
+    return csvData.map(entry => ({
+      cases: parseInt(entry.cases as string, 10) || 0,
+      cases7: parseInt(entry.cases7_lk as string, 10) || 0,
+      county: `${entry.county?.split(' ').slice(1)
+        .join(' ')} ${entry.county?.split(' ')[0]}`,
       countyType: entry.BEZ,
-      residents: parseInt(entry.EWZ as string),
-      federal: entry.BL,
-      federalResidents: parseInt(entry.EWZ_BL as string),
-      cases: parseInt(entry.cases as string) || 0,
-      deaths: parseInt(entry.deaths as string) || 0,
-      cases7: parseInt(entry.cases7_lk as string) || 0,
-      deaths7: parseInt(entry.death7_lk as string) || 0,
-      federalCases7: parseInt(entry.cases7_bl as string) || 0,
-      federalDeaths7: parseInt(entry.death7_bl as string) || 0,
       deathRate: parseFloat(entry.death_rate as string) || 0,
+      deaths: parseInt(entry.deaths as string, 10) || 0,
+      deaths7: parseInt(entry.death7_lk as string, 10) || 0,
+      federal: entry.BL,
+      federalCases7: parseInt(entry.cases7_bl as string, 10) || 0,
+      federalDeaths7: parseInt(entry.death7_bl as string, 10) || 0,
+      federalResidents: parseInt(entry.EWZ_BL as string, 10),
+      residents: parseInt(entry.EWZ as string, 10),
       updated: parseRKIDateString(entry.last_update as string),
     })) as RawDataEntry[];
   };
@@ -95,13 +94,13 @@ export const loadCovidDataByFederal = async (): Promise<
   for (const entry of await loadCovidData()) {
     if (!result.has(entry.federal)) {
       result.set(entry.federal, {
-        updated: entry.updated,
         cases: 0,
         cases7: entry.federalCases7,
+        counties: new Map(),
         deaths: 0,
         deaths7: entry.federalDeaths7,
         residents: entry.federalResidents,
-        counties: new Map(),
+        updated: entry.updated,
       });
     }
 

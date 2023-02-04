@@ -1,5 +1,7 @@
-import { LitElement, html, css } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+
+const K100 = 100_000;
 
 @customElement('covid-overview')
 export default class CovidOverview extends LitElement {
@@ -68,7 +70,7 @@ export default class CovidOverview extends LitElement {
 
   toPer100k(value?: number): number | undefined {
     if (!value || !this.residents) return;
-    return (100_000 / this.residents) * value;
+    return (K100 / this.residents) * value;
   }
 
   override render() {

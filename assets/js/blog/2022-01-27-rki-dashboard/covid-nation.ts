@@ -1,16 +1,16 @@
-import { LitElement, html } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
-
-import { loadNationOverview } from './covidDataLoader';
-
 import './covid-overview';
+import { customElement, state } from 'lit/decorators.js';
+import { html, LitElement } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { loadNationOverview } from './covidDataLoader';
 
 @customElement('covid-nation')
 export default class CovidNation extends LitElement {
   constructor() {
     super();
-    loadNationOverview().then((data: any) => (this.covidDataNation = data));
+    loadNationOverview().then((data: any) => {
+      this.covidDataNation = data;
+    });
   }
 
   @state()
