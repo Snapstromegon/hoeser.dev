@@ -46,7 +46,6 @@ export default [
       ],
       'key-spacing': 'error',
       'keyword-spacing': 'error',
-      'linebreak-style': ['error', 'windows'],
       'logical-assignment-operators': 'error',
       'max-depth': ['error', 4],
       'max-lines': ['error', 500],
