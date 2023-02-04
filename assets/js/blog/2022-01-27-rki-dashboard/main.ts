@@ -1,1 +1,1 @@
-import "./covid-stats";
+import './covid-stats';
