@@ -124,7 +124,7 @@ Yes, there are. 5$ a month as a sponsor or free for "non-revenue generating proj
 
 First of all I like using stuff that I could also use professionally if I wanted and second, I don't like required backlinks.
 
-This doesn't mean, that I'm not willing to spend money on good work (5$ is just the monthlöy amount I currently contribute to the eleventy project) or don't want to give projects a shoutout (you find those often on here),
+This doesn't mean, that I'm not willing to spend money on good work (5$ is just the monthly amount I currently contribute to the eleventy project) or don't want to give projects a shoutout (you find those often on here),
 :::
 
 ### API Limits
