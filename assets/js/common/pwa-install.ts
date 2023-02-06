@@ -7,7 +7,7 @@ export default class PWAInstaller extends LitElement {
     button {
       cursor: pointer;
       border: 0.2rem solid transparent;
-      background: linear-gradient(#fff, #fff),
+      background: linear-gradient(#fffc, #fffc),
         linear-gradient(to right, var(--theme-color-a), var(--theme-color-b));
       padding: 0.5rem 1rem 0.5rem 0.75rem;
       z-index: 1000;
