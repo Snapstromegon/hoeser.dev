@@ -521,7 +521,7 @@ After the livestream I consider this blogpost done and probably won't update it 
 [tnw-yt]: https://www.youtube.com/c/thenativewebGmbH
 [tnw-app]: https://app.thenativeweb.io
 [tw-golo]: https://twitter.com/goloroden
-[rki-post]: ../2022-01-27-rki-dashboard/
+[rki-post]: /blog/2022-01-27-rki-dashboard/
 [wiki:subpixel-rendering]: https://de.wikipedia.org/wiki/Subpixel-Rendering
 [jamstack]: https://jamstack.org/
 [lit]: https://lit.dev

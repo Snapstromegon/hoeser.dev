@@ -255,10 +255,10 @@ If I had to choose myself, I would probably rank all five options the following 
 4. C3 "brackets"
 5. W4 "two blocks"
 
-[post-everything-is-chrome]: ./2022-02-07-everything-is-chrome
+[post-everything-is-chrome]: /blog/2022-02-07-everything-is-chrome
 [tweet-webkit-against-option3]: https://twitter.com/webkit/status/1604860870416293888
-[post-nativewapp]: ./2022-10-20-nativewapp
-[post-building-this-blog]: ./2022-01-26-building-this-blog
+[post-nativewapp]: /blog/2022-10-20-nativewapp
+[post-building-this-blog]: /blog/2022-01-26-building-this-blog
 [tweet-asking-for-nesting]: https://twitter.com/Snapstromegon/status/1532343442252210179
 [chrome-options]: https://developer.chrome.com/blog/help-css-nesting/
 [webkit-options]: https://webkit.org/blog/13607/help-choose-from-options-for-css-nesting-syntax/
