@@ -37,9 +37,8 @@ class Person {
     this.#name = name;
     this.#age = age;
   }
-
+  // [sh! focus:start]
   get isAdult() {
-    // [sh! focus:start]
     return this.#age >= 18;
   } // [sh! focus:end]
 
@@ -88,9 +87,8 @@ class Person {
     this.#name = name;
     this.#age = age;
   }
-
+  // [sh! focus:start]
   get isAdult() {
-    // [sh! focus:start]
     return this.#age >= 21; // [sh! --]
     return this.#age >= 18; // [sh! ++]
   }
@@ -183,8 +181,8 @@ const markdownIt = require('markdown-it');
 const shiki = require('shiki');
 
 module.exports = (eleventyConfig) => {
+  // [sh! focus:start]
   eleventyConfig.on('eleventy.before', async () => {
-    // [sh! focus:start]
     const highlighter = await shiki.getHighlighter({ theme: 'dark-plus' });
     eleventyConfig.amendLibrary('md', (mdLib) =>
       mdLib.set({
@@ -203,8 +201,8 @@ const markdownIt = require('markdown-it');
 const shiki = require('shiki');
 
 module.exports = (eleventyConfig) => {
+  // [sh! focus:start]
   eleventyConfig.on('eleventy.before', async () => {
-    // [sh! focus:start]
     const highlighter = await shiki.getHighlighter({ theme: 'dark-plus' });
     eleventyConfig.amendLibrary('md', (mdLib) =>
       mdLib.set({
@@ -341,13 +339,11 @@ After tokenization, this becomes the following hard to read array of array of to
 To make it at least somewhat readable I focused just the lines that are relevant to us.
 
 ```json
-[
-  // [sh! focus]
+[ // [sh! focus]
   [
     // [...] line of tokens
   ],
-  [
-    // [sh! focus]
+  [ // [sh! focus]
     {
       "content": "  ",
       "explanation": [
@@ -378,11 +374,9 @@ To make it at least somewhat readable I focused just the lines that are relevant
       ]
     },
     // [...]
-    {
-      // [sh! focus:start]
+    { // [sh! focus:start]
       "content": "// [sh! highlight]",
-      "explanation": [
-        // [sh! focus:end]
+      "explanation": [ // [sh! focus:end]
         {
           "content": "//",
           "scopes": [
@@ -394,11 +388,9 @@ To make it at least somewhat readable I focused just the lines that are relevant
             { "scopeName": "punctuation.definition.comment.js" }
           ]
         },
-        {
-          // [sh! focus:start]
+        { // [sh! focus:start]
           "content": " [sh! highlight]",
-          "scopes": [
-            // [sh! focus:end]
+          "scopes": [ // [sh! focus:end]
             { "scopeName": "source.js" },
             { "scopeName": "meta.var.expr.js" },
             { "scopeName": "meta.arrow.js" },
@@ -486,8 +478,7 @@ const extractLineShikierCommands = (line) => {
     const match = shikierCommandsExtractor.exec(token.content);
     if (match) {
       commands.push(...match?.groups?.commands.trim().split(/\s/));
-      line.splice(
-        // [sh! add:3]
+      line.splice( // [sh! add:3]
         line.findIndex((t) => t === token),
         1
       );
@@ -546,15 +537,13 @@ const lineOptions = [...linesWithCommands.entries()].map(
 const lineOptions = [...linesWithCommands.entries()].map(
   ([lineNumber, commands]) => ({
     line: lineNumber,
-    classes: commands.map(
-      // [sh! focus:start]
+    classes: commands.map( // [sh! focus:start]
       (command) => `sh--${resolveCommandShortcuts(command)}`
     ), // [sh! focus:end]
   })
 );
 
-const resolveCommandShortcuts = (command) => {
-  // [sh! focus:start]
+const resolveCommandShortcuts = (command) => { // [sh! focus:start]
   return (
     {
       '++': 'add',
@@ -977,9 +966,9 @@ const greet = (name = "World") => {
 ```
 
 ```js
-const greet = (name = "World") => {
+const greet = (name = 'World') => {
   console.log(`Hello ${name}!`); // [sh! focus]
-}
+};
 ```
 
 #### Highlight
@@ -991,9 +980,9 @@ const greet = (name = "World") => {
 ```
 
 ```js
-const greet = (name = "World") => {
+const greet = (name = 'World') => {
   console.log(`Hello ${name}!`); // [sh! highlight]
-}
+};
 ```
 
 #### Diff
@@ -1006,10 +995,10 @@ const greet = (name = "World") => {
 ```
 
 ```js
-const greet = (name = "World") => {
+const greet = (name = 'World') => {
   console.log(`Hello ${name}.`); // [sh! remove]
   console.log(`Hello ${name}!`); // [sh! add]
-}
+};
 ```
 
 #### Shortcuts and Combinations
@@ -1023,11 +1012,11 @@ const greet = (name = "World") => {
 ```
 
 ```js
-const greet = (name = "World") => {
+const greet = (name = 'World') => {
   const uppercaseName = name.toLocalUppercase(); // [sh! ~~ **]
   console.log(`Hello ${name}!`); // [sh! -- **]
   console.log(`Hello ${uppercaseName}!`); // [sh! ++ **]
-}
+};
 ```
 
 #### Ranges
@@ -1064,12 +1053,12 @@ const greet = (name = "World") => { // [sh! ++:2,2]
 ```
 
 ```js
-const greet = (name = "World") => {
+const greet = (name = 'World') => {
   console.log(`Hello ${name}!`); // [sh! --]
   const uppercaseName = name.toLocalUppercase(); // [sh! ++:start]
   // Output greeting
   console.log(`Hello ${uppercaseName}!`); // [sh! ++:end]
-}
+};
 ```
 
 ### How to use it
@@ -1088,13 +1077,12 @@ Add this to your config:
 
 ```js
 const shikier = require('./lib/shikier/index.cjs'); // [sh! focus]
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(shikier); // [sh! focus]
-}
+};
 ```
 
 And the just write normal codeblocks with some markers like above in your markdown files.
-
 
 [@11ty/eleventy-plugin-syntaxhighlight]: https://www.npmjs.com/package/@11ty/eleventy-plugin-syntaxhighlight
 [eleventy-plugin-syntaxhighlight-new-options]: https://github.com/11ty/eleventy-plugin-syntaxhighlight/issues/32
