@@ -20,6 +20,8 @@ self.addEventListener("install", (event) => {
           "{{(images|last).url}}",
         {% endfor -%}
       ]);
+
+      self.skipWaiting();
     })()
   );
 });
@@ -47,11 +49,39 @@ self.addEventListener('fetch', (event) => {
     const networkResponsePromise = fetch(event.request);
 
     event.waitUntil(async function() {
-      const networkResponse = await networkResponsePromise;
-      await cache.put(event.request, networkResponse.clone());
+      const networkResponse = (await networkResponsePromise).clone();
+      if (networkResponse.ok && networkResponse.type === "basic") {
+        const cachedResponse = await caches.match(networkResponse.url);
+        if (cachedResponse) {
+          if (!await isResponseSameAsCached(networkResponse, cachedResponse)) {
+            await cache.put(event.request, networkResponse.clone());
+            
+            // notify page
+            const clients = await self.clients.matchAll();
+            for (const client of clients) {
+              if (client.url === event.request.url && client.type === "window") {
+                client.postMessage({
+                  type: "CACHE_UPDATED",
+                  url: event.request.url,
+                  eTag: networkResponse.headers.get("ETag"),
+                });
+              }
+            }
+          }
+        } else {
+          await cache.put(event.request, networkResponse.clone());
+        }
+      }
     }());
 
     // Returned the cached response if we have one, otherwise return the network response, fall back to offline.
     return cachedResponse || networkResponsePromise.catch(() => caches.match('/offline/'));
   }());
 });
+
+function isResponseSameAsCached(response, cachedResponse) {
+  if (response.url.includes("localhost") && response.url.endsWith(".js")) {
+    return false;
+  }
+  return response.headers.get('ETag') === cachedResponse.headers.get('ETag');
+}

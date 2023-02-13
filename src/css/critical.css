@@ -42,6 +42,14 @@ pwa-installer {
   z-index: 1000;
 }
 
+page-updated {
+  position: fixed;
+  top: 0;
+  margin: var(--m);
+  align-self: center;
+  z-index: 1000;
+}
+
 html {
   font-family: "Mona Sans", system-ui, Helvetica, sans-serif;
   line-height: 1.5;
