@@ -1,12 +1,12 @@
-import './covid-county';
-import './covid-federal';
-import './covid-nation';
-import { css, html, LitElement } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
-import { loadNationOverview } from './covidDataLoader';
+import "./covid-county";
+import "./covid-federal";
+import "./covid-nation";
+import { css, html, LitElement } from "lit";
+import { customElement, state } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
+import { loadNationOverview } from "./covidDataLoader";
 
-@customElement('covid-stats')
+@customElement("covid-stats")
 export default class CovidStats extends LitElement {
   static override styles = css`
     #wrapper {
@@ -26,7 +26,7 @@ export default class CovidStats extends LitElement {
     covidDataNation?: Awaited<ReturnType<typeof loadNationOverview>>;
 
   @state()
-    federal: string = '';
+    federal: string = "";
 
   override render() {
     console.log(this.covidDataNation);

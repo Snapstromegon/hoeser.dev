@@ -1,14 +1,14 @@
-import './covid-overview';
-import { css, html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import "./covid-overview";
+import { css, html, LitElement } from "lit";
+import { customElement, property, state } from "lit/decorators.js";
 import {
   loadCovidDataByCounty,
   loadCovidDataByFederal,
-} from './covidDataLoader';
-import { ifDefined } from 'lit/directives/if-defined.js';
-import { repeat } from 'lit/directives/repeat.js';
+} from "./covidDataLoader";
+import { ifDefined } from "lit/directives/if-defined.js";
+import { repeat } from "lit/directives/repeat.js";
 
-@customElement('covid-county')
+@customElement("covid-county")
 export default class CovidCounty extends LitElement {
   static override styles = css`
     #wrapper {
@@ -72,7 +72,7 @@ export default class CovidCounty extends LitElement {
   }
 
   override updated(changedProperties: Map<string, any>) {
-    if (changedProperties.has('federal')) {
+    if (changedProperties.has("federal")) {
       [this.county] = this.availableFederalCountiesSorted;
     }
   }

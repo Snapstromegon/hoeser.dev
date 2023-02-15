@@ -1,7 +1,7 @@
-import parseCsv from './csvParser';
+import parseCsv from "./csvParser";
 
 const DATA_URL =
-  'https://opendata.arcgis.com/api/v3/datasets/917fc37a709542548cc3be077a786c17_0/downloads/data?format=csv&spatialRefId=4326';
+  "https://opendata.arcgis.com/api/v3/datasets/917fc37a709542548cc3be077a786c17_0/downloads/data?format=csv&spatialRefId=4326";
 
 
 export type Per100kable = {
@@ -45,8 +45,8 @@ const loadCovidData = (): Promise<RawDataEntry[]> => {
     return csvData.map(entry => ({
       cases: parseInt(entry.cases as string, 10) || 0,
       cases7: parseInt(entry.cases7_lk as string, 10) || 0,
-      county: `${entry.county?.split(' ').slice(1)
-        .join(' ')} ${entry.county?.split(' ')[0]}`,
+      county: `${entry.county?.split(" ").slice(1)
+        .join(" ")} ${entry.county?.split(" ")[0]}`,
       countyType: entry.BEZ,
       deathRate: parseFloat(entry.death_rate as string) || 0,
       deaths: parseInt(entry.deaths as string, 10) || 0,
@@ -66,7 +66,7 @@ const loadCovidData = (): Promise<RawDataEntry[]> => {
 };
 
 export const loadCovidDataByCounty = async (): Promise<
-  Map<RawDataEntry['county'], RawDataEntry>
+  Map<RawDataEntry["county"], RawDataEntry>
 > => {
   const rawData = await loadCovidData();
   const result = new Map();
@@ -78,7 +78,7 @@ export const loadCovidDataByCounty = async (): Promise<
 
 export const loadCovidDataByFederal = async (): Promise<
   Map<
-    RawDataEntry['federal'],
+    RawDataEntry["federal"],
     {
       updated: Date;
       cases: number;
@@ -86,7 +86,7 @@ export const loadCovidDataByFederal = async (): Promise<
       deaths: number;
       deaths7: number;
       residents: number;
-      counties: Map<RawDataEntry['county'], RawDataEntry>;
+      counties: Map<RawDataEntry["county"], RawDataEntry>;
     }
   >
 > => {

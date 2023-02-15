@@ -1,9 +1,9 @@
-import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { css, html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
 const K100 = 100_000;
 
-@customElement('covid-overview')
+@customElement("covid-overview")
 export default class CovidOverview extends LitElement {
   static override styles = css`
     #wrapper {
@@ -79,24 +79,24 @@ export default class CovidOverview extends LitElement {
         <div id="incidence">
           <span>7-Day incidence</span>
           <span class="value">
-            ${this.toPer100k(this.cases7)?.toFixed(2) ?? '...'}
+            ${this.toPer100k(this.cases7)?.toFixed(2) ?? "..."}
           </span>
         </div>
         <div id="cases7">
           <span>7-Day cases</span>
-          <span class="value">${this.cases7 ?? '...'}</span>
+          <span class="value">${this.cases7 ?? "..."}</span>
         </div>
         <div id="deaths7">
           <span>7-Day deaths</span>
-          <span class="value">${this.deaths7 ?? '...'}</span>
+          <span class="value">${this.deaths7 ?? "..."}</span>
         </div>
         <div id="cases">
           <span>Total cases</span>
-          <span class="value">${this.cases ?? '...'}</span>
+          <span class="value">${this.cases ?? "..."}</span>
         </div>
         <div id="deaths">
           <span>Total deaths</span>
-          <span class="value">${this.deaths ?? '...'}</span>
+          <span class="value">${this.deaths ?? "..."}</span>
         </div>
       </div>
     `;

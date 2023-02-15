@@ -32,7 +32,7 @@ export default class PageUpdated extends LitElement {
   `;
 
   @state()
-  isPageUpdatePending: boolean = false;
+    isPageUpdatePending: boolean = false;
 
   override connectedCallback() {
     super.connectedCallback();

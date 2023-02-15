@@ -1,7 +1,7 @@
-import { css, html, LitElement } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
+import { css, html, LitElement } from "lit";
+import { customElement, state } from "lit/decorators.js";
 
-@customElement('pwa-installer')
+@customElement("pwa-installer")
 export default class PWAInstaller extends LitElement {
   static override styles = css`
     button {
@@ -29,7 +29,7 @@ export default class PWAInstaller extends LitElement {
 
   constructor() {
     super();
-    window.addEventListener('beforeinstallprompt', e => {
+    window.addEventListener("beforeinstallprompt", e => {
       e.preventDefault();
       this.deferredPrompt = e;
       this.requestUpdate();

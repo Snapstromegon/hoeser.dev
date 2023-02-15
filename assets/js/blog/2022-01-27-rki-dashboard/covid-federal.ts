@@ -1,11 +1,11 @@
-import './covid-overview';
-import { css, html, LitElement } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
-import { loadCovidDataByFederal } from './covidDataLoader';
-import { repeat } from 'lit/directives/repeat.js';
+import "./covid-overview";
+import { css, html, LitElement } from "lit";
+import { customElement, state } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
+import { loadCovidDataByFederal } from "./covidDataLoader";
+import { repeat } from "lit/directives/repeat.js";
 
-@customElement('covid-federal')
+@customElement("covid-federal")
 export default class CovidFederal extends LitElement {
   static override styles = css`
     #wrapper {
@@ -46,7 +46,7 @@ export default class CovidFederal extends LitElement {
 
   updateFederal(federal: string) {
     this.federal = federal;
-    this.dispatchEvent(new CustomEvent('federalChanged', { bubbles: false, detail: federal }));
+    this.dispatchEvent(new CustomEvent("federalChanged", { bubbles: false, detail: federal }));
   }
 
   get availableFederalsSorted(): string[] {
