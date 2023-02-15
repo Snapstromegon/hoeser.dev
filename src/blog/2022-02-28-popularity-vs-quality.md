@@ -14,7 +14,7 @@ tags:
 
 ## What is this
 
-I'm neither a data scientists nor a statistician. Also this work is not done as thouroughly as it's possible, since a fairly fundamental result was "good enough" for my usecase. Nevertheless the results align with my experience and I wanted to share what I've found.
+I'm neither a data scientists nor a statistician. Also this work is not done as thoroughly as it's possible, since a fairly fundamental result was "good enough" for my usecase. Nevertheless the results align with my experience and I wanted to share what I've found.
 
 Also this post does not mean that you shouldn't use smaller libraries! It just means that popularity _can_ be an indicator for good packages.
 
@@ -26,7 +26,7 @@ Also this post does not mean that you shouldn't use smaller libraries! It just m
 
 ## What is quality or even popularity
 
-For this analysis I will take the definitions from [npms.io/about](https://npms.io/about), just because they offer an awesome API which already included the quality data and I didn't have the time and ressources to run some code analysis on nearly two million packages.
+For this analysis I will take the definitions from [npms.io/about](https://npms.io/about), just because they offer an awesome API which already included the quality data and I didn't have the time and resources to run some code analysis on nearly two million packages.
 
 ## Two million packages...
 
@@ -49,7 +49,7 @@ curl https://replicate.npmjs.com/_all_docs > npm.json
 I fully expected NPM to just block me at some point, but props to them for allowing me to download all of this (albeit at a snail's pace)
 :::
 
-... and about three hours and fourty minutes of downloading later I had all that data in my hand in JSON format. Also I now saw that I was talking about 1.890.051 packages.
+... and about three hours and forty minutes of downloading later I had all that data in my hand in JSON format. Also I now saw that I was talking about 1.890.051 packages.
 In case you're interested: Here are the first couple lines of that _npm.json_.
 
 ```json
@@ -235,11 +235,11 @@ After scraping all packages from npms.io, I just combined the CSVs by hand (whic
 
 :::sidenote
 
-In case you don't know, in germany we write floating point numbers with a "," as the devider instead of a ".". So PI is "3,14159265358979323" and the number of cookies the cookie monster ate on "The Furchester Hotel" is written as 1.500 ([source](https://www.bbc.co.uk/mediacentre/mediapacks/furchester/counting)).
+In case you don't know, in germany we write floating point numbers with a "," as the divider instead of a ".". So PI is "3,14159265358979323" and the number of cookies the cookie monster ate on "The Furchester Hotel" is written as 1.500 ([source](https://www.bbc.co.uk/mediacentre/mediapacks/furchester/counting)).
 
 :::
 
-Now I thought that I could just pump that data into Excel or Google Sheets and plot the result - but I misjudged those two. Google Sheets wasn't happy with the size of my data. After uploading the 200MB CSV, it just complained that the input was too large (thanks for letting me upload all of that first). Excel was an even worse story. It doesn't like that many rows and just stopped importing after 1.1 million rows. But even if you reduce it down for excel, it doesn't like "." as a decimal devider. Even disabling using the system delimiter and setting it manually didn't help when loading data.
+Now I thought that I could just pump that data into Excel or Google Sheets and plot the result - but I misjudged those two. Google Sheets wasn't happy with the size of my data. After uploading the 200MB CSV, it just complained that the input was too large (thanks for letting me upload all of that first). Excel was an even worse story. It doesn't like that many rows and just stopped importing after 1.1 million rows. But even if you reduce it down for excel, it doesn't like "." as a decimal divider. Even disabling using the system delimiter and setting it manually didn't help when loading data.
 
 ## The solution
 
@@ -391,6 +391,6 @@ But this data shows also something I didn't expect! Putting some dots aside and 
 
 :::commentBlock
 
-If you think stuff like this is cool and you either want to reproduce it yourself, or you think that npms.io is awesome, remember to not take open source work for granted. Maybe you can find a couple of dollars or some minutes of your time to spare and do it like me and buy your open source contributers a coffee or contribute back in other ways. It shows appreciation and also helps to compensate for higher costs you might have created especially when doing scraping projects like these.
+If you think stuff like this is cool and you either want to reproduce it yourself, or you think that npms.io is awesome, remember to not take open source work for granted. Maybe you can find a couple of dollars or some minutes of your time to spare and do it like me and buy your open source contributors a coffee or contribute back in other ways. It shows appreciation and also helps to compensate for higher costs you might have created especially when doing scraping projects like these.
 
 :::

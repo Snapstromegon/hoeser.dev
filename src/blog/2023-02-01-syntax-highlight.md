@@ -18,7 +18,7 @@ If you're a longtime reader of my block, you might've noticed that my code snipp
 It's a good solution and easy to set up, but it's not perfect. To "fix" this issue for me, I took a look around at possible better solutions.
 
 To my surprise Zach Leatherman (creator of eleventy and the syntax highlighting plugin) was also [looking for other options for some time][eleventy-plugin-syntaxhighlight-new-options].
-In a [seperate issue][eleventy-plugin-syntaxhighlight-torchlight] someone mentioned [Torchlight].
+In a [separate issue][eleventy-plugin-syntaxhighlight-torchlight] someone mentioned [Torchlight].
 
 :::sidenote
 I really like this style of leading focus to the interesting parts that [Torchlight] uses.
@@ -27,7 +27,7 @@ I really like this style of leading focus to the interesting parts that [Torchli
 ## On the topic of Torchlight
 
 [Torchlight] seems really great at first glance. Its features (while not really hard to come up with) are helpful and intuitive.
-The aproach of using the VSCode backend is really good, as it lets me stop verifying that code actually looks correct on the site and the options of thousands of VSCode themes is also great.
+The approach of using the VSCode backend is really good, as it lets me stop verifying that code actually looks correct on the site and the options of thousands of VSCode themes is also great.
 
 It can do things like making you focus the right lines...
 
@@ -127,7 +127,7 @@ This doesn't mean, that I'm not willing to spend money on good work (5$ is just 
 
 ### API Limits
 
-For my usecase I most often need one API call per code block and with the number of code blocks I have in this blog, I would (at my current build rates) hit the 5000 requests per month fairly soon. If I were to go with one of the non-commercial licenses, I wouldn't even know the API limit, but I guess they are lower.
+For my use case I most often need one API call per code block and with the number of code blocks I have in this blog, I would (at my current build rates) hit the 5000 requests per month fairly soon. If I were to go with one of the non-commercial licenses, I wouldn't even know the API limit, but I guess they are lower.
 
 Overall After a short look, I decided that this is not the way forward for me.
 
@@ -222,7 +222,7 @@ Now everything works like expected and we can remove [@11ty/eleventy-plugin-synt
 
 And now the interesting part: How do we get [Shiki] to be like [Torchlight]?
 
-Let's start with the endresult from above:
+Let's start with the end result from above:
 
 ````md{!sh!}
 ...or even combine all of that...
@@ -278,7 +278,7 @@ Maybe you already have a guess how this works, but just to give you another hint
 Each line of code is transformed into on `<span/>` with the class "line" and optionally some modifier classes.
 Now that you've seen how the end product works, we'll start with a first "simple" step.
 
-### Inject classes and monipulate tokens
+### Inject classes and manipulate tokens
 
 To modify the output, we need to adapt our eleventy integration for [Shiki] from above as follows:
 
@@ -325,7 +325,7 @@ In my implementation I call these `[sh! ...]` blocks "markers" which contain its
 
 ### Single line commands
 
-With single line commands are commands meant, that only affect the line they are written on. This is the most simple way of doing things, but has the downside of requireing a command on every line.
+With single line commands are commands meant, that only affect the line they are written on. This is the most simple way of doing things, but has the downside of requiring a command on every line.
 
 ```js{!sh!}
 const isParent = (person) => {
@@ -408,7 +408,7 @@ To make it at least somewhat readable I focused just the lines that are relevant
 ] // [sh! focus]
 ```
 
-Be aware that in this case the "//" has its own "explanation", but in other languages like Rust it's in just one or in the case of CSS in three. Because of that we can't rely on the existence of a simple content explaination that includes just the marker and command - believe me, I'd love it to be that way.
+Be aware that in this case the "//" has its own "explanation", but in other languages like Rust it's in just one or in the case of CSS in three. Because of that we can't rely on the existence of a simple content explanation that includes just the marker and command - believe me, I'd love it to be that way.
 
 So now we know as humans where to look, let's make the computer do stuff!
 
@@ -771,7 +771,7 @@ Multiline comments kind of work the same as single line comments. In fact they g
 #### Line Spec
 
 "Line Spec" is what I called these specifiers, that define which lines are affected by a command.
-Syntax wise they are directly after a command, devided by a ":" (e.g. `focus:5` to focus this and the next 5 lines).
+Syntax wise they are directly after a command, divided by a ":" (e.g. `focus:5` to focus this and the next 5 lines).
 
 There are two fundamental ways of writing line specs. The first is by using a number based syntax and the second is a keyword based syntax.
 
@@ -795,7 +795,7 @@ Examples:
   [sh! focus:1,5]
 ```
 
-For this to work we first need to devide the line a command appears on from the line(s) it applies to:
+For this to work we first need to divide the line a command appears on from the line(s) it applies to:
 
 ```js
 const parseRawCommand = (rawCommand) => {

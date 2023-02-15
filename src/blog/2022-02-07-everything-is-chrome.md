@@ -1,7 +1,7 @@
 ---
 title: Everything is becoming Chrome
 abstract: |
-  Chrome (and Chromium browsers) make the lion share of the modern web userbase. Today one of the Safari Web Developer Experience Evangelists painted a distopian image of a 95% Chromium browser world. Since it's coming from the Safari team, I want to write my opinion on this.
+  Chrome (and Chromium browsers) make the lion share of the modern web userbase. Today one of the Safari Web Developer Experience Evangelists painted a dystopian image of a 95% Chromium browser world. Since it's coming from the Safari team, I want to write my opinion on this.
 date: 2022-02-07
 tags:
   - type:opinion
@@ -26,7 +26,7 @@ I think Apple is holding back the web.
 Safari probably has some of the best engineers working on it and we can appreciate their work time and time again when they push such amazing features like backdrop-filter.
 :::
 
-Apple has decided time and time again to underfund the development of Safari and there's the joke among web devs that the fastest way to get a feature in to Safari, is to join the iTunes team, since it uses webkit (Safari's engine) under the hood and if iTunes wants a feature, it gets implemented.
+Apple has decided time and time again to underfund the development of Safari and there's the joke among web developers that the fastest way to get a feature in to Safari, is to join the iTunes team, since it uses webkit (Safari's engine) under the hood and if iTunes wants a feature, it gets implemented.
 
 I don't think this is true, but that this even offers the option for a joke speaks a lot for the current situation of Safari development.
 
@@ -41,7 +41,7 @@ Competition is important - especially in the tech space - even more so in a spac
 :::
 
 1. Call Apple out and with that say that Safari will always be at least as good as a browser on iOS than yourself - so probably fewer people would switch away from the default browser to your third-party browser
-2. Go with what Apple does, hide it from the user and henceforth allow this to continue in the future which brings other issues with it like issues for WebKit bugs in the Chromium bugtracker
+2. Go with what Apple does, hide it from the user and henceforth allow this to continue in the future which brings other issues with it like issues for WebKit bugs in the Chromium bug tracker
 
 All this means that iOS is the only major platform out there which doesn't allow competition in the browser market.
 
@@ -59,12 +59,12 @@ Especially in Alex Russel's case writing against Apple's behavior as a citizen o
 
 ### Two extremes hitting each other
 
-As someone who neither works on Chromium nor WebKit (nor any other engine) to me this seems like Jen on the one side saying "if we go, then everything will be Chrome and we're back to the days when IE ruled the web" and Alex and Jake on the other side saying "if Apple allows other engines it will finally give them an incentive to competitevely invest in the browser and if they don't, then it should go down" (both sides oversimplified here).
+As someone who neither works on Chromium nor WebKit (nor any other engine) to me this seems like Jen on the one side saying "if we go, then everything will be Chrome and we're back to the days when IE ruled the web" and Alex and Jake on the other side saying "if Apple allows other engines it will finally give them an incentive to competitively invest in the browser and if they don't, then it should go down" (both sides oversimplified here).
 
 Either one of these I think is unrealistic. Also both sides IMO miss the point.
 
 :::sidenote
-I hope we're all aware that single individuals like Jen Simmons don't decide on how Apple allocates its monetary ressources
+I hope we're all aware that single individuals like Jen Simmons don't decide on how Apple allocates its monetary resources
 :::
 
 I think we all agree that the web can be its best when we have many stakeholders with equal weight in the ring and even better when they work together. Jen Simmons is a shining example of this with her work in the CSS Working Group. Nonetheless I think that Apples walled garden is hurting the web and even if Apple would open up the gates, I don't believe that "users would flock away from Safari" like [Jake Archibald tweeted](https://twitter.com/jaffathecake/status/1490771255435403267). I know too many people who actually like Safari and for the average user it's not a bad browser. Apple knows how to do polished UX and it shows.
@@ -93,11 +93,11 @@ Mozilla with Firefox does amazing work. It's also not jumping every trend that G
 
 I believe that if Apple opens up iOS for other engines, It will create an impact in Safari's market share and also Apple's AppStore revenue. But I also believe that Safari will receive more spending and maybe even a revival of the non-Apple distributions (although I doubt this).
 
-## Adressing some common topics in this discussion
+## Addressing some common topics in this discussion
 
 ### Safari is more secure
 
-No it isn't, especially because it's (on iOS) part of the OS, so it only get's updated with the OS and exploits in Safari are way more dengerous than if it were running as a simple application.
+No it isn't, especially because it's (on iOS) part of the OS, so it only get's updated with the OS and exploits in Safari are way more dangerous than if it were running as a simple application.
 
 ### Chromium is the best browser, wouldn't it be good if everything were like it?
 

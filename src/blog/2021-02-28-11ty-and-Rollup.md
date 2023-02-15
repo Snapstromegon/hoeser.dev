@@ -87,7 +87,7 @@ What if we integrate into the 11ty build pipeline instead of running it before o
 
 The idea is fairly simple and uses the 11ty shortcodes and build events, the rollup JS api and 11ty's plugin system.
 
-Before we get to the magic, we expart a small registering hook for an instance of our plugin class "Rollupper" (yes, I'm always creative with my names).
+Before we get to the magic, we export a small registering hook for an instance of our plugin class "Rollupper" (yes, I'm always creative with my names).
 
 ```js
 // [...]
@@ -203,9 +203,9 @@ As you can see, this function does a little more than I told you before.
 Basically it resolves the barrier between Rollup and 11ty.
 It has the ability to match up the build result from rollup with the imports from 11ty.
 
-For this it has to know what the bundle result will be after rollup is done, but how do we know what the entrypoint will be called afer bundling?
+For this it has to know what the bundle result will be after rollup is done, but how do we know what the entrypoint will be called after bundling?
 
-Actually this is simple! We just take over how naming works (For a real solution, you'd take a function which immitates rollups naming module and recreates the rollup naming from a parameter, but this solution was fine for me for now). In this case we replace the name with the first six chars from the sha256 of the file.
+Actually this is simple! We just take over how naming works (For a real solution, you'd take a function which imitates rollups naming module and recreates the rollup naming from a parameter, but this solution was fine for me for now). In this case we replace the name with the first six chars from the sha256 of the file.
 That way we solve two problems. Firstly we can accurately predict filenames and avoid clashes and secondly we resolve cache problems and can cache those files for long times without problems.
 
 Finally we need to return the html from the shortcode. This includes our beloved `<script>` with the path now relative to the output file of the blogpost (we could also use absolute paths here).

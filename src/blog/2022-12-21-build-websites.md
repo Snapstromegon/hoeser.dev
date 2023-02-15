@@ -28,7 +28,7 @@ Among others I use these apps quite often:
 - PingTools
 - Corona Warn App
 
-What makes these different from other services? They often come preinstalled on my devices and I can't easily remove them and I still want to use the services (opposing to something like Facebook, which Samsung forced upon me and which I immediatly disabled) or it needs some level of hardware access the web just can't (and shouldn't) offer like with the CWA or PingTools.
+What makes these different from other services? They often come preinstalled on my devices and I can't easily remove them and I still want to use the services (opposing to something like Facebook, which Samsung forced upon me and which I immediately disabled) or it needs some level of hardware access the web just can't (and shouldn't) offer like with the CWA or PingTools.
 
 But while I use these services as native apps, there are also services out there that offer native apps and I still prefer the web version over the app on a daily basis. Among these are:
 
@@ -39,7 +39,7 @@ But while I use these services as native apps, there are also services out there
 
 ## Downsides of native Apps
 
-### Availabillity
+### Availability
 
 Not everyone has a smartphone. Not even in "rich" countries.
 
@@ -48,7 +48,7 @@ Even more so one in eight germans (ages 14 and up) [does not own a smartphone][s
 
 If you're building a service that only offers native apps for Android and iPhones, you're locking out all of these users from the start.
 
-### Accessibillity
+### Accessibility
 
 A11y is important and it's more than just supporting a screen reader or making text larger.
 
@@ -78,7 +78,7 @@ Obviously the mentioned downsides for native apps are benefits of web apps. They
 Yes, I know that native smartphone apps also run in sandboxes nowadays, but this post applies the same way for many desktop apps.
 :::
 
-If I can decide wether I want top install a native or web app, my immidiate thought goes to security. While there are problems with executing untrusted JS on your devices, browsers have become quite secure and it's also another level of protection. So even if the vendor of my social media app decides to publish a malecious update, I'm quite sure that it won't start uploading all my images in the background or screen my contacts. Native apps (especially on desktop) have IMO way too many permissions by default, so installing a native app is just more of a risk to me and my privacy. And yes, even on Apple's ecosystem the app review isn't perfect.
+If I can decide wether I want top install a native or web app, my immediate thought goes to security. While there are problems with executing untrusted JS on your devices, browsers have become quite secure and it's also another level of protection. So even if the vendor of my social media app decides to publish a malicious update, I'm quite sure that it won't start uploading all my images in the background or screen my contacts. Native apps (especially on desktop) have IMO way too many permissions by default, so installing a native app is just more of a risk to me and my privacy. And yes, even on Apple's ecosystem the app review isn't perfect.
 
 ### Speed
 
@@ -88,7 +88,7 @@ Also WASM has landed and offers near native performance and runs on everything f
 
 ### No install
 
-A PWA is absically a website, so if you launch it for the first time and as a user don't yet want to commit to anything, you don't need to. There's no install and it just works.
+A PWA is basically a website, so if you launch it for the first time and as a user don't yet want to commit to anything, you don't need to. There's no install and it just works.
 
 ### Ease of deployment
 
@@ -102,7 +102,7 @@ When you're doing native apps, you most often need one team for iOS, one for And
 
 Now imagine you'd just hire web developers and they build you a solution that works on all systems. It even includes Windows, Linux and MacOS desktop experiences.
 
-### Discoverabillity
+### Discoverability
 
 The use case that lead to this blogpost was me searching for an option to notify the state about potholes on the german autobahn. The ADAC (a german car club) has an app for this, that is only available as a native app.
 First of all I don't expect to be reporting potholes on the autobahn every other day, so why would I commit to installing a native app for something that a webapp could do (including location services).

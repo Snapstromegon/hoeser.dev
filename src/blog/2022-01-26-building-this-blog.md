@@ -12,7 +12,7 @@ tags:
 
 ## A webdev / webdesigner struggling with design
 
-Starting this blog is an endevor I started before - more than once. But every time the designer in me wasn't really happy with the design and the developer in me wasn't happen with the implementation. And the writer in me didn't want to write anything before the issues with the blog were fixed, so I was in a henn and egg problem.
+Starting this blog is an endeavor I started before - more than once. But every time the designer in me wasn't really happy with the design and the developer in me wasn't happen with the implementation. And the writer in me didn't want to write anything before the issues with the blog were fixed, so I was in a henn and egg problem.
 
 Importantly I wasn't lacking ideas, but had too many to do them all and also I was really eager to try fugu related stuff, but was held back by reasonable fallbacks.
 

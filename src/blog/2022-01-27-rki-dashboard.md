@@ -1,7 +1,7 @@
 ---
 title: Opinion on the RKI COVID19 dashboard
 abstract: |
-  The Rober Koch Institut (RKI) in germany provides a dashboard via ArcGIS to provide an overview over the current state of COVID in the country.
+  The Robert Koch Institut (RKI) in germany provides a dashboard via ArcGIS to provide an overview over the current state of COVID in the country.
   I have some opinion on this from a web dev point of view.
 date: 2022-01-27
 tags:
@@ -27,7 +27,7 @@ The following blogpost simply shows some thoughts of mine from a web developers 
 
 ## Preface
 
-Before reading this blogpost you should probably take a look at the [COVID Dashboard Germany](https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4) created by the german Rober Koch Institut (RKI). It provides all necessary numbers and informations over the current and historical situation of the COVID-19 pandemic in germany.
+Before reading this blogpost you should probably take a look at the [COVID Dashboard Germany](https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4) created by the german Robert Koch Institut (RKI). It provides all necessary numbers and informations over the current and historical situation of the COVID-19 pandemic in germany.
 
 All data is also available in an open [COVID 19 datahub](https://npgeo-corona-npgeo-de.hub.arcgis.com/search?groupIds=b28109b18022405bb965c602b13e1bbc).
 
@@ -38,7 +38,7 @@ It's actually really simple:
 {% image "assets/img/blog/2022-01-27-rki-dashboard/devtools-network.jpg", "Screenshot from the Chrome Dev Tools network panel showing 376 requests and 6.6MB of transferred data", [null] %}
 
 :::sidenote
-I know that Lighthouse reports aren't silver bullets, but they give a good indication of things and are also more or less reproduceable.
+I know that Lighthouse reports aren't silver bullets, but they give a good indication of things and are also more or less reproducible.
 :::
 
 As you can see, the dashboard loads massive amounts of data in many requests and takes over **ten seconds** to finish loading on my desktop pc with a wired broadband internet connection.
@@ -51,7 +51,7 @@ So now brace yourself, it's going to hurt:
 
 ### But why is it so large?
 
-The dashboard does a lot of things and also the components it uses are shared between dashboards and download other dependencies on their own. This leads to a JS payload of 2.1MB spread over 84 requests. This is 10.3MB of uncompressed JavaScript. At that point even the included React library isn't noticable anymore.
+The dashboard does a lot of things and also the components it uses are shared between dashboards and download other dependencies on their own. This leads to a JS payload of 2.1MB spread over 84 requests. This is 10.3MB of uncompressed JavaScript. At that point even the included React library isn't noticeable anymore.
 
 ### So huge data makes things slow - It's as fast as possible?
 
@@ -86,9 +86,9 @@ For this to be actually a viable solution and possible to implement in the conte
 
 ### The dataset
 
-To fullfill requirement 1. and 2., we'll use the [RKI Corona Landkreise](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/917fc37a709542548cc3be077a786c17_0) dataset, since it includes data for the local level and allows us to calculate federal and noation wide numbers. Also it's served with the correct CORS headers, so we can fetch it directly from the client (Yay, Jamstack!).
+To fulfill requirement 1. and 2., we'll use the [RKI Corona Landkreise](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/917fc37a709542548cc3be077a786c17_0) dataset, since it includes data for the local level and allows us to calculate federal and nation wide numbers. Also it's served with the correct CORS headers, so we can fetch it directly from the client (Yay, Jamstack!).
 
-Since we're only interested in the actual numbers and don't need the card data, we're going to use the [CSV](https://opendata.arcgis.com/api/v3/datasets/917fc37a709542548cc3be077a786c17_0/downloads/data?format=csv&spatialRefId=4326) version of the data, since it's "only" 160KB uncompressed to download. It's still larger than I would've liked, but since it's pretty compressable, we actually only transfer about 50KB over the wire.
+Since we're only interested in the actual numbers and don't need the card data, we're going to use the [CSV](https://opendata.arcgis.com/api/v3/datasets/917fc37a709542548cc3be077a786c17_0/downloads/data?format=csv&spatialRefId=4326) version of the data, since it's "only" 160KB uncompressed to download. It's still larger than I would've liked, but since it's pretty compressible, we actually only transfer about 50KB over the wire.
 
 ### Used tooling
 
@@ -98,7 +98,7 @@ I will use [LIT](https://lit.dev) to achieve this. That way the resulting compon
 
 <covid-stats></covid-stats>
 
-This is now implemented as a web component and in under 90KB. This small widget shows some of the most important COVID data for germany in a really performant way and is always uptodate.
+This is now implemented as a web component and in under 90KB. This small widget shows some of the most important COVID data for germany in a really performant way and is always up-to-date.
 
 Oh did I mention that the 90KB includes the about 50KB of CSV... And this whole blogpost including images? Take a look in the dev tools - the JS bundle for this page, that ships the web component and the LIT dependency is under 10KB.
 

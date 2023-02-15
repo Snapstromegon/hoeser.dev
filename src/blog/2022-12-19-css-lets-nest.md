@@ -9,7 +9,7 @@ tags:
 ---
 
 :::commentBlock
-Just like in my preveous post about [Apple and the web platform][post-everything-is-chrome] I will be naming individuals and reference things the wrote, tweeted and tooted, but no matter how I talk about them here it doesn't necessarily reflect my general opinion of those individuals.
+Just like in my previous post about [Apple and the web platform][post-everything-is-chrome] I will be naming individuals and reference things the wrote, tweeted and tooted, but no matter how I talk about them here it doesn't necessarily reflect my general opinion of those individuals.
 
 Here I'm exclusively discussing the matter of the article and even if I make some harsh comments against developers from Google or Apple, it is only in the context of this article.
 :::
@@ -160,7 +160,7 @@ By the way, I do not like that the WebKit post ordered the options as W5, W4, W3
 ### W4 "two blocks"
 
 Let's start in the middle.
-This one is the weakest option in my opinion as it dilludes which selector belongs to a block of code.
+This one is the weakest option in my opinion as it dilutes which selector belongs to a block of code.
 Right now each selector or thing like `@layer` has exactly on code block attached to it.
 This option would add a (to me magical) second block to each selector.
 
@@ -190,7 +190,7 @@ Also if I only want to create a nested rule, I still have to carry around the fi
 
 And now my biggest problem: New developers.
 
-WebKit is correctly arguing against option C1/W3, that the lenient syntax of optionally an `@nest` except for when it's actually required (when the selector does not start with a sepcial character) is probably confusing to beginners. But this syntax to me seems even more so.
+WebKit is correctly arguing against option C1/W3, that the lenient syntax of optionally an `@nest` except for when it's actually required (when the selector does not start with a special character) is probably confusing to beginners. But this syntax to me seems even more so.
 
 From my experience teaching beginners, I would expect the following to be asked a lot if this proposal passes:
 
@@ -214,7 +214,7 @@ Both other options avoid this issue.
 
 ### Option W5 "@layer like"
 
-At first glance I was appaled by this option because `@layer` still feels unfamiliar (and I didn't remember it at first) and I really don't like the unlabeled code block in the "alternative syntax":
+At first glance I was appalled by this option because `@layer` still feels unfamiliar (and I didn't remember it at first) and I really don't like the unlabeled code block in the "alternative syntax":
 
 ```css
 .foo {
@@ -239,7 +239,7 @@ There's also the syntax option of doing just nested selectors in the `@nest` blo
 ### Option C1 / W3 "@nest"
 
 Despite [WebKit promoting against this option][tweet-webkit-against-option3], this is still my favorite.
-It's concise without significant boilerplate and feels familiar to many existing devs. It also has no unlabeled blocks and keeps everything belonging to one selector together in one block.
+It's concise without significant boilerplate and feels familiar to many existing developers. It also has no unlabeled blocks and keeps everything belonging to one selector together in one block.
 
 The only downside is the required `@nest` when a subselector starts with an alphanumeric character, but this is a tradeoff I'm actually willing to take.
 
