@@ -271,6 +271,7 @@ main > .content > article ul,
 main > .content > article summary,
 main > .content > article .commentBlock,
 main > .content > article pre,
+blockquote,
 .textWidth {
   max-width: 50rem;
 }
@@ -423,6 +424,24 @@ main .sidenote::after {
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
+blockquote {
+  border-left: var(--xs) solid var(--theme-color-b);
+  padding: var(--m) var(--m) var(--m) var(--xxl);
+  position: relative;
+  background: var(--background-color-secondary);
+  border-radius: var(--xs);
+}
+
+blockquote::before {
+  content: "“";
+  font-size: var(--xxl);
+  font-weight: bolder;
+  position: absolute;
+  left: var(--m);
+  top: 0;
+  color: var(--theme-color-b);
+}
+
 main table {
   border-collapse: collapse;
   margin: var(--m) 0;
@@ -515,6 +534,7 @@ body a {
   overflow: hidden;
 }
 
+blockquote :first-child,
 .commentBlock :first-child,
 .reader-thought :first-child,
 .writer-thought :first-child {
@@ -536,8 +556,8 @@ body a {
   );
 }
 
-.commentBlock ~ .commentBlock {
-  margin-top: var(--xl);
+.commentBlock, blockquote, pre {
+  margin: var(--xl) 0;
 }
 
 .reader-thought,
