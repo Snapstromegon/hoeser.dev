@@ -55,4 +55,3 @@
 
   [[plugins.inputs.audits]]
     path = "webdev-sins/2022-01-05-button-as-link/"
-
