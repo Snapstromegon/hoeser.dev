@@ -31,7 +31,7 @@
     "js-yaml": "^4.1.0",
     "markdown-it-container": "^3.0.0",
     "markdown-it-emoji": "^2.0.2",
-    "rollup": "^3.16.0",
+    "rollup": "^3.17.2",
     "shiki": "^0.14.1",
     "tslib": "^2.5.0",
     "typescript": "^4.9.5"
