@@ -44,6 +44,9 @@ self.addEventListener("activate", function (event) {
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(async function() {
+    {% if env.ELEVENTY_RUN_MODE == 'serve' %}
+      return fetch(event.request);
+    {% endif %}
     const cache = await caches.open(DYNAMIC_CACHE);
     const cachedResponse = await cache.match(event.request);
     const networkResponsePromise = fetch(event.request);

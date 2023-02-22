@@ -18,6 +18,10 @@ eleventyNavigation:
 
   #main-greeting picture {
     grid-area: head;
+    filter: 
+      drop-shadow(var(--xxs) var(--xs) var(--xxs) #0004)
+      drop-shadow(calc(var(--l) * -1) calc(var(--l) * -1) var(--xxl) var(--theme-color-a))
+      drop-shadow(var(--l) var(--l) var(--xxl) var(--theme-color-b));
   }
   
   #main-greeting h1 {
