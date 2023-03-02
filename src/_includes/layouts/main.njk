@@ -28,9 +28,8 @@
     <meta name="generator" content="{{ eleventy.generator }}">
     <link rel="manifest" href="/manifest.json">
     <title>Snapstromegon - {{title or eleventyNavigation.key or "Blog"}}</title>
-    <style>
-      {% include "../../css/critical.css" %}
-    </style>
+
+    {% lightningcss "/assets/css/critical.css" %}
     {% rollup "assets/js/common.ts" %}
     {% favicon meta.favicon %}
   </head>
