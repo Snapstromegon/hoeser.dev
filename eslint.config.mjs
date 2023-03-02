@@ -1,9 +1,10 @@
 import globals from "globals";
+import jsEslint from "@eslint/js";
 import tslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 
 export default [
-  "eslint:recommended",
+  jsEslint.configs.recommended,
   {
     files: ["**/*.ts", "**/*.js", "**/*.cjs", "**/*.mjs"],
     languageOptions: {
