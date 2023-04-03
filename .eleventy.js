@@ -81,7 +81,9 @@ const registerPlugins = (eleventyConfig) => {
       plugins: [typescript(), resolve()],
     },
   });
-  const targets = browserslistToTargets(browserslist(">= 1%"));
+  const targets = browserslistToTargets(
+    browserslist("last 2 versions, not dead, > 0.2%")
+  );
   eleventyConfig.addPlugin(lightningCssPlugin, {
     lightningOptions: {
       drafts: {
@@ -94,7 +96,7 @@ const registerPlugins = (eleventyConfig) => {
 };
 
 const registerFileConfigs = (eleventyConfig) => {
-  eleventyConfig.addWatchTarget("src/css");
+  eleventyConfig.addWatchTarget("assets/css");
   eleventyConfig.addWatchTarget("assets/js/");
   eleventyConfig.addPassthroughCopy("assets/img");
   eleventyConfig.addPassthroughCopy("assets/video");
