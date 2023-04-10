@@ -20,7 +20,7 @@
     "@11ty/eleventy-img": "^3.1.0",
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "@eslint/js": "^8.37.0",
+    "@eslint/js": "^8.38.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-typescript": "^11.1.0",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
