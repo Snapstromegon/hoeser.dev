@@ -90,7 +90,7 @@ eleventyNavigation:
   <div class="content">
     <article>
       <section id="main-greeting">
-{% image "assets/img/head.png", "My face in some colorly blobs" %}
+{% image "assets/img/head.png", "My face in some colorly blobs", "(min-width: 40rem) 20rem, 100vw" %}
 
 <h1>{%for letter in "Hi, I'm Raphael!"%}<span class="font-fun-letter">{{letter}}</span>{% endfor %}</h1>
 

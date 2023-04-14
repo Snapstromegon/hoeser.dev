@@ -24,7 +24,7 @@ function generateImages(src) {
   });
 }
 
-async function imageShortcode(src, alt, sizes = []) {
+async function imageShortcode(src, alt, sizes = "(min-width: 50rem) 50rem, 100vw") {
   const metadata = await generateImages(src);
 
   const imageAttributes = {
