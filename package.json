@@ -34,7 +34,7 @@
     "lightningcss": "^1.20.0",
     "markdown-it-container": "^3.0.0",
     "markdown-it-emoji": "^2.0.2",
-    "rollup": "^3.21.6",
+    "rollup": "^3.21.7",
     "shiki": "^0.14.2",
     "tslib": "^2.5.0",
     "typescript": "^5.0.4"
