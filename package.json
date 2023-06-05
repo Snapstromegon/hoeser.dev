@@ -36,7 +36,7 @@
     "markdown-it-emoji": "^2.0.2",
     "rollup": "^3.23.1",
     "shiki": "^0.14.2",
-    "tslib": "^2.5.2",
+    "tslib": "^2.5.3",
     "typescript": "^5.1.3"
   }
 }
