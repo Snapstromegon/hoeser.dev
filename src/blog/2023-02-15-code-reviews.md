@@ -13,7 +13,7 @@ Like always, this post is based on my personal experiences and they are limited.
 
 This post is more of a "food for thought" kind of ramble so you and I can reflect on our way of giving and receiving code reviews to improve ourselves.
 
-Also please read it completely, because their might be sections that might appear toxic or asocial without further context.
+Also please read it completely, because there might be sections that might appear toxic or asocial without further context.
 :::
 
 :::sidenote
@@ -44,7 +44,7 @@ function greet(name = "World") {
 
 Your first urge might be to comment something like this:
 
-> I have to comments to this block of code.
+> I have two comments for this block of code.
 > 1. Our coding guidelines say, that we should prefer arrow functions when possible and
 > 2. It would probably be better to use JS template string instead of string concatenation.
 
