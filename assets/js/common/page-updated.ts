@@ -38,6 +38,10 @@ export default class PageUpdated extends LitElement {
     super.connectedCallback();
     navigator.serviceWorker?.addEventListener("message", (event) => {
       if (event.data.type === "CACHE_UPDATED") {
+        if(performance.now() < 1000) {
+          // loading updated content was very fast with <1s, so reloading directly is acceptable
+          location.reload();
+        }
         this.isPageUpdatePending = true;
       }
     });
