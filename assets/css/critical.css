@@ -380,6 +380,10 @@ blockquote,
   background: hsl(0deg 50% 25%);
   color: #fff;
 }
+.blogpost-tag-category__series {
+  background: hsl(300, 50%, 25%);
+  color: #fff;
+}
 
 main ol,
 main ul {
