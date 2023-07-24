@@ -62,6 +62,53 @@ triangles.sort(
 ctx.strokeStyle = "#fff";
 ctx.fillStyle = "#aaa";
 for (const triangle of triangles) {
+  // Here would be lighting
+  
+  // const u = {
+  //   x: triangle[1].x - triangle[0].x,
+  //   y: triangle[1].y - triangle[0].y,
+  //   z: triangle[1].z - triangle[0].z,
+  // };
+
+  // const v = {
+  //   x: triangle[2].x - triangle[0].x,
+  //   y: triangle[2].y - triangle[0].y,
+  //   z: triangle[2].z - triangle[0].z,
+  // };
+
+  // const normal = {
+  //   x: u.y * v.z - u.z * v.y,
+  //   y: u.z * v.x - u.x * v.z,
+  //   z: u.x * v.y - u.y * v.x,
+  // };
+
+  // const light = {
+  //   x: 1,
+  //   y: -1,
+  //   z: 1,
+  // };
+
+  // const normalLength = Math.sqrt(
+  //   normal.x * normal.x + normal.y * normal.y + normal.z * normal.z
+  // );
+
+  // const lightLength = Math.sqrt(
+  //   light.x * light.x + light.y * light.y + light.z * light.z
+  // );
+
+  // const dot = normal.x * light.x + normal.y * light.y + normal.z * light.z;
+
+  // const angle = Math.acos(dot / (normalLength * lightLength));
+
+  // const brightness = 1 - Math.max(0, Math.min(1, angle / Math.PI));
+
+  // ctx.fillStyle = `rgb(${brightness * 255}, ${brightness * 255}, ${
+  //   brightness * 255
+  // })`;
+  // ctx.strokeStyle = `rgb(${brightness * 255}, ${brightness * 255}, ${
+  //   brightness * 255
+  // })`;
+
   ctx.beginPath();
   // prettier-ignore
   ctx.moveTo(shift.x + (triangle[0].x * scale), shift.y + (triangle[0].y * scale));
