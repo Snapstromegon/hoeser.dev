@@ -1,7 +1,7 @@
 ---
 title: Parsing STL files
 abstract: |
-  In this entry to my new series about WebGPU ant .STLs I'll take a look at how STL files work.
+  In this entry to my new series about WebGPU and .STLs I'll take a look at how STL files work.
 date: 2023-07-23
 tags:
   - series:webgpu-stl
