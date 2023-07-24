@@ -63,7 +63,7 @@ ctx.strokeStyle = "#fff";
 ctx.fillStyle = "#aaa";
 for (const triangle of triangles) {
   // Here would be lighting
-  
+
   // const u = {
   //   x: triangle[1].x - triangle[0].x,
   //   y: triangle[1].y - triangle[0].y,
