@@ -32,7 +32,7 @@ I will start this series by first looking into how STL files work and how to par
 
 ## And now...
 
-Have fun with the [first post]() where I explain how STL files work.
+Have fun with the [first post](/blog/2023-07-23-stl-webgpu-1-stl-files/) where I explain how STL files work.
 
 [theNativeWeb-topEntwickler]: https://youtu.be/vrJ9JtGywkI?t=232
 [twitter-disable-dms]: https://twitter.com/Snapstromegon/status/1682277719831085058

@@ -7,7 +7,13 @@ tags:
   - series:webgpu-stl
 ---
 
+:::commentBlock
+This post is part of [my series about WebPGU and .STLs](/blog/2023-07-23-stl-webgpu-0-announcement/).
+:::
+
+:::commentBlock
 The content of this post on STL files is based on the [corresponding Wikipedia article](<https://en.wikipedia.org/wiki/STL_(file_format)>).
+:::
 
 ## Basic Structure
 
