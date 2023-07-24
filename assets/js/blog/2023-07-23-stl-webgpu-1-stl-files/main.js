@@ -56,7 +56,7 @@ const shift = {
 };
 
 triangles.sort(
-  (a, b) => Math.min(...b.map((p) => p.z)) - Math.min(...a.map((p) => p.z))
+  (a, b) => Math.min(...a.map((p) => p.z)) - Math.min(...b.map((p) => p.z))
 );
 
 ctx.strokeStyle = "#fff";
