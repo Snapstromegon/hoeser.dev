@@ -8,7 +8,7 @@ tags:
 ---
 
 :::commentBlock
-This post is part of [my series about WebPGU and .STLs](/blog/2023-07-23-stl-webgpu-0-announcement/).
+This post is part of [my series about WebGPU and .STLs](/blog/2023-07-23-stl-webgpu-0-announcement/).
 :::
 
 :::commentBlock
