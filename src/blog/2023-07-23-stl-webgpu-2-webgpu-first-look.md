@@ -78,6 +78,12 @@ This could be taken as a very, very simple "shader" and the result looks like th
   <canvas class="demo_canvas" id="demo_first"></canvas>
 </p>
 
+:::sidenote
+I can't stress enough how much I'm simplifying here!
+This is not how a CPU actually work as it would be broken down into actual CPU instructions.
+Also the JS interpreter and/or JIT would make opimizations on this. Just is just meant to show how CPUs and GPUs step through your procedure in general.
+:::
+
 A CPU would step through it like this:
 
 <div id="demo_cpu">
