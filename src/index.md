@@ -106,6 +106,8 @@ It took me years and multiple tries to start a blog. Every time I started, I lea
 
 As it seems, this blog didn't stay empty and instead I wrote some of my thoughts down for the world. Have fun reading and if you want to comment, my social links are always open for questions and feedback!
 
+**One last thing in general:** All content in this blog is my personal opinion and I treat this as a passion project. Even though some posts might take inspiration from my professional work, the stuff I do here is not in any way related to my career.
+
   </article>
   </div>
 </main>

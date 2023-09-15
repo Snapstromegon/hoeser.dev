@@ -4,6 +4,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const Image = require("@11ty/eleventy-img");
 const typescript = require("@rollup/plugin-typescript");
 const { default: resolve } = require("@rollup/plugin-node-resolve");
+const markdownItAnchor = require("markdown-it-anchor");
 const markdownItEmoji = require("markdown-it-emoji");
 const markdownItContainer = require("markdown-it-container");
 const rollupPlugin = require("eleventy-plugin-rollup");
@@ -24,7 +25,11 @@ function generateImages(src) {
   });
 }
 
-async function imageShortcode(src, alt, sizes = "(min-width: 50rem) 50rem, 100vw") {
+async function imageShortcode(
+  src,
+  alt,
+  sizes = "(min-width: 50rem) 50rem, 100vw"
+) {
   const metadata = await generateImages(src);
 
   const imageAttributes = {
@@ -158,7 +163,7 @@ const addShortcodes = (eleventyConfig) => {
   eleventyConfig.addAsyncShortcode("favicon", generateFaviconHTML);
 };
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   eleventyConfig.amendLibrary("md", (mdLib) =>
     mdLib
       .set({
@@ -166,6 +171,7 @@ module.exports = function(eleventyConfig) {
         html: true,
         linkify: true,
       })
+      .use(markdownItAnchor, {})
       .use(markdownItEmoji)
       .use(markdownItContainer, "sidenote")
       .use(markdownItContainer, "commentBlock")
@@ -179,6 +185,10 @@ module.exports = function(eleventyConfig) {
 
   registerFileConfigs(eleventyConfig);
   registerCollections(eleventyConfig);
+
+  eleventyConfig.setServerOptions({
+    showAllHosts: true,
+  });
 
   // Return your Object options:
   return {

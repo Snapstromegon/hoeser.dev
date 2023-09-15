@@ -28,6 +28,10 @@ So in the end, if you know how to use a GPU, you can see massive performance imp
 
 ### How are GPUs different from CPUs?
 
+:::commentBlock
+If you already know how CPUs are different from GPUs, you can skip this section and jump directly to [Touching WebGPU](#touching-webgpu) or you stay with me and read my _certainly awesome and oversimplified_ explanation below.
+:::
+
 This is a simplified description for the topic at hand.
 
 Let's imagine the process of execution as taking an instruction and the data you want to use, executing it and returning the result.
@@ -132,3 +136,71 @@ const getPixelColor = (x, y, demoSize) => {
   <canvas class="demo_canvas" id="demo_gpu_canvas"></canvas>
 </p>
 </div>
+
+It does everything at once (It's a little like SIMD on steroids). This works, because you have many, many cores that can each act on their own data, but they all can only execute the same instruction at once (huge simplification here). Because of this you often hear that GPUs are great for parallel work, because while a CPU tends to have a higher clock frequency and is more flexible in its execution, a GPU is ideal if you want to do the same operations on multiple data anyways.
+
+### Downsides of GPUs
+
+If GPUs are so great for parallel work, why don't we just do everything on them (e.g. doing every .map() instruction on them)?
+Simple, moving data and instructions to and from GPUs is expensive (compared to CPUs) and the programs are also harder to write and optimize.
+As an example imagine the following code:
+
+```js
+const getPixelColor = (x, y, demoSize) => {
+  const middle = Math.floor(demoSize / 2);
+  const distanceX = Math.abs(x - middle) / middle;
+  const distanceY = Math.abs(y - middle) / middle;
+  const distance = Math.sqrt(distanceX**2 + distanceY**2);
+  if(distance > middle) {
+    return {
+      r: 0,
+      g: 0,
+      b: 0,
+    };
+  } else {
+    return {
+      r: 1 - distanceX,
+      g: 1 - distanceY,
+      b: diagonal,
+    };
+  }
+};
+```
+
+Can you find the problem with this?
+Like I said, all cores can only do the same, so if you branch on the if, some cores might want to go the _truthy_ path and same the _falsy_. These diverging behaviors are not okay.
+
+But this doesn't mean that you have to avoid if/else at all. When you use them, they get transformed into "branchless programming" versions (this can also happen on the CPU, but there it's just an optimization, here it's necessary). Branchless programming means, that you'll execute the same instructions in both branches of your if. This example could look like this:
+
+```js
+const getPixelColor = (x, y, demoSize) => {
+  const middle = Math.floor(demoSize / 2);
+  const distanceX = Math.abs(x - middle) / middle;
+  const distanceY = Math.abs(y - middle) / middle;
+  const distance = Math.sqrt(distanceX**2 + distanceY**2);
+  const isInside = distance <= middle;
+  return {
+    r: isInside * (1 - distanceX),
+    g: isInside * (1 - distanceY),
+    b: isInside * diagonal,
+  };
+};
+```
+
+Now the branching is gone and instead we have some added multiplications.
+
+And now that we've looked into the scary parts of GPUs, let's dive in and actually start programming them!
+
+## Touching WebGPU
+
+:::commentBlock
+The rest of this blogpost (and series) assumes, that you are using a browser that has WebGPU support. All code shown from here on will not include testing for WebGPU support.
+
+If you want to check for WebGPU support in your project, use this snippet:
+```js
+if (!navigator.gpu) {
+  throw new Error("WebGPU is not supported by your browser.");
+}
+```
+If you actually want to build anything with WebGPU make sure to at least offer an error message.
+:::
