@@ -9,9 +9,9 @@ navigator.serviceWorker
 import { initializeFaro } from "@grafana/faro-web-sdk";
 
 initializeFaro({
-  url: "http://localhost:12347/collect",
   app: {
     name: "hoeser.dev",
     version: "1.0.0",
   },
+  url: "http://localhost:12347/collect",
 });
