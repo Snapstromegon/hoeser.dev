@@ -8,28 +8,26 @@ import {
   onTTFB,
   ReportOpts,
 } from "web-vitals";
-import { version } from "../../../package.json" assert {type: "json"};
+import { version } from "../../../package.json" assert { type: "json" };
 
 const MF_APP_NAME = "hoeser.dev";
 const MF_APP_VERSION = version;
 const MF_AGENT_URL = "https://app-agent.grafana.home.hoeser.dev/collect";
 const MF_SESSION_STORAGE_ID = "mini-faro.sessionId";
 
-const getReportMeta = () => {
-  return {
-    app: {
-      name: MF_APP_NAME,
-      version: MF_APP_VERSION,
-    },
-    page: {
-      url: window.location.href,
-    },
-    sessionId: sessionStorage.getItem("mini-faro-session-id"),
-    view: {
-      name: "default",
-    },
-  };
-};
+const getReportMeta = () => ({
+  app: {
+    name: MF_APP_NAME,
+    version: MF_APP_VERSION,
+  },
+  page: {
+    url: window.location.href,
+  },
+  sessionId: sessionStorage.getItem("mini-faro-session-id"),
+  view: {
+    name: "default",
+  },
+});
 
 const reportData = async (data: any) => {
   const response = await fetch(MF_AGENT_URL, {
@@ -63,7 +61,11 @@ const reportWebVital = async (metric: Metric) => {
   await reportData(data);
 };
 
-const reportEvent = async (name: string, date: Date = new Date(), attributes = {}) => {
+const reportEvent = async (
+  name: string,
+  date: Date = new Date(),
+  attributes = {}
+) => {
   const data = {
     events: [
       {
@@ -77,7 +79,7 @@ const reportEvent = async (name: string, date: Date = new Date(), attributes = {
   };
 
   await reportData(data);
-}
+};
 
 if (sessionStorage.getItem(MF_SESSION_STORAGE_ID) === null) {
   sessionStorage.setItem(MF_SESSION_STORAGE_ID, crypto.randomUUID());
