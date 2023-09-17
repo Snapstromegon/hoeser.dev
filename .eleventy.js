@@ -4,6 +4,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const Image = require("@11ty/eleventy-img");
 const typescript = require("@rollup/plugin-typescript");
 const { default: resolve } = require("@rollup/plugin-node-resolve");
+const commonjs = require("@rollup/plugin-commonjs");
 const markdownItEmoji = require("markdown-it-emoji");
 const markdownItContainer = require("markdown-it-container");
 const rollupPlugin = require("eleventy-plugin-rollup");
@@ -78,7 +79,7 @@ const registerPlugins = (eleventyConfig) => {
         format: "es",
         sourcemap: process.env.NETLIFY !== "true",
       },
-      plugins: [typescript(), resolve()],
+      plugins: [typescript(), commonjs(), resolve()],
     },
   });
   const targets = browserslistToTargets(
