@@ -33,6 +33,12 @@
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
+  
+  [plugins.inputs]
+  paths = [
+    "_site/img", # Eleventy Image Disk Cache
+    ".cache" # Remote Asset Cache
+  ]
 
   [plugins.inputs.thresholds]
     performance = 0.95
@@ -49,9 +55,3 @@
 
   [[plugins.inputs.audits]]
     path = "blog/2022-07-29-starter-packs/"
-
-  [[plugins.inputs.audits]]
-    path = "webdev-sins/"
-
-  [[plugins.inputs.audits]]
-    path = "webdev-sins/2022-01-05-button-as-link/"
