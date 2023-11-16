@@ -32,13 +32,16 @@
   to = "/webdev-sins/2022-02-07-vw-font-size/"
 
 [[plugins]]
-  package = "@netlify/plugin-lighthouse"
+  package = "netlify-plugin-cache"
   
   [plugins.inputs]
-  paths = [
-    "_site/img", # Eleventy Image Disk Cache
-    ".cache" # Remote Asset Cache
-  ]
+    paths = [
+      "_site/img", # Eleventy Image Disk Cache
+      ".cache" # Remote Asset Cache
+    ]
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
 
   [plugins.inputs.thresholds]
     performance = 0.95
