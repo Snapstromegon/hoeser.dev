@@ -5,4 +5,4 @@ navigator.serviceWorker
   ?.register("/sw.js", { scope: "/" })
   .catch((error) => console.log(`Registration failed with ${error}`));
 
-import("./common/mini-faro.js");
+// import("./common/mini-faro.js");
