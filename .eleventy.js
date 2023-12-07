@@ -168,7 +168,7 @@ module.exports = function(eleventyConfig) {
         html: true,
         linkify: true,
       })
-      .use(markdownItEmoji)
+      .use(markdownItEmoji.full)
       .use(markdownItContainer, "sidenote")
       .use(markdownItContainer, "commentBlock")
       .use(markdownItContainer, "reader-thought")
