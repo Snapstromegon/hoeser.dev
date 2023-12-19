@@ -6,7 +6,7 @@ import tsParser from "@typescript-eslint/parser";
 export default [
   jsEslint.configs.recommended,
   {
-    files: ["**/*.ts", "**/*.js", "**/*.cjs", "**/*.mjs"],
+    files: ["**/*.ts", "**/*.js", "**/*.mjs"],
     languageOptions: {
       globals: {
         ...globals.browser,

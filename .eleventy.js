@@ -1,18 +1,18 @@
-const yaml = require("js-yaml");
-const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const Image = require("@11ty/eleventy-img");
-const typescript = require("@rollup/plugin-typescript");
-const { default: resolve } = require("@rollup/plugin-node-resolve");
-const commonjs = require("@rollup/plugin-commonjs");
-const loadJson = require("@rollup/plugin-json");
-const markdownItEmoji = require("markdown-it-emoji");
-const markdownItContainer = require("markdown-it-container");
-const rollupPlugin = require("eleventy-plugin-rollup");
-const shikier = require("./lib/shikier/index.cjs");
-const lightningCssPlugin = require("./lib/lightning-css/index.cjs");
-const browserslist = require("browserslist");
-const { browserslistToTargets } = require("lightningcss");
+import Image, { generateHTML } from "@11ty/eleventy-img";
+import browserslist from "browserslist";
+import { browserslistToTargets } from "lightningcss";
+import commonjs from "@rollup/plugin-commonjs";
+import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
+import { full } from "markdown-it-emoji";
+import lightningCssPlugin from "./lib/lightning-css/index.js";
+import { load } from "js-yaml";
+import loadJson from "@rollup/plugin-json";
+import markdownItContainer from "markdown-it-container";
+import pluginRss from "@11ty/eleventy-plugin-rss";
+import resolve from "@rollup/plugin-node-resolve";
+import rollupPlugin from "eleventy-plugin-rollup";
+import shikier from "./lib/shikier/index.js";
+import typescript from "@rollup/plugin-typescript";
 
 function generateImages(src) {
   return Image(src, {
@@ -37,7 +37,7 @@ async function imageShortcode(src, alt, sizes = "(min-width: 50rem) 50rem, 100vw
   };
 
   // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
-  return Image.generateHTML(metadata, imageAttributes);
+  return generateHTML(metadata, imageAttributes);
 }
 
 function generateFavicon(src) {
@@ -153,14 +153,14 @@ const addFilters = (eleventyConfig) => {
 };
 
 const addShortcodes = (eleventyConfig) => {
-  eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
-  eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents));
+  eleventyConfig.addDataExtension("yaml", (contents) => load(contents));
+  eleventyConfig.addDataExtension("yml", (contents) => load(contents));
   eleventyConfig.addShortcode("currentTime", () => Date.now().toString());
   eleventyConfig.addAsyncShortcode("image", imageShortcode);
   eleventyConfig.addAsyncShortcode("favicon", generateFaviconHTML);
 };
 
-module.exports = function(eleventyConfig) {
+export default function(eleventyConfig) {
   eleventyConfig.amendLibrary("md", (mdLib) =>
     mdLib
       .set({
@@ -168,7 +168,7 @@ module.exports = function(eleventyConfig) {
         html: true,
         linkify: true,
       })
-      .use(markdownItEmoji.full)
+      .use(full)
       .use(markdownItContainer, "sidenote")
       .use(markdownItContainer, "commentBlock")
       .use(markdownItContainer, "reader-thought")
@@ -187,4 +187,4 @@ module.exports = function(eleventyConfig) {
     dir: { input: "src" },
     markdownTemplateEngine: "njk",
   };
-};
+}

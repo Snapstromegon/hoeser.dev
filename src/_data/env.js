@@ -1,1 +1,1 @@
-module.exports = process.env;
+export default process.env;
