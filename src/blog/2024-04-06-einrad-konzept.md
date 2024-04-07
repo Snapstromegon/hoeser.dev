@@ -196,6 +196,22 @@ _Änderungsvorschlag:_
 Die Videoküren werden als letzte Küren der jeweiligen Altersklasse und Disziplin im direkten Anschluss an die letzte „Live-Kür“ bewertet.
 :::
 
+### Nicht ausreichend spezifische Regeln
+
+Die hier genannten Regeln sind nicht genau genug und lassen Unklarheiten offen.
+
+#### Was ist der Veranstaltungsstand?
+
+> entfernte Hallen mit Übertragung des Veranstaltungsstands
+>
+> _Konzept, S. 8_
+
+Was ist eine ausreichende Übertragung und was ist der "Veranstaltungsstand". Reicht es zum Beispiel, wenn alle 15 Minuten ein Mitglied des Orgateams in die Einfahrhalle geht und laut ruft "Gerade fährt die Marie!", oder ist z.B. ein Livestream, eine Live-Anzeige mit aktualisierendem Zeitplan und so weiter das Minimum?
+
+#### Ab wann ist eine Gruppe eine Großgruppe?
+
+Es werden zwar die Altersgrenzen im Dokument klar definiert, aber nicht, ab wie vielen Fahrern eine Gruppe überhaupt als "Großgruppe" zählt. Was passiert zudem, wenn eine Gruppe (zum Beispiel wegen Verletzungen und Mangel an Ersatzfahrern) unter diese Grenze fällt?
+
 ### Regel-in-sich-Konsistenz
 
 Für Laien und Sportler ist ein Regelwerk verständlicher, wenn verwandte Regeln nach dem selben Muster entschieden werden.
@@ -205,6 +221,12 @@ Für Laien und Sportler ist ein Regelwerk verständlicher, wenn verwandte Regeln
 Für Gruppen gilt nach Regelwerk, dass 50% ausgewechselt werden dürfen. Wenn man jetzt Paarküren als ganz kleine Gruppe ansieht und die selbe Logik anwendet, dann dürfte man einen Fahrer wechseln, was dem aktuellen Regelwerk widerspricht.
 
 Würde man die Gruppenregel hingegen so abwandeln, dass "über die Hälfte der Gruppe bestehen bleiben muss" (Hälfte - 1 darf ausgewechselt werden), dann würde die selbe Logik auch für Paarküren erklären, warum _nicht_ gewechselt werden darf.
+
+#### Altersklassenbestimmung
+
+Für Gruppen gibt es einen Stichtag in der Saison, nach dem die Altersklasse bestimmt wird. Für Einzel- und Paarküren ist der erste Wettkampftag entscheidend.
+
+Eine Vereinheitlichung dahingehend, dass der Stichtag für alle Disziplinen gilt, würde für Laien den Sport verständlicher machen (da dies in anderen Wettkämpfen meiner Erfahrung nach ebenfalls gängig ist) und gleich mehrere Probleme im Konzept und für die Sportler beheben. So muss zum Beispiel nicht mehr auf Altersklassenwechsler geachtet werden und die Kürzeit ändert sich ebenfalls nicht innerhalb einer Saison. Hiervon ist zu erwarten, dass alleine bei den Einzel Weiblich Fahrerinnen jedes Jahr 5-10 von dieser Regel betroffen sind.
 
 #### Abstand zwischen Wettkämpfen
 
@@ -277,9 +299,52 @@ Das Konzept setzt beim Thema Jury Alter in Relation zu Erfahrung / Fähigkeit. D
 Eine Variante wäre, stattdessen die Juryerfahrung als ausschlaggebenden Punkt zu nehmen (z.B. maximal drei Juroren, die das erste mal auf dieser Wettkampfebene (LM, NDM/SDM, DM) richten)
 :::
 
+#### Einheitliche Formulierungen
+
+Es sollte klar bestimmt werden, was eine "Meisterschaft" und ein "Wettkampf" sind und diese Begriffe sollten konsistent, eindeutig und synonymfrei im Dokument genutzt werden, um die Verständlichkeit zu verbessern.
+
+#### FAQ
+
+Den Aspekt ein FAQ für häufig gestellte Fragen bereitzustellen, finde ich sehr gut. Dies würde jedoch mit der aktuellen Überarbeitung ersatzlos entfernt.
+
+Ich würde mir wünschen, dass eine Platform für häufig gestellte Fragen bereitgestellt wird (als Dokument, Forum oder Sonstiges), wo man Verständnisfragen offen stellen und abschließend beantworten kann.
+
+##### Wichtige Eigenschaften eines Regel-FAQs
+
+- Einfach verständlich
+- Korrekte Antworten
+- Keine "neuen" Regeln aufstellen, die nicht im Regelwerk stehen
+- Niemals dem Regelwerk widersprechen
+- Antworten sollten auf das Regelwerk verweisen. Beispiel: [FAQ der World Robot Olympiad](https://www.worldrobotolympiad.de/saison-2024/faq#faq1361)
+
 ### Allgemein offene Fragen
 
 Hier sammle ich einige Fragen, die ich nicht aus dem Konzept heraus beantworten kann.
 
 - Sind Einzelküren Weiblich und Einzelküren Männlich zwei unterschiedliche Disziplinen? Nach 1.1 würde ich sagen ja, nach 3.1 nein.
 - Wenn sich ein Paar aus je einem Nord- und Südfahrer für eine Norddeutsche LM entscheidet, dürfen sie dann (nach Qualifikation zur nächsten Runde) bei der Süddeutschen starten? Falls nein: We steht dies im Regelwerk?
+- Was ist der offizielle Weg um einmalig Ideen in das Konzept und Regelwerk einzubringen?
+- Ist eine Vereinslose Teilnahme an den Meisterschaften möglich? Falls das sein sollte, ist es diesen Fahrern nicht möglich zum Beispiel Einspruch zu erheben.
+
+## Abschließende Worte
+
+Dieses Dokument ist in PDF-Form jetzt länger als das Konzept selbst, von daher fasse ich den Schluss möglichst kurz.
+
+Ich möchte noch einmal widerholen, dass dieser Beitrag meinen Wunsch ausdrückt diesen Sport für alle klarer, verständlicher und professioneller zu gestalten. Ich achte und beführworte die Arbeit, die von allen Seiten in dieses gemeinsame Konzept geflossen ist und mein Ziel ist nur, zu einer weiteren Verbesserung beizutragen.
+
+Ich bin bei allen drei Meisterschaften, die ich mit ausgerichtet habe, von mehreren Seiten gebeten worden meine Software für die Veranstaltung wiederverwendbar bereitzustellen und ich habe noch immer vor dies zu tun. Jedoch brauche ich für die Umsetzung ein klares Regelwerk, damit ich nicht wieder darauf angewiesen bin kurz vor oder während einer Veranstaltung noch größere Änderungen an einer Software vorzunehmen.
+
+Ebenfalls bin ich der Meinung, dass der Prozess der Überarbeitung des Konzepts offener und transparenter gestaltet werden sollte.
+In der Softwareentwicklung ist es üblich, dass es neben der offiziell veröffentlichten Version meist auch eine "Vorabversion" gibt, die bereits die nächsten Änderungen enthält und an der noch aktiv gearbeitet wird. Wenn dann auch noch eine Möglichkeit für Außenstehende geschaffen wird Feedback zu einer solchen Version zu geben, würde dies sicherlich allen Seiten entgegenkommen.
+
+Meiner Meinung nach wird die überarbeitete Version zudem viel zu spät veröffentlicht.
+
+> Die Ausschreibungen sollten ca. sechs Monate vor dem Wettkampf veröffentlicht werden.
+>
+> _Konzept, S. 8_
+
+Mit Beginn der Norddeutschen Meisterschaft mitte Oktober und einer Veröffentlichung der überarbeiteten Version des Konzepts mitte Februar bleibt einem Veranstalter, der vorab die Konditionen seiner Veranstaltung kennen möchte, eigentlich nur zwei Monate grob zu planen, sich zu bewerben und die Ausschreibung anzufertigen.
+
+Ich würde empfehlen als Zielsetzung die Überarbeitung des Konzepts ein halbes Jahr vor Saisonstart zu veröffentlichen, gerade wenn sich noch so fundamentale Fakten wie der Zeitraum für die DM im Konzept ändern.
+
+Gerne bin ich bereit bei der Überarbeitung zu unterstützen, wenn dies gewünscht ist. Meine Kontaktdaten sind den relevanten Personen bekannt.
