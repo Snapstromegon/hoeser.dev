@@ -21,7 +21,7 @@ Der gesamte Beitrag ist rein durch mich allein entstanden. Meine Familienmitglie
 
 ## Wer bin ich und warum habe ich eine Meinung?
 
-Um zu erklären, warum es diesen Beitrag hier überhaupt gibt, sollte ich vermutlich ein wenig Kontext zu mit selbst geben, da vermutlich weder die Stammleserschaft meines Blogs, noch die Aktiven im Sport mich ausreichend kennen.
+Um zu erklären, warum es diesen Beitrag hier überhaupt gibt, sollte ich vermutlich ein wenig Kontext zu mir selbst geben, da vermutlich weder die Stammleserschaft meines Blogs, noch die Aktiven im Sport mich ausreichend kennen.
 
 ### Bezug zum Einradsport
 
@@ -150,7 +150,7 @@ Wenn dies vor der NDM/SDM nicht verpflichtend ist, sollte dies explizit als "sol
 Abseits davon verbietet diese Regel andere örtliche Gegebenheiten zu nutzen, die eventuell sinnvoller sind (z.B. ein Balkon, eine erhöhtes Podest, ...).
 
 :::actionBlock
-Dies könnte so geändert werden, dass der Jury eine erhöghte Position mit einer bestimmten Erhöhung ermöglicht wird (z.B. zwischen ein und zwei Metern).
+Dies könnte so geändert werden, dass der Jury eine erhöhte Position mit einer bestimmten Erhöhung ermöglicht wird (z.B. zwischen ein und zwei Metern).
 :::
 
 ### Nicht ausreichend allgemeingültige Regeln
