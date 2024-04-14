@@ -75,7 +75,7 @@ Ja, ein Vorwort ist bei mir nicht immer am Anfang.
 
 Bevor ich mit der eigentlichen Kritik an dem Konzept starte, möchte ich ein paar allgemeine Worte zu dem Konzept und der Idee dahinter loswerden.
 
-Ich finde es sehr begrüßenswert, dass sich die beiden Einradverbände [BDR](https://einrad-bdr.de/) und [EVD](https://www.einradverband.de/) auf eine gemeinsame Kooperation einigen konnten. Ebenfalls begrüße ich es, dass der [RKB](https://rkbsoli.org/) in die Gestaltung des Konzepts einbezogen wird. Ich bin der festen Überzeugung, dass es dem Einradsport zuträglich ist, wenn gerade die beiden Verbände in der Gestaltung der Wettkampfserien kooperieren und somit den Meisterschaften Legitimität geben. Aus diesen Gründen möchte ich auch nochmal darauf hinweisen, dass dies keine Kritik an den AutorInnen des Konzepts als Personen sein soll, sondern sich jegliche Kritik rein auf das Konzept selbst bezieht. Durch meine ehrenamtlichen Tätigkeiten ist mir sehr wohl bewusst, dass ein solcher Aufwand nicht leicht fällt und einer wertgeschätzt gehört. Zudem ist Kritik nicht zwingend negativ und so werde ich auch hier sowohl positive, als auch negative Dinge hervorheben.
+Ich finde es sehr begrüßenswert, dass sich die beiden Einradverbände [BDR](https://einrad-bdr.de/) und [EVD](https://www.einradverband.de/) auf eine gemeinsame Kooperation einigen konnten. Ebenfalls begrüße ich es, dass der [RKB](https://rkbsoli.org/) in die Gestaltung des Konzepts einbezogen wird. Ich bin der festen Überzeugung, dass es dem Einradsport zuträglich ist, wenn die Verbände in der Gestaltung der Wettkampfserien kooperieren und somit den Meisterschaften Legitimität geben. Aus diesen Gründen möchte ich auch nochmal darauf hinweisen, dass dies keine Kritik an den AutorInnen des Konzepts als Personen sein soll, sondern sich jegliche Kritik rein auf das Konzept selbst bezieht. Durch meine ehrenamtlichen Tätigkeiten ist mir sehr wohl bewusst, dass ein solcher Aufwand nicht leicht fällt und wertgeschätzt gehört. Zudem ist Kritik nicht zwingend negativ und so werde ich auch hier sowohl positive, als auch negative Dinge hervorheben.
 
 In den Versionen von vor 2024 stand dieser einleitende Satz:
 
@@ -322,7 +322,7 @@ Ich würde mir wünschen, dass eine Platform für häufig gestellte Fragen berei
 Hier sammle ich einige Fragen, die ich nicht aus dem Konzept heraus beantworten kann.
 
 - Sind Einzelküren Weiblich und Einzelküren Männlich zwei unterschiedliche Disziplinen? Nach 1.1 würde ich sagen ja, nach 3.1 nein.
-- Wenn sich ein Paar aus je einem Nord- und Südfahrer für eine Norddeutsche LM entscheidet, dürfen sie dann (nach Qualifikation zur nächsten Runde) bei der Süddeutschen starten? Falls nein: We steht dies im Regelwerk?
+- Wenn sich ein Paar aus je einem Nord- und Südfahrer für eine Norddeutsche LM entscheidet, dürfen sie dann (nach Qualifikation zur nächsten Runde) bei der Süddeutschen starten? Falls nein: Wo steht dies im Regelwerk?
 - Was ist der offizielle Weg um einmalig Ideen in das Konzept und Regelwerk einzubringen?
 - Ist eine Vereinslose Teilnahme an den Meisterschaften möglich? Falls das sein sollte, ist es diesen Fahrern nicht möglich zum Beispiel Einspruch zu erheben.
 
