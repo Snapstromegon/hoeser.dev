@@ -86,7 +86,8 @@ aside::before {
 }
 
 aside {
-  & img, & svg {
+  & img,
+  & svg {
     height: 10rem;
     width: 10rem;
   }
@@ -96,23 +97,23 @@ aside {
     align-items: center;
     color: inherit;
     text-decoration: none;
-    
+
     & span {
       text-transform: uppercase;
       letter-spacing: var(--xxs);
     }
   }
-  
+
   & svg {
     transform: scaleX(-100%);
     stroke-linejoin: round;
-    
+
     & .colorA {
       fill: var(--theme-color-a);
       stroke: var(--theme-color-a);
       stroke-width: 1px;
     }
-    
+
     & .colorB {
       opacity: calc(var(--progress));
       fill: var(--theme-color-b);
@@ -120,7 +121,7 @@ aside {
       stroke-width: 1px;
     }
   }
-  
+
   & .content {
     display: flex;
     align-items: center;
@@ -128,21 +129,21 @@ aside {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   & nav {
     flex-grow: 1;
-    
+
     & ul {
       display: flex;
       gap: var(--xxl);
       flex-wrap: wrap;
       list-style: none;
-      
+
       & ul {
         display: none;
       }
     }
-    
+
     & a {
       text-transform: uppercase;
       text-decoration: none;
@@ -150,7 +151,7 @@ aside {
       letter-spacing: var(--s);
       position: relative;
       padding: var(--m) 0 var(--m) var(--s);
-      
+
       &:hover::after,
       &.current::after {
         position: absolute;
@@ -275,7 +276,9 @@ main > .content > article ol,
 main > .content > article ul,
 main > .content > article summary,
 main > .content > article .commentBlock,
+main > .content > article .actionBlock,
 main > .content > article pre,
+main > .content > article dl,
 blockquote,
 .textWidth {
   max-width: 50rem;
@@ -408,6 +411,15 @@ main h4 {
   margin-bottom: 0.5em;
 }
 
+main dt {
+  font-weight: bold;
+  margin-top: var(--m);
+}
+
+main dd {
+  padding-left: var(--xl);
+}
+
 main .sidenote {
   background-color: var(--background-color-secondary);
   padding: var(--m);
@@ -431,6 +443,24 @@ main .sidenote::after {
   background: linear-gradient(to bottom, #0004, #0000 var(--s))
     var(--background-color-secondary-darkened);
   clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+main .actionBlock {
+  border-left: var(--xs) solid var(--theme-color-a);
+  padding: var(--m) var(--m) var(--m) var(--xxl);
+  position: relative;
+  background: var(--background-color-secondary);
+  border-radius: var(--xs);
+}
+
+main .actionBlock::before {
+  content: "📝";
+  font-size: var(--xl);
+  font-weight: bolder;
+  position: absolute;
+  left: var(--s);
+  top: var(--m);
+  color: var(--theme-color-a);
 }
 
 blockquote {
@@ -504,7 +534,7 @@ main table tr:last-child td {
   height: var(--xxl);
   width: var(--xxxl);
   background: linear-gradient(to bottom, #0004, #0000 var(--s))
-     var(--background-color-secondary-darkened);
+    var(--background-color-secondary-darkened);
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
@@ -545,6 +575,7 @@ body a {
 
 blockquote :first-child,
 .commentBlock :first-child,
+.actionBlock :first-child,
 .reader-thought :first-child,
 .writer-thought :first-child {
   margin-top: 0;
@@ -565,7 +596,10 @@ blockquote :first-child,
   );
 }
 
-.commentBlock, blockquote, pre {
+.commentBlock,
+.actionBlock,
+blockquote,
+pre {
   margin: var(--xl) 0;
 }
 

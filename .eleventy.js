@@ -171,6 +171,7 @@ export default function(eleventyConfig) {
       .use(full)
       .use(markdownItContainer, "sidenote")
       .use(markdownItContainer, "commentBlock")
+      .use(markdownItContainer, "actionBlock")
       .use(markdownItContainer, "reader-thought")
       .use(markdownItContainer, "writer-thought")
   );
