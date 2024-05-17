@@ -88,6 +88,18 @@ export default function tsRsBundler({ magicProtocol = "ts-rs-bundler" } = {}) {
 }
 ```
 
+Add this to your _tsconfig.json_:
+
+```json
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declaration": true,
+  }
+}
+
+```
+
 And make this to your _index.ts_:
 
 ```ts
@@ -339,3 +351,179 @@ export default function tsRsBundler({ magicProtocol = "ts-rs-bundler" } = {}) {
 ```
 
 And that's all. Next step is to apply this to our problem.
+
+### A solution in sight
+
+:::sidenote
+I'm fine with using non-lts software and experimental features here. If you can't switch to node 22 already, just use one of the many glob packages from npm.
+:::
+
+Now that we have a working rollup plugin, let's do the actual implementation.
+
+For this the idea is, that we want to find all relevant _*.ts_ files and export all of their exports. To make this even more reusable, I chose to use the "message" part of our old plugin to provide a glob of files we want to import to the plugin. This means my complete _index.ts_ file looks like this:
+
+```ts
+export * from "ts-rs-bundler:./*.ts";
+```
+
+To get this to work, we need to change our implementation for `resolveId` and `load`.
+
+Let's start with `resolveId`, which we need to change to actually resolve relative globs relative to the importing script. Luckily node's `path.resolve()` can help us here.
+
+```js
+import path from "node:path";
+
+export default function tsRsBundler({ magicProtocol = "ts-rs-bundler" } = {}) {
+  return {
+    name: "ts-rs-bundler",
+    resolveId(id, importer) { // [sh! **:7]
+      const [protocol, rawPath] = id.split(":");
+      if (protocol === magicProtocol) {
+        const importPath = path.resolve(path.dirname(importer), rawPath); // [sh! ++:1]
+        return `${magicProtocol}:${importPath}`;
+      }
+      return null;
+    },
+    async load(id) { /**/ },
+  };
+}
+```
+
+As you can see, we're now returning a different id from the resolver. That way it's absolute and we know where we have to search during loading. Speaking of, the loader is also not that hard:
+
+```js
+import path from "node:path";
+import { glob } from "node:fs/promises"; // [sh! ++]
+
+export default function tsRsBundler({ magicProtocol = "ts-rs-bundler" } = {}) {
+  return {
+    name: "ts-rs-bundler",
+    resolveId(id, importer) { /**/ },
+    async load(id) { // [sh! **:start]
+      const [protocol, rawPath] = id.split(":");
+      if (protocol === magicProtocol) {
+        const paths = []; // [sh! ++:4]
+        for await (const entry of glob(rawPath)) {
+          paths.push(entry);
+        }
+        return paths.map((path) => `export * from "${path}";\n`).join("");
+      }
+      return null;
+    }, // [sh! **:end]
+  };
+}
+```
+
+Finally we also need to tell typescript, that we actually want to generate declarations for our types in the output by making this our _tsconfig.json_:
+
+```json
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declaration": true,
+  }
+}
+```
+
+If we now run a `npm run build` we get... **Nothing.**
+
+Looking at the console output of the build, we can see that rollup detected a circular loop. This is, because _index.ts_ itself matches _*.ts_ relative to _index.ts_. That's an easy fix, we just have to ignore the importers of a glob. To do this, I introduced a simple mapping, which stores the paths that import each glob.
+
+```js
+import path from "node:path";
+import { glob } from "node:fs/promises";
+
+export default function tsRsBundler({ magicProtocol = "ts-rs-bundler" } = {}) {
+  const circularDependencyAvoider = new Map(); // [sh! ++ **]
+
+  return {
+    name: "ts-rs-bundler",
+    resolveId(id, importer) { // [sh! **:11]
+      const [protocol, rawPath] = id.split(":");
+      if (protocol === magicProtocol) {
+        const importPath = path.resolve(path.dirname(importer), rawPath);
+        if (!circularDependencyAvoider.has(importPath)) { // [sh! ++:3]
+          circularDependencyAvoider.set(importPath, new Set());
+        }
+        circularDependencyAvoider.get(importPath).add(importer);
+        return `${magicProtocol}:${importPath}`;
+      }
+      return null;
+    },
+    async load(id) { // [sh! **:15]
+      const [protocol, rawPath] = id.split(":");
+      if (protocol === magicProtocol) {
+        const paths = [];
+        for await (const entry of glob(rawPath)) {
+          if (!circularDependencyAvoider.get(rawPath)?.has(entry)) { // [sh! ++]
+            paths.push(entry);
+          } else { // [sh! ++:2]
+            console.warn(`Circular dependency detected: ${entry} -> ${rawPath}`);
+          }
+        }
+        const res = paths.map((path) => `export * from "${path}";\n`).join("");
+        return res;
+      }
+      return null;
+    },
+  };
+}
+```
+
+This resolves the circular dependency warning and prints our intentional warning from line 30 instead. Sadly this doesn't fix the issue, that this solution still doesn't work this way.
+
+### One last problem
+
+Right now the generated output of a build is an empty _dist/index.js_ file (which is fine, because we're only interested in the types) and this _dist/index.d.ts_:
+
+```ts
+export * from "ts-rs-bundler:./*.ts";
+```
+
+But... that's exactly our input file and not what we loaded!
+
+The issue is, that the rollup loaded version of the module is not used for the TypeScript compiler declaration process.
+
+### And one last fix
+
+Gladly rollup once again rescues us. We can just emit the file with the wanted content during loading. This will create two warnings, because tsc will keep complaining that it can't load our magic module during declaration building and it will create a warning that we're emitting and overwriting a file already emitted by another module.
+The fix is just adding this to our loading:
+
+```js
+import path from "node:path";
+import { glob } from "node:fs/promises";
+
+export default function tsRsBundler({ magicProtocol = "ts-rs-bundler" } = {}) {
+  const circularDependencyAvoider = new Map();
+
+  return {
+    name: "ts-rs-bundler",
+    resolveId(id, importer) { /**/ },
+    async load(id) { // [sh! **:20]
+      const [protocol, rawPath] = id.split(":");
+      if (protocol === magicProtocol) {
+        const paths = [];
+        for await (const entry of glob(rawPath)) {
+          if (!circularDependencyAvoider.get(rawPath)?.has(entry)) {
+            paths.push(entry);
+          } else {
+            console.warn(`Circular dependency detected: ${entry} -> ${rawPath}`);
+          }
+        }
+        const res = paths.map((path) => `export * from "${path}";\n`).join("");
+        this.emitFile({ // [sh! ++:4]
+          type: "asset",
+          fileName: "index.d.ts",
+          source: res,
+        });
+        return res;
+      }
+      return null;
+    },
+  };
+}
+```
+
+Now we're done and a simple `npm run build` will generate everything we need and we can just import that module and use the generated bindings.
+
+If you want everything you need to do in one place, just check the TLDR at the start of this post.
