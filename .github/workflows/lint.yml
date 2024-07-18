@@ -30,4 +30,4 @@ jobs:
         run: npm ci
 
       - name: Run linters
-        run: npx eslint . -c eslint.config.js
+        run: ./node_modules/.bin/eslint . -c eslint.config.js
