@@ -30,7 +30,7 @@ jobs:
         run: npm ci
       
       - run: pwd
-      - run: ls -ah ./node_modules/.bin
+      - run: ls -ah ./node_modules/
 
       - name: Run linters
-        run: ./node_modules/.bin/eslint . -c eslint.config.js
+        run: ./node_modules/eslint/bin/eslint.js . -c eslint.config.js
