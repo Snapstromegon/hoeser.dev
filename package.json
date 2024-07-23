@@ -42,6 +42,6 @@
     "rollup": "^4.19.0",
     "shiki": "^0.14.7",
     "tslib": "^2.6.3",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   }
 }
