@@ -35,7 +35,7 @@ Abseits der Erfahrungen als Ausrichter im Einradsport habe ich Wettkampferfahrun
 
 ### Beruflicher Kontext
 
-Beruflich bin ich als Software Ingeneur (DevOps) bei einem großen, internationalen Automobilzulieferer tätig und engagiere mich in meiner Freizeit auch für die freihe Softwareentwicklung (Open Source Software).
+Beruflich bin ich als Software Ingeneur (DevOps) bei einem großen, internationalen Automobilzulieferer tätig und engagiere mich in meiner Freizeit auch für die freie Softwareentwicklung (Open Source Software).
 
 ### Allgemeine Einstellung zu Kritik und Regelformulierungen
 
@@ -60,11 +60,9 @@ Einige der generellen Begriffe werden an die englischen Definitionen aus dem [RF
 <dt>Regelwerk</dt>
 <dd>eine zusammenstellung aus Regeln (entweder durch direkte Nennung, oder Referenz auf andere Regelwerke), an die sich gehalten werden MUSS mit einer bestimmten Gültigkeit (z.B. eine Veranstaltung oder eine Wettkampfserie). Zudem enthält ein Regelwerk alle nötigen Definitionen um die "Eineindeutigkeit" sicherzustellen.</dd>
 <dt>Meisterschaft</dt>
-<dd>eine Veranstaltung, bei der SportlerInnen gegeneinander antreten. Synonym wird auch "Wettkamp" verwendet.</dd>
+<dd>eine Veranstaltung, bei der SportlerInnen gegeneinander antreten. Synonym wird auch "Wettkampf" verwendet.</dd>
 <dt>Saison</dt>
 <dd>eine Reihe an Meisterschaften innerhalb eines Zeitraums von einem Jahr. Der Start ist nicht genau definiert und liegt zwischen dem Ende der Deutschen Meisterschaft der vorhergehenden Saison und der ersten Landesmeisterschaft der aktuellen Saison.</dd>
-<dt></dt>
-<dd></dd>
 </dl>
 
 ## Vorwort
@@ -75,7 +73,7 @@ Ja, ein Vorwort ist bei mir nicht immer am Anfang.
 
 Bevor ich mit der eigentlichen Kritik an dem Konzept starte, möchte ich ein paar allgemeine Worte zu dem Konzept und der Idee dahinter loswerden.
 
-Ich finde es sehr begrüßenswert, dass sich die beiden Einradverbände [BDR](https://einrad-bdr.de/) und [EVD](https://www.einradverband.de/) auf eine gemeinsame Kooperation einigen konnten. Ebenfalls begrüße ich es, dass der [RKB](https://rkbsoli.org/) in die Gestaltung des Konzepts einbezogen wird. Ich bin der festen Überzeugung, dass es dem Einradsport zuträglich ist, wenn die Verbände in der Gestaltung der Wettkampfserien kooperieren und somit den Meisterschaften Legitimität geben. Aus diesen Gründen möchte ich auch nochmal darauf hinweisen, dass dies keine Kritik an den AutorInnen des Konzepts als Personen sein soll, sondern sich jegliche Kritik rein auf das Konzept selbst bezieht. Durch meine ehrenamtlichen Tätigkeiten ist mir sehr wohl bewusst, dass ein solcher Aufwand nicht leicht fällt und wertgeschätzt gehört. Zudem ist Kritik nicht zwingend negativ und so werde ich auch hier sowohl positive, als auch negative Dinge hervorheben.
+Ich finde es sehr begrüßenswert, dass sich die beiden Einradverbände [BDR](https://einrad-bdr.de/) und [EVD](https://www.einradverband.de/) auf eine gemeinsame Kooperation einigen konnten. Ebenfalls begrüße ich es, dass der [RKB](https://rkbsoli.org/) in die Gestaltung des Konzepts einbezogen wird. Ich bin der festen Überzeugung, dass es dem Einradsport zuträglich ist, wenn die Verbände in der Gestaltung der Wettkampfserien kooperieren und somit den Meisterschaften Legitimität geben. Aus diesen Gründen möchte ich auch nochmal darauf hinweisen, dass dies _keine_ Kritik an den AutorInnen des Konzepts als Personen sein soll, sondern sich jegliche Kritik rein auf das Konzept selbst bezieht. Durch meine ehrenamtlichen Tätigkeiten ist mir sehr wohl bewusst, dass ein solcher Aufwand nicht leicht fällt und wertgeschätzt gehört. Zudem ist Kritik nicht zwingend negativ und so werde ich auch hier sowohl positive, als auch negative Dinge hervorheben.
 
 In den Versionen von vor 2024 stand dieser einleitende Satz:
 
@@ -236,7 +234,7 @@ Eine Vereinheitlichung dahingehend, dass der Stichtag für alle Disziplinen gilt
 
 > ein oder mehrere Wettkämpfe finden in einem Zeitraum von 3 Wochen statt
 >
-> _Konzept, S. 6_^
+> _Konzept, S. 6_
 
 Diese beiden Aussagen widersprechen sich und können nicht gleichzeitig gültig sein.
 
@@ -305,7 +303,7 @@ Es sollte klar bestimmt werden, was eine "Meisterschaft" und ein "Wettkampf" sin
 
 #### FAQ
 
-Den Aspekt ein FAQ für häufig gestellte Fragen bereitzustellen, finde ich sehr gut. Dies würde jedoch mit der aktuellen Überarbeitung ersatzlos entfernt.
+Den Aspekt ein FAQ für häufig gestellte Fragen bereitzustellen, finde ich sehr gut. Dies wurde jedoch mit der aktuellen Überarbeitung ersatzlos entfernt.
 
 Ich würde mir wünschen, dass eine Platform für häufig gestellte Fragen bereitgestellt wird (als Dokument, Forum oder Sonstiges), wo man Verständnisfragen offen stellen und abschließend beantworten kann.
 
