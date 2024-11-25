@@ -36,7 +36,7 @@
     "eslint": "^9.15.0",
     "globals": "^15.12.0",
     "js-yaml": "^4.1.0",
-    "lightningcss": "^1.28.1",
+    "lightningcss": "^1.28.2",
     "markdown-it-container": "^4.0.0",
     "markdown-it-emoji": "^3.0.0",
     "rollup": "^4.27.3",
