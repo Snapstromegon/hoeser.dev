@@ -1,11 +1,10 @@
 ---
-title: Meinung zum Konzept Gemeinsame Wettkämpfe im Einrad Freestyle
+title: Aktualisierte Meinung zum Konzept Gemeinsame Wettkämpfe im Einrad Freestyle
 abstract: |
-  Dies ist meine persönliche Einschätzung zum Konzept Gemeinsame Wettkämpfe im Einrad Freestyle in der Fassung vom 17. Februar 2024.
-date: 2024-04-06
+  Dies ist meine persönliche Einschätzung zum Konzept Gemeinsame Wettkämpfe im Einrad Freestyle in der Fassung vom 23. Februar 2025.
+date: 2025-03-22
 tags:
   - type:opinion
-eleventyExcludeFromCollections: true
 ---
 
 :::commentBlock
@@ -14,14 +13,14 @@ Since this is not a tech post and has close to no relevancy outside of germany, 
 :::
 
 :::commentBlock
-Dies ist die ursprüngliche Version dieses Beitrags. Die [aktuelle Version von 2025 findet sich hier](/blog/2025-03-22-einrad-konzept-2025).
+Dies ist die aktualisierte Version dieses Beitrags. Die [ursprüngliche Version von 2024 findet sich hier](/blog/2024-04-06-einrad-konzept).
 :::
 
 :::commentBlock
-Dieser Beitrag bezieht sich auf das "Konzept Gemeinsame Wettkämpfe im Einrad Freestyle" in der Fassung vom 17. Februar 2024, welches sich im Original hier findet:
-https://www.einradverband.de/2024/02/20/konzept-fuer-gemeinsame-wettkaempfe-im-einrad-freestyle-ueberarbeitet/
+Dieser Beitrag bezieht sich auf das "Konzept Gemeinsame Wettkämpfe im Einrad Freestyle" in der Fassung vom 23. Februar 2025, welches sich im Original hier findet:
+https://www.einradverband.de/wp-content/uploads/2025/03/Konzept_gem_Wettkaempfe_Einrad_Freestyle_v250223.pdf
 
-Der gesamte Beitrag ist rein durch mich allein entstanden. Meine Familienmitglieder, die im Sport aktiv sind, haben diesen Beitrag nicht beeinflusst.
+Der gesamte Beitrag ist rein durch mich allein entstanden. Meine Familienmitglieder, die im Sport aktiv sind und der Verein, bei dem ich im Ausrichterteam bin, haben diesen Beitrag nicht beeinflusst.
 :::
 
 ## Wer bin ich und warum habe ich eine Meinung?
@@ -32,7 +31,7 @@ Um zu erklären, warum es diesen Beitrag hier überhaupt gibt, sollte ich vermut
 
 Ich selbst bin kein aktiver Einradfahrer und von daher habe ich auf den Sport selbst erstmal nur eine Außensicht. Ich kann nicht ausreichend einschätzen wie anstrengend eine 3, 4 oder 5-Minuten-Kür ist um zum Beispiel eine Angemessenheit einer bestimmten Kürlänge für eine Altersklasse einzuschätzen.
 
-Allerdings habe ich eine gewisse Erfahrung mit der Ausführung solcher Wettkämpfe, da ich bereits bei drei größeren Einradwettkämpfen im Kern-Organisationsteam war und diese nach unserer Einschätzung sehr erfolgreich umgesetzt wurden (ODM 2016 / ~250 TeilnehmerInnen, DM 2019 / ~300 TeilnehmerInnen, NDM 2023 / ~350 TeilnehmerInnen). Hierbei war ich 2016 noch hauptverantwortlich für die Technik (Anzeigesystem, Website, Musik, ...) und 2023 habe ich zusätzlich noch unter Anderem einzelne Aufgaben der Terminplanung, Zeitplanung, Kommunikation mit den TeilnehmerInnen, Design und Trophäenorganisation übernommen.
+Allerdings habe ich eine gewisse Erfahrung mit der Ausführung solcher Wettkämpfe, da ich bereits bei vier teils größeren Einradwettkämpfen im Kern-Organisationsteam war und diese nach unserer Einschätzung sehr erfolgreich umgesetzt wurden (ODM 2016 / ~250 TeilnehmerInnen, DM 2019 / ~300 TeilnehmerInnen, NDM 2023 / ~350 TeilnehmerInnen, NRW Freestyle Cup 2025 / ~100 TeilnehmerInnen). Hierbei war ich 2016 noch hauptverantwortlich für die Technik (Anzeigesystem, Website, Musik, ...) und 2023 habe ich zusätzlich noch unter Anderem einzelne Aufgaben der Terminplanung, Zeitplanung, Kommunikation mit den TeilnehmerInnen, Design und Trophäenorganisation übernommen.
 
 ### Wettkampferfahrung außerhalb
 
@@ -61,7 +60,7 @@ Einige der generellen Begriffe werden an die englischen Definitionen aus dem [RF
 <dt>SOLL NICHT</dt>
 <dd>oder “NICHT EMPFOHLEN” bedeutet, dass es gute Gründe in speziellen Situationen geben kann, dass dieses Verhalten akzeptabel, ja sogar nützlich sein kann. Natürlich müssen die Auswirkungen voll und ganz verstanden und sorgfältig abgewägt werden, bevor von der Spezifikation abgewichen wird.</dd>
 <dt>Regel</dt>
-<dd>eine als allgemeingültige, präzise Definition oder Vorgabe, an die sich gehalten werden MUSS. Es wird, wenn irgend möglich weder Raum zur Interpretation gelassen, noch dupliziert. Wenn ein bewusster Konflikt zu anderen Regeln besteht (z.B. eine spezifische Regel bricht die allgemeine), so SOLL die gebrochene Regel referenziert und die Änderung z.B. in einer Anmerkung oder einem weiteren Dokument begründet werden.</dd>
+<dd>eine als allgemeingültige, präzise Definition oder Vorgabe, an die sich gehalten werden MUSS. Es wird, wenn irgend möglich weder Raum zur Interpretation gelassen (also kein "ca."), noch dupliziert. Wenn ein bewusster Konflikt zu anderen Regeln besteht (z.B. eine spezifische Regel bricht die allgemeine), so SOLL die gebrochene Regel referenziert und die Änderung z.B. in einer Anmerkung oder einem weiteren Dokument begründet werden. Zudem sollte jede Regel und Teilregel eine Konsequenz haben. Das heißt, wenn sich durch das Streichen eines Satzes keine Änderung ergibt, sollte der Satz auch nicht existieren um Verwirrungen zu vermeiden.</dd>
 <dt>Regelwerk</dt>
 <dd>eine zusammenstellung aus Regeln (entweder durch direkte Nennung, oder Referenz auf andere Regelwerke), an die sich gehalten werden MUSS mit einer bestimmten Gültigkeit (z.B. eine Veranstaltung oder eine Wettkampfserie). Zudem enthält ein Regelwerk alle nötigen Definitionen um die "Eineindeutigkeit" sicherzustellen.</dd>
 <dt>Meisterschaft</dt>
@@ -78,15 +77,15 @@ Ja, ein Vorwort ist bei mir nicht immer am Anfang.
 
 Bevor ich mit der eigentlichen Kritik an dem Konzept starte, möchte ich ein paar allgemeine Worte zu dem Konzept und der Idee dahinter loswerden.
 
-Ich finde es sehr begrüßenswert, dass sich die beiden Einradverbände [BDR](https://einrad-bdr.de/) und [EVD](https://www.einradverband.de/) auf eine gemeinsame Kooperation einigen konnten. Ebenfalls begrüße ich es, dass der [RKB](https://rkbsoli.org/) in die Gestaltung des Konzepts einbezogen wird. Ich bin der festen Überzeugung, dass es dem Einradsport zuträglich ist, wenn die Verbände in der Gestaltung der Wettkampfserien kooperieren und somit den Meisterschaften Legitimität geben. Aus diesen Gründen möchte ich auch nochmal darauf hinweisen, dass dies _keine_ Kritik an den AutorInnen des Konzepts als Personen sein soll, sondern sich jegliche Kritik rein auf das Konzept selbst bezieht. Durch meine ehrenamtlichen Tätigkeiten ist mir sehr wohl bewusst, dass ein solcher Aufwand nicht leicht fällt und wertgeschätzt gehört. Zudem ist Kritik nicht zwingend negativ und so werde ich auch hier sowohl positive, als auch negative Dinge hervorheben.
+Ich finde es sehr begrüßenswert, dass sich die Einradverbände [BDR](https://einrad-bdr.de/), [EVD](https://www.einradverband.de/) und [RKB](https://www.rkbsoli.org/) auf eine gemeinsame Kooperation einigen konnten. Ich bin der festen Überzeugung, dass es dem Einradsport zuträglich ist, wenn die Verbände in der Gestaltung der Wettkampfserien kooperieren und somit den Meisterschaften Legitimität geben. Aus diesen Gründen möchte ich auch nochmal darauf hinweisen, dass dies _keine_ Kritik an den AutorInnen des Konzepts als Personen sein soll, sondern sich jegliche Kritik rein auf das Konzept selbst bezieht. Durch meine ehrenamtlichen Tätigkeiten ist mir sehr wohl bewusst, dass ein solcher Aufwand nicht leicht fällt und wertgeschätzt gehört. Zudem ist Kritik nicht zwingend negativ und so werde ich auch hier sowohl positive, als auch negative Dinge hervorheben.
 
-In den Versionen von vor 2024 stand dieser einleitende Satz:
+In den Versionen von 2023 stand dieser einleitende Satz:
 
 > Wir alle möchten, dass unser Sport professioneller wird und das System auch für Laien leicht nachvollziehbar ist.
 >
 > _Überarbeitetes Konzept aus 2023_
 
-Ich finde diesen sehr treffend (auch, da ich mich als Laien in dem Sport verstehe) und werde meine Kritik auch auf diesem Leitsatz fußen, auch wenn der Satz nicht mehr im aktuellen Konzept zu finden ist. Um sowohl die Nachvollziehbarkeit für Laien, als auch die Professionalität zu erreichen, ist es meiner Meinung nach essentiell, dass implizierte Regeln und Tradition vollständig vermieden werden. So kann man zum Beispiel nur davon ausgehen, dass Gruppen als letztes starten, wenn dies auch so im Regelwerk geschrieben steht.
+Ich finde diesen sehr treffend (auch, da ich mich als Laien in dem Sport verstehe) und werde meine Kritik auch auf diesem Leitsatz fußen, auch wenn der Satz nicht mehr im aktuellen Konzept zu finden ist. Um sowohl die Nachvollziehbarkeit für Laien, als auch die Professionalität zu erreichen, ist es meiner Meinung nach essentiell, dass implizierte Regeln und Tradition als Vorraussetzung / "das weiß man ja" vollständig vermieden werden. So kann man zum Beispiel nur davon ausgehen, dass Gruppen als letztes starten, wenn dies auch so im Regelwerk geschrieben steht.
 
 :::commentBlock
 Wenn ich in diesem Beitrag Regeländerungen vorschlage, so sind diese immer als Laienverschläge zu betrachten. Ich werde stets Begründungen mitliefern, aber ich kenne den Sport nicht ausreichend um diese abschließend zu bewerten.
@@ -102,9 +101,13 @@ Als Letztes möchte ich anmerken, dass mindestens einige meiner Kritikpunkte min
 
 ### Entwicklung der Versionen
 
-Die Versionen des Konzepts zeigen mit jeder Überarbeitung klare Verbesserungen auf, weshalb ich zuversichtlich bin, dass sich das Konzept in ein gutes Regelwerk überführen lässt.
+Die Versionen des Konzepts zeigen mit jeder Überarbeitung klare Verbesserungen auf. Gerade wenn einzelne Regeln nur überarbeitet werden, ist damit meist und wichtiger Schritt nach Vorn verbunden. Die Versionen von 2021 zu 2023 zu 2024 haben hier sehr viel meiner Kritikpunkte angegriffen und gerade 2023 zu 2024 hat manche meiner schlimmsten Kritikpunkte massiv verbessert. 2024 zu 2025 hingegen hat meiner Meinung nach nicht nur Verbesserungen eingeführt.
 
 ### Was ist ein Konzept?
+
+:::sidenote
+Der Begriff "eineindeutig" ist kein Tippfehler, sondern bezeichnet eine 1:1 Beziehung. Das heißt, wenn ich zum Beispiel eine Regel habe, die die Größe des Kürfeldes bestimmt, dann wird auch genau eine Kürfeldgröße definiert (unterregeln können das nach z.B. Einzel-, Paar- und Gruppenküren unterscheiden) und es gibt nur eine Regel, die dies tut. Ich kann also basierend auf der Regel die Kürfeldgröße bestimmen und umgekehrt weiß ich bei einer Kürfeldgröße genau aus welcher Regel diese stammt.
+:::
 
 Aus meiner beruflichen und wettkampfstechnischen Erfahrung heraus kenne ich ein Konzept als eine nichtkonkrete Umsetzungsstrategie. In diesem Kontext würde sich also ein Konzept zum Beispiel von einem Regelwerk dahingehend unterscheiden, dass ein Konzept für gemeinsame Wettkämpfe zwar den Ablauf mit den Qualifikationen von LM zu NDM/SDM und DM definiert, aber nicht zwingend die genaue Größe des Kürfeldes vorgibt. Solche Details werden dahingehend in einem Regelwerk konkretisiert. Das Regelwerk sollte am Ende die einzige und abschließende Regelerklärung bieten. Jede Regelfrage sollte eineindeutig mit dem Regelwerk (dies beinhaltet referenzierte Regelwerke) zu beantworten sein.
 
@@ -128,32 +131,28 @@ Das Konzept setzt an einigen Punkten meiner Meinung nach überstrikte Regeln fü
 
 #### Zeitraum der Meisterschaften
 
-> Nord/Süd Meisterschaften - Mitte/Ende Oktober (mind. drei Wochen vor DM)
->
-> _Konzept, S. 1_
-
 > Beginn am Freitagnachmittag verpflichtend
 >
-> _Konzept, S. 8_
+> _Konzept, S. 10_
 
 > Am Sonntag findet in der Mittags- und Umbaupause die Siegerehrung der Einzel- und Paarkür- Finale statt.
 >
-> _Konzept, S. 11_
+> _Konzept, S. 12_
 
 Dadurch darf eine solche Meisterschaft niemals einen Feiertag wie zum Beispiel den Tag der Deutschen Einheit komplett nutzen, wenn dieser zum Beispiel auf einem Freitag oder Montag liegt. Ebenso kann es aus unterschiedlichen Gründen sinnvoll sein am Sonntag gar keine Mittags- und Umbaupause zu haben.
 
 #### Jurysitzplatz Gruppenküren
 
-> Die Jury sitzt bei Gruppenküren auf der Tribüne (mit genügend Platz/Ruhe, ab der NDM/SDM ist dies verpflichtend)
+> Die Jury sitzt bei allen Disziplinen am Jurytisch unmittelbar an der Kürfläche. Gegebenenfalls werden die Jurytische bei den Gruppenküren weiter nach hinten verlegt.
 >
-> _Konzept, S.10_
+> _Konzept, S.11_
 
-Wenn dies vor der NDM/SDM nicht verpflichtend ist, sollte dies explizit als "sollte" deklariert sein.
+Diese Regel wurde in dieser Version massiv verbessert. Ich vermute, dass es die ersten Male zu Verwirrung führen wird, dass die Jury nicht mehr auf der Tribüne sitzen darf, aber das ist jetzt sehr gut und klar geregelt.
 
-Abseits davon verbietet diese Regel andere örtliche Gegebenheiten zu nutzen, die eventuell sinnvoller sind (z.B. ein Balkon, eine erhöhtes Podest, ...).
+Der zweite Satz hingegen hat meiner Meinung nach absolut keinen Mehrwert im Regelwerk, da er keine Bedingung an sich knüpft und aus ihm auch keine Handlung resultiert.
 
 :::actionBlock
-Dies könnte so geändert werden, dass der Jury eine erhöhte Position mit einer bestimmten Erhöhung ermöglicht wird (z.B. zwischen ein und zwei Metern).
+Den Satz "Gegebenenfalls werden die Jurytische bei den Gruppenküren weiter nach hinten verlegt." streichen. Der gewünschte Effekt, dass Gruppenküren ausreichend Platz haben, sollte durch die Regulierung der Kürfeldgröße erreicht werden.
 :::
 
 ### Nicht ausreichend allgemeingültige Regeln
@@ -177,7 +176,7 @@ Gruppen müssen dort starten, wo die meisten der Fahrer vereinszugehörig sind. 
 
 > Bei Gruppenküren dürfen 50% ausgewechselt werden, d.h. +- 50% Abweichung je nach Gruppengröße.
 >
-> _Konzept, S. 7_
+> _Konzept, S. 10_
 
 Bei einer Gruppe mit einer ungeraden Anzahl Teilnehmer ist unklar, ob hier auf-, oder abgerundet wird. Zudem sorgt der zweite Halbsatz eher für Duplizierung und Verwirrung statt eine Klarstellung zu bieten.
 
@@ -190,7 +189,7 @@ Bei Gruppenküren dürfen maximal 50% ausgewechselt werden.
 
 > Die Videokür wird als letzte Kür der jeweiligen Altersklasse und Disziplin im direkten Anschluss an die letzte „Live-Kür“ bewertet.
 >
-> _Konzept, S. 7_
+> _Konzept, S. 9_
 
 Diese Formulierung erlaubt nur eine einzige Videokür im Block, da zwei Videoküren nicht beide "als letzte Kür" bewertet werden können.
 
@@ -207,7 +206,7 @@ Die hier genannten Regeln sind nicht genau genug und lassen Unklarheiten offen.
 
 > entfernte Hallen mit Übertragung des Veranstaltungsstands
 >
-> _Konzept, S. 8_
+> _Konzept, S. 10_
 
 Was ist eine ausreichende Übertragung und was ist der "Veranstaltungsstand". Reicht es zum Beispiel, wenn alle 15 Minuten ein Mitglied des Orgateams in die Einfahrhalle geht und laut ruft "Gerade fährt die Marie!", oder ist z.B. ein Livestream, eine Live-Anzeige mit aktualisierendem Zeitplan und so weiter das Minimum?
 
@@ -239,9 +238,17 @@ Eine Vereinheitlichung dahingehend, dass der Stichtag für alle Disziplinen gilt
 
 > ein oder mehrere Wettkämpfe finden in einem Zeitraum von 3 Wochen statt
 >
-> _Konzept, S. 6_
+> _Konzept, S. 8_
 
 Diese beiden Aussagen widersprechen sich und können nicht gleichzeitig gültig sein.
+
+#### Unicon Video als Videoquali
+
+> Ein Wettkampfvideo der Unicon wird in der Regel nicht für eine Videoquali verwendet.
+>
+> _Konzept, S. 9_
+
+Diese Regel ist nicht als Regel geschrieben. Entweder eine Unicon Aufnahme ist nur in Ausnahmefällen erlaubt (dann sollten diese Ausnahmebedingungen und Entscheider definiert sein) oder sie ist erlaubt (dann sollte dieser Satz entfallen).
 
 ### Allgemeine Anmerkungen
 
@@ -254,7 +261,7 @@ In diesem Unterkapitel sammle ich einige Anmerkungen zum Konzept, die keinen and
 > _Konzept, S. 2_
 
 :::sidenote
-Der relevante Regelabschnitt wurde zur Version 2024 bereits _massiv_ verbessert.
+Der relevante Regelabschnitt wurde zur Version 2024 bereits _massiv_ verbessert und zur Version 2025 nochmal weiter getragen.
 :::
 
 Diese Aussage ist **falsch**.
@@ -278,11 +285,13 @@ Wenn beispielsweise der Ausrichter der Norddeutschen Meisterschaft seinen Wettka
 
 Das sind immerhin 36 Starts oder 15% Spielraum (~1/7). Gerechnet **ohne** Juryzeit macht das 126 Minuten Unterschied oder etwas über 2h im Zeitplan (3 * 6 Küren JE * 3min + 3 * 2 * 3 Küren E * 4min).
 
+Regel 2.2 behebt zwar dieses Problem größtenteils, da jetzt der Veranstalter der NDM/SDM und DM zwar mit mehr Vorlauf die Startlisten erhalten können, jedoch bleibt es dabei, dass man zum Zeitpunkt der Veröffentlichung der Ausschreibung (mind. 6 Monate vor Wettkampf) die _genaue_ Anzahl Starts noch nicht kennt.
+
 #### Einspruchsfrist
 
 > muss dieser innerhalb von 30min nach Bekanntgabe der Ergebnisse einen [...] Antrag [...] am Jurytisch abgeben
 >
-> _Konzept, S. 11_
+> _Konzept, S. 12_
 
 Die Bekanntgabe der Ergebnisse ist für mich abgeschlossen, sobald alle Plätze der Gruppe (z.B. einer Altersklasse) verkündet wurden. Dadurch kann bei Ablauf der 30 Minuten die Siegerehrung noch im Gange sein.
 
@@ -296,7 +305,7 @@ Das Konzept setzt beim Thema Jury Alter in Relation zu Erfahrung / Fähigkeit. D
 
 > Mindestalter der Juroren ist 16 Jahre, es sollten jedoch maximal drei 16-Jährige pro Wertungsklasse sein
 >
-> _Konzept, S. 10_
+> _Konzept, S. 11_
 
 :::actionBlock
 Eine Variante wäre, stattdessen die Juryerfahrung als ausschlaggebenden Punkt zu nehmen (z.B. maximal drei Juroren, die das erste mal auf dieser Wettkampfebene (LM, NDM/SDM, DM) richten)
@@ -305,6 +314,64 @@ Eine Variante wäre, stattdessen die Juryerfahrung als ausschlaggebenden Punkt z
 #### Einheitliche Formulierungen
 
 Es sollte klar bestimmt werden, was eine "Meisterschaft" und ein "Wettkampf" sind und diese Begriffe sollten konsistent, eindeutig und synonymfrei im Dokument genutzt werden, um die Verständlichkeit zu verbessern.
+
+#### Ansprechpartner-Liste
+
+> Für gemeinsame Landesmeisterschaften sind die Ansprechpersonen die Freestyle-Beauftragten der entsprechenden Landesverbände. Für gemeinsame NDM/SDM/DM sind die zuständigen Ansprechspersonen die bundesweiten Freestylebeauftragten. Diese sind der angehängten Ansprechpartner-Liste zu entnehmen.
+>
+> _Konzept, S. 2_
+
+Die angesprochene Ansprechpartner-Liste ist für mich für die Landesmeisterschaften nicht auffindbar.
+
+#### Junior Expert Qualifikation zu internationalen Wettkämpfen
+
+> (sofern sie an diesem Termin noch unter 15 sind, ansonsten bekommen sie einen Startplatz für die Altersklasse, wenn diese angeboten wird)
+>
+> _Konzept, S. 3f._
+
+Was ist "die Altersklasse"? Ist hier die nächst höhere Altersklasse gemeint?
+
+#### Benennung der Landesmeisterschaften
+
+Einige Landesmeisterschaften nennen sich z.B. "Ostdeutsche Landesmeisterschaft" oder "Hessenmeisterschaft". Hier sollten einheitliche Namen oder zumindest offizielle Namen, die über die Jahre hinweg gleich bleiben und auch im Konzept genutzt werden, gefunden werden.
+
+#### "Ungeföhnlich viele Starter" in Vorlaufblöcken
+
+> Sollten bei der Landesmeisterschaft ungewöhnlich viele Starter (ab ca. 25 Küren) in einem Vorlaufblock sein, und der Vergleich zwischen den Altersklassen für die Jury nicht zumutbar sein, so kann im Voraus eine alternative Vorgehensweise für die Ermittlung der Finalstarter bei den Freestyle Beauftragten vorgelegt und beantragt werden.
+>
+> _Konzept, S. 5_
+
+25 Starter sind für eine Landesmeisterschaft tatsächlich ungewöhnlich viele, für die Norddeutsche- und Süddeutsche-Meisterschaft jedoch nicht. Hier war 2023 und 2024 in beiden Wettkämpfen mindestens ein Vorlaufblock mit mindestens 25 Starts. Insgesamt haben Nord- und Süddeutsche erwartungsgemäß die meisten Starts in einem Wochenende unterzubringen. Warum gibt es also nicht eine entsprechende Möglichkeit auch hier alternative Vorgehensweisen zu nutzen?
+
+#### Zusage von Startplätzen
+
+Wenn die Startplatzvergabe über die Verbände läuft, warum dann nicht auch die gesamte Anmeldung?
+Ich schlage hier eine einheitliche, idealerweise softwarebasierte Lösung vor, womit TrainerInnen und StarterInnen sich nicht separat mit allen damit verbundenen Eingabefehlern für jeden Wettkampf einzeln anmelden müssen, sondern die Meldedaten automatisch weitergegeben werden und z.B. die Kürmusik kein weiteres mal hochgeladen werden muss und auch Namen nicht erneut eingetragen werden müssen (Änderungen sollten natürlich trotzdem möglich sein).
+
+Ebenfalls sollte hier keine "@yahoo.com" Adresse für solche Dinge verwendet werden. Dagegen sprechen mehrere Gründe, von der Professionalität in der Außenwirkung über Datenschutz bis hin zur Wiedererkennbarkeit.
+
+Hier bleibt ebenfalls ungeklärt wer am Wettkampftag die direkten Startplatzannahmen entgegen nimmt und wie diese zum Ausrichter des nächsten Wettkampfs kommen. Zudem ist die Verbindlichkeit der Annahme ungeklärt (wenn ich einen Startplatz annehme, ist das gleichzeitig eine Verpflichtung die Startgebühren für die nächste Wettkampfebene zu zahlen, selbst wenn ich mich nachher noch abmelde?).
+
+Bis wann erhalten Ausrichter die abschließende Startliste? 7 Tage vor Wettkampf ist nicht ausreichend, falls der Veranstalter sich selbst um z.B. das Einsammeln von Startgeldern bemühen soll.
+
+Es existiert keine Ausnahme für z.B. Landesmeisterschaften, dass hier das Zusageverfahren nicht genutzt wird.
+
+#### "Beide Verbände"
+
+Im gesamten Konzept ist an vielen Stellen von "beiden Verbänden" die Rede. Meines Wissens nach handelt es sich jedoch um einen Zusammenschluss aus drei Verbänden (BDR, EVD, RKB). Falls das richtig ist, sollte dies korrigiert werden.
+
+#### Videomeeting für Wettkampfvorbereitung
+
+> ca. 3 Monate vor dem Wettkampf muss ein Videomeeting zwischen Ausrichter, Verbänden und technischen Experten stattfinden, um wesentliche Punkte (Eventmanagement, örtliche Gegebenheiten, technische Umsetzung, …) abzusprechen und ggf. Unterstützungsangebote zu thematisieren.
+>
+> _Konzept S. 11_
+
+Ich finde es gut, mit einem Treffen die Umsetzbarkeit des Wettkampfs vorab sicher zu stellen, aber der Zeitpunkt ist meiner Meinung nach viel zu spät und die Vorgabe Videomeeting zu spezifisch. Drei Monate vor dem Wettkampf, also mind. drei Monate _nach_ Veröffentlichung der Ausschreibung und noch länger _nach_ der Auswahl des Ausrichters ist bereits so viel an Vorlaufarbeit passiert (z.B. das Mieten von Veranstaltungstechnik), dass hier sowohl ein Absagen des Wettkampfs, als auch ein Wechsel des Ausrichters quasi nicht mehr sinnvoll möglich ist. Dies sollte meiner Meinung nach einmal _vor_ der Auswahl des Ausrichters und dann vielleicht noch einmal ca. 3 Monate vor dem Wettkampf passieren.
+Ebenso würde ich es nicht zwingend als "Videomeeting" definieren. Zum einen hat ein Videomeeting keinen erheblichen Vorteil gegenüber eines Telefonats ohne Kamera und des weiteren verbietet es z.B. auch sich persönlich zu treffen.
+
+#### Lesbarkeit des Dokuments
+
+Allgemein wäre es der Lesbarkeit des Dokuments zuträglich, wenn es so strukturiert und formatiert wäre, dass allgemeine Formatierungsnormen wie z.B. das Vermeiden von [Hurenkindern und Schusterjungen](https://de.wikipedia.org/wiki/Hurenkind_und_Schusterjunge) (ja, das heißt wirklich so) beachtet würden (Beispiel Konzept S. 9 "Gruppenkür").
 
 #### FAQ
 
@@ -329,13 +396,26 @@ Hier sammle ich einige Fragen, die ich nicht aus dem Konzept heraus beantworten 
 - Was ist der offizielle Weg um einmalig Ideen in das Konzept und Regelwerk einzubringen?
 - Ist eine Vereinslose Teilnahme an den Meisterschaften möglich? Falls das sein sollte, ist es diesen Fahrern nicht möglich zum Beispiel Einspruch zu erheben.
 
+### Begründungen für Änderungen
+
+Wenn ein solches Dokument sich doch teils so massiv ändert, dann wäre es als Beitrag zur Offenheit und Nachvollziehbarkeit sehr gut, wenn entweder im Dokument selbst oder in einem beigelegten Dokument diese Änderungen begründet würden. Als Außenstehender und Veranstalter habe ich wenig Chancen um die Diskussionen rund um z.B. die Änderungen der Kaderküren nachzuvollziehen und wenn hier eine Begründung geliefert würde, wären solche Entscheidungen für jeden im Sport besser nachvollziehbar und würden im Nachgang vermutlich zu weniger Diskussionen führen.
+
+### Verbände als Kern der Veranstaltungen
+
+Gerade die aktuelle Version des Konzepts stellt in vielen Aspekten des Wettkampfes die Verbände in den Vordergrund und nimmt Verantwortung von den ausrichtenden Vereinen. Hierbei erscheint es mir aus der Sicht der Ausrichter so, dass man vieles, was Arbeit macht, bei den Vereinen lässt und das, was Entscheidungsgewalt hat zu den Verbänden schiebt und dadurch einen Mehraufwand auf beiden Seiten erzeugt und zum Nachteil einer runden Wettkampfsdurchführung führt.
+
+Wird beispielsweise die Zusage für Startplätze nicht mehr über den Ausrichter, sondern die Verbände abgewickelt, so sollte meiner Meinung nach die gesamte Anmeldung über diese laufen.
+Eebenso wird so tief in die Prozesse der Jury(-Leitung) eingegriffen, dass ich mich frage, ob nicht die Verbände die Juryorganisation übernehmen sollten.
+
+Ebenfalls bemühen wir uns als Veranstalter regelmäßig die Kommunikation mit den TeilnehmerInnen so effizient wie möglich zu gestalten und sind froh bei unseren Wettkämpfen in der Regel innerhalb weniger Stunden, meist aber mindestens am selben Tag zu antworten. Wenn Kommunikation wiederum über die Verbände geht, ist unserer Erfahrung nach der Prozess deutlich langsamer und Mails gehen teilweise sogar verloren (beispielsweise ist die Freestylebeauftragte des EVD aktuell - 21.03.2025 - nicht per Mail erreichbar) oder werden doppelt mit widersprüchlichen Aussagen beantwortet.
+
 ## Abschließende Worte
 
 Dieses Dokument ist in PDF-Form jetzt länger als das Konzept selbst, von daher fasse ich den Schluss möglichst kurz.
 
 Ich möchte noch einmal widerholen, dass dieser Beitrag meinen Wunsch ausdrückt diesen Sport für alle klarer, verständlicher und professioneller zu gestalten. Ich achte und beführworte die Arbeit, die von allen Seiten in dieses gemeinsame Konzept geflossen ist und mein Ziel ist nur, zu einer weiteren Verbesserung beizutragen.
 
-Ich bin bei allen drei Meisterschaften, die ich mit ausgerichtet habe, von mehreren Seiten gebeten worden meine Software für die Veranstaltung wiederverwendbar bereitzustellen und ich habe noch immer vor dies zu tun. Jedoch brauche ich für die Umsetzung ein klares Regelwerk, damit ich nicht wieder darauf angewiesen bin kurz vor oder während einer Veranstaltung noch größere Änderungen an einer Software vorzunehmen.
+Ich bin bei allen vier Wettkämpfen, die ich mit ausgerichtet habe, von mehreren Seiten gebeten worden meine Software für die Veranstaltung wiederverwendbar bereitzustellen und ich habe noch immer vor dies zu tun (teilweise ist meine Software auch schon seit bald 10 Jahren der etablierte Stand der Technik für die Liveanzeigen). Jedoch brauche ich für die Umsetzung ein klares Regelwerk, damit ich nicht wieder darauf angewiesen bin kurz vor oder während einer Veranstaltung noch größere Änderungen an einer Software vorzunehmen.
 
 Ebenfalls bin ich der Meinung, dass der Prozess der Überarbeitung des Konzepts offener und transparenter gestaltet werden sollte.
 In der Softwareentwicklung ist es üblich, dass es neben der offiziell veröffentlichten Version meist auch eine "Vorabversion" gibt, die bereits die nächsten Änderungen enthält und an der noch aktiv gearbeitet wird. Wenn dann auch noch eine Möglichkeit für Außenstehende geschaffen wird Feedback zu einer solchen Version zu geben, würde dies sicherlich allen Seiten entgegenkommen.
@@ -344,10 +424,12 @@ Meiner Meinung nach wird die überarbeitete Version zudem viel zu spät veröffe
 
 > Die Ausschreibungen sollten ca. sechs Monate vor dem Wettkampf veröffentlicht werden.
 >
-> _Konzept, S. 8_
+> _Konzept, S. 11_
 
-Mit Beginn der Norddeutschen Meisterschaft mitte Oktober und einer Veröffentlichung der überarbeiteten Version des Konzepts mitte Februar bleibt einem Veranstalter, der vorab die Konditionen seiner Veranstaltung kennen möchte, eigentlich nur zwei Monate grob zu planen, sich zu bewerben und die Ausschreibung anzufertigen.
+Mit Beginn der Norddeutschen Meisterschaft mitte Oktober und einer Veröffentlichung der überarbeiteten Version des Konzepts anfang März bleibt einem Veranstalter, der vorab die Konditionen seiner Veranstaltung kennen möchte, eigentlich nur ein Monat grob zu planen, sich zu bewerben und die Ausschreibung anzufertigen.
 
-Ich würde empfehlen als Zielsetzung die Überarbeitung des Konzepts ein halbes Jahr vor Saisonstart zu veröffentlichen, gerade wenn sich noch so fundamentale Fakten wie der Zeitraum für die DM im Konzept ändern.
+Ich würde empfehlen als Zielsetzung die Überarbeitung des Konzepts ein halbes Jahr vor Saisonstart zu veröffentlichen, gerade wenn sich noch so fundamentale Fakten wie der Zeitraum für die DM oder die Kommunikationskoordination im Konzept ändern.
+
+Von technischer Seite würde ich den Verbänden nahelegen die Domain einrad.sport zu kaufen und darüber sämtliche Prozesse, Dokumente, Kalender, Mails und ähnliches für gemeinsame Wettkämpfe laufen zu lassen. Alternativ kann auch eine günstigere Domain genutzt werden, es sollte aber _eine_ Domain sein.
 
 Gerne bin ich bereit bei der Überarbeitung zu unterstützen, wenn dies gewünscht ist. Meine Kontaktdaten sind den relevanten Personen bekannt.

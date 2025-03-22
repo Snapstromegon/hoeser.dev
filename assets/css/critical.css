@@ -7,6 +7,26 @@
   font-display: optional;
 }
 
+@media print {
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  header, header * {
+    print-color-adjust: economy;
+    -webkit-print-color-adjust: economy;
+  }
+
+  footer, nav, pwa-installer, page-updated, body .relatePreview {
+    display: none;
+  }
+
+  body header {
+    color: #000;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
