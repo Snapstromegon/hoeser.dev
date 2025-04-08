@@ -5,6 +5,7 @@ abstract: |
 date: 2024-04-06
 tags:
   - type:opinion
+lang: de
 eleventyExcludeFromCollections: true
 ---
 
