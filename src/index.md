@@ -95,7 +95,7 @@ eleventyNavigation:
 <h1>{%for letter in "Hi, I'm Raphael!"%}<span class="font-fun-letter">{{letter}}</span>{% endfor %}</h1>
 
 - ⚡ performance hunter
-- 📒 devops engineer
+- 📒 software engineer
 - 💻 compute enthusiast
 - 🚀 automation evangelist
   </section>
