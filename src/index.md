@@ -25,7 +25,7 @@ eleventyNavigation:
   }
   
   #main-greeting h1 {
-    font-size: var(--xxl);
+    font-size: var(--xxl, 3rem);
     margin: 0;
     grid-area: greeting;
     align-self: end;

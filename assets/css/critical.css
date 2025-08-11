@@ -227,7 +227,7 @@ header::after {
 }
 
 body header h1 {
-  font-size: var(--xxl);
+  font-size: var(--xxl, 3rem);
   max-width: 50rem;
   word-break: break-word;
 }
