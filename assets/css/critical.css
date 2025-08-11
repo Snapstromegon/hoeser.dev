@@ -251,6 +251,10 @@ footer .content {
   gap: var(--xxxl);
 }
 
+footer h1 {
+  font-size: var(--xl, 3rem);
+}
+
 footer img {
   border-radius: 50%;
   border: var(--xs) solid #fff;
