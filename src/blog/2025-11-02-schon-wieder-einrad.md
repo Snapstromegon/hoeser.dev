@@ -149,3 +149,7 @@ Eine Trennugn würde hier dazu führen, dass die "Junioren" zu einem Wettkampf z
 Der Einradsport muss sich langfristig weiter entwickeln und diesen Wunsch nach Änderung sehe ich nicht nur bei Heike und mir, sondern bei vielen Aktiven im Sport. Vor kurzem hatten wir eine 40+ Convention bei uns und auch dort wurde dieses Thema angesprochen.
 
 Ich hoffe wir finden einen Weg all das konstruktiv anzugehen und den Sport für alle Beteiligten besser zu machen. Ich stehe hier weiterhin gerne als Unterstützer zur Verfügung.
+
+:::commentBlock
+Meiner Meinung nach würde es auch vieles einfacher machen, wenn die Verbände gemeinsam eine zentrale Onlineplattform für Termine, Ergebnisse, Meldungen und Kommunikation bereitstellen würden. Technische Expertise dafür würde sich sicher finden und Datenschutzbedenken halte ich in ihrer aktuellen Form auch eher für vorgeschoben.
+:::
