@@ -17,7 +17,7 @@ Since this is not a tech post and has close to no relevancy outside of Germany, 
 Ich habe bereits mehrfach über das Konzept Gemeinsame Wettkämpfe im Einrad Freestyle geschrieben, zuletzt [im Februar 2025](/blog/2025-03-22-einrad-konzept-2025/). Damals habe ich meine Sicht als Außenstehender / Ausrichter beschrieben. Dieses mal gehe ich ein wenig mehr auf andere Gesichtspunkte ein, die auch unabhängiger von dem Konzept selbst sind.
 :::
 
-:::infoBlock
+:::commentBlock
 Diesen Post habe ich vorab an Heike Höhne geschickt, damit mir hier keine schwerwiegenden Missverständnisse entstehen und dies hat mir auch noch ein paar Einblicke in ihre Sichtweise gegeben. Dennoch ist dieser Post nur meine Meinung und wurde weder von Heike, noch von anderen inhaltlich beeinflusst.
 
 Kernaspekte unserer Kritik überschneiden sich, auch wenn unsere Lösungsansätze sich teils deutlich unterscheiden, was vermutlich größtenteils aus den unterschiedlichen Sichtweisen von Teilnehmern vs. Ausrichter, bzw. NRW/Norddeutschland vs. Bayern stammt, da der Einradsport auch innerhalb Deutschlands gerade abseits der SDM/NDM und DM doch stark voneinander abweicht.
@@ -60,7 +60,7 @@ Falls ihr als Verein Interesse habt, so etwas zu organisieren, meldet euch gerne
 
 Natürlich ist mir bewusst, dass sich hierfür Ausrichter finden müssen, aber das halte ich für möglich. Dies würde ebenfalls die ganzjährige Motivation der Fahrer fördern und würde im Vergleich zu anderen Sportarten sich wie z.B. ein Freundschaftsspiel im Fußball oder ein einzelnes Turnier im Tennis anfühlen.
 
-:::infoBlock
+:::commentBlock
 Heike hat mir zu diesem Abschnitt erläutert, dass in Bayern Nachwuchswettkämpfe oftmals fernab des IUF Regelwerks mit teils massiven Einschränkungen der Tricklisten gefahren werden. Ich halte dies für hinderlich, wenn diese Wettkämpfe auf die "großen" Wettkampfserien vorbereiten sollen.
 :::
 
